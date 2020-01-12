@@ -1,0 +1,263 @@
+.contentContainer {
+    /* background: lightslategray; */
+    display: grid;
+    grid-template-columns: 5vw calc(100vw - 10vw) 5vw;
+    grid-template-rows: 5vw calc(100vh - 10vw) 5vw;
+    grid-template-areas: ". . ."
+                         ". con ."
+                         ". . .";
+    overflow: hidden;
+}
+
+.contentWindow {
+    grid-area: con;
+    position: relative;
+    padding: 5rem; 
+}
+
+
+.lineWrapper {
+    position: absolute;
+    overflow: hidden;
+}
+
+.line {
+    background: black;
+}
+
+.lineWrapperTopLeft {
+    width: calc(5rem + 8rem);
+    height: 1px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.lineTopLeft {
+    width: 100%;
+    height: 100%;
+    transform: translateX(-8rem);
+}
+
+.lineWrapperTopRight {
+    width: calc(100% - 5rem - 8rem);
+    height: 1px;
+    top: 0;
+    left: calc(5rem + 8rem);
+    z-index: 10000;
+}
+
+.lineTopRight {
+    width: 100%;
+    height: 100%;
+    transform: translateX(8rem);
+}
+
+.lineWrapperRight {
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: calc(100% - 1px);
+}
+
+.lineRight {
+    width: 100%;
+    height: 100%;
+}
+
+.lineWrapperBottomRight {
+    width: 50%;
+    height: 1px;
+    top: calc(100% - 1px);
+    left: calc(100% - 50%);
+}
+
+.lineBottomRight {
+    width: 100%;
+    height: 100%;
+    transform: translateX(calc(8rem + 3rem));
+}
+
+.lineWrapperBottomLeft {
+    width: 50%;
+    height: 1px;
+    top: calc(100% - 1px);
+    left: 0;
+}
+
+.lineBottomLeft {
+    width: 100%;
+    height: 100%;
+    transform: translateX(calc(-8rem - 3rem));
+}
+
+.lineWrapperLeftBottom {
+    width: 1px;
+    height: 50%;
+    top: calc(100% - 50%);
+    left: 0;
+}
+
+.lineLeftBottom {
+    width: 100%;
+    height: 100%;
+    transform: translateY(6rem);
+}
+
+.lineWrapperLeftTop {
+    width: 1px;
+    height: 50%;
+    top: 0;
+    left: 0;
+}
+
+.lineLeftTop {
+    width: 100%;
+    height: 100%;
+    transform: translateY(-6rem);
+    /* transform: translateX(calc(-8rem - 3rem)); */
+}
+
+/* inner container */
+.clientsInnerContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: 60fr 40fr;
+    /* border: 1px solid purple; */
+    grid-column-gap: 5rem;
+}
+
+.lefty {
+    display: grid;
+    grid-template-rows: min-content min-content;
+    align-content: center;
+    row-gap: 3rem;
+}
+
+.lefty > div > h1 {
+    color: orange;
+    font-size: 5.5rem;
+}
+
+.textDiv {
+    display: grid;
+    grid-template-columns: 20fr 80fr;
+    /* border: 1px solid red; */
+    grid-column-gap: 3rem;
+}
+
+.textDiv p {
+    color: rgba(0,0,0,0.7);
+    line-height: 2.5rem;
+}
+
+.textLine {
+    width: 100%;
+    height: 0.5rem;
+    background: orange;
+    border-radius: 2rem;
+    transform-origin: left;
+    transform: scaleX(0);
+    position: relative;
+    top: 1rem;
+}
+
+.righty {
+    /* background: red; */
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.mobileImage {
+    width: 100%;
+    height: 90%;
+    object-fit: contain;
+    transform: translateX(-100%);
+    /* display: none; */
+    /* background: orange; */
+}
+/* 
+.viewBtn {
+    position: absolute;
+    width: 14rem;
+    height: 4rem;
+    top: calc(100% + 10vh - 2rem);
+    left: calc(50% - 7rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+} */
+
+/* .viewBtnInnerWrapper {
+    width: 100%;
+    height: 100%;
+    position: relative; */
+    /* background: red; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+} */
+/* 
+.viewBtnInnerWrapper h3 {
+    z-index: 2;
+    transition: color 300ms ease-out;
+}
+
+.viewBtnBack {
+    width: 100%;
+    height: 100%;
+    background: orange;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transform: scaleY(0);
+}
+
+.viewBtnInnerWrapper > h3 {
+    opacity: 0;
+    color: orange;
+}
+
+.viewBtnInnerWrapper:hover > h3 {
+    color: wheat;
+}
+
+.viewBtnInnerWrapper:hover > .viewBtnBack {
+    transform-origin: bottom;
+    transform: scaleY(1);
+}
+
+.viewBtnInnerWrapper:not( :hover) > .viewBtnBack {
+    transform-origin: top;
+    transform: scaleY(0);
+} */
+
+
+/* .contentHeader {
+    width: 10rem;
+    height: 4rem;
+    position: absolute; */
+    /* border: 1px solid black; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -12rem;
+    color: orange;
+} */
+
+/* .hideDown {
+    transform-origin: bottom;
+    transform: translateY(100%);
+}
+
+.overflowWrapper {
+    overflow: hidden;
+} */

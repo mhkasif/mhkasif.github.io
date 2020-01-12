@@ -1,0 +1,85 @@
+.contentHeader {
+    width: 16rem;
+    height: 5rem;
+    position: absolute;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -5rem;
+    color: orange;
+    /* display: none; */
+    /* background: greenyellow; */
+    transform: translateY(-50%);
+    /* border: 1px solid indigo; */
+}
+
+.overflowWrapper {
+    overflow: hidden;
+}
+
+.hideDown {
+    transform-origin: bottom;
+    transform: translateY(100%);
+}
+
+
+.viewBtn {
+    position: absolute;
+    width: 16rem;
+    height: 4rem;
+    top: calc(100% + 5rem);
+    left: calc(50% - 8rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    transform: translateY(-50%);
+}
+
+.viewBtnInnerWrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    /* background: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.viewBtnInnerWrapper h3 {
+    z-index: 2;
+    transition: color 300ms ease-out;
+}
+
+.viewBtnBack {
+    width: 100%;
+    height: 100%;
+    background: orange;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transform: scaleY(0);
+}
+
+.viewBtnInnerWrapper > h3 {
+    opacity: 0;
+    color: orange;
+}
+
+.viewBtnInnerWrapper:hover > h3 {
+    color: wheat;
+}
+
+.viewBtnInnerWrapper:hover > .viewBtnBack {
+    transform-origin: bottom;
+    transform: scaleY(1);
+}
+
+.viewBtnInnerWrapper:not( :hover) > .viewBtnBack {
+    transform-origin: top;
+    transform: scaleY(0);
+}
+

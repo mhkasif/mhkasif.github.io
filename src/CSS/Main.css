@@ -1,0 +1,11 @@
+.mainContainer {
+    width: 100vw;
+    height: 100vh;
+    background: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: bottom;
+}
+

@@ -1,0 +1,27 @@
+.teamContainer {
+  width: 100%;
+  height: 100%;
+  background: lightslategray;
+  position: relative;
+}
+
+.viewBtnBackTeam {
+  background: red;
+  transform: scaleY(1) !important;
+}
+
+.viewBtnInnerWrapperTeam > h3 {
+  color: purple;
+}
+
+.textLineTeam {
+  background: purple;
+}
+
+.leftyTeam > div > h1 {
+  color: purple;
+}
+
+.contentHeaderTeam {
+  color: purple;
+}

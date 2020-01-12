@@ -1,0 +1,20 @@
+
+.hm {
+    width: 8rem;
+    height: 8rem;
+    background: lightseagreen;
+    position: absolute;
+    z-index: 2;
+    left: calc(90vw - 4rem);
+    top: calc(10vh - 4rem);
+}
+
+.ss {
+    width: 6rem;
+    height: 16rem;
+    background: lightseagreen;
+    position: absolute;
+    z-index: 2;
+    left: calc(10vw - 3rem);
+    top: calc(50% - 8rem);
+}
