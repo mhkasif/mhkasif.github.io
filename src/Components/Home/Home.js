@@ -4,22 +4,18 @@ import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
 import Content from './Content/Content';
 
-class Home extends Component {
-  render() {
-    // console.log(this.props.isScrollable);
-    var { scrollCounter } = this.props;
-    return (
-      <div style={{position: "relative"}}>
-        {/* <div className="hm"></div>
-        <div className="ss"></div> */}
-        {scrollCounter === 1 && <Main />}
-        {scrollCounter >= 2 && scrollCounter <= 6 && <Content />}
-        {/* {scrollCounter === 3 && <Footer />} */}
-        
-      </div>
 
-    );
-  }
+const Home=({scrollCounter})=>{
+  return(
+    <div style={{position: "relative"}}>
+    {/* <div className="hm"></div>
+    <div className="ss"></div> */}
+    {scrollCounter === 1 && <Main />}
+    {scrollCounter >= 2 && scrollCounter <= 6 && <Content />}
+    {/* {scrollCounter === 3 && <Footer />} */}
+
+  </div>
+  )
 }
 
 var mapStateToProps = state => ({

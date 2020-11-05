@@ -1,15 +1,20 @@
-import React from 'react';
-import './App.css';
-import { Route, Switch } from "react-router-dom";
-import Home from './Components/Home/Home';
-
+import React from "react";
+import "./App.css";
+import { Route, Switch, useLocation } from "react-router-dom";
+import Home from "./Components/Home/Home";
+import WorkPage from "./Components/WorkPage/WorkPage";
+import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 
 function App() {
+  const location=useLocation()
   return (
     <div>
-      <Switch>
-        <Route exact path="/" component={Home} />
-      </Switch>
+    <AnimatePresence initial={true} exitBeforeEnter>
+    <Switch location={location} key={location.pathname}>
+          <Route key="a" exact path="/" component={Home} />
+          <Route key="b" exact path="/work-page" component={WorkPage} />
+          </Switch>
+          </AnimatePresence>
     </div>
   );
 }

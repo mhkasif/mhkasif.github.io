@@ -1,0 +1,22 @@
+.back-button{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+.firstText{
+    transition: all 1s ease-in-out;
+}
+    &-line{
+        width: 40px;
+        border-bottom: 1px solid white;
+        height: 0px;
+        margin-right: 15px;
+    }
+
+}
+div{
+    overflow: hidden;
+}

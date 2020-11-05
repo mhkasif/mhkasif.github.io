@@ -79,7 +79,7 @@
 }
 
 .viewBtnInnerWrapper:not( :hover) > .viewBtnBack {
-    transform-origin: top;
+    transform-origin: top !important;
     transform: scaleY(0);
 }
 

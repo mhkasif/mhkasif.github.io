@@ -5,18 +5,22 @@ import {
   enableScroll,
   disableScroll,
   incrementCounter,
-  decrementCounter
+  decrementCounter,
+  redirected
 } from "../../../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 import { debounce } from "lodash";
 import mobile from "./../../../../images/mobile.png";
+import { Link } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 
 class Clients extends Component {
   constructor(props) {
     super(props);
     this.bouncedFunction = debounce(this.onWheel, 500, {
       leading: true,
-      trailing: false
+      trailing: false,
     });
+
   }
   componentDidMount = () => {
     var {
@@ -27,22 +31,26 @@ class Clients extends Component {
       sectionImg,
       btnText,
       btnBack,
-      viewBtn
+      viewBtn,
     } = this.refs;
-    var tl = new TimelineLite({onComplete: () => {
-      this.props.enableScroll();
-      window.addEventListener("wheel", this.bouncedFunction, false);
-    }});
+    var tl = new TimelineLite({
+      onComplete: () => {
+        this.props.enableScroll();
+        this.props.redirected(false)
+        window.addEventListener("wheel", this.bouncedFunction, false);
+      },
+    });
+    if(this.props.isRedirected){
     tl.to(sectionHeading, 1, {
       transform: "translateY(0%)",
-      ease: Power3.easeInOut
+      ease: Power3.easeInOut,
     })
       .to(
         sectionSubHeading,
         1,
         {
           transform: "translateY(0%)",
-          ease: Power3.easeInOut
+          ease: Power3.easeInOut,
         },
         0
       )
@@ -51,7 +59,7 @@ class Clients extends Component {
         1,
         {
           transform: "translateY(0%)",
-          ease: Power3.easeOut
+          ease: Power3.easeOut,
         },
         0
       )
@@ -60,65 +68,96 @@ class Clients extends Component {
         1,
         {
           transform: "scaleX(1)",
-          ease: Power3.easeInOut
+          ease: Power3.easeInOut,
         },
         0
       )
-      .to(
-        sectionImg,
-        0.5,
-        {
+
+      .to(btnBack, 0.5, {
+        transformOrigin: "0% 0%",
+        transform: "scaleY(1)",
+        ease: Power3.easeIn,
+      })
+      .to(viewBtn, 0.1, {
+        borderColor: "purple",
+      })
+      .to(btnText, 0.1, {
+        opacity: 1,
+      })
+      .to(btnBack, 0.5, {
+        transformOrigin: "0% 100%",
+        transform: "scaleY(0)",
+        ease: Power3.easeOut,
+      })
+      .set(btnBack, {
+        clearProps: "transform, transformOrigin",
+        transition: "transform 300ms ease-in-out",
+      });
+    }else{
+      tl.to(sectionHeading, 1, {
+        transform: "translateY(0%)",
+        ease: Power3.easeInOut,
+      })
+        .to(
+          sectionSubHeading,
+          1,
+          {
+            transform: "translateY(0%)",
+            ease: Power3.easeInOut,
+          },
+          0
+        )
+        .to(
+          sectionPara,
+          1,
+          {
+            transform: "translateY(0%)",
+            ease: Power3.easeOut,
+          },
+          0
+        )
+        .to(
+          textLine,
+          1,
+          {
+            transform: "scaleX(1)",
+            ease: Power3.easeInOut,
+          },
+          0
+        )
+        .to(sectionImg, 0.5, {
           transform: "translateX(0%)",
-          ease: Power3.easeOut
-        }
-      )
-      .to(
-        btnBack,
-        0.5,
-        {
+          ease: Power3.easeOut,
+        })
+        .to(btnBack, 0.5, {
           transformOrigin: "0% 0%",
           transform: "scaleY(1)",
           ease: Power3.easeIn,
-        }
-      )
-      .to(
-        viewBtn,
-        0.1,
-        {
-         borderColor: "purple"
-        },
-      )
-      .to(
-        btnText,
-        0.1,
-        {
-          opacity: 1
-        },
-      )
-      .to(
-        btnBack,
-        0.5,
-        {
-         transformOrigin: "0% 100%",
-         transform: "scaleY(0)",
-         ease: Power3.easeOut,
-         
-        },
-      )
-      .set(
-        btnBack,
-        {clearProps:"transform, transformOrigin",
-        transition: "transform 300ms ease-in-out"
-        }
-      )
-      ;
-  };
+        })
+        .to(viewBtn, 0.1, {
+          borderColor: "purple",
+        })
+        .to(btnText, 0.1, {
+          opacity: 1,
+        })
+        .to(btnBack, 0.5, {
+          transformOrigin: "0% 100%",
+          transform: "scaleY(0)",
+          ease: Power3.easeOut,
+        })
+        .set(btnBack, {
+          clearProps: "transform, transformOrigin",
+          transition: "transform 300ms ease-in-out",
+        });
+
+    };
+  }
 
   componentWillUnmount() {
     window.removeEventListener("wheel", this.bouncedFunction, false);
   }
 
-  onWheel = e => {
+  onWheel = (e) => {
     var {
       sectionHeading,
       sectionSubHeading,
@@ -127,26 +166,28 @@ class Clients extends Component {
       sectionImg,
       btnText,
       btnBack,
-      viewBtn
+      viewBtn,
     } = this.refs;
     if (e.wheelDeltaY < 0) {
       if (this.props.isScrollable) {
-        if (this.props.scrollCounter < 4) {//todo remove this if
+        if (this.props.scrollCounter < 4) {
+          //todo remove this if
           //disabling scroll
           this.props.disableScroll();
           //exit animation start
           var tlED = new TimelineLite({
             onComplete: () => {
-              this.props.incrementCounter()
-            }
+              this.props.incrementCounter();
+            },
           });
-          tlED.set(btnBack,{clearProps: "transition"})
-          .to(
+          tlED
+            .set(btnBack, { clearProps: "transition" })
+            .to(
               sectionSubHeading,
               1,
               {
                 transform: "translateY(100%)",
-                ease: Power3.easeInOut
+                ease: Power3.easeInOut,
               },
               0
             )
@@ -155,7 +196,7 @@ class Clients extends Component {
               1,
               {
                 transform: "translateY(100%)",
-                ease: Power3.easeIn
+                ease: Power3.easeIn,
               },
               0
             )
@@ -164,7 +205,7 @@ class Clients extends Component {
               1,
               {
                 transform: "scaleX(0)",
-                ease: Power3.easeInOut
+                ease: Power3.easeInOut,
               },
               0
             )
@@ -173,15 +214,19 @@ class Clients extends Component {
               1,
               {
                 transform: "translateX(100%)",
-                ease: Power3.easeOut
+                ease: Power3.easeOut,
               },
               0
             )
-            .to(sectionHeading, 1, {
-              transform: "translateY(100%)",
-              ease: Power3.easeInOut
-            },
-            1)
+            .to(
+              sectionHeading,
+              1,
+              {
+                transform: "translateY(100%)",
+                ease: Power3.easeInOut,
+              },
+              1
+            )
             .to(
               btnBack,
               0.5,
@@ -196,7 +241,7 @@ class Clients extends Component {
               btnText,
               0.1,
               {
-                opacity: 0
+                opacity: 0,
               },
               1.5
             )
@@ -204,7 +249,7 @@ class Clients extends Component {
               viewBtn,
               0.1,
               {
-               borderColor: "transparent"
+                borderColor: "transparent",
               },
               1.5
             )
@@ -212,12 +257,12 @@ class Clients extends Component {
               btnBack,
               0.5,
               {
-               transformOrigin: "0% 100%",
-               transform: "scaleY(0)",
-               ease: Power3.easeOut,
+                transformOrigin: "0% 100%",
+                transform: "scaleY(0)",
+                ease: Power3.easeOut,
               },
               1.5
-            )
+            );
 
           //exit animation start
           // var tlEU = new TimelineLite({
@@ -225,7 +270,6 @@ class Clients extends Component {
           //     this.props.incrementCounter();
           //   }
           // });
-
         }
       }
     } else {
@@ -236,16 +280,17 @@ class Clients extends Component {
           //exit animation start
           var tlED = new TimelineLite({
             onComplete: () => {
-              this.props.decrementCounter()
-            }
+              // this.props.decrementCounter();
+            },
           });
-          tlED.set(btnBack,{clearProps: "transition"})
-          .to(
+          tlED
+            .set(btnBack, { clearProps: "transition" })
+            .to(
               sectionSubHeading,
               1,
               {
                 transform: "translateY(100%)",
-                ease: Power3.easeInOut
+                ease: Power3.easeInOut,
               },
               0
             )
@@ -254,7 +299,7 @@ class Clients extends Component {
               1,
               {
                 transform: "translateY(100%)",
-                ease: Power3.easeIn
+                ease: Power3.easeIn,
               },
               0
             )
@@ -263,7 +308,7 @@ class Clients extends Component {
               1,
               {
                 transform: "scaleX(0)",
-                ease: Power3.easeInOut
+                ease: Power3.easeInOut,
               },
               0
             )
@@ -272,16 +317,19 @@ class Clients extends Component {
               1,
               {
                 transform: "translateX(100%)",
-                ease: Power3.easeOut
+                ease: Power3.easeOut,
               },
               0
             )
-            .to(sectionHeading, 1, {
-              transform: "translateY(100%)",
-              ease: Power3.easeInOut
-            },
-            // 1
-            0
+            .to(
+              sectionHeading,
+              1,
+              {
+                transform: "translateY(100%)",
+                ease: Power3.easeInOut,
+              },
+              // 1
+              0
             )
             .to(
               btnBack,
@@ -298,7 +346,7 @@ class Clients extends Component {
               btnText,
               0.1,
               {
-                opacity: 0
+                opacity: 0,
               },
               // 1.5
               0.5
@@ -307,7 +355,7 @@ class Clients extends Component {
               viewBtn,
               0.1,
               {
-               borderColor: "transparent"
+                borderColor: "transparent",
               },
               // 1.5
               0.5
@@ -316,27 +364,147 @@ class Clients extends Component {
               btnBack,
               0.5,
               {
-               transformOrigin: "0% 100%",
-               transform: "scaleY(0)",
-               ease: Power3.easeOut,
+                transformOrigin: "0% 100%",
+                transform: "scaleY(0)",
+                ease: Power3.easeOut,
               },
               // 1.5
               0.5
-            )
+            );
         }
       }
     }
   };
+pageTransistion=()=>{
+  var {
+    sectionHeading,
+    sectionSubHeading,
+    textLine,
+    sectionPara,
+    sectionImg,
+    btnText,
+    btnBack,
+    viewBtn,
+  } = this.refs;
+  var tlED = new TimelineLite({
+    onComplete: () => {
+      // this.props.decrementCounter();
+    },
+  });
+  tlED
+    .set(btnBack, { clearProps: "transition" })
+    .to(
+      sectionSubHeading,
+      1,
+      {
+        transform: "translateY(100%)",
+        ease: Power3.easeInOut,
+      },
+      0
+    )
+    .to(
+      sectionPara,
+      1,
+      {
+        transform: "translateY(100%)",
+        ease: Power3.easeIn,
+      },
+      0
+    )
+    .to(
+      textLine,
+      1,
+      {
+        transform: "scaleX(0)",
+        ease: Power3.easeInOut,
+      },
+      0
+    )
+    // .to(
+    //   sectionImg,
+    //   1,
+    //   {
+    //     transform: "translateX(5%)",
+    //     ease: Power3.easeOut,
+    //   },
+    //   0
+    // )
+    .to(
+      sectionHeading,
+      1,
+      {
+        transform: "translateY(100%)",
+        ease: Power3.easeInOut,
+      },
+      // 1
+      0
+    )
+    .to(
+      btnBack,
+      0.5,
+      {
+        transformOrigin: "0% 0%",
+        transform: "scaleY(1)",
+        ease: Power3.easeIn,
+      },
+      // 1
+      0
+    )
+    .to(
+      btnText,
+      0.1,
+      {
+        opacity: 0,
+      },
+      // 1.5
+      0.5
+    )
+    .to(
+      viewBtn,
+      0.1,
+      {
+        borderColor: "transparent",
+      },
+      // 1.5
+      0.5
+    )
+    .to(
+      btnBack,
+      0.5,
+      {
+        transformOrigin: "0% 100%",
+        transform: "scaleY(0)",
+        ease: Power3.easeOut,
+      },
+      // 1.5
+      0.5
+    );
 
+}
+variants={
+  exit:{
+    // opacity:0,
+  transistion:{
+
+    duration:1.2
+  }}
+}
   render() {
+
     return (
-      <div ref="contentWrapper" className="clientsInnerContainer">
+
+      <motion.div  key="modal" exit={{opacity:1}} transition={{delay:0.8}} ref="contentWrapper" className="clientsInnerContainer">
         <div ref="viewBtn" className="viewBtn viewBtnClients">
-          <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients">
-            <div ref="btnBack" className="viewBtnBack viewBtnBackClients"></div>
-            <h3 ref="btnText">VIEW</h3>
+          <Link onClick={this.pageTransistion}  to="/work-page">
+            <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients">
+              <div
+                ref="btnBack"
+                className="viewBtnBack viewBtnBackClients"
+              ></div>
+              <h3 ref="btnText">VIEW</h3>
+            </div>
+            </Link>
           </div>
-        </div>
         <div className="contentHeader contentHeaderClients">
           <div className="overflowWrapper">
             <h3 ref="sectionHeading" className="hideDown">
@@ -368,10 +536,12 @@ class Clients extends Component {
 
         <div className="righty">
           <div className="overfloWrapper">
-            <img alt="" ref="sectionImg" src={mobile} className="mobileImage" />
+            <motion.img initial={{translateX:this.props.isRedirected?0:"-130%"}} alt="" ref="sectionImg"  src={mobile} className="mobileImage" />
           </div>
         </div>
-      </div>
+      </motion.div>
+
+
     );
   }
 }
@@ -380,15 +550,15 @@ var actions = {
   enableScroll,
   disableScroll,
   incrementCounter,
-  decrementCounter
+  decrementCounter,
+  redirected
+
 };
 
-var mapStateToProps = state => ({
+var mapStateToProps = (state) => ({
   scrollCounter: state.homeComponentInfo.scrollCounter,
-  isScrollable: state.homeComponentInfo.isScrollable
+  isScrollable: state.homeComponentInfo.isScrollable,
+  isRedirected:state.homeComponentInfo.isRedirected
 });
 
-export default connect(
-  mapStateToProps,
-  actions
-)(Clients);
+export default connect(mapStateToProps, actions)(Clients);
