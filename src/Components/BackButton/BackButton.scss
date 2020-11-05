@@ -6,8 +6,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-.firstText{
-    transition: all 1s ease-in-out;
+&-text-container{
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 2px;
 }
     &-line{
         width: 40px;
