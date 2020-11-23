@@ -1,0 +1,36 @@
+.circle{
+    stroke: #a4a4a4;
+
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    &:hover{
+#topRightPath{
+    stroke-width: 3;
+    stroke: red;
+}
+        // fill: green;
+    }
+}
+#topOuterCircle{
+    transition: all 2.5s ease-in-out;
+
+
+}
+.path{
+    stroke: #a4a4a4;
+    transition: all .5s ease-in-out;
+    stroke-width: 3;
+
+}
+#topRightPath{
+
+}
+
+.circle-div{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

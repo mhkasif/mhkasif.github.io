@@ -1,0 +1,38 @@
+.viewBtnBackClients {
+    background: purple;
+}
+
+.viewBtnInnerWrapperClients > h3 {
+    color: purple;
+}
+
+.textLineClients {
+    background: purple;
+}
+
+.leftyClients > div > h1 {
+    color: purple;
+}
+
+.contentHeaderClients {
+    color: purple;
+}
+.righty{
+    position: fixed;
+    right: 60px;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    height: 100vh;
+    overflow: hidden;
+    #overfloWrapper{
+        width: 40vw;
+        height:100vh;
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    }
+}

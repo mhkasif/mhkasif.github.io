@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
+import { Link } from "react-router-dom";
 import "./BackButton.scss";
 
 const BackButton = () => {
@@ -19,7 +20,7 @@ hov:{
     y:0,
     transition: {
         staggerChildren: 0.03,
-        delayChildren: .01,
+        delayChildren: .1,
         staggerDirection:-1,
 
     },
@@ -61,20 +62,24 @@ const itemB = {
       className="back-button"
     >
       <motion.div
-        exit={{ width: "0px" }}
+        exit={{ width: "0px",
+        transition:{ duration: 0.6, ease: "linear", delay: 0.1}
+      }}
         initial={{ width: "0px" }}
         animate={{ width: "40px" }}
         transition={{ duration: 0.6, ease: "linear", delay: 1 }}
         className="back-button-line"
       ></motion.div>
-
+<Link to='/'>
       <motion.div
       animate='animate'
         variants={textContainer}
                 initial="hidden"
                 animate="show"
                 whileHover='hov'
+                exit='hidden'
         className="back-button-text-container"
+
       >
         <motion.span key={"a"}  variants={firstText}>
           S
@@ -104,7 +109,8 @@ const itemB = {
           k
         </motion.span>
       </motion.div>
-    </motion.div>
+      </Link>
+      </motion.div>
   );
 };
 
