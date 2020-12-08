@@ -6,6 +6,7 @@ import "../../CSS/workPage.scss";
 import mobileImage from "../../images/mobile.png";
 import { redirected } from "../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 import BackButton from "../BackButton/BackButton";
+import ScrollLine from "../ScrollLine/ScrollLine";
 const WorkPage = ({ redirected }) => {
   useEffect(() => {
     redirected(true);
@@ -83,17 +84,6 @@ exit:{
     }}
     className="left-side">
       <img
-        // exit={{ translateX: "686px" }}
-        // key="img"
-        // initial={{ translateX: "686px", translateY: "-1px" }}
-        // animate={{ translateX: "0px", translateY: "-1px" }}
-        // animate={{ translateX: "0px",  }}
-        // initial={true} exit={{opacity:0}} transition={{delay:1,duration:2,ease:'backIn'}}
-        // transition={{
-        //   delay: 0.5,
-        //   ease: [0.35, -0.01, 0.32, 1.275],
-        //   duration: 1,
-        // }}
         src={mobileImage}
         alt=""
       />
@@ -102,6 +92,8 @@ exit:{
     <motion.div className="work-page">
     <BackButton/>
       <div className="landing">
+    {/* <ScrollLine/> */}
+
         <motion.div
           variants={variant}
           exit="exit"
@@ -148,7 +140,9 @@ exit:{
           </div>
         </motion.div>
       </div>
+
     </motion.div>
+
     </React.Fragment>
   );
 };

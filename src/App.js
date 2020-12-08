@@ -10,15 +10,15 @@ function App() {
   const location=useLocation()
   return (
     <div>
-   { <AnimatePresence initial={true} exitBeforeEnter>
+ <AnimatePresence initial={true} exitBeforeEnter>
     <Switch location={location} key={location.pathname}>
           <Route key="a" exact path="/" component={Home} />
           <Route key="b" exact path="/work-page" component={WorkPage} />
           </Switch>
-          </AnimatePresence>}
+          </AnimatePresence>
+          {/* <CircleSvg/> */}
           </div>
           );
         }
 
-        // <CircleSvg/>
-export default App;
+        export default App;

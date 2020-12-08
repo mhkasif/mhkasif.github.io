@@ -19,7 +19,13 @@ img {
 .work-page {
   width: 100vw;
   overflow-x: hidden;
+  .m{
+width: 100%;
+position: relative;
+overflow: hidden;
+  }
   .landing {
+    overflow-x: hidden;
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -46,7 +52,7 @@ img {
     //   justify-content: center;
         // padding:100px;
       //   background-color: pink;
-    //   overflow: hidden;
+      overflow: hidden;
 .content-container  {
     width: 80%;
     display: flex;
