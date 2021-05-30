@@ -136,7 +136,7 @@ class Content extends Component {
   render() {
     var { scrollCounter } = this.props;
     return (
-      <div className="contentContainer">
+      <div className={`contentContainer ${scrollCounter===5?"blue-bg":""}`}>
         <div className="contentWindow">
           <div className="lineWrapperTopLeft lineWrapper">
             <div ref="l2" className="line lineTopLeft"></div>

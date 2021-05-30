@@ -222,8 +222,8 @@ class Clients extends Component {
         </div>
         <div className="contentHeader contentHeaderClients">
           <div className="overflowWrapper">
-            <h3 ref="sectionHeading" className="hideDown">
-              Clients
+            <h3 ref="sectionHeading" className="hideDown client-heading">
+              Projects
             </h3>
           </div>
         </div>

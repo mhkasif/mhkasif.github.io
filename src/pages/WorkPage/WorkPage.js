@@ -3,10 +3,10 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "../../CSS/workPage.scss";
-import mobileImage from "../../images/mobile.png";
+import mobileImage from "../../images/hkjobz/Group1.png";
 import { redirected } from "../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
-import BackButton from "../BackButton/BackButton";
-import ScrollLine from "../ScrollLine/ScrollLine";
+import BackButton from "../../Components/BackButton/BackButton";
+import ScrollLine from "../../Components/ScrollLine/ScrollLine";
 const WorkPage = ({ redirected }) => {
   useEffect(() => {
     redirected(true);
@@ -140,7 +140,11 @@ exit:{
           </div>
         </motion.div>
       </div>
-
+          <div className='screen'>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, blanditiis dignissimos? Sapiente, beatae maxime nobis itaque cumque ab temporibus. Sapiente fugit consequatur nobis! Quidem error consequuntur assumenda, molestiae numquam suscipit.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, saepe vitae? Inventore ut commodi quo? Vel velit, excepturi dicta, ex modi reiciendis aliquam, alias fugit numquam magni dolor nam consectetur.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quos non iusto expedita cumque distinctio nulla et libero, iste repellat ea dolor praesentium! Facere aliquid perferendis commodi suscipit, odit optio?
+          </div>
     </motion.div>
 
     </React.Fragment>

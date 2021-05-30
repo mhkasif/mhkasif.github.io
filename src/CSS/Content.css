@@ -8,7 +8,9 @@
                          ". . .";
     overflow: hidden;
 }
-
+.blue-bg{
+    background-color: #1b1a25;
+}
 .contentWindow {
     grid-area: con;
     position: relative;
@@ -22,7 +24,8 @@
 }
 
 .line {
-    background: black;
+    background: #aaa;
+    opacity:.3;
 }
 
 .lineWrapperTopLeft {

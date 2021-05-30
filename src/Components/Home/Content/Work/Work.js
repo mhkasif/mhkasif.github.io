@@ -9,10 +9,11 @@ import {
   redirected,
 } from "../../../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 import { debounce } from "lodash";
-import mobile from "./../../../../images/mobile.png";
+// import mobile from "./../../../../images/mobile.png";
+import mobile from "./../../../../images/hkjobz/Group1.png";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import '../../../../CSS/Work.scss'
+import "../../../../CSS/Work.scss";
 class Clients extends Component {
   constructor(props) {
     super(props);
@@ -127,7 +128,7 @@ class Clients extends Component {
         .to(sectionImg, 0.5, {
           transform: "translateX(0%)",
           // ease: Power3.easeOut,
-      ease: [0.35, -0.01, 0.32, 1.275]
+          ease: [0.35, -0.01, 0.32, 1.275],
         })
         .to(btnBack, 0.5, {
           transformOrigin: "0% 0%",
@@ -490,76 +491,70 @@ class Clients extends Component {
   render() {
     return (
       <React.Fragment>
-      <div className="righty">
-      <div id="overfloWrapper" className="overfloWrapper">
-        <motion.img
-          initial={{ translateX: this.props.isRedirected ? 0 : "-130%" }}
-          // exit={{}}
-          // animate={{x:0}}
-          transition={
-            {
-      ease: [0.35, -0.01, 0.32, 1.275],
-
-            }
-          }
-          alt=""
-          ref="sectionImg"
-          src={mobile}
-          className="mobileImage"
-        />
-      </div>
-    </div>
-      <motion.div
-        key="modal"
-        exit={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
-        ref="contentWrapper"
-        className="clientsInnerContainer"
-      >
-        <div ref="viewBtn" className="viewBtn viewBtnClients">
-          <Link onClick={this.pageTransistion} to="/work-page">
-            <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients">
-              <div
-                ref="btnBack"
-                className="viewBtnBack viewBtnBackClients"
-              ></div>
-              <h3 ref="btnText">VIEW</h3>
-            </div>
-          </Link>
-        </div>
-        <div className="contentHeader contentHeaderClients">
-          <div className="overflowWrapper">
-            <h3 ref="sectionHeading" className="hideDown">
-              Our Work
-            </h3>
+        <div className="righty">
+          <div id="overfloWrapper" className="overfloWrapper">
+            <motion.img
+              initial={{ translateX: this.props.isRedirected ? 0 : "-130%" }}
+              // exit={{}}
+              // animate={{x:0}}
+              transition={{
+                ease: [0.35, -0.01, 0.32, 1.275],
+              }}
+              alt=""
+              ref="sectionImg"
+              src={mobile}
+              className="mobileImage"
+            />
           </div>
         </div>
-        <div className="lefty leftyClients">
-          <div className="overflowWrapper">
-            <h1 ref="sectionSubHeading" className="hideDown">
-              Majestic Work
-            </h1>
+        <motion.div
+          key="modal"
+          exit={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          ref="contentWrapper"
+          className="clientsInnerContainer"
+        >
+          <div ref="viewBtn" className="viewBtn viewBtnClients">
+            <Link onClick={this.pageTransistion} to="/work-page">
+              <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients">
+                <div
+                  ref="btnBack"
+                  className="viewBtnBack viewBtnBackClients"
+                ></div>
+                <h3 ref="btnText">VIEW</h3>
+              </div>
+            </Link>
           </div>
-
-          <div className="textDiv">
-            <div>
-              <div ref="textLine" className="textLine textLineClients"></div>
-            </div>
+          <div className="contentHeader contentHeaderClients">
             <div className="overflowWrapper">
-              <p ref="sectionPara" className="hideDown">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Molestiae repellendus assumenda voluptas magni? Odio facilis
-                cumque iste quaerat deleniti, numquam culpa veritatis tempora
-                rerum est. Quod, iusto. Voluptates
-              </p>
+              <h3 ref="sectionHeading" className="hideDown">
+                Our Work
+              </h3>
             </div>
           </div>
-        </div>
+          <div className="lefty leftyClients">
+            <div className="overflowWrapper">
+              <h1 ref="sectionSubHeading" className="hideDown">
+                Majestic Work
+              </h1>
+            </div>
 
-
-      </motion.div>
+            <div className="textDiv">
+              <div>
+                <div ref="textLine" className="textLine textLineClients"></div>
+              </div>
+              <div className="overflowWrapper">
+                <p ref="sectionPara" className="hideDown">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Molestiae repellendus assumenda voluptas magni? Odio facilis
+                  cumque iste quaerat deleniti, numquam culpa veritatis tempora
+                  rerum est. Quod, iusto. Voluptates
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </React.Fragment>
-
     );
   }
 }
