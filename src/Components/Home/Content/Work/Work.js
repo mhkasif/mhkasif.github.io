@@ -41,6 +41,10 @@ class Clients extends Component {
       },
     });
     if (this.props.isRedirected) {
+
+      tl.to(sectionImg,{
+        transform:"translate(50px,0px)"
+      })
       tl.to(sectionHeading, 1, {
         transform: "translateY(0%)",
         ease: Power3.easeInOut,
@@ -186,7 +190,7 @@ class Clients extends Component {
               sectionSubHeading,
               1,
               {
-                transform: "translateY(100%)",
+                y: "100%",
                 ease: Power3.easeInOut,
               },
               0
@@ -195,7 +199,7 @@ class Clients extends Component {
               sectionPara,
               1,
               {
-                transform: "translateY(100%)",
+                y: "100%",
                 ease: Power3.easeIn,
               },
               0
@@ -209,21 +213,23 @@ class Clients extends Component {
               },
               0
             )
-            .to(
-              sectionImg,
-              1,
-              {
-                transform: "translateX(140%)",
-                ease: Power3.easeOut,
-              },
-              0
-            )
+
             .to(
               sectionHeading,
               1,
               {
-                transform: "translateY(100%)",
+                y: "100%",
                 ease: Power3.easeInOut,
+              },
+              1
+            )
+            .to(
+              sectionImg,
+              0.5,
+              {
+                transform: "translate(450px,0)",
+                ease: Power3.easeOut,
+                duration:2
               },
               1
             )
@@ -253,6 +259,7 @@ class Clients extends Component {
               },
               1.5
             )
+
             .to(
               btnBack,
               0.5,
@@ -289,7 +296,7 @@ class Clients extends Component {
               sectionSubHeading,
               1,
               {
-                transform: "translateY(100%)",
+                y: "100%",
                 ease: Power3.easeInOut,
               },
               0
@@ -298,7 +305,7 @@ class Clients extends Component {
               sectionPara,
               1,
               {
-                transform: "translateY(100%)",
+                y: "100%",
                 ease: Power3.easeIn,
               },
               0
@@ -312,20 +319,12 @@ class Clients extends Component {
               },
               0
             )
-            .to(
-              sectionImg,
-              1,
-              {
-                transform: "translateX(140%)",
-                ease: Power3.easeOut,
-              },
-              0
-            )
+
             .to(
               sectionHeading,
               1,
               {
-                transform: "translateY(100%)",
+                y: "100%",
                 ease: Power3.easeInOut,
               },
               // 1
@@ -340,6 +339,16 @@ class Clients extends Component {
                 ease: Power3.easeIn,
               },
               // 1
+              0
+            )
+            .to(
+              sectionImg,
+              1,
+              {
+                transform: "translateX(450px)",
+                ease: Power3.easeOut,
+                duration:2
+              },
               0
             )
             .to(
@@ -397,7 +406,7 @@ class Clients extends Component {
         sectionSubHeading,
         1,
         {
-          transform: "translateY(100%)",
+          u: "100%",
           ease: Power3.easeInOut,
         },
         0
@@ -406,7 +415,7 @@ class Clients extends Component {
         sectionPara,
         1,
         {
-          transform: "translateY(100%)",
+          y: "100%",
           ease: Power3.easeIn,
         },
         0
@@ -433,7 +442,7 @@ class Clients extends Component {
         sectionHeading,
         1,
         {
-          transform: "translateY(100%)",
+          y: "100%",
           ease: Power3.easeInOut,
         },
         // 1
@@ -515,11 +524,11 @@ class Clients extends Component {
           className="clientsInnerContainer"
         >
           <div ref="viewBtn" className="viewBtn viewBtnClients">
-            <Link onClick={this.pageTransistion} to="/work-page">
-              <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients">
+            <Link onClick={this.pageTransistion} to="/hkjobz">
+              <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients purple-font-color">
                 <div
                   ref="btnBack"
-                  className="viewBtnBack viewBtnBackClients"
+                  className="viewBtnBack viewBtnBackClients purple-background-color"
                 ></div>
                 <h3 ref="btnText">VIEW</h3>
               </div>
@@ -528,11 +537,11 @@ class Clients extends Component {
           <div className="contentHeader contentHeaderClients">
             <div className="overflowWrapper">
               <h3 ref="sectionHeading" className="hideDown">
-                Our Work
+                HkJobz
               </h3>
             </div>
           </div>
-          <div className="lefty leftyClients">
+          <div className="lefty leftyClients purple-font-color">
             <div className="overflowWrapper">
               <h1 ref="sectionSubHeading" className="hideDown">
                 Majestic Work
@@ -541,7 +550,7 @@ class Clients extends Component {
 
             <div className="textDiv">
               <div>
-                <div ref="textLine" className="textLine textLineClients"></div>
+                <div ref="textLine" className="textLine textLineClients purple-background-color"></div>
               </div>
               <div className="overflowWrapper">
                 <p ref="sectionPara" className="hideDown">

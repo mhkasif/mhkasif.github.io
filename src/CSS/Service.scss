@@ -1,28 +1,28 @@
-.purple-font-color{
-    color: purple !important;
+.slectus-font-color{
+    color: #00acc1 !important;
 }
-.purple-background-color{
-    background: purple !important;
+.slectus-background-color{
+    background: #00acc1 !important;
 }
 
 .viewBtnBackClients {
-    // background: purple;
+    // background: #00acc1;
 }
 
-.purple-font-color > h3 {
-    color: purple;
+.slectus-background-color > h3 {
+    color: #00acc1 !important;
 }
 
-.purple-background-color {
-    background: purple;
+.slectus-background-color {
+    background: #00acc1 !important;
 }
 
-.purple-font-color > div > h1 {
-    color: purple;
+.slectus-background-color > div > h1 {
+    color: #00acc1 !important;
 }
 
 .contentHeaderClients {
-    color: purple;
+    color: #00acc1;
 }
 .righty{
     position: fixed;
@@ -41,6 +41,8 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-
+    }
+    .zoom{
+        zoom: 2.2;
     }
 }

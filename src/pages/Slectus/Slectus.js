@@ -1,13 +1,15 @@
+
+
 import { motion } from "framer-motion";
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import "../../CSS/workPage.scss";
-import mobileImage from "../../images/hkjobz/Group1.png";
+import "../../CSS/Slectus.scss";
+import mobileImage from "../../images/slectus/slectus-macbook.png";
 import { redirected } from "../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 import BackButton from "../../Components/BackButton/BackButton";
 import ScrollLine from "../../Components/ScrollLine/ScrollLine";
-const WorkPage = ({ redirected }) => {
+const Slectus = ({ redirected }) => {
   useEffect(() => {
     redirected(true);
 
@@ -71,10 +73,11 @@ exit:{
   return (
     <React.Fragment>
     <motion.div
+
     exit={{ x: 0,y:0 }}
     key="img"
     // initial={{ translateX: "686px", translateY: "-1px" }}
-    animate={{x:'-140%' }}
+    animate={{x:'-180%' }}
     // animate={{ translateX: "0px",  }}
     transition={{
       delay: 0.5,
@@ -86,6 +89,7 @@ exit:{
       <img
         src={mobileImage}
         alt=""
+        className="zoom"
       />
     </motion.div>
 
@@ -153,4 +157,4 @@ exit:{
 const action = {
   redirected,
 };
-export default connect(null, action)(WorkPage);
+export default connect(null, action)(Slectus);

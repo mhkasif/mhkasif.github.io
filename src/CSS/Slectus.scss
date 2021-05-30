@@ -1,0 +1,112 @@
+.left-side {
+    width: 40vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 60px;
+    top: 0;
+    overflow: visible;
+  z-index: 100;
+  }
+.zoom{
+    zoom:2.2
+}
+  img {
+    width: 25vw;
+  //   position: absolute;
+    z-index: 3;
+    // zoom: 2.2;
+    transform: translate(50px,0);
+  }
+  .work-page {
+    width: 100vw;
+    overflow-x: hidden;
+    .m{
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+    }
+    .landing {
+      overflow-x: hidden;
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      .left-side-wrapper {
+        // position: absolute;
+        top: 0;
+        left: 0;
+        width: 50vw;
+        height: 100%;
+        background-image: url("../images/mcdonalds-bg.jpg");
+        z-index: 2;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .right-side {
+        width: 50vw;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      //   justify-content: center;
+          // padding:100px;
+        //   background-color: pink;
+        overflow: hidden;
+  .content-container  {
+      width: 80%;
+      display: flex;
+      align-items: flex-start;
+      justify-content:  center;
+      flex-direction: column;
+      padding-top: 50px;
+        .heading {
+          display: flex;
+          width: 100%;
+          height: 20vh;
+          justify-content: flex-start;
+          align-items: center;
+          letter-spacing: 4px;
+          h1 {
+            color: #3d3560;
+            font-size: 50px;
+          }
+        }
+        .border-line {
+          width: 90px;
+          height: 4px;
+          background-color: #3d3560;
+          overflow: hidden;
+
+        }
+        .paragraph{
+            color:#a3adb9;
+            font-size: 14px;
+            text-align: left;
+            margin-top: 50px;
+            line-height: 25px;
+            overflow: hidden;
+
+
+            p{
+
+                &:not(:last-child){
+                    padding-bottom: 30px;
+                    overflow: hidden;
+                  }
+              }
+
+        }
+      }
+    }
+  }
+  }
+  .screen{
+    height: 100vh;
+    background-color: red;
+  }
