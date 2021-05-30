@@ -42,9 +42,9 @@ class Clients extends Component {
     });
     if (this.props.isRedirected) {
 
-      tl.to(sectionImg,{
-        transform:"translate(50px,0px)"
-      })
+      // tl.to(sectionImg,{
+      //   transform:"translate(50px,0px)"
+      // })
       tl.to(sectionHeading, 1, {
         transform: "translateY(0%)",
         ease: Power3.easeInOut,

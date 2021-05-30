@@ -86,10 +86,11 @@ exit:{
       duration: 1,
     }}
     className="left-side">
-      <img
+      <motion.img
         src={mobileImage}
         alt=""
         className="zoom"
+        initial={{translateX:"50px"}}
       />
     </motion.div>
 
