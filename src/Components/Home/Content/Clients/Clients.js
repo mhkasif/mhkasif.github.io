@@ -247,7 +247,7 @@ class Clients extends Component {
 
               <ProjectDetails
                 url="https://colgame-43259.web.app/"
-                heading="Color-Advino"
+                heading="Guess??"
                 desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
               />
 

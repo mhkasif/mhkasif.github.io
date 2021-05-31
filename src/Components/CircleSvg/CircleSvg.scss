@@ -15,3 +15,45 @@
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
 }
+
+.diamond{
+    transition: all 0.2s ease-in-out ;
+}
+.outer-diamond{
+    stroke: rgba(#000,0.1);
+}
+.top-outer-diamond{
+    &:hover{
+        cursor: pointer;
+        ~.top-inner-diamond{
+            fill: red;
+            &:hover{
+                fill: red;
+            }
+        }
+    }
+}
+.right-outer-diamond{
+    cursor: pointer;
+    &:hover{
+        .right-inner-diamond{
+            stroke: red;
+        }
+    }
+}
+.bottom-outer-diamond{
+    cursor: pointer;
+    &:hover{
+        .bottom-inner-diamond{
+            fill: red;
+        }
+    }
+}
+.left-outer-diamond{
+    cursor: pointer;
+    &:hover{
+        .left-inner-diamond{
+            fill: red;
+        }
+    }
+}

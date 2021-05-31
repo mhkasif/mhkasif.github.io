@@ -8,9 +8,7 @@
 // import Clients from "./Clients/Clients";
 // import Footer from "./Footer/Footer";
 
-
 // const Content=({scrollCounter,decrementCounter})=>{
-
 
 //   const l1  = useRef(null);
 //   const l2  = useRef(null);
@@ -83,7 +81,6 @@
 // //     //   .to(l4, 1, { transform: "scaleY(1)", ease: Power3.easeOut }, 0);
 // //   };
 
-
 // //   render() {
 // //     var { scrollCounter } = this.props;
 
@@ -125,7 +122,7 @@ class Content extends Component {
     var tl = new TimelineLite({
       onComplete: () => {
         this.props.decrementCounter();
-      }
+      },
     });
     tl.to(l1, 1, { transform: "scaleX(0)", ease: Power3.easeInOut })
       .to(l2, 1, { transform: "scaleY(0)", ease: Power3.easeInOut }, 0)
@@ -136,8 +133,30 @@ class Content extends Component {
   render() {
     var { scrollCounter } = this.props;
     return (
-      <div className={`contentContainer ${scrollCounter===5?"blue-bg":""}`}>
+      <div
+        className={`contentContainer ${scrollCounter === 5 ? "blue-bg" : ""}`}
+      >
+      {scrollCounter === 5&&<div className='background-ball'></div>}
         <div className="contentWindow">
+          <div
+            className="page-count"
+            style={{ color: scrollCounter === 5 && "rgba(255,255,255,0.7)" }}
+          >
+            <div className="overflow-wrapper">
+              <div className="page-number">{scrollCounter}</div>
+            </div>
+
+            <div
+              className="divider"
+              style={{
+                borderBottomColor:
+                  scrollCounter === 5 && "rgba(255,255,255,0.7)",
+              }}
+            />
+            <div className="overflow-wrapper">
+              <div className="page-number">6</div>
+            </div>
+          </div>
           <div className="lineWrapperTopLeft lineWrapper">
             <div ref="l2" className="line lineTopLeft"></div>
           </div>
@@ -149,16 +168,20 @@ class Content extends Component {
           <div className="lineWrapperRight lineWrapper">
             <div ref="l3" className="line lineRight"></div>
           </div>
-         { this.props.scrollCounter!==5?
-          <React.Fragment><div className="lineWrapperBottomRight lineWrapper">
-            <div ref="l4" className="line lineBottomRight"></div>
-          </div>
-          <div className="lineWrapperBottomLeft lineWrapper">
-            <div ref="l4" className="line lineBottomLeft"></div>
-          </div></React.Fragment>: <div className="lineWrapperBottomFull lineWrapper">
-          <div ref="l4" className="line lineBottomFull"></div>
-          </div>
-        }
+          {this.props.scrollCounter !== 5 ? (
+            <React.Fragment>
+              <div className="lineWrapperBottomRight lineWrapper">
+                <div ref="l4" className="line lineBottomRight"></div>
+              </div>
+              <div className="lineWrapperBottomLeft lineWrapper">
+                <div ref="l4" className="line lineBottomLeft"></div>
+              </div>
+            </React.Fragment>
+          ) : (
+            <div className="lineWrapperBottomFull lineWrapper">
+              <div ref="l4" className="line lineBottomFull"></div>
+            </div>
+          )}
           <div className="lineWrapperLeftBottom lineWrapper">
             <div ref="l4" className="line lineLeftBottom"></div>
           </div>
@@ -185,13 +208,13 @@ class Content extends Component {
   }
 }
 
-var mapStateToProps = state => ({
+var mapStateToProps = (state) => ({
   scrollCounter: state.homeComponentInfo.scrollCounter,
-  isScrollable: state.homeComponentInfo.isScrollable
+  isScrollable: state.homeComponentInfo.isScrollable,
 });
 
 var actions = {
-  decrementCounter
+  decrementCounter,
 };
 
 export default connect(mapStateToProps, actions)(Content);

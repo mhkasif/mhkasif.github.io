@@ -1,7 +1,7 @@
 @import "./CSS/Config.css";
 @import "./CSS/Main.css";
 @import "./CSS/Common.css";
-@import "./CSS/Content.css";
+@import "./CSS/Content.scss";
 @import "./CSS/Home.css";
 /* @import "./CSS/Work.scss"; */
 @import "./CSS/Team.css";
