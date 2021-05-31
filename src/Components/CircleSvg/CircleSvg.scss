@@ -1,56 +1,17 @@
 .circle{
-    stroke: #a4a4a4;
+    // stroke: #a4a4a4;
 
     transition: all 0.5s ease-in-out;
     cursor: pointer;
     &:hover{
-#topRightPath{
+
     // stroke-width: 3;
-    stroke: red;
-}
+    fill: red;
+
         // fill: green;
     }
 }
-#topOuterCircle{
-    transition: all 2.5s ease-in-out;
-
-
-}
 .path{
-    stroke: #a4a4a4;
-    transition: all 2s ease-in-out;
-    stroke-width: 1;
-    fill:transparent ;
     stroke-dasharray: 1000;
-stroke-dashoffset: 1000;
-
+    stroke-dashoffset: 1000;
 }
-#topRightPath{
-    stroke: black;
-
-fill:transparent;
-}
-
-.circle-div{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-.circle_svg{
-    transform: scale(-1,1);
-}
-	// .st0{display:none;}
-	// .st1{display:inline;fill:#FFFFFF;}
-	// .st2{display:inline;fill:none;}
-	// .st3{fill:#FFFFFF;stroke:#010101;stroke-width:1.5;}
-	// .st4{fill:#FFFFFF;stroke:#010101;}
-	// .st5{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
-    // .st0{fill:none;}
-	// .st1{display:none;}
-    // .st2{display:inline;fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
-
-    .st0{fill:none;stroke:#000000;}
-	.st1{fill:#FF1234;}

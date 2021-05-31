@@ -149,12 +149,16 @@ class Content extends Component {
           <div className="lineWrapperRight lineWrapper">
             <div ref="l3" className="line lineRight"></div>
           </div>
-          <div className="lineWrapperBottomRight lineWrapper">
+         { this.props.scrollCounter!==5?
+          <React.Fragment><div className="lineWrapperBottomRight lineWrapper">
             <div ref="l4" className="line lineBottomRight"></div>
           </div>
           <div className="lineWrapperBottomLeft lineWrapper">
             <div ref="l4" className="line lineBottomLeft"></div>
+          </div></React.Fragment>: <div className="lineWrapperBottomFull lineWrapper">
+          <div ref="l4" className="line lineBottomFull"></div>
           </div>
+        }
           <div className="lineWrapperLeftBottom lineWrapper">
             <div ref="l4" className="line lineLeftBottom"></div>
           </div>

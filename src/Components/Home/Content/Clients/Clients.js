@@ -5,16 +5,18 @@ import {
   enableScroll,
   disableScroll,
   incrementCounter,
-  decrementCounter
+  decrementCounter,
 } from "../../../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 import { debounce } from "lodash";
-
+import "../../../../CSS/Clients.scss";
+import { Link } from "react-router-dom";
+import newTab from '../../../../images/icons/new-tab.png'
 class Clients extends Component {
   constructor(props) {
     super(props);
     this.bouncedFunction = debounce(this.onWheel, 500, {
       leading: true,
-      trailing: false
+      trailing: false,
     });
   }
   componentDidMount = () => {
@@ -26,37 +28,37 @@ class Clients extends Component {
       // sectionImg,
       btnText,
       btnBack,
-      viewBtn
+      viewBtn,
     } = this.refs;
     var tl = new TimelineLite({
       onComplete: () => {
         this.props.enableScroll();
         window.addEventListener("wheel", this.bouncedFunction, false);
-      }
+      },
     });
     tl.to(sectionHeading, 1, {
       transform: "translateY(0%)",
-      ease: Power3.easeInOut
+      ease: Power3.easeInOut,
     })
       .to(btnBack, 0.5, {
         transformOrigin: "0% 0%",
         transform: "scaleY(1)",
-        ease: Power3.easeIn
+        ease: Power3.easeIn,
       })
       .to(viewBtn, 0.1, {
-        borderColor: "purple"
+        borderColor: "purple",
       })
       .to(btnText, 0.1, {
-        opacity: 1
+        opacity: 1,
       })
       .to(btnBack, 0.5, {
         transformOrigin: "0% 100%",
         transform: "scaleY(0)",
-        ease: Power3.easeOut
+        ease: Power3.easeOut,
       })
       .set(btnBack, {
         clearProps: "transform, transformOrigin",
-        transition: "transform 300ms ease-in-out"
+        transition: "transform 300ms ease-in-out",
       });
   };
 
@@ -64,7 +66,7 @@ class Clients extends Component {
     window.removeEventListener("wheel", this.bouncedFunction, false);
   }
 
-  onWheel = e => {
+  onWheel = (e) => {
     var {
       sectionHeading,
       // sectionSubHeading,
@@ -73,7 +75,7 @@ class Clients extends Component {
       // sectionImg,
       btnText,
       btnBack,
-      viewBtn
+      viewBtn,
     } = this.refs;
     if (e.wheelDeltaY < 0) {
       if (this.props.isScrollable) {
@@ -85,7 +87,7 @@ class Clients extends Component {
           var tlED = new TimelineLite({
             onComplete: () => {
               this.props.incrementCounter();
-            }
+            },
           });
           tlED
             .set(btnBack, { clearProps: "transition" })
@@ -94,7 +96,7 @@ class Clients extends Component {
               1,
               {
                 transform: "translateY(100%)",
-                ease: Power3.easeInOut
+                ease: Power3.easeInOut,
               },
               1
             )
@@ -104,7 +106,7 @@ class Clients extends Component {
               {
                 transformOrigin: "0% 0%",
                 transform: "scaleY(1)",
-                ease: Power3.easeIn
+                ease: Power3.easeIn,
               },
               1
             )
@@ -112,7 +114,7 @@ class Clients extends Component {
               btnText,
               0.1,
               {
-                opacity: 0
+                opacity: 0,
               },
               1.5
             )
@@ -120,7 +122,7 @@ class Clients extends Component {
               viewBtn,
               0.1,
               {
-                borderColor: "transparent"
+                borderColor: "transparent",
               },
               1.5
             )
@@ -130,7 +132,7 @@ class Clients extends Component {
               {
                 transformOrigin: "0% 100%",
                 transform: "scaleY(0)",
-                ease: Power3.easeOut
+                ease: Power3.easeOut,
               },
               1.5
             );
@@ -152,7 +154,7 @@ class Clients extends Component {
           var tlED = new TimelineLite({
             onComplete: () => {
               this.props.decrementCounter();
-            }
+            },
           });
           tlED
             .set(btnBack, { clearProps: "transition" })
@@ -161,7 +163,7 @@ class Clients extends Component {
               1,
               {
                 transform: "translateY(100%)",
-                ease: Power3.easeInOut
+                ease: Power3.easeInOut,
               },
               // 1
               0
@@ -172,7 +174,7 @@ class Clients extends Component {
               {
                 transformOrigin: "0% 0%",
                 transform: "scaleY(1)",
-                ease: Power3.easeIn
+                ease: Power3.easeIn,
               },
               // 1
               0
@@ -181,7 +183,7 @@ class Clients extends Component {
               btnText,
               0.1,
               {
-                opacity: 0
+                opacity: 0,
               },
               // 1.5
               0.5
@@ -190,7 +192,7 @@ class Clients extends Component {
               viewBtn,
               0.1,
               {
-                borderColor: "transparent"
+                borderColor: "transparent",
               },
               // 1.5
               0.5
@@ -201,7 +203,7 @@ class Clients extends Component {
               {
                 transformOrigin: "0% 100%",
                 transform: "scaleY(0)",
-                ease: Power3.easeOut
+                ease: Power3.easeOut,
               },
               // 1.5
               0.5
@@ -213,11 +215,11 @@ class Clients extends Component {
 
   render() {
     return (
-      <div ref="contentWrapper" className="clientPageContainer">  {/* must apply poition relative in container */}
-        <div ref="viewBtn" className="viewBtn viewBtnClients">
-          <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients">
-            <div ref="btnBack" className="viewBtnBack viewBtnBackClients"></div>
-            <h3 ref="btnText">VIEW</h3>
+      <div ref="contentWrapper" className="clientPageContainer">
+        {/* must apply poition relative in container */}
+        <div className="content-container-projects">
+          <div className="content">
+        {[1,2,3,4,5].map(()=>  <ProjectDetails url="https://www.google.com" heading="HkJOBZ" desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom " />)}
           </div>
         </div>
         <div className="contentHeader contentHeaderClients">
@@ -236,12 +238,23 @@ var actions = {
   enableScroll,
   disableScroll,
   incrementCounter,
-  decrementCounter
+  decrementCounter,
 };
 
-var mapStateToProps = state => ({
+const ProjectDetails = ({ heading, desc,url }) => {
+  return (
+    <div className="project-details">
+      {url?<Link to={{  pathname: url }} target="_blank"><div className="project-heading">{heading}<img src={newTab} alt="Open Link"  /> </div>
+
+      </Link>:<div className="project-heading">{heading} </div>}
+      <div className="project-description"> {desc}</div>
+    </div>
+  );
+};
+
+var mapStateToProps = (state) => ({
   scrollCounter: state.homeComponentInfo.scrollCounter,
-  isScrollable: state.homeComponentInfo.isScrollable
+  isScrollable: state.homeComponentInfo.isScrollable,
 });
 
 export default connect(mapStateToProps, actions)(Clients);

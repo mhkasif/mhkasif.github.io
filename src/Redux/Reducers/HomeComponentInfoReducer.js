@@ -1,7 +1,7 @@
 import { INCREMENT_HOME_COMPONENT_COUNTER, DECREMENT_HOME_COMPONENT_COUNTER, DISABLE_SCROLL, ENABLE_SCROLL, IS_REDIRECTED } from "./../Constants/HomeComponentInfo";
 
 var initialState = {
-  scrollCounter: 3,
+  scrollCounter: 5,
   isScrollable: false,
   isRedirected:false
 };
