@@ -10,7 +10,7 @@ import {
 import { debounce } from "lodash";
 import "../../../../CSS/Clients.scss";
 import { Link } from "react-router-dom";
-import newTab from '../../../../images/icons/new-tab.png'
+import newTab from "../../../../images/icons/new-tab.png";
 class Clients extends Component {
   constructor(props) {
     super(props);
@@ -219,7 +219,55 @@ class Clients extends Component {
         {/* must apply poition relative in container */}
         <div className="content-container-projects">
           <div className="content">
-        {[1,2,3,4,5].map(()=>  <ProjectDetails url="https://www.google.com" heading="HkJOBZ" desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom " />)}
+
+              <ProjectDetails
+                url="https://hk-jobz.web.app/"
+                heading="HkJOBZ"
+                desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
+              />
+
+              <ProjectDetails
+                url="https://calm-mesa-38512.herokuapp.com/"
+                heading="Slectus"
+                desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
+              />
+
+              <ProjectDetails
+                url="https://webicamp.com/"
+                heading="Webicamp"
+                desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
+              />
+
+              <ProjectDetails
+                url="https://speedy-lattice-214216.web.app/"
+                heading="Eventos"
+                desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
+              />
+
+
+              <ProjectDetails
+                url="https://colgame-43259.web.app/"
+                heading="Color-Advino"
+                desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
+              />
+
+
+              <ProjectDetails
+                url="https://quiz-57285.web.app/index.html"
+                heading="JS Quiz"
+                desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
+              />
+              <ProjectDetails
+                url="https://thawing-gorge-31147.herokuapp.com/"
+                heading="Xoom"
+                desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
+              />
+              <ProjectDetails
+                url="https://crwn-live.herokuapp.com/"
+                heading="Clothee"
+                desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
+              />
+
           </div>
         </div>
         <div className="contentHeader contentHeaderClients">
@@ -241,12 +289,19 @@ var actions = {
   decrementCounter,
 };
 
-const ProjectDetails = ({ heading, desc,url }) => {
+const ProjectDetails = ({ heading, desc, url }) => {
   return (
     <div className="project-details">
-      {url?<Link to={{  pathname: url }} target="_blank"><div className="project-heading">{heading}<img src={newTab} alt="Open Link"  /> </div>
-
-      </Link>:<div className="project-heading">{heading} </div>}
+      {url ? (
+        <Link to={{ pathname: url }} target="_blank">
+          <div className="project-heading">
+            {heading}
+            <img src={newTab} alt="Open Link" />
+          </div>
+        </Link>
+      ) : (
+        <div className="project-heading">{heading} </div>
+      )}
       <div className="project-description"> {desc}</div>
     </div>
   );
