@@ -1,59 +1,52 @@
-.circle{
-    // stroke: #a4a4a4;
-
-    transition: all 0.5s ease-in-out;
-    cursor: pointer;
-    &:hover{
-
-    // stroke-width: 3;
-    fill: red;
-
-        // fill: green;
-    }
-}
-.path{
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-}
-
-.diamond{
-    transition: all 0.2s ease-in-out ;
-}
-.outer-diamond{
-    stroke: rgba(#000,0.1);
-}
-.top-outer-diamond{
-    &:hover{
-        cursor: pointer;
-        ~.top-inner-diamond{
-            fill: red;
-            &:hover{
-                fill: red;
+.circle-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(247, 185, 147);
+    padding: 30px 0px;
+    .svg-container{
+        .detail-container{
+            position: absolute;
+            overflow: hidden;
+            left: calc(50% + 20px);
+            top: 20px;
+            .detail{
+                background-color: rgba(#fff,0.2);
+                width: 50%;
+                transform: translateX(-100%);
+                transition: all 2s ease-in;
             }
         }
     }
-}
-.right-outer-diamond{
-    cursor: pointer;
-    &:hover{
-        .right-inner-diamond{
-            stroke: red;
+    svg{
+
+        // transform: scale(0.8);
+        .svg-path{
+            transition: all 3s ease;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            stroke: black;
         }
-    }
-}
-.bottom-outer-diamond{
-    cursor: pointer;
-    &:hover{
-        .bottom-inner-diamond{
-            fill: red;
+        .diamond{
+            stroke:black;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            cursor: pointer;
+            transition: all 1s ease-in-out;
+            fill: transparent;
+
         }
-    }
-}
-.left-outer-diamond{
-    cursor: pointer;
-    &:hover{
-        .left-inner-diamond{
-            fill: red;
+        .top-outer-diamond{
+            transition: all 1s ease-in-out;
+            &:hover{
+                ~.top-inner-diamond{
+                    fill:white
+                }
+            }
+
+        }
+        .inner-path{
+            stroke: rgba(#fff,0.3);
         }
     }
 }
