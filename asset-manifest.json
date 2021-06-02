@@ -1,17 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.a9d3de7b.chunk.css",
-    "main.js": "/static/js/main.f051c69a.chunk.js",
-    "main.js.map": "/static/js/main.f051c69a.chunk.js.map",
+    "main.js": "/static/js/main.fabca34d.chunk.js",
     "runtime-main.js": "/static/js/runtime-main.fe4530bb.js",
-    "runtime-main.js.map": "/static/js/runtime-main.fe4530bb.js.map",
     "static/js/2.50198429.chunk.js": "/static/js/2.50198429.chunk.js",
-    "static/js/2.50198429.chunk.js.map": "/static/js/2.50198429.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.88393e6c1a52ad1ed78837e911e4deea.js": "/precache-manifest.88393e6c1a52ad1ed78837e911e4deea.js",
+    "precache-manifest.41015f21780d9fa997e3fc4998c34dc0.js": "/precache-manifest.41015f21780d9fa997e3fc4998c34dc0.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.a9d3de7b.chunk.css.map": "/static/css/main.a9d3de7b.chunk.css.map",
-    "static/js/2.50198429.chunk.js.LICENSE.txt": "/static/js/2.50198429.chunk.js.LICENSE.txt",
     "static/media/Group1.png": "/static/media/Group1.a5310d2b.png",
     "static/media/Slectus.scss": "/static/media/mcdonalds-bg.3558ef4a.jpg",
     "static/media/new-tab.png": "/static/media/new-tab.d1ce74bb.png",
@@ -21,6 +17,6 @@
     "static/js/runtime-main.fe4530bb.js",
     "static/js/2.50198429.chunk.js",
     "static/css/main.a9d3de7b.chunk.css",
-    "static/js/main.f051c69a.chunk.js"
+    "static/js/main.fabca34d.chunk.js"
   ]
 }
