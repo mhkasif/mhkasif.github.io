@@ -1,52 +1,98 @@
-.circle-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(247, 185, 147);
-    padding: 30px 0px;
-    .svg-container{
-        .detail-container{
-            position: absolute;
-            overflow: hidden;
-            left: calc(50% + 20px);
-            top: 20px;
-            .detail{
-                background-color: rgba(#fff,0.2);
-                width: 50%;
-                transform: translateX(-100%);
-                transition: all 2s ease-in;
-            }
-        }
+.circle-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: brown;
+  padding: 30px 0px;
+  .svg-container {
+    .detail-container {
+      position: absolute;
+      overflow: hidden;
+      left: calc(50% + 25px);
+      top: 20px;
+      .detail {
+        background-color: rgba(#fff, 0.2);
+        width: 50%;
+        transform: translateX(-100%);
+        transition: all 2s cubic-bezier(0, 0, 1, 1);
+      }
     }
-    svg{
-
-        // transform: scale(0.8);
-        .svg-path{
-            transition: all 3s ease;
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            stroke: black;
-        }
-        .diamond{
-            stroke:black;
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            cursor: pointer;
-            transition: all 1s ease-in-out;
-            fill: transparent;
-
-        }
-        .top-outer-diamond{
-            transition: all 1s ease-in-out;
-            &:hover{
-                ~.top-inner-diamond{
-                    fill:white
-                }
-            }
-
-        }
-        .inner-path{
-            stroke: rgba(#fff,0.3);
-        }
+  }
+  svg {
+    // transform: scale(0.8);
+    .svg-path {
+      // transition: all 1s ;
+      stroke-dasharray: 1000;
+      // stroke-dashoffset: 1000;
+      stroke: white;
+      // transition: all 1s cubic-bezier(0,0,1,1);
     }
+    .top-right-path {
+      stroke-dashoffset: -1000;
+    }
+    .bottom-right-path {
+      stroke-dashoffset: -1000;
+    }
+    .bottom-left-path {
+      stroke-dashoffset: 1000;
+    }
+    .top-left-path {
+      stroke-dashoffset: 1000;
+    }
+    .inner-diamond {
+      stroke: rgba(#fff, 0.1);
+    }
+    .diamond {
+      fill: transparent;
+      transition:fill 0.3s cubic-bezier(0, 0, 1, 1),stroke-dashoffset 10s cubic-bezier(0, 0, 1, 1)
+    }
+    .outer-diamond {
+      stroke: white;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      cursor: pointer;
+      fill: transparent;
+    }
+    .top-outer-diamond {
+      // transition: all 1s ease-in-out;
+      &:hover {
+        ~ .top-inner-diamond,
+        ~ .top-inner-diamond:hover {
+          fill: white;
+        }
+      }
+    }
+
+    .right-outer-diamond {
+      // transition: all 1s ease-in-out;
+      &:hover {
+        ~ .right-inner-diamond,
+        ~ .right-inner-diamond:hover {
+          fill: white;
+        }
+      }
+    }
+    .bottom-outer-diamond {
+      // transition: all 1s ease-in-out;
+      &:hover {
+        ~ .bottom-inner-diamond,
+        ~ .bottom-inner-diamond:hover {
+          fill: white;
+        }
+      }
+    }
+    .left-outer-diamond {
+      // transition: all 1s ease-in-out;
+      &:hover {
+        ~ .left-inner-diamond,
+        ~ .left-inner-diamond:hover {
+          fill: white;
+        }
+      }
+    }
+
+    .inner-path {
+      stroke: rgba(#fff, 0.1);
+    }
+  }
 }
