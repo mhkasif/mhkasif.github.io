@@ -406,7 +406,7 @@ class Clients extends Component {
         sectionSubHeading,
         1,
         {
-          u: "100%",
+          y: "100%",
           ease: Power3.easeInOut,
         },
         0

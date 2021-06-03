@@ -1,13 +1,21 @@
 // import WorkPage from "./Components/WorkPage/WorkPage";
 import { AnimatePresence } from "framer-motion";
-import React from "react";
+import { CSSPlugin,EaselPlugin,TextPlugin,CSSRulePlugin } from "gsap/all";
+
+import {gsap} from "gsap";
+import React,{useEffect} from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import "./App.css";
 import Home from "./Components/Home/Home";
 import Hkjobz from "./pages/Hkjobz/Hkjobz";
 import Slectus from "./pages/Slectus/Slectus";
+import Me from "./pages/Me/Me";
+// import {gsap} fro
 
 function App() {
+  useEffect(() => {
+    gsap.registerPlugin( CSSPlugin ,EaselPlugin,TextPlugin,CSSRulePlugin )
+  }, []);
   const location = useLocation();
   return (
     <div>
@@ -16,6 +24,7 @@ function App() {
           <Route key="a" exact path="/" component={Home} />
           <Route key="b" exact path="/hkjobz" component={Hkjobz} />
           <Route key="c" exact path="/slectus" component={Slectus} />
+          <Route key="d" exact path="/me" component={Me} />
         </Switch>
       </AnimatePresence>
       {/* <CircleSvg/> */}

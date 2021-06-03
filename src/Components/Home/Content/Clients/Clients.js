@@ -20,46 +20,19 @@ class Clients extends Component {
     });
   }
   componentDidMount = () => {
-    var {
-      sectionHeading,
-      // sectionSubHeading,
-      // textLine,
-      // sectionPara,
-      // sectionImg,
-      btnText,
-      btnBack,
-      viewBtn,
-    } = this.refs;
     var tl = new TimelineLite({
       onComplete: () => {
         this.props.enableScroll();
         window.addEventListener("wheel", this.bouncedFunction, false);
       },
     });
-    tl.to(sectionHeading, 1, {
+    tl.to(".project-heading", 1, {
       transform: "translateY(0%)",
       ease: Power3.easeInOut,
-    })
-      .to(btnBack, 0.5, {
-        transformOrigin: "0% 0%",
-        transform: "scaleY(1)",
-        ease: Power3.easeIn,
-      })
-      .to(viewBtn, 0.1, {
-        borderColor: "purple",
-      })
-      .to(btnText, 0.1, {
-        opacity: 1,
-      })
-      .to(btnBack, 0.5, {
-        transformOrigin: "0% 100%",
-        transform: "scaleY(0)",
-        ease: Power3.easeOut,
-      })
-      .set(btnBack, {
-        clearProps: "transform, transformOrigin",
-        transition: "transform 300ms ease-in-out",
-      });
+    }).to(".project-description", 1, {
+      transform: "translateY(0%)",
+      ease: Power3.easeInOut,
+    },.3);
   };
 
   componentWillUnmount() {
@@ -67,16 +40,6 @@ class Clients extends Component {
   }
 
   onWheel = (e) => {
-    var {
-      sectionHeading,
-      // sectionSubHeading,
-      // textLine,
-      // sectionPara,
-      // sectionImg,
-      btnText,
-      btnBack,
-      viewBtn,
-    } = this.refs;
     if (e.wheelDeltaY < 0) {
       if (this.props.isScrollable) {
         if (this.props.scrollCounter < 6) {
@@ -84,65 +47,20 @@ class Clients extends Component {
           //disabling scroll
           this.props.disableScroll();
           //exit animation start
-          var tlED = new TimelineLite({
+          const tlED = new TimelineLite({
             onComplete: () => {
               this.props.incrementCounter();
             },
           });
           tlED
-            .set(btnBack, { clearProps: "transition" })
-            .to(
-              sectionHeading,
-              1,
-              {
-                transform: "translateY(100%)",
-                ease: Power3.easeInOut,
-              },
-              1
-            )
-            .to(
-              btnBack,
-              0.5,
-              {
-                transformOrigin: "0% 0%",
-                transform: "scaleY(1)",
-                ease: Power3.easeIn,
-              },
-              1
-            )
-            .to(
-              btnText,
-              0.1,
-              {
-                opacity: 0,
-              },
-              1.5
-            )
-            .to(
-              viewBtn,
-              0.1,
-              {
-                borderColor: "transparent",
-              },
-              1.5
-            )
-            .to(
-              btnBack,
-              0.5,
-              {
-                transformOrigin: "0% 100%",
-                transform: "scaleY(0)",
-                ease: Power3.easeOut,
-              },
-              1.5
-            );
-
-          //exit animation start
-          // var tlEU = new TimelineLite({
-          //   onComplete: () => {
-          //     this.props.incrementCounter();
-          //   }
-          // });
+            .to(".project-heading", 1, {
+              transform: "translateY(-100%)",
+              ease: Power3.easeInOut,
+            })
+            .to(".project-description", 1, {
+              transform: "translateY(100%)",
+              ease: Power3.easeIn,
+            },0);
         }
       }
     } else {
@@ -151,63 +69,20 @@ class Clients extends Component {
           //disabling scroll
           this.props.disableScroll();
           //exit animation start
-          var tlED = new TimelineLite({
+          const tlED = new TimelineLite({
             onComplete: () => {
               this.props.decrementCounter();
             },
           });
           tlED
-            .set(btnBack, { clearProps: "transition" })
-            .to(
-              sectionHeading,
-              1,
-              {
-                transform: "translateY(100%)",
-                ease: Power3.easeInOut,
-              },
-              // 1
-              0
-            )
-            .to(
-              btnBack,
-              0.5,
-              {
-                transformOrigin: "0% 0%",
-                transform: "scaleY(1)",
-                ease: Power3.easeIn,
-              },
-              // 1
-              0
-            )
-            .to(
-              btnText,
-              0.1,
-              {
-                opacity: 0,
-              },
-              // 1.5
-              0.5
-            )
-            .to(
-              viewBtn,
-              0.1,
-              {
-                borderColor: "transparent",
-              },
-              // 1.5
-              0.5
-            )
-            .to(
-              btnBack,
-              0.5,
-              {
-                transformOrigin: "0% 100%",
-                transform: "scaleY(0)",
-                ease: Power3.easeOut,
-              },
-              // 1.5
-              0.5
-            );
+            .to(".project-heading", 1, {
+              transform: "translateY(-100%)",
+              ease: Power3.easeInOut,
+            })
+            .to(".project-description", 1, {
+              transform: "translateY(100%)",
+              ease: Power3.easeInOut,
+            },0);
         }
       }
     }
@@ -219,55 +94,51 @@ class Clients extends Component {
         {/* must apply poition relative in container */}
         <div className="content-container-projects">
           <div className="content">
+            <ProjectDetails
+              url="https://hk-jobz.web.app/"
+              heading="HkJOBZ"
+              desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
+            />
 
-              <ProjectDetails
-                url="https://hk-jobz.web.app/"
-                heading="HkJOBZ"
-                desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
-              />
+            <ProjectDetails
+              url="https://calm-mesa-38512.herokuapp.com/"
+              heading="Slectus"
+              desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
+            />
 
-              <ProjectDetails
-                url="https://calm-mesa-38512.herokuapp.com/"
-                heading="Slectus"
-                desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
-              />
+            <ProjectDetails
+              url="https://webicamp.com/"
+              heading="Webicamp"
+              desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
+            />
 
-              <ProjectDetails
-                url="https://webicamp.com/"
-                heading="Webicamp"
-                desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
-              />
+            <ProjectDetails
+              url="https://speedy-lattice-214216.web.app/"
+              heading="Eventos"
+              desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
+            />
 
-              <ProjectDetails
-                url="https://speedy-lattice-214216.web.app/"
-                heading="Eventos"
-                desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
-              />
+            <ProjectDetails
+              url="https://colgame-43259.web.app/"
+              heading="Guess??"
+              desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
+            />
 
-
-              <ProjectDetails
-                url="https://colgame-43259.web.app/"
-                heading="Guess??"
-                desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
-              />
-
-
-              <ProjectDetails
-                url="https://quiz-57285.web.app/index.html"
-                heading="JS Quiz"
-                desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
-              />
-              <ProjectDetails
-                url="https://thawing-gorge-31147.herokuapp.com/"
-                heading="Xoom"
-                desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
-              />
-              <ProjectDetails
-                url="https://crwn-live.herokuapp.com/"
-                heading="Clothee"
-                desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
-              />
-
+            <ProjectDetails
+              url="https://quiz-57285.web.app/index.html"
+              heading="JS Quiz"
+              desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
+            />
+            <ProjectDetails
+              url="https://thawing-gorge-31147.herokuapp.com/"
+              heading="Xoom"
+              desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
+            />
+            <ProjectDetails
+              url="https://crwn-live.herokuapp.com/"
+              heading="Clothee"
+              desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
+            />
           </div>
         </div>
         <div className="contentHeader contentHeaderClients">
@@ -292,17 +163,17 @@ var actions = {
 const ProjectDetails = ({ heading, desc, url }) => {
   return (
     <div className="project-details">
-      {url ? (
-        <Link to={{ pathname: url }} target="_blank">
+      <Link to={{ pathname: url }} target="_blank">
+        <div style={{ overflow: "hidden" }}>
           <div className="project-heading">
             {heading}
             <img src={newTab} alt="Open Link" />
           </div>
-        </Link>
-      ) : (
-        <div className="project-heading">{heading} </div>
-      )}
-      <div className="project-description"> {desc}</div>
+        </div>
+      </Link>
+      <div style={{ overflow: "hidden" }}>
+        <div className="project-description"> {desc}</div>
+      </div>
     </div>
   );
 };

@@ -20,9 +20,9 @@ const Slectus = ({ redirected }) => {
   const variant = {
     exit: {
       x: "-100%",
-      transistion: {
-        ease: [0.58, 0.28, 0.02, 1.03],
-      },
+      // transistion: {
+      //   ease: [0.58, 0.28, 0.02, 1.03],
+      // },
       delay: 0.6,
       duration: 1,
     },

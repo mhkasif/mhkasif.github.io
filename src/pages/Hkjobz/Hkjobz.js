@@ -18,9 +18,9 @@ const Hkjobz = ({ redirected }) => {
   const variant = {
     exit: {
       x: "-100%",
-      transistion: {
-        ease: [0.58, 0.28, 0.02, 1.03],
-      },
+      // transistion: {
+      //   ease: [0.58, 0.28, 0.02, 1.03],
+      // },
       delay: 0.6,
       duration: 1,
     },
@@ -71,7 +71,7 @@ exit:{
   return (
     <React.Fragment>
     <motion.div
-    exit={{ x: 0,y:0 }}
+    exit={{ x: "0%",y:"0%" }}
     key="img"
     // initial={{ translateX: "686px", translateY: "-1px" }}
     animate={{x:'-140%' }}
@@ -84,6 +84,7 @@ exit:{
     }}
     className="left-side">
       <img
+
         src={mobileImage}
         alt=""
       />
@@ -100,7 +101,7 @@ exit:{
           key="div"
           className="left-side-wrapper"
           initial={{ x: "-100%" }}
-          animate={{ x: 0 }}
+          animate={{ x: "0%" }}
           transition={{
             delay: 0.6,
             ease: [0.49, 0.47, 0.21, 1.04],
