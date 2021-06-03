@@ -74,16 +74,16 @@
 }
 
 .viewBtnInnerWrapper:hover > .viewBtnBack {
-    transform-origin: top !important;
+    transform-origin: 0% 0% !important ;
 
     transform: scaleY(1);
 }
 .viewBtnBack{
-    transform-origin: top !important;
+    /* transform-origin: top !important; */
 
 }
 .viewBtnInnerWrapper:not( :hover) > .viewBtnBack {
-    transform-origin: bottom !important;
+    transform-origin: 0% 100% ;
     transform: scaleY(0);
 }
 

@@ -78,7 +78,7 @@ class Clients extends Component {
         )
 
         .to(btnBack, 0.5, {
-          transformOrigin: "0% 0%",
+          transformOrigin: "top !important",
           transform: "scaleY(1)",
           ease: Power3.easeIn,
         })
@@ -89,12 +89,13 @@ class Clients extends Component {
           opacity: 1,
         })
         .to(btnBack, 0.5, {
-          transformOrigin: "0% 100%",
+          transformOrigin: "bottom !important",
           transform: "scaleY(0)",
           ease: Power3.easeOut,
         })
         .set(btnBack, {
           clearProps: "transform, transformOrigin",
+          transformOrigin:"",
           transition: "transform 300ms ease-in-out",
         });
     } else {
@@ -134,6 +135,11 @@ class Clients extends Component {
           // ease: Power3.easeOut,
           ease: [0.35, -0.01, 0.32, 1.275],
         })
+        // .to(btnBack, 0.5, {
+        //   transformOrigin: "0% 0%",
+        //   transform: "scaleY(1)",
+        //   ease: Power3.easeIn,
+        // })
         .to(btnBack, 0.5, {
           transformOrigin: "0% 0%",
           transform: "scaleY(1)",
@@ -145,6 +151,11 @@ class Clients extends Component {
         .to(btnText, 0.1, {
           opacity: 1,
         })
+        // .to(btnBack, 0.5, {
+        //   transformOrigin: "0% 100%",
+        //   transform: "scaleY(0)",
+        //   ease: Power3.easeOut,
+        // })
         .to(btnBack, 0.5, {
           transformOrigin: "0% 100%",
           transform: "scaleY(0)",
@@ -153,6 +164,7 @@ class Clients extends Component {
         .set(btnBack, {
           clearProps: "transform, transformOrigin",
           transition: "transform 300ms ease-in-out",
+
         });
     }
   };
