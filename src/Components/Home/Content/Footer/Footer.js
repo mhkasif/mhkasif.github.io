@@ -149,13 +149,13 @@ class Footer extends Component {
         <div ref="viewBtn" className="viewBtn viewBtnClients">
           <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients">
             <div ref="btnBack" className="viewBtnBack viewBtnBackClients"></div>
-            <h3 ref="btnText">VIEW</h3>
+            <h3 ref="btnText">Download Resume</h3>
           </div>
         </div>
         <div className="contentHeader contentHeaderClients">
           <div className="overflowWrapper">
             <h3 ref="sectionHeading" className="hideDown">
-              FOOTER
+              Contact
             </h3>
           </div>
         </div>

@@ -20,16 +20,23 @@ class Clients extends Component {
     });
   }
   componentDidMount = () => {
+    const {sectionHeading}=this.refs
     var tl = new TimelineLite({
       onComplete: () => {
         this.props.enableScroll();
         window.addEventListener("wheel", this.bouncedFunction, false);
       },
     });
-    tl.to(".project-heading", 1, {
+    tl
+    .to(sectionHeading, 1, {
       transform: "translateY(0%)",
       ease: Power3.easeInOut,
-    }).to(".project-description", 1, {
+    },.3)
+    .to(".project-heading", 1, {
+      transform: "translateY(0%)",
+      ease: Power3.easeInOut,
+    },.3)
+    .to(".project-description", 1, {
       transform: "translateY(0%)",
       ease: Power3.easeInOut,
     },.3);
@@ -40,6 +47,7 @@ class Clients extends Component {
   }
 
   onWheel = (e) => {
+    const {sectionHeading}=this.refs
     if (e.wheelDeltaY < 0) {
       if (this.props.isScrollable) {
         if (this.props.scrollCounter < 6) {
@@ -53,10 +61,15 @@ class Clients extends Component {
             },
           });
           tlED
+
+    .to(sectionHeading, 1, {
+      transform: "translateY(100%)",
+      ease: Power3.easeInOut,
+    })
             .to(".project-heading", 1, {
               transform: "translateY(-100%)",
               ease: Power3.easeInOut,
-            })
+            },0)
             .to(".project-description", 1, {
               transform: "translateY(100%)",
               ease: Power3.easeIn,
@@ -75,10 +88,14 @@ class Clients extends Component {
             },
           });
           tlED
+          .to(sectionHeading, 1, {
+            transform: "translateY(100%)",
+            ease: Power3.easeInOut,
+          })
             .to(".project-heading", 1, {
               transform: "translateY(-100%)",
               ease: Power3.easeInOut,
-            })
+            },0)
             .to(".project-description", 1, {
               transform: "translateY(100%)",
               ease: Power3.easeInOut,
