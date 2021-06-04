@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { TimelineLite, Power3 } from "gsap";
+import { set } from "lodash";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./CircleSvg.scss";
 const CircleSvg = () => {
+  const [active, setActive] = useState("");
   const topOuterDiamond = useRef();
   const topInnerDiamond = useRef();
   const leftOuterDiamond = useRef();
@@ -13,11 +15,16 @@ const CircleSvg = () => {
   const bottomOuterDiamond = useRef();
   const bottomInnerDiamond = useRef();
 
+  const topHeading = useRef();
+  const rightHeading = useRef();
+  const bottomHeading = useRef();
+  const leftHeading = useRef();
+
   const topRightPath = useRef();
   const topLeftPath = useRef();
   const bottomLeftPath = useRef();
   const bottomRightPath = useRef();
-  const detailRef = useRef();
+  // const  = useRef();
   useEffect(() => {
     const tl = new TimelineLite({
       delay: 0.5,
@@ -57,47 +64,19 @@ const CircleSvg = () => {
           strokeDashoffset: 0,
         },
         0
-      );
-    // tl.to(topRightPath.current, 1, {
-    //   //strokeDasharray:0,
-    //   strokeDashoffset: 0,
-
-    //   ease: Power3.easeInOut,
-    // },0)
-    //   .to(bottomRightPath.current, 1, {
-    //     //strokeDasharray:0,
-    //     strokeDashoffset: 0,
-
-    //     ease: Power3.easeInOut,
-    //   },0)
-    //   .to(bottomLeftPath.current, 1, {
-    //     //strokeDasharray:0,
-    //     strokeDashoffset: 0,
-
-    //     ease: Power3.easeInOut,
-    //   },0)
-    //   .to(topLeftPath.current, 1, {
-    //     //strokeDasharray:0,
-    //     strokeDashoffset: 0,
-
-    //     ease: Power3.easeInOut,
-    //   },0);
+      )
+      .to(".detail", 1, {
+        delay: 0.2,
+        x: 0,
+      })
+      .set(".detail", {
+        transition: "all .5s ease-in-out",
+      });
   }, []);
 
-  const showData = () => {
-    const tl = new TimelineLite();
-    tl.to(detailRef.current, {
-      transform: "translateX(0%)",
-    }).to(
-      topInnerDiamond.current,
-      {
-        fill: "white",
-      },
-      0
-    );
-  };
-
   const tdClick = () => {
+    setActive(".top-detail");
+
     const tl = new TimelineLite();
     if (
       topInnerDiamond.current.style.fill.includes("transparent") ||
@@ -106,7 +85,7 @@ const CircleSvg = () => {
       tl.set(".inner-diamond", {
         fill: "transparent",
       });
-
+    hideText(topHeading);
     if (topRightPath.current.style.strokeDashoffset !== "0px") {
       tl.to(
         topRightPath.current,
@@ -177,6 +156,8 @@ const CircleSvg = () => {
     }
   };
   const rdClick = () => {
+    setActive(".right-detail");
+
     const tl = new TimelineLite();
     if (
       rightInnerDiamond.current.style.fill.includes("transparent") ||
@@ -185,6 +166,8 @@ const CircleSvg = () => {
       tl.set(".inner-diamond", {
         fill: "transparent",
       });
+    hideText(rightHeading);
+
     if (topRightPath.current.style.strokeDashoffset !== "0px") {
       tl.to(
         topRightPath.current,
@@ -244,6 +227,8 @@ const CircleSvg = () => {
     }
   };
   const bdClick = () => {
+    setActive(".bottom-detail");
+
     const tl = new TimelineLite();
     if (
       bottomInnerDiamond.current.style.fill.includes("transparent") ||
@@ -252,6 +237,8 @@ const CircleSvg = () => {
       tl.set(".inner-diamond", {
         fill: "transparent",
       });
+    hideText(bottomHeading);
+
     if (topRightPath.current.style.strokeDashoffset !== "0px") {
       tl.to(
         topRightPath.current,
@@ -309,6 +296,8 @@ const CircleSvg = () => {
     }
   };
   const ldClick = () => {
+    setActive(".left-detail");
+
     const tl = new TimelineLite();
     if (
       leftInnerDiamond.current.style.fill.includes("transparent") ||
@@ -317,6 +306,8 @@ const CircleSvg = () => {
       tl.set(".inner-diamond", {
         fill: "transparent",
       });
+    hideText(leftHeading);
+
     if (topRightPath.current.style.strokeDashoffset !== "0px") {
       tl.to(
         topRightPath.current,
@@ -375,17 +366,186 @@ const CircleSvg = () => {
       return;
     }
   };
+  const hideText = (ref) => {
+    const tl = new TimelineLite();
+    tl.to(
+      ".translate-negative",
+      0.1,
+      {
+        x: "-110%",
+        ease: Power3.easeOut,
+      },
+      0
+    )
+      .to(
+        ".translate-positive",
+        0.1,
+        {
+          x: "110%",
+          ease: Power3.easeOut,
+        },
+        0
+      )
+      .set(ref.current, {
+        x: 0,
+      });
+  };
+  const onHover = (ref) => {
+    const tl = new TimelineLite();
+    console.log(ref);
+    tl.to(
+      ".translate-negative",
+      0.1,
+      {
+        x: "-110%",
+        ease: Power3.easeOut,
+      },
+      0
+    )
+      .to(
+        ".translate-positive",
+        0.1,
+        {
+          x: "110%",
+          ease: Power3.easeOut,
+        },
+        0
+      )
+      .set(ref.current, {
+        x: 0,
+      });
+  };
+  const onNotHover = (ref) => {
+    const tl = new TimelineLite();
+    tl.to(
+      ".detail",
+      0.1,
+      {
+        x: 0,
+        ease: Power3.easeOut,
+      },
+      0
+    );
+  };
+  const singleHover = (ref) => {
+    const tl = new TimelineLite();
+    tl.to(
+      ref.current,
+      0.02,
+      {
+        x: 0,
+        ease: Power3.easeOut,
+      },
+      0
+    );
+  };
+  const singleNotHover = (ref, dir, classname) => {
+    const tl = new TimelineLite();
+    tl.to(
+      ref.current,
+      0.02,
+      {
+        x: dir === "negative" ? "-110%" : "110%",
+        ease: Power3.easeOut,
+      },
+      0
+    );
+    console.log(classname, active);
+    if (classname === active)
+      tl.set(classname, {
+        x: 0,
+      });
+  };
   return (
     <div className="circle-div">
       <div className="svg-container">
-        <div className="overflow-wrapper detail-container">
-          <div ref={detailRef} className="detail">
-            <h2>Web Developer</h2>
-            <div>
-              im a web developer and blah blach asdasjkdhsa sajdhsajdas jhasdj.
-            </div>
+        <div
+          onMouseLeave={
+            !active
+              ? onNotHover
+              : () => singleNotHover(topHeading, "negative", ".top-detail")
+          }
+          onMouseOver={
+            !active ? () => onHover(topHeading) : () => singleHover(topHeading)
+          }
+          className="overflow-wrapper detail-container top-detail-container"
+          onClick={tdClick}
+        >
+          <div
+            ref={topHeading}
+            className="detail translate-negative top-detail"
+          >
+            <h1>Web Developer</h1>
           </div>
         </div>
+
+        <div
+          onMouseLeave={
+            !active
+              ? onNotHover
+              : () => singleNotHover(rightHeading, "negative", ".right-detail")
+          }
+          onMouseOver={
+            !active
+              ? () => onHover(rightHeading)
+              : () => singleHover(rightHeading)
+          }
+          onClick={rdClick}
+          className="overflow-wrapper detail-container right-detail-container"
+        >
+          <div
+            ref={rightHeading}
+            className="detail translate-negative right-detail"
+          >
+            <h1>Web Designer</h1>
+          </div>
+        </div>
+
+        <div
+          onMouseLeave={
+            !active
+              ? onNotHover
+              : () =>
+                  singleNotHover(bottomHeading, "negative", ".bottom-detail")
+          }
+          onMouseOver={
+            !active
+              ? () => onHover(bottomHeading)
+              : () => singleHover(bottomHeading)
+          }
+          onClick={bdClick}
+          className="overflow-wrapper detail-container bottom-detail-container"
+        >
+          <div
+            ref={bottomHeading}
+            className="detail translate-negative bottom-detail"
+          >
+            <h1>Mobile App Developer</h1>
+          </div>
+        </div>
+
+        <div
+          onMouseLeave={
+            !active
+              ? onNotHover
+              : () => singleNotHover(leftHeading, "positive", ".left-detail")
+          }
+          onMouseOver={
+            !active
+              ? () => onHover(leftHeading)
+              : () => singleHover(leftHeading)
+          }
+          onClick={ldClick}
+          className="overflow-wrapper detail-container  left-detail-container"
+        >
+          <div
+            ref={leftHeading}
+            className="detail translate-positive left-detail"
+          >
+            <h1>Photographer</h1>
+          </div>
+        </div>
+
         <svg
           width="621"
           height="621"
@@ -496,6 +656,16 @@ const CircleSvg = () => {
             height="18.6434"
             transform="rotate(-45 296.707 14.2968)"
             onClick={tdClick}
+            onMouseLeave={
+              !active
+                ? onNotHover
+                : () => singleNotHover(topHeading, "negative", ".top-detail")
+            }
+            onMouseOver={
+              !active
+                ? () => onHover(topHeading)
+                : () => singleHover(topHeading)
+            }
           />
           <rect
             ref={topInnerDiamond}
@@ -506,6 +676,16 @@ const CircleSvg = () => {
             height="7.92884"
             transform="rotate(-45 304.307 14.2968)"
             onClick={tdClick}
+            onMouseLeave={
+              !active
+                ? onNotHover
+                : () => singleNotHover(topHeading, "negative", ".top-detail")
+            }
+            onMouseOver={
+              !active
+                ? () => onHover(topHeading)
+                : () => singleHover(topHeading)
+            }
           />
           <rect
             ref={bottomOuterDiamond}
@@ -516,6 +696,17 @@ const CircleSvg = () => {
             width="18.8"
             height="18.6434"
             transform="rotate(-45 296.707 606.297)"
+            onMouseLeave={
+              !active
+                ? onNotHover
+                : () =>
+                    singleNotHover(bottomHeading, "negative", ".bottom-detail")
+            }
+            onMouseOver={
+              !active
+                ? () => onHover(bottomHeading)
+                : () => singleHover(bottomHeading)
+            }
           />
           <rect
             ref={bottomInnerDiamond}
@@ -526,6 +717,17 @@ const CircleSvg = () => {
             width="8"
             height="7.92884"
             transform="rotate(-45 304.307 606.27)"
+            onMouseLeave={
+              !active
+                ? onNotHover
+                : () =>
+                    singleNotHover(bottomHeading, "negative", ".bottom-detail")
+            }
+            onMouseOver={
+              !active
+                ? () => onHover(bottomHeading)
+                : () => singleHover(bottomHeading)
+            }
           />
           <rect
             ref={leftOuterDiamond}
@@ -536,6 +738,16 @@ const CircleSvg = () => {
             width="18.8"
             height="18.6434"
             transform="rotate(-45 0.839919 310.297)"
+            onMouseLeave={
+              !active
+                ? onNotHover
+                : () => singleNotHover(leftHeading, "positive", ".left-detail")
+            }
+            onMouseOver={
+              !active
+                ? () => onHover(leftHeading)
+                : () => singleHover(leftHeading)
+            }
           />
           <rect
             ref={leftInnerDiamond}
@@ -546,6 +758,16 @@ const CircleSvg = () => {
             width="8"
             height="7.92884"
             transform="rotate(-45 8.4471 310.27)"
+            onMouseLeave={
+              !active
+                ? onNotHover
+                : () => singleNotHover(leftHeading, "positive", ".left-detail")
+            }
+            onMouseOver={
+              !active
+                ? () => onHover(leftHeading)
+                : () => singleHover(leftHeading)
+            }
           />
           <rect
             onClick={rdClick}
@@ -556,6 +778,17 @@ const CircleSvg = () => {
             width="18.8"
             height="18.6434"
             transform="rotate(-45 592.84 310.297)"
+            onMouseLeave={
+              !active
+                ? onNotHover
+                : () =>
+                    singleNotHover(rightHeading, "negative", ".right-detail")
+            }
+            onMouseOver={
+              !active
+                ? () => onHover(rightHeading)
+                : () => singleHover(rightHeading)
+            }
           />
           <rect
             onClick={rdClick}
@@ -566,6 +799,17 @@ const CircleSvg = () => {
             width="8"
             height="7.92884"
             transform="rotate(-45 600.447 310.27)"
+            onMouseLeave={
+              !active
+                ? onNotHover
+                : () =>
+                    singleNotHover(rightHeading, "negative", ".right-detail")
+            }
+            onMouseOver={
+              !active
+                ? () => onHover(rightHeading)
+                : () => singleHover(rightHeading)
+            }
           />
         </svg>
       </div>
