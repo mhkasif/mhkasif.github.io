@@ -22,35 +22,38 @@
     // transform: scale(0.8);
     .svg-path {
       // transition: all 1s ;
-      stroke-dasharray: 1000;
-      // stroke-dashoffset: 1000;
+      stroke-dasharray: 400;
+      // stroke-dashoffset: 500;
       stroke: white;
-      // transition: all 1s cubic-bezier(0,0,1,1);
+      transition: all 0s cubic-bezier(0, 0, 1, 1);
     }
     .top-right-path {
-      stroke-dashoffset: -1000;
+      stroke-dashoffset: -400px;
     }
     .bottom-right-path {
-      stroke-dashoffset: -1000;
+      stroke-dashoffset: -400;
     }
     .bottom-left-path {
-      stroke-dashoffset: 1000;
+      stroke-dashoffset: 400;
     }
     .top-left-path {
-      stroke-dashoffset: 1000;
+      stroke-dashoffset: 400;
     }
     .inner-diamond {
       stroke: rgba(#fff, 0.1);
     }
     .diamond {
       fill: transparent;
-      transition:fill 0.3s cubic-bezier(0, 0, 1, 1),stroke-dashoffset 10s cubic-bezier(0, 0, 1, 1)
+      transition: fill 0.3s cubic-bezier(0, 0, 1, 1),
+        stroke-dashoffset 10s cubic-bezier(0, 0, 1, 1);
+        cursor: pointer;
+
     }
     .outer-diamond {
       stroke: white;
       stroke-dasharray: 1000;
       stroke-dashoffset: 1000;
-      cursor: pointer;
+
       fill: transparent;
     }
     .top-outer-diamond {
@@ -58,7 +61,7 @@
       &:hover {
         ~ .top-inner-diamond,
         ~ .top-inner-diamond:hover {
-          fill: white;
+          fill: white !important;
         }
       }
     }
@@ -68,7 +71,7 @@
       &:hover {
         ~ .right-inner-diamond,
         ~ .right-inner-diamond:hover {
-          fill: white;
+          fill: white !important;
         }
       }
     }
@@ -77,7 +80,7 @@
       &:hover {
         ~ .bottom-inner-diamond,
         ~ .bottom-inner-diamond:hover {
-          fill: white;
+          fill: white !important;
         }
       }
     }
@@ -86,7 +89,7 @@
       &:hover {
         ~ .left-inner-diamond,
         ~ .left-inner-diamond:hover {
-          fill: white;
+          fill: white !important;
         }
       }
     }

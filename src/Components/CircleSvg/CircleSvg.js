@@ -20,7 +20,7 @@ const CircleSvg = () => {
   const detailRef = useRef();
   useEffect(() => {
     const tl = new TimelineLite({
-      delay:.5
+      delay: 0.5,
     });
     tl.to(
       topOuterDiamond.current,
@@ -99,30 +99,282 @@ const CircleSvg = () => {
 
   const tdClick = () => {
     const tl = new TimelineLite();
+    if (
+      topInnerDiamond.current.style.fill.includes("transparent") ||
+      !topInnerDiamond.current.style.fill
+    )
+      tl.set(".inner-diamond", {
+        fill: "transparent",
+      });
 
-    tl.set(topInnerDiamond.current, {
-      fill: "#fff",
-    })
-      .to(topRightPath.current, 1, {
+    if (topRightPath.current.style.strokeDashoffset !== "0px") {
+      tl.to(
+        topRightPath.current,
+        0.3,
+        {
+          strokeDashoffset: 0,
+          // ease: Power3.easeIn,
+        },
+        0
+      )
+        .to(bottomRightPath.current, 0.3, {
+          strokeDashoffset: 0,
+          // ease: Power3.easeIn,
+        })
+        .to(bottomLeftPath.current, 0.3, {
+          strokeDashoffset: 0,
+          // ease: Power3.easeOut,
+        })
+        .to(topLeftPath.current, 0.3, {
+          strokeDashoffset: 0,
+          // ease: Power3.easeOut,
+        })
+        .set(topInnerDiamond.current, {
+          fill: "#fff",
+        });
+      return;
+    }
+    if (bottomRightPath.current.style.strokeDashoffset !== "0px") {
+      tl.to(bottomRightPath.current, 0.3, {
         strokeDashoffset: 0,
-        ease: Power3.easeIn,
+        // ease: Power3.easeIn,
       })
-      .to(bottomRightPath.current, 1, {
+        .to(bottomLeftPath.current, 0.3, {
+          strokeDashoffset: 0,
+          // ease: Power3.easeOut,
+        })
+        .to(topLeftPath.current, 0.3, {
+          strokeDashoffset: 0,
+          // ease: Power3.easeOut,
+        })
+        .set(topInnerDiamond.current, {
+          fill: "#fff",
+        });
+      return;
+    }
+    if (bottomLeftPath.current.style.strokeDashoffset !== "0px") {
+      tl.to(bottomLeftPath.current, 0.3, {
         strokeDashoffset: 0,
-        ease: Power3.easeIn,
-      },1)
-      .to(bottomLeftPath.current, 1, {
+        // ease: Power3.easeOut,
+      })
+        .to(topLeftPath.current, 0.3, {
+          strokeDashoffset: 0,
+          // ease: Power3.easeOut,
+        })
+        .set(topInnerDiamond.current, {
+          fill: "#fff",
+        });
+      return;
+    }
+    if (topLeftPath.current.style.strokeDashoffset !== "0px") {
+      tl.to(topLeftPath.current, 0.3, {
         strokeDashoffset: 0,
-        ease: Power3.easeOut,
-      },2)
-      .to(topLeftPath.current, 1, {
-        strokeDashoffset: 0,
-        ease: Power3.easeOut,
-      },3);
+        // ease: Power3.easeOut,
+      }).set(topInnerDiamond.current, {
+        fill: "#fff",
+      });
+      return;
+    }
   };
-  const rdClick = () => {};
-  const bdClick = () => {};
-  const ldClick = () => {};
+  const rdClick = () => {
+    const tl = new TimelineLite();
+    if (
+      rightInnerDiamond.current.style.fill.includes("transparent") ||
+      !rightInnerDiamond.current.style.fill
+    )
+      tl.set(".inner-diamond", {
+        fill: "transparent",
+      });
+    if (topRightPath.current.style.strokeDashoffset !== "0px") {
+      tl.to(
+        topRightPath.current,
+        0.3,
+        {
+          strokeDashoffset: 0,
+          // ease: Power3.easeIn,
+        },
+        0
+      ).set(rightInnerDiamond.current, {
+        fill: "#fff",
+      });
+      return;
+    }
+    if (topLeftPath.current.style.strokeDashoffset === "0px") {
+      tl.to(topLeftPath.current, 0.3, {
+        strokeDashoffset: 400,
+        // ease: Power3.easeOut,
+      })
+        .to(bottomLeftPath.current, 0.3, {
+          strokeDashoffset: 400,
+          // ease: Power3.easeOut,
+        })
+        .to(bottomRightPath.current, 0.3, {
+          strokeDashoffset: -400,
+          // ease: Power3.easeIn,
+        })
+        .set(rightInnerDiamond.current, {
+          fill: "#fff",
+        });
+
+      return;
+    }
+    if (bottomLeftPath.current.style.strokeDashoffset === "0px") {
+      tl.to(bottomLeftPath.current, 0.3, {
+        strokeDashoffset: 400,
+        // ease: Power3.easeOut,
+      })
+        .to(bottomRightPath.current, 0.3, {
+          strokeDashoffset: -400,
+          // ease: Power3.easeOut,
+        })
+        .set(rightInnerDiamond.current, {
+          fill: "#fff",
+        });
+      return;
+    }
+    if (bottomRightPath.current.style.strokeDashoffset === "0px") {
+      tl.to(bottomRightPath.current, 0.3, {
+        strokeDashoffset: -400,
+        // ease: Power3.easeIn,
+      }).set(rightInnerDiamond.current, {
+        fill: "#fff",
+      });
+
+      return;
+    }
+  };
+  const bdClick = () => {
+    const tl = new TimelineLite();
+    if (
+      bottomInnerDiamond.current.style.fill.includes("transparent") ||
+      !bottomInnerDiamond.current.style.fill
+    )
+      tl.set(".inner-diamond", {
+        fill: "transparent",
+      });
+    if (topRightPath.current.style.strokeDashoffset !== "0px") {
+      tl.to(
+        topRightPath.current,
+        0.3,
+        {
+          strokeDashoffset: 0,
+          // ease: Power3.easeIn,
+        },
+        0
+      )
+        .to(bottomRightPath.current, 0.3, {
+          strokeDashoffset: 0,
+          // ease: Power3.easeIn,
+        })
+        .set(bottomInnerDiamond.current, {
+          fill: "#fff",
+        });
+
+      return;
+    }
+    if (bottomRightPath.current.style.strokeDashoffset !== "0px") {
+      tl.to(bottomRightPath.current, 0.3, {
+        strokeDashoffset: 0,
+        // ease: Power3.easeIn,
+      }).set(bottomInnerDiamond.current, {
+        fill: "#fff",
+      });
+
+      return;
+    }
+
+    if (topLeftPath.current.style.strokeDashoffset === "0px") {
+      tl.to(topLeftPath.current, 0.3, {
+        strokeDashoffset: 400,
+        // ease: Power3.easeOut,
+      })
+        .to(bottomLeftPath.current, 0.3, {
+          strokeDashoffset: 400,
+          // ease: Power3.easeOut,
+        })
+        .set(bottomInnerDiamond.current, {
+          fill: "#fff",
+        });
+
+      return;
+    }
+    if (bottomLeftPath.current.style.strokeDashoffset === "0px") {
+      tl.to(bottomLeftPath.current, 0.3, {
+        strokeDashoffset: 400,
+        // ease: Power3.easeOut,
+      }).set(bottomInnerDiamond.current, {
+        fill: "#fff",
+      });
+      return;
+    }
+  };
+  const ldClick = () => {
+    const tl = new TimelineLite();
+    if (
+      leftInnerDiamond.current.style.fill.includes("transparent") ||
+      !leftInnerDiamond.current.style.fill
+    )
+      tl.set(".inner-diamond", {
+        fill: "transparent",
+      });
+    if (topRightPath.current.style.strokeDashoffset !== "0px") {
+      tl.to(
+        topRightPath.current,
+        0.3,
+        {
+          strokeDashoffset: 0,
+          // ease: Power3.easeIn,
+        },
+        0
+      )
+        .to(bottomRightPath.current, 0.3, {
+          strokeDashoffset: 0,
+          // ease: Power3.easeIn,
+        })
+        .to(bottomLeftPath.current, 0.3, {
+          strokeDashoffset: 0,
+          // ease: Power3.easeIn,
+        })
+        .set(leftInnerDiamond.current, {
+          fill: "#fff",
+        });
+      return;
+    }
+    if (topLeftPath.current.style.strokeDashoffset === "0px") {
+      tl.to(topLeftPath.current, 0.3, {
+        strokeDashoffset: 400,
+        // ease: Power3.easeOut,
+      }).set(leftInnerDiamond.current, {
+        fill: "#fff",
+      });
+      return;
+    }
+    if (bottomRightPath.current.style.strokeDashoffset !== "0px") {
+      tl.to(bottomRightPath.current, 0.3, {
+        strokeDashoffset: 0,
+        // ease: Power3.easeOut,
+      })
+        .to(bottomLeftPath.current, 0.3, {
+          strokeDashoffset: 0,
+          // ease: Power3.easeOut,
+        })
+        .set(leftInnerDiamond.current, {
+          fill: "#fff",
+        });
+
+      return;
+    }
+    if (bottomRightPath.current.style.strokeDashoffset === "0px") {
+      tl.to(bottomLeftPath.current, 0.3, {
+        strokeDashoffset: 0,
+        // ease: Power3.easeOut,
+      }).set(leftInnerDiamond.current, {
+        fill: "#fff",
+      });
+
+      return;
+    }
+  };
   return (
     <div className="circle-div">
       <div className="svg-container">
@@ -257,6 +509,7 @@ const CircleSvg = () => {
           />
           <rect
             ref={bottomOuterDiamond}
+            onClick={bdClick}
             className="bottom-outer-diamond outer-diamond diamond"
             x="296.707"
             y="606.297"
@@ -266,6 +519,7 @@ const CircleSvg = () => {
           />
           <rect
             ref={bottomInnerDiamond}
+            onClick={bdClick}
             className="bottom-inner-diamond inner-diamond diamond"
             x="304.307"
             y="606.27"
@@ -275,6 +529,7 @@ const CircleSvg = () => {
           />
           <rect
             ref={leftOuterDiamond}
+            onClick={ldClick}
             className="left-outer-diamond outer-diamond diamond"
             x="0.839919"
             y="310.297"
@@ -284,6 +539,7 @@ const CircleSvg = () => {
           />
           <rect
             ref={leftInnerDiamond}
+            onClick={ldClick}
             className="left-inner-diamond inner-diamond diamond"
             x="8.4471"
             y="310.27"
@@ -292,6 +548,7 @@ const CircleSvg = () => {
             transform="rotate(-45 8.4471 310.27)"
           />
           <rect
+            onClick={rdClick}
             ref={rightOuterDiamond}
             className="right-outer-diamond outer-diamond diamond"
             x="592.84"
@@ -301,6 +558,7 @@ const CircleSvg = () => {
             transform="rotate(-45 592.84 310.297)"
           />
           <rect
+            onClick={rdClick}
             ref={rightInnerDiamond}
             className="right-inner-diamond inner-diamond diamond"
             x="600.447"
