@@ -76,7 +76,7 @@ const CircleSvg = () => {
         y: 0,
       })
       .set(".detail", {
-        transition: "all .5s ease-in-out",
+        transition: "all .3s ease-in-out",
       });
   }, []);
   useEffect(() => {

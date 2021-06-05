@@ -35,16 +35,26 @@
 
   }
   .page-number{
+
     font-size: 20px;
     cursor: pointer;
+    opacity: 0;
+}
+  .page-number-up{
+transform: translateY(-100%);
+}
+  .page-number-down{
+    transform: translateY(100%);
+
 }
 .overflow-wrapper{
     overflow: hidden;
 }
 .divider{
-    width: 80%;
+    width: 0%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.7);
     transform: rotate(135deg);
+
 }
 .lineWrapper {
   position: absolute;
