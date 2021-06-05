@@ -235,7 +235,7 @@ class Clients extends Component {
               sectionImg,
               0.5,
               {
-                transform: "translateX(450px)",
+                x: "100%",
                 ease: Power3.easeOut,
                 duration:2
               },
@@ -355,7 +355,7 @@ class Clients extends Component {
               sectionImg,
               0.5,
               {
-                transform: "translateX(280px)",
+                x: "100%",
                 ease: Power3.easeOut,
                 // duration:2
               },
@@ -518,7 +518,7 @@ class Clients extends Component {
         <div className="righty overflow-visible">
           <div id="overfloWrapper" className="overfloWrapper overflow-visible">
             <motion.img
-              initial={{ translateX: this.props.isRedirected ? "50px" : "-130%" }}
+              initial={{ translateX: this.props.isRedirected ? "50px" : "inherit" }}
               // exit={{}}
               // animate={{x:0}}
               transition={{

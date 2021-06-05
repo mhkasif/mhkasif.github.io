@@ -9,6 +9,8 @@ import {
 } from "../../../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 import { debounce } from "lodash";
 import CircleSvg from "../../../CircleSvg/CircleSvg";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 class Team extends Component {
   constructor(props) {
@@ -211,18 +213,95 @@ class Team extends Component {
       }
     }
   };
+  pageTransistion = () => {
+    var {
+      sectionHeading,
+      sectionSubHeading,
+      textLine,
+      sectionPara,
+      sectionImg,
+      btnText,
+      btnBack,
+      viewBtn,
+    } = this.refs;
+    var tlED = new TimelineLite({
+      onComplete: () => {
+        // this.props.decrementCounter();
+      },
+    });
+    tlED
+      .set(btnBack, { clearProps: "transition" })
+      .to(
+        sectionHeading,
+        1,
+        {
+          y: "100%",
+          ease: Power3.easeInOut,
+        },
+        0
+      )
+      .to('.svg-container',.4,{
+        opacity:0
+      },0)
 
+      .to(
+        btnBack,
+        0.5,
+        {
+          transformOrigin: "0% 0%",
+          transform: "scaleY(1)",
+          ease: Power3.easeIn,
+        },
+        // 1
+        0
+      )
+      .to(
+        btnText,
+        0.1,
+        {
+          opacity: 0,
+        },
+        // 1.5
+        0.5
+      )
+      .to(
+        viewBtn,
+        0.1,
+        {
+          borderColor: "transparent",
+        },
+        // 1.5
+        0.5
+      )
+      .to(
+        btnBack,
+        0.5,
+        {
+          transformOrigin: "0% 100%",
+          transform: "scaleY(0)",
+          ease: Power3.easeOut,
+        },
+        // 1.5
+        0.5
+      );
+  };
   render() {
     return (
-      <div ref="contentWrapper" className="teamContainer">
+      <motion.div
+      key="modal"
+      exit={{ opacity: 1 }}
+      transition={{ delay: 0.8 }}
+       ref="contentWrapper" className="teamContainer">
 
         {/* must apply poition relative in container */}
         <CircleSvg />
         <div ref="viewBtn" className="viewBtn viewBtnClients">
+        <Link to='/me' onClick={this.pageTransistion}>
           <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients purple-font-color">
             <div ref="btnBack" className="viewBtnBack viewBtnBackClients purple-background-color"></div>
             <h3 ref="btnText">VIEW</h3>
           </div>
+          </Link>
         </div>
         <div className="contentHeader contentHeaderTeam">
           <div className="overflowWrapper">
@@ -231,7 +310,7 @@ class Team extends Component {
             </h3>
           </div>
         </div>
-      </div>
+      </motion.div>
     );
   }
 }

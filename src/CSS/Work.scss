@@ -1,46 +1,48 @@
-.orange-font-color{
-    color: orange !important;
+.orange-font-color {
+  color: orange !important;
 }
-.orange-background-color{
-    background: orange !important;
+.orange-background-color {
+  background: orange !important;
 }
 
 .viewBtnBackClients {
-    // background: orange;
+  // background: orange;
 }
 
 .orange-font-color > h3 {
-    color: orange;
+  color: orange;
 }
 
 .orange-background-color {
-    background: orange;
+  background: orange;
 }
 
 .orange-font-color > div > h1 {
-    color: orange;
+  color: orange;
 }
 
 .contentHeaderClients {
-    color: orange;
+  color: orange;
 }
-.righty{
-    position: fixed;
-    right: 60px;
-    top: 0;
+.righty {
+  position: fixed;
+  right: 60px;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height: 100vh;
+  overflow: hidden;
+  #overfloWrapper {
+    width: 40vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40vw;
-    height: 100vh;
     overflow: hidden;
-    #overfloWrapper{
-        width: 40vw;
-        height:100vh;
-        display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-
-    }
+  }
+  .mobileImage{
+      transform: translateX(-130%);
+  }
 }
