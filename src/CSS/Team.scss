@@ -4,11 +4,25 @@
   background: lightslategray;
   position: relative;
 }
-
-.viewBtnBackTeam {
-  background: red;
-  transform: scaleY(1) !important;
+.purple-font-color{
+  color: purple !important;
 }
+.purple-background-color{
+  background: purple !important;
+}
+
+.purple-font-color > h3 {
+  color: purple;
+}
+
+.purple-background-color {
+  background: purple;
+}
+
+.purple-font-color > div > h1 {
+  color: purple;
+}
+
 
 .viewBtnInnerWrapperTeam > h3 {
   color: purple;

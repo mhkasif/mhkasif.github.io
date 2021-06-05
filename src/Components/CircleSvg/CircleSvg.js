@@ -86,10 +86,13 @@ const CircleSvg = () => {
       y: "100%",
     })
       .to(".inside-heading", 0.5, {
+
         y: 0,
+        // ease:Power3.easeInOut
       })
       .to(".inside-paragraph", 0.5, {
         y: 0,
+        // ease:Power3.easeInOut
       });
   }, [active]);
   const tdClick = () => {

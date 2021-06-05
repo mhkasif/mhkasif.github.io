@@ -78,25 +78,25 @@ class Clients extends Component {
         )
 
         .to(btnBack, 0.5, {
-          transformOrigin: "top !important",
+          transformOrigin: "0% 0%",
           transform: "scaleY(1)",
           ease: Power3.easeIn,
         })
         .to(viewBtn, 0.1, {
-          borderColor: "purple",
+          borderColor: "orange",
         })
         .to(btnText, 0.1, {
           opacity: 1,
         })
         .to(btnBack, 0.5, {
-          transformOrigin: "bottom !important",
+          transformOrigin: "0% 100%",
           transform: "scaleY(0)",
           ease: Power3.easeOut,
         })
         .set(btnBack, {
           clearProps: "transform, transformOrigin",
-          transformOrigin:"",
           transition: "transform 300ms ease-in-out",
+
         });
     } else {
       tl.to(sectionHeading, 1, {
@@ -132,30 +132,21 @@ class Clients extends Component {
         )
         .to(sectionImg, 0.5, {
           transform: "translateX(0%)",
-          // ease: Power3.easeOut,
           ease: [0.35, -0.01, 0.32, 1.275],
         })
-        // .to(btnBack, 0.5, {
-        //   transformOrigin: "0% 0%",
-        //   transform: "scaleY(1)",
-        //   ease: Power3.easeIn,
-        // })
+
         .to(btnBack, 0.5, {
           transformOrigin: "0% 0%",
           transform: "scaleY(1)",
           ease: Power3.easeIn,
         })
         .to(viewBtn, 0.1, {
-          borderColor: "purple",
+          borderColor: "orange",
         })
         .to(btnText, 0.1, {
           opacity: 1,
         })
-        // .to(btnBack, 0.5, {
-        //   transformOrigin: "0% 100%",
-        //   transform: "scaleY(0)",
-        //   ease: Power3.easeOut,
-        // })
+
         .to(btnBack, 0.5, {
           transformOrigin: "0% 100%",
           transform: "scaleY(0)",
@@ -537,10 +528,10 @@ class Clients extends Component {
         >
           <div ref="viewBtn" className="viewBtn viewBtnClients">
             <Link onClick={this.pageTransistion} to="/hkjobz">
-              <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients purple-font-color">
+              <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients orange-font-color">
                 <div
                   ref="btnBack"
-                  className="viewBtnBack viewBtnBackClients purple-background-color"
+                  className="viewBtnBack viewBtnBackClients orange-background-color"
                 ></div>
                 <h3 ref="btnText">VIEW</h3>
               </div>
@@ -553,7 +544,7 @@ class Clients extends Component {
               </h3>
             </div>
           </div>
-          <div className="lefty leftyClients purple-font-color">
+          <div className="lefty leftyClients orange-font-color">
             <div className="overflowWrapper">
               <h1 ref="sectionSubHeading" className="hideDown">
                 Majestic Work
@@ -562,7 +553,7 @@ class Clients extends Component {
 
             <div className="textDiv">
               <div>
-                <div ref="textLine" className="textLine textLineClients purple-background-color"></div>
+                <div ref="textLine" className="textLine textLineClients orange-background-color"></div>
               </div>
               <div className="overflowWrapper">
                 <p ref="sectionPara" className="hideDown">

@@ -217,10 +217,10 @@ class Team extends Component {
       <div ref="contentWrapper" className="teamContainer">
 
         {/* must apply poition relative in container */}
-        <CircleSvg />
+        {/* <CircleSvg /> */}
         <div ref="viewBtn" className="viewBtn viewBtnClients">
-          <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients">
-            <div ref="btnBack" className="viewBtnBack viewBtnBackClients"></div>
+          <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients purple-font-color">
+            <div ref="btnBack" className="viewBtnBack viewBtnBackClients purple-background-color"></div>
             <h3 ref="btnText">VIEW</h3>
           </div>
         </div>
