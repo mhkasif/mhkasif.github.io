@@ -5,16 +5,17 @@ import {
   enableScroll,
   disableScroll,
   incrementCounter,
-  decrementCounter
+  decrementCounter,
 } from "../../../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 import { debounce } from "lodash";
+import CircleSvg from "../../../CircleSvg/CircleSvg";
 
 class Team extends Component {
   constructor(props) {
     super(props);
     this.bouncedFunction = debounce(this.onWheel, 500, {
       leading: true,
-      trailing: false
+      trailing: false,
     });
   }
   componentDidMount = () => {
@@ -26,37 +27,37 @@ class Team extends Component {
       // sectionImg,
       btnText,
       btnBack,
-      viewBtn
+      viewBtn,
     } = this.refs;
     var tl = new TimelineLite({
       onComplete: () => {
         this.props.enableScroll();
         window.addEventListener("wheel", this.bouncedFunction, false);
-      }
+      },
     });
     tl.to(sectionHeading, 1, {
       transform: "translateY(0%)",
-      ease: Power3.easeInOut
+      ease: Power3.easeInOut,
     })
       .to(btnBack, 0.5, {
         transformOrigin: "0% 0%",
         transform: "scaleY(1)",
-        ease: Power3.easeIn
+        ease: Power3.easeIn,
       })
       .to(viewBtn, 0.1, {
-        borderColor: "purple"
+        borderColor: "purple",
       })
       .to(btnText, 0.1, {
-        opacity: 1
+        opacity: 1,
       })
       .to(btnBack, 0.5, {
         transformOrigin: "0% 100%",
         transform: "scaleY(0)",
-        ease: Power3.easeOut
+        ease: Power3.easeOut,
       })
       .set(btnBack, {
         clearProps: "transform, transformOrigin",
-        transition: "transform 300ms ease-in-out"
+        transition: "transform 300ms ease-in-out",
       });
   };
 
@@ -64,7 +65,7 @@ class Team extends Component {
     window.removeEventListener("wheel", this.bouncedFunction, false);
   }
 
-  onWheel = e => {
+  onWheel = (e) => {
     var {
       sectionHeading,
       // sectionSubHeading,
@@ -73,7 +74,7 @@ class Team extends Component {
       // sectionImg,
       btnText,
       btnBack,
-      viewBtn
+      viewBtn,
     } = this.refs;
     if (e.wheelDeltaY < 0) {
       if (this.props.isScrollable) {
@@ -85,7 +86,7 @@ class Team extends Component {
           var tlED = new TimelineLite({
             onComplete: () => {
               this.props.incrementCounter();
-            }
+            },
           });
           tlED
             .set(btnBack, { clearProps: "transition" })
@@ -94,7 +95,7 @@ class Team extends Component {
               1,
               {
                 transform: "translateY(100%)",
-                ease: Power3.easeInOut
+                ease: Power3.easeInOut,
               },
               1
             )
@@ -104,7 +105,7 @@ class Team extends Component {
               {
                 transformOrigin: "0% 0%",
                 transform: "scaleY(1)",
-                ease: Power3.easeIn
+                ease: Power3.easeIn,
               },
               1
             )
@@ -112,7 +113,7 @@ class Team extends Component {
               btnText,
               0.1,
               {
-                opacity: 0
+                opacity: 0,
               },
               1.5
             )
@@ -120,7 +121,7 @@ class Team extends Component {
               viewBtn,
               0.1,
               {
-                borderColor: "transparent"
+                borderColor: "transparent",
               },
               1.5
             )
@@ -130,7 +131,7 @@ class Team extends Component {
               {
                 transformOrigin: "0% 100%",
                 transform: "scaleY(0)",
-                ease: Power3.easeOut
+                ease: Power3.easeOut,
               },
               1.5
             );
@@ -152,7 +153,7 @@ class Team extends Component {
           var tlED = new TimelineLite({
             onComplete: () => {
               this.props.decrementCounter();
-            }
+            },
           });
           tlED
             .set(btnBack, { clearProps: "transition" })
@@ -161,7 +162,7 @@ class Team extends Component {
               1,
               {
                 transform: "translateY(100%)",
-                ease: Power3.easeInOut
+                ease: Power3.easeInOut,
               },
               // 1
               0
@@ -172,7 +173,7 @@ class Team extends Component {
               {
                 transformOrigin: "0% 0%",
                 transform: "scaleY(1)",
-                ease: Power3.easeIn
+                ease: Power3.easeIn,
               },
               // 1
               0
@@ -181,7 +182,7 @@ class Team extends Component {
               btnText,
               0.1,
               {
-                opacity: 0
+                opacity: 0,
               },
               // 1.5
               0.5
@@ -190,7 +191,7 @@ class Team extends Component {
               viewBtn,
               0.1,
               {
-                borderColor: "transparent"
+                borderColor: "transparent",
               },
               // 1.5
               0.5
@@ -201,7 +202,7 @@ class Team extends Component {
               {
                 transformOrigin: "0% 100%",
                 transform: "scaleY(0)",
-                ease: Power3.easeOut
+                ease: Power3.easeOut,
               },
               // 1.5
               0.5
@@ -213,7 +214,10 @@ class Team extends Component {
 
   render() {
     return (
-      <div ref="contentWrapper" className="teamContainer">  {/* must apply poition relative in container */}
+      <div ref="contentWrapper" className="teamContainer">
+
+        {/* must apply poition relative in container */}
+        <CircleSvg />
         <div ref="viewBtn" className="viewBtn viewBtnClients">
           <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients">
             <div ref="btnBack" className="viewBtnBack viewBtnBackClients"></div>
@@ -223,7 +227,7 @@ class Team extends Component {
         <div className="contentHeader contentHeaderClients">
           <div className="overflowWrapper">
             <h3 ref="sectionHeading" className="hideDown">
-              TEAM
+              About
             </h3>
           </div>
         </div>
@@ -236,12 +240,12 @@ var actions = {
   enableScroll,
   disableScroll,
   incrementCounter,
-  decrementCounter
+  decrementCounter,
 };
 
-var mapStateToProps = state => ({
+var mapStateToProps = (state) => ({
   scrollCounter: state.homeComponentInfo.scrollCounter,
-  isScrollable: state.homeComponentInfo.isScrollable
+  isScrollable: state.homeComponentInfo.isScrollable,
 });
 
 export default connect(mapStateToProps, actions)(Team);

@@ -69,11 +69,29 @@ const CircleSvg = () => {
         delay: 0.2,
         x: 0,
       })
+      .to(".inside-heading", 0.5, {
+        y: 0,
+      })
+      .to(".inside-paragraph", 0.5, {
+        y: 0,
+      })
       .set(".detail", {
         transition: "all .5s ease-in-out",
       });
   }, []);
-
+  useEffect(() => {
+    if (!active) return;
+    const tl = new TimelineLite();
+    tl.set([".inside-heading", ".inside-paragraph"], {
+      y: "100%",
+    })
+      .to(".inside-heading", 0.5, {
+        y: 0,
+      })
+      .to(".inside-paragraph", 0.5, {
+        y: 0,
+      });
+  }, [active]);
   const tdClick = () => {
     setActive(".top-detail");
 
@@ -392,7 +410,8 @@ const CircleSvg = () => {
   };
   const onHover = (ref) => {
     const tl = new TimelineLite();
-    console.log(ref);
+
+
     tl.to(
       ".translate-negative",
       0.1,
@@ -450,7 +469,7 @@ const CircleSvg = () => {
       },
       0
     );
-    console.log(classname, active);
+
     if (classname === active)
       tl.set(classname, {
         x: 0,
@@ -459,6 +478,49 @@ const CircleSvg = () => {
   return (
     <div className="circle-div">
       <div className="svg-container">
+        {
+          active === ".top-detail" ? (
+            <Details
+              heading="Web Developer"
+              paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
+            />
+          ) : active === ".right-detail" ? (
+            <Details
+              heading="Web Designer"
+              paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
+            />
+          ) : active === ".bottom-detail" ? (
+            <Details
+              heading="Mobile App Developer"
+              paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
+            />
+          ) : active === ".left-detail" ? (
+            <Details
+              heading="Photographer"
+              paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
+            />
+          ) : (
+            <Details
+              heading="Be With Us"
+              paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
+            />
+          )
+          //   ["",
+          //   ".top-detail",
+          //   ".right-detail",
+          //   ".bottom-detail",
+          //   ".left-detail",
+          // ].map((item) => {
+          //   const data=[{heading:"Be With Us",paragraph:'"Select a Circle member name to hear how Squarespace empowered their professional evolution"'},{heading:"Web Designer",paragraph:""},{heading:"",paragraph:""},{heading:"",paragraph:""},{heading:"",paragraph:""}]
+          //   console.log(item)
+          //   if(active===item)
+          //  return <Details
+          //     heading={item|| "Heading"}
+          //     paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
+          //   />;
+          // })
+        }
+
         <div
           onMouseLeave={
             !active
@@ -475,7 +537,7 @@ const CircleSvg = () => {
             ref={topHeading}
             className="detail translate-negative top-detail"
           >
-            <h1>Web Developer</h1>
+            <div>Web Developer</div>
           </div>
         </div>
 
@@ -497,7 +559,7 @@ const CircleSvg = () => {
             ref={rightHeading}
             className="detail translate-negative right-detail"
           >
-            <h1>Web Designer</h1>
+            <div>Web Designer</div>
           </div>
         </div>
 
@@ -520,7 +582,7 @@ const CircleSvg = () => {
             ref={bottomHeading}
             className="detail translate-negative bottom-detail"
           >
-            <h1>Mobile App Developer</h1>
+            <div>Mobile App Developer</div>
           </div>
         </div>
 
@@ -542,7 +604,7 @@ const CircleSvg = () => {
             ref={leftHeading}
             className="detail translate-positive left-detail"
           >
-            <h1>Photographer</h1>
+            <div>Photographer</div>
           </div>
         </div>
 
@@ -812,6 +874,18 @@ const CircleSvg = () => {
             }
           />
         </svg>
+      </div>
+    </div>
+  );
+};
+const Details = ({ heading, paragraph }) => {
+  return (
+    <div className="inside-details-container">
+      <div className="overflow-wrapper" style={{ margin: "20px 0" }}>
+        <h1 className="inside-heading">{heading}</h1>
+      </div>
+      <div className="overflow-wrapper">
+        <p className="inside-paragraph">{paragraph}</p>
       </div>
     </div>
   );
