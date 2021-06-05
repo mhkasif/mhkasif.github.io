@@ -5,53 +5,41 @@ import "./BackButton.scss";
 
 const BackButton = () => {
   const textContainer = {
-    // animate: {
-    //   //   x: "20px",
-    //   opacity: 0,
-    //   transition: {
-    //     delayChildren: 0.6,
-    //     staggerChildren: 0.3,
-    //     staggerDirection: 1,
-    //     // repeatType: "reverse",
-    //     // repeat:1
-    //   },
-    // },
-hov:{
-    y:0,
-    transition: {
+    hov: {
+      y: 0,
+      transition: {
         staggerChildren: 0.03,
-        delayChildren: .1,
-        staggerDirection:-1,
-
+        delayChildren: 0.1,
+        staggerDirection: -1,
+      },
     },
-},
-    hidden: { opacity:1},
+    hidden: { opacity: 1 },
     show: {
-        opacity:1,
-        transition: {
-            staggerChildren: 0.1,
-            delayChildren: 1.8,
-        },
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 1.8,
+      },
     },
   };
 
   const firstText = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1 },
+    hov: {
+      opacity: 0,
+      transition: {
+        repeat: 1,
+        repeatType: "reverse",
+      },
+    },
+  };
 
-    hidden: { opacity:0 },
-    show: { opacity:1 },
-    hov: { opacity:0,
-    transition:{
-        repeat:1,
-        repeatType:'reverse'
-    } },
-}
-
-const itemB = {
-    hidden: { opacity:0 },
-    show: { opacity:1 },
-    hov: { y:-10 },
-}
-
+  const itemB = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1 },
+    hov: { y: -10 },
+  };
 
   return (
     <motion.div
@@ -62,55 +50,54 @@ const itemB = {
       className="back-button"
     >
       <motion.div
-        exit={{ width: "0px",
-        transition:{ duration: 0.6, ease: "linear", delay: 0.1}
-      }}
+        exit={{
+          width: "0px",
+          transition: { duration: 0.6, ease: "linear", delay: 0.1 },
+        }}
         initial={{ width: "0px" }}
         animate={{ width: "40px" }}
         transition={{ duration: 0.6, ease: "linear", delay: 1 }}
         className="back-button-line"
       ></motion.div>
-<Link to='/'>
-      <motion.div
-      animate='animate'
-        variants={textContainer}
-                initial="hidden"
-                animate="show"
-                whileHover='hov'
-                exit='hidden'
-        className="back-button-text-container"
-
-      >
-        <motion.span key={"a"}  variants={firstText}>
-          S
-        </motion.span>
-        <motion.span key={"b"} variants={firstText}>
-          l
-        </motion.span>
-        <motion.span key={"c"} variants={firstText}>
-          i
-        </motion.span>
-        <motion.span key={"d"} variants={firstText}>
-          d
-        </motion.span>
-        <motion.span key={"e"} variants={firstText}>
-          e&nbsp;
-        </motion.span>
-        <motion.span key={"f"} variants={firstText}>
-          B
-        </motion.span>
-        <motion.span key={"g"} variants={firstText}>
-          a
-        </motion.span>
-        <motion.span key={"h"} variants={firstText}>
-          c
-        </motion.span>
-        <motion.span key={"i"} variants={firstText}>
-          k
-        </motion.span>
-      </motion.div>
+      <Link to="/">
+        <motion.div
+          variants={textContainer}
+          initial="hidden"
+          animate="show"
+          whileHover="hov"
+          exit="hidden"
+          className="back-button-text-container"
+        >
+          <motion.span key={"a"} variants={firstText}>
+            S
+          </motion.span>
+          <motion.span key={"b"} variants={firstText}>
+            l
+          </motion.span>
+          <motion.span key={"c"} variants={firstText}>
+            i
+          </motion.span>
+          <motion.span key={"d"} variants={firstText}>
+            d
+          </motion.span>
+          <motion.span key={"e"} variants={firstText}>
+            e&nbsp;
+          </motion.span>
+          <motion.span key={"f"} variants={firstText}>
+            B
+          </motion.span>
+          <motion.span key={"g"} variants={firstText}>
+            a
+          </motion.span>
+          <motion.span key={"h"} variants={firstText}>
+            c
+          </motion.span>
+          <motion.span key={"i"} variants={firstText}>
+            k
+          </motion.span>
+        </motion.div>
       </Link>
-      </motion.div>
+    </motion.div>
   );
 };
 

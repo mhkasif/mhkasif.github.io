@@ -47,7 +47,7 @@ class Team extends Component {
         ease: Power3.easeIn,
       })
       .to(viewBtn, 0.1, {
-        borderColor: "purple",
+        borderColor: "brown",
       })
       .to(btnText, 0.1, {
         opacity: 1,
@@ -297,8 +297,8 @@ class Team extends Component {
         <CircleSvg />
         <div ref="viewBtn" className="viewBtn viewBtnClients">
         <Link to='/me' onClick={this.pageTransistion}>
-          <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients purple-font-color">
-            <div ref="btnBack" className="viewBtnBack viewBtnBackClients purple-background-color"></div>
+          <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients brown-font-color">
+            <div ref="btnBack" className="viewBtnBack viewBtnBackClients brown-background-color"></div>
             <h3 ref="btnText">VIEW</h3>
           </div>
           </Link>
