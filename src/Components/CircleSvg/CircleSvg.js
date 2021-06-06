@@ -24,7 +24,7 @@ const CircleSvg = () => {
   const topLeftPath = useRef();
   const bottomLeftPath = useRef();
   const bottomRightPath = useRef();
-  // const  = useRef();
+  // const videoRef = useRef();
   useEffect(() => {
     const tl = new TimelineLite({
       delay: 0.5,
@@ -80,13 +80,13 @@ const CircleSvg = () => {
       });
   }, []);
   useEffect(() => {
+    // videoRef.current.load()
     if (!active) return;
     const tl = new TimelineLite();
     tl.set([".inside-heading", ".inside-paragraph"], {
       y: "100%",
     })
       .to(".inside-heading", 0.5, {
-
         y: 0,
         // ease:Power3.easeInOut
       })
@@ -414,7 +414,6 @@ const CircleSvg = () => {
   const onHover = (ref) => {
     const tl = new TimelineLite();
 
-
     tl.to(
       ".translate-negative",
       0.1,
@@ -479,6 +478,153 @@ const CircleSvg = () => {
       });
   };
   return (
+    <React.Fragment>
+    <video
+    key={active}
+        autoPlay
+        muted
+    loop
+    playsInline
+    poster=""
+    style={{display:active==='.top-detail'?'block':'none'}}
+    // ref={videoRef}
+       >
+        <source
+        src="/videos/sara.mp4"
+        />
+        </video>
+    <video
+    key={active}
+        autoPlay
+        muted
+    loop
+    playsInline
+    poster=""
+    style={{display:active===''?'block':'none'}}
+    // ref={videoRef}
+       >
+        <source
+        src="/videos/reel.mp4"
+        />
+        </video>
+    <video
+    key={active}
+        autoPlay
+        muted
+    loop
+    playsInline
+    poster=""
+    style={{display:active==='.right-detail'?'block':'none'}}
+    // ref={videoRef}
+       >
+        <source
+        src="/videos/ben.mp4"
+        />
+        </video>
+    <video
+    key={active}
+        autoPlay
+        muted
+    loop
+    playsInline
+    poster=""
+    style={{display:active==='.bottom-detail'?'block':'none'}}
+    // ref={videoRef}
+       >
+        <source
+        src="/videos/aylin.mp4"
+        />
+        </video>
+    <video
+    key={active}
+        autoPlay
+        muted
+    loop
+    playsInline
+    poster=""
+    style={{display:active==='.left-detail'?'block':'none'}}
+    // ref={videoRef}
+       >
+        <source
+        src="/videos/dave.mp4"
+        />
+        </video>
+    {
+   /*  //   active === ".top-detail" ? (
+    //     <video
+    //     autoPlay
+    //     muted
+    // loop
+    // playsInline
+    // poster=""
+    // key="1"
+    // // ref={videoRef}
+    //    >
+    //     <source
+    //     src="/videos/sara.mp4"
+    //     />
+    //     </video>
+
+    //   ) : active === ".right-detail" ? (
+    //     <video
+    //     autoPlay
+    //     muted
+    // loop
+    // playsInline
+    // poster=""
+    // key="2"
+    // // ref={videoRef}
+    //    >
+    //     <source
+    //     src="/videos/aylin.mp4"
+    //     />
+    //     </video>
+    //   ) : active === ".bottom-detail" ? (
+    //     <video
+    //     autoPlay
+    //     muted
+    // loop
+    // playsInline
+    // poster=""
+    // key="3"
+    // // ref={videoRef}
+    //    >
+    //     <source
+    //     src="/videos/dave.mp4"
+    //     />
+    //     </video>
+    //   ) : active === ".left-detail" ? (
+    //     <video
+    //     autoPlay
+    //     muted
+    // loop
+    // playsInline
+    // poster=""
+    // key="4"
+    // // ref={videoRef}
+    //    >
+    //     <source
+    //     src="/videos/ben.mp4"
+    //     />
+    //     </video>
+    //   ) : (
+    //     <video
+    //     autoPlay
+    //     muted
+    // loop
+    // playsInline
+    // poster=""
+    // key="5"
+    // // ref={videoRef}
+    //    >
+    //     <source
+    //     src="/videos/reel.mp4"
+    //     />
+    //     </video>
+    //   ) */
+    }
+
+
     <div className="circle-div">
       <div className="svg-container">
         {
@@ -879,7 +1025,8 @@ const CircleSvg = () => {
         </svg>
       </div>
     </div>
-  );
+    </React.Fragment>
+    );
 };
 const Details = ({ heading, paragraph }) => {
   return (
