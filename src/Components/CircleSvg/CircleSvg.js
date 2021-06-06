@@ -480,7 +480,7 @@ const CircleSvg = () => {
   return (
     <React.Fragment>
     <video
-    key={active}
+    key='.top-detail'
         autoPlay
         muted
     loop
@@ -494,7 +494,7 @@ const CircleSvg = () => {
         />
         </video>
     <video
-    key={active}
+    key='.right-detail'
         autoPlay
         muted
     loop
@@ -508,7 +508,7 @@ const CircleSvg = () => {
         />
         </video>
     <video
-    key={active}
+    key= '.bottom-detail'
         autoPlay
         muted
     loop
@@ -522,7 +522,7 @@ const CircleSvg = () => {
         />
         </video>
     <video
-    key={active}
+    key='.left-detail'
         autoPlay
         muted
     loop
@@ -536,7 +536,7 @@ const CircleSvg = () => {
         />
         </video>
     <video
-    key={active}
+    key="none"
         autoPlay
         muted
     loop
@@ -549,80 +549,6 @@ const CircleSvg = () => {
         src="/videos/dave.mp4"
         />
         </video>
-    {
-   /*  //   active === ".top-detail" ? (
-    //     <video
-    //     autoPlay
-    //     muted
-    // loop
-    // playsInline
-    // poster=""
-    // key="1"
-    // // ref={videoRef}
-    //    >
-    //     <source
-    //     src="/videos/sara.mp4"
-    //     />
-    //     </video>
-
-    //   ) : active === ".right-detail" ? (
-    //     <video
-    //     autoPlay
-    //     muted
-    // loop
-    // playsInline
-    // poster=""
-    // key="2"
-    // // ref={videoRef}
-    //    >
-    //     <source
-    //     src="/videos/aylin.mp4"
-    //     />
-    //     </video>
-    //   ) : active === ".bottom-detail" ? (
-    //     <video
-    //     autoPlay
-    //     muted
-    // loop
-    // playsInline
-    // poster=""
-    // key="3"
-    // // ref={videoRef}
-    //    >
-    //     <source
-    //     src="/videos/dave.mp4"
-    //     />
-    //     </video>
-    //   ) : active === ".left-detail" ? (
-    //     <video
-    //     autoPlay
-    //     muted
-    // loop
-    // playsInline
-    // poster=""
-    // key="4"
-    // // ref={videoRef}
-    //    >
-    //     <source
-    //     src="/videos/ben.mp4"
-    //     />
-    //     </video>
-    //   ) : (
-    //     <video
-    //     autoPlay
-    //     muted
-    // loop
-    // playsInline
-    // poster=""
-    // key="5"
-    // // ref={videoRef}
-    //    >
-    //     <source
-    //     src="/videos/reel.mp4"
-    //     />
-    //     </video>
-    //   ) */
-    }
 
 
     <div className="circle-div">

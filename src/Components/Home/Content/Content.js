@@ -107,14 +107,12 @@ import Team from "./Team/Team";
 import Clients from "./Clients/Clients";
 import Footer from "./Footer/Footer";
 
-const Content=({scrollCounter})=> {
+const Content = ({ scrollCounter }) => {
   const isFirstRender = React.useRef(true);
-  useEffect(
-    () => {
-     console.log(scrollCounter);
-     if(!isFirstRender.current){
-       const tl=new TimelineLite({
-       })
+  useEffect(() => {
+    console.log(scrollCounter);
+    if (!isFirstRender.current) {
+      const tl = new TimelineLite({});
       tl.to(
         ".page-number-up",
         1,
@@ -144,36 +142,32 @@ const Content=({scrollCounter})=> {
           1,
           {
             y: "0",
-
           },
           2.1
         )
-          .to(
-            ".page-number-down",
-            1,
-            {
-              y: "0%",
-            },
-            2.1
-          )
-          .to(
-            ".divider",
-            1,
-            {
-              width: "80%",
-            },
-            2.1
-          )
-
-     }
-   },
-   [scrollCounter],
- )
-  useEffect( () => {
+        .to(
+          ".page-number-down",
+          1,
+          {
+            y: "0%",
+          },
+          2.1
+        )
+        .to(
+          ".divider",
+          1,
+          {
+            width: "80%",
+          },
+          2.1
+        );
+    }
+  }, [scrollCounter]);
+  useEffect(() => {
     isFirstRender.current = false;
     // var { l1, l2, l3, l4 } = this.refs;
     var tl = new TimelineLite({
-      delay: .5,
+      delay: 0.5,
     });
     // tl.to(l1, 1, { scale:(1), ease: Power3.easeOut })
     //   .to(l2, 1, {scale:(1), ease: Power3.easeOut }, 0)
@@ -184,7 +178,7 @@ const Content=({scrollCounter})=> {
       1,
       {
         y: 0,
-        opacity:1
+        opacity: 1,
       },
       0
     )
@@ -193,7 +187,7 @@ const Content=({scrollCounter})=> {
         1,
         {
           y: 0,
-          opacity:1
+          opacity: 1,
         },
         0
       )
@@ -205,7 +199,7 @@ const Content=({scrollCounter})=> {
         },
         0
       );
-  },[])
+  }, []);
   // componentDidUpdate(prevProps, prevState) {
   //   console.log(prevProps,prevState)
   //   var tl = new TimelineLite({
@@ -278,97 +272,108 @@ const Content=({scrollCounter})=> {
 
   // render() {
   //   var { scrollCounter } = this.props;
-    return (
-      <div
-        className={`contentContainer ${scrollCounter === 5 ? "blue-bg" : ""}`}
-      >
-        {scrollCounter === 5 && <div className="background-ball"></div>}
-        <div className="contentWindow">
+  return (
+    <div className={`contentContainer ${scrollCounter === 5 ? "blue-bg" : ""}`}>
+      {scrollCounter === 5 && <div className="background-ball"></div>}
+      <div className="contentWindow">
+        <div
+          className="page-count"
+          style={{
+            color:
+              (scrollCounter === 5 || scrollCounter === 4) &&
+              "rgba(255,255,255,0.7)",
+          }}
+        >
+          <div className="overflow-wrapper">
+            <div className="page-number page-number-up">{scrollCounter}</div>
+          </div>
+
           <div
-            className="page-count"
-            style={{ color: scrollCounter === 5 && "rgba(255,255,255,0.7)" }}
-          >
-            <div className="overflow-wrapper">
-              <div className="page-number page-number-up">{scrollCounter}</div>
-            </div>
-
-            <div
-              className="divider"
-              style={{
-                borderBottomColor:
-                  scrollCounter === 5 && "rgba(255,255,255,0.7)",
-              }}
-            />
-            <div className="overflow-wrapper">
-              <div className="page-number page-number-down">6</div>
-            </div>
+            className="divider"
+            style={{
+              borderBottomColor:
+                (scrollCounter === 5 || scrollCounter === 4) &&
+                "rgba(255,255,255,0.7)",
+            }}
+          />
+          <div className="overflow-wrapper">
+            <div className="page-number page-number-down">6</div>
           </div>
-          <div className="lineWrapperTopLeft lineWrapper">
-            <div
+        </div>
+        <div className="lineWrapperTopLeft lineWrapper">
+          <div
             // ref="l2"
-             className="line lineTopLeft"></div>
-          </div>
+            className="line lineTopLeft"
+          ></div>
+        </div>
 
-          <div className="lineWrapperTopRight lineWrapper">
-            <div
+        <div className="lineWrapperTopRight lineWrapper">
+          <div
             // ref="l1"
-             className="line lineTopRight"></div>
-          </div>
+            className="line lineTopRight"
+          ></div>
+        </div>
 
-          <div className="lineWrapperRight lineWrapper">
-            <div
+        <div className="lineWrapperRight lineWrapper">
+          <div
             // ref="l3"
-             className="line lineRight"></div>
-          </div>
-          {scrollCounter !== 5 ? (
-            <React.Fragment>
-              <div className="lineWrapperBottomRight lineWrapper">
-                <div
-                // ref="l4"
-                 className="line lineBottomRight"></div>
-              </div>
-              <div className="lineWrapperBottomLeft lineWrapper">
-                <div
-                // ref="l4"
-                 className="line lineBottomLeft"></div>
-              </div>
-            </React.Fragment>
-          ) : (
-            <div className="lineWrapperBottomFull lineWrapper">
+            className="line lineRight"
+          ></div>
+        </div>
+        {scrollCounter !== 5 ? (
+          <React.Fragment>
+            <div className="lineWrapperBottomRight lineWrapper">
               <div
-              // ref="l4"
-               className="line lineBottomFull"></div>
+                // ref="l4"
+                className="line lineBottomRight"
+              ></div>
             </div>
-          )}
-          <div className="lineWrapperLeftBottom lineWrapper">
+            <div className="lineWrapperBottomLeft lineWrapper">
+              <div
+                // ref="l4"
+                className="line lineBottomLeft"
+              ></div>
+            </div>
+          </React.Fragment>
+        ) : (
+          <div className="lineWrapperBottomFull lineWrapper">
             <div
-            // ref="l4"
-             className="line lineLeftBottom"></div>
+              // ref="l4"
+              className="line lineBottomFull"
+            ></div>
           </div>
-          <div className="lineWrapperLeftTop lineWrapper">
-            <div
+        )}
+        <div className="lineWrapperLeftBottom lineWrapper">
+          <div
             // ref="l4"
-             className="line lineLeftTop"></div>
-          </div>
-          {/* <div className="hamPadder"></div>
+            className="line lineLeftBottom"
+          ></div>
+        </div>
+        <div className="lineWrapperLeftTop lineWrapper">
+          <div
+            // ref="l4"
+            className="line lineLeftTop"
+          ></div>
+        </div>
+        {/* <div className="hamPadder"></div>
                         <div className="pageStatusPadder"></div>
                         <div className="btnPadder"></div>
                         <div className="headingPadder"></div> */}
 
-          {scrollCounter === 2 && (
-            <Services
-              // exitAnimationOnWheelDown={this.exitAnimationOnWheelDown}
-            />
-          )}
-          {scrollCounter === 3 && <Work />}
-          {scrollCounter === 4 && <Team />}
-          {scrollCounter === 5 && <Clients />}
-          {scrollCounter === 6 && <Footer />}
-        </div>
+        {scrollCounter === 2 && (
+          <Services
+          // exitAnimationOnWheelDown={this.exitAnimationOnWheelDown}
+          />
+        )}
+        {scrollCounter === 3 && <Work />}
+        {scrollCounter === 4 && <Team />}
+        {scrollCounter === 5 && <Clients />}
+        {scrollCounter === 6 && <Footer />}
       </div>
-    );
+    </div>
+  );
   // }
-}
+};
 
 var mapStateToProps = (state) => ({
   scrollCounter: state.homeComponentInfo.scrollCounter,

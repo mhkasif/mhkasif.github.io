@@ -11,7 +11,7 @@ import { debounce } from "lodash";
 import CircleSvg from "../../../CircleSvg/CircleSvg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-
+import '../../../../CSS/Team.scss'
 class Team extends Component {
   constructor(props) {
     super(props);
@@ -47,7 +47,7 @@ class Team extends Component {
         ease: Power3.easeIn,
       })
       .to(viewBtn, 0.1, {
-        borderColor: "brown",
+        borderColor: "white",
       })
       .to(btnText, 0.1, {
         opacity: 1,
@@ -295,10 +295,10 @@ class Team extends Component {
 
         {/* must apply poition relative in container */}
         <CircleSvg />
-        <div ref="viewBtn" className="viewBtn viewBtnClients">
+        <div ref="viewBtn" className="viewBtn viewBtnTeam">
         <Link to='/me' onClick={this.pageTransistion}>
-          <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients brown-font-color">
-            <div ref="btnBack" className="viewBtnBack viewBtnBackClients brown-background-color"></div>
+          <div className="viewBtnInnerWrapper viewBtnInnerWrapperTeam white-font-color">
+            <div ref="btnBack" className="viewBtnBack viewBtnBackTeam white-background-color"></div>
             <h3 ref="btnText">VIEW</h3>
           </div>
           </Link>

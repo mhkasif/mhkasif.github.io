@@ -20,6 +20,7 @@
 
 }
 .page-count {
+  z-index: 1000;
     position: absolute;
     left: 0;
     width: 30px;
@@ -59,6 +60,7 @@ transform: translateY(-100%);
 .lineWrapper {
   position: absolute;
   overflow: hidden;
+  z-index: 1000;
 }
 
 .line {
