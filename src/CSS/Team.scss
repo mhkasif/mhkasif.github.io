@@ -1,41 +1,46 @@
 .teamContainer {
   width: 100%;
   height: 100%;
-  background: lightslategray;
+
   position: relative;
 }
-.brown-font-color{
-  color: brown !important;
+.white-font-color{
+  color: white !important;
 }
-.brown-background-color{
-  background: brown !important;
-}
-
-.brown-font-color > h3 {
-  color: brown;
+.white-background-color{
+  background: white !important;
 }
 
-.brown-background-color {
-  background: brown;
+.white-font-color > h3 {
+  color: white;
 }
 
-.brown-font-color > div > h1 {
-  color: brown;
+.white-background-color {
+  background: white;
+}
+
+.white-font-color > div > h1 {
+  color: white;
 }
 
 
 .viewBtnInnerWrapperTeam > h3 {
-  color: brown;
+  color: white;
+}
+.viewBtnTeam:hover{
+  .viewBtnInnerWrapperTeam > h3{
+    color: black !important;
+}
 }
 
 .textLineTeam {
-  background: brown;
+  background: white;
 }
 
 .leftyTeam > div > h1 {
-  color: brown;
+  color: white;
 }
 
 .contentHeaderTeam {
-  color: brown
+  color: white
 }
