@@ -1,6 +1,6 @@
 // import WorkPage from "./Components/WorkPage/WorkPage";
 import { AnimatePresence } from "framer-motion";
-import { CSSPlugin,EaselPlugin,TextPlugin,CSSRulePlugin } from "gsap/all";
+import { CSSPlugin,EaselPlugin,TextPlugin,CSSRulePlugin,ScrollTrigger } from "gsap/all";
 
 import {gsap} from "gsap";
 import React,{useEffect} from "react";
@@ -10,12 +10,12 @@ import Home from "./Components/Home/Home";
 import Hkjobz from "./pages/Hkjobz/Hkjobz";
 import Slectus from "./pages/Slectus/Slectus";
 import Me from "./pages/Me/Me";
-import CircleSvg from './Components/CircleSvg/CircleSvg'
+// import CircleSvg from './Components/CircleSvg/CircleSvg'
 // import {gsap} fro
 
 function App() {
   useEffect(() => {
-    gsap.registerPlugin( CSSPlugin ,EaselPlugin,TextPlugin,CSSRulePlugin )
+    gsap.registerPlugin( ScrollTrigger,CSSPlugin ,EaselPlugin,TextPlugin,CSSRulePlugin )
   }, []);
   const location = useLocation();
   return (
