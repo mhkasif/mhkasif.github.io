@@ -1,22 +1,43 @@
 // import WorkPage from "./Components/WorkPage/WorkPage";
 import { AnimatePresence } from "framer-motion";
-import { CSSPlugin,EaselPlugin,TextPlugin,CSSRulePlugin,ScrollTrigger } from "gsap/all";
+import {
+  CSSPlugin,
+  EaselPlugin,
+  TextPlugin,
+  CSSRulePlugin,
+  ScrollTrigger,
+} from "gsap/all";
 
-import {gsap} from "gsap";
-import React,{useEffect} from "react";
+import { gsap } from "gsap";
+import React, { useEffect } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import "./App.css";
 import Home from "./Components/Home/Home";
 import Hkjobz from "./pages/Hkjobz/Hkjobz";
 import Slectus from "./pages/Slectus/Slectus";
 import Me from "./pages/Me/Me";
+import { connect } from "react-redux";
 // import CircleSvg from './Components/CircleSvg/CircleSvg'
 // import {gsap} fro
 
-function App() {
+function App({ isScrollable }) {
   useEffect(() => {
-    gsap.registerPlugin( ScrollTrigger,CSSPlugin ,EaselPlugin,TextPlugin,CSSRulePlugin )
-  }, []);
+    console.log(isScrollable)
+    if (!isScrollable) document.body.classList.add("loading-cursor");
+    else {
+      document.body.classList.remove("loading-cursor");
+    }
+  }, [isScrollable]);
+  // useEffect(() => {
+  console.log("app called");
+  gsap.registerPlugin(
+    CSSPlugin,
+    EaselPlugin,
+    TextPlugin,
+    CSSRulePlugin,
+    ScrollTrigger
+  );
+  // }, []);
   const location = useLocation();
   return (
     <div>
@@ -32,5 +53,7 @@ function App() {
     </div>
   );
 }
-
-export default App;
+const mapState = (state) => ({
+  isScrollable: state.homeComponentInfo.isScrollable,
+});
+export default connect(mapState)(App);
