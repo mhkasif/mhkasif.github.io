@@ -303,21 +303,22 @@ const Content = ({ scrollCounter }) => {
         <div className="lineWrapperTopLeft lineWrapper">
           <div
             // ref="l2"
-            className="line lineTopLeft"
+            className={`line lineTopLeft ${scrollCounter===4?'line-white':""}`}
           ></div>
         </div>
 
         <div className="lineWrapperTopRight lineWrapper">
           <div
             // ref="l1"
-            className="line lineTopRight"
+            className={`line lineTopRight ${scrollCounter===4?'line-white':""}`}
           ></div>
         </div>
 
         <div className="lineWrapperRight lineWrapper">
           <div
             // ref="l3"
-            className="line lineRight"
+            className={`line lineRight ${scrollCounter===4?'line-white':""}`}
+
           ></div>
         </div>
         {scrollCounter !== 5 ? (
@@ -325,13 +326,15 @@ const Content = ({ scrollCounter }) => {
             <div className="lineWrapperBottomRight lineWrapper">
               <div
                 // ref="l4"
-                className="line lineBottomRight"
+
+                className={`line lineBottomRight ${scrollCounter===4?'line-white':""}`}
               ></div>
             </div>
             <div className="lineWrapperBottomLeft lineWrapper">
               <div
                 // ref="l4"
-                className="line lineBottomLeft"
+
+                className={`line lineBottomLeft ${scrollCounter===4?'line-white':""}`}
               ></div>
             </div>
           </React.Fragment>
@@ -339,20 +342,22 @@ const Content = ({ scrollCounter }) => {
           <div className="lineWrapperBottomFull lineWrapper">
             <div
               // ref="l4"
-              className="line lineBottomFull"
+              className={`line lineBottomFull ${scrollCounter===4?'line-white':""}`}
             ></div>
           </div>
         )}
         <div className="lineWrapperLeftBottom lineWrapper">
           <div
             // ref="l4"
-            className="line lineLeftBottom"
+            className={`line lineLeftBottom ${scrollCounter===4?'line-white':""}`}
+
           ></div>
         </div>
         <div className="lineWrapperLeftTop lineWrapper">
           <div
             // ref="l4"
-            className="line lineLeftTop"
+            className={`line lineLeftTop ${scrollCounter===4?'line-white':""}`}
+
           ></div>
         </div>
         {/* <div className="hamPadder"></div>
