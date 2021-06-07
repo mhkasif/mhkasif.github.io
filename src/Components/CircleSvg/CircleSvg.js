@@ -479,320 +479,113 @@ const CircleSvg = () => {
   };
   return (
     <React.Fragment>
-    <video
-    key='.top-detail'
+      <video
+        key=".top-detail"
         autoPlay
         muted
-    loop
-    playsInline
-    poster=""
-    style={{display:active==='.top-detail'?'block':'none'}}
-    // ref={videoRef}
-       >
-        <source
-        src="/videos/sara.mp4"
-        />
-        </video>
-    <video
-    key='.right-detail'
+        loop
+        playsInline
+        poster=""
+        style={{ display: active === ".top-detail" ? "block" : "none" }}
+        // ref={videoRef}
+      >
+        <source src="/videos/sara.mp4" />
+      </video>
+      <video
+        key=".right-detail"
         autoPlay
         muted
-    loop
-    playsInline
-    poster=""
-    style={{display:active===''?'block':'none'}}
-    // ref={videoRef}
-       >
-        <source
-        src="/videos/reel.mp4"
-        />
-        </video>
-    <video
-    key= '.bottom-detail'
+        loop
+        playsInline
+        poster=""
+        style={{ display: active === "" ? "block" : "none" }}
+        // ref={videoRef}
+      >
+        <source src="/videos/reel.mp4" />
+      </video>
+      <video
+        key=".bottom-detail"
         autoPlay
         muted
-    loop
-    playsInline
-    poster=""
-    style={{display:active==='.right-detail'?'block':'none'}}
-    // ref={videoRef}
-       >
-        <source
-        src="/videos/ben.mp4"
-        />
-        </video>
-    <video
-    key='.left-detail'
+        loop
+        playsInline
+        poster=""
+        style={{ display: active === ".right-detail" ? "block" : "none" }}
+        // ref={videoRef}
+      >
+        <source src="/videos/ben.mp4" />
+      </video>
+      <video
+        key=".left-detail"
         autoPlay
         muted
-    loop
-    playsInline
-    poster=""
-    style={{display:active==='.bottom-detail'?'block':'none'}}
-    // ref={videoRef}
-       >
-        <source
-        src="/videos/aylin.mp4"
-        />
-        </video>
-    <video
-    key="none"
+        loop
+        playsInline
+        poster=""
+        style={{ display: active === ".bottom-detail" ? "block" : "none" }}
+        // ref={videoRef}
+      >
+        <source src="/videos/aylin.mp4" />
+      </video>
+      <video
+        key="none"
         autoPlay
         muted
-    loop
-    playsInline
-    poster=""
-    style={{display:active==='.left-detail'?'block':'none'}}
-    // ref={videoRef}
-       >
-        <source
-        src="/videos/dave.mp4"
-        />
-        </video>
+        loop
+        playsInline
+        poster=""
+        style={{ display: active === ".left-detail" ? "block" : "none" }}
+        // ref={videoRef}
+      >
+        <source src="/videos/dave.mp4" />
+      </video>
 
-
-    <div className="circle-div">
-      <div className="svg-container">
-        {
-          active === ".top-detail" ? (
-            <Details
-              heading="Web Developer"
-              paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
-            />
-          ) : active === ".right-detail" ? (
-            <Details
-              heading="Web Designer"
-              paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
-            />
-          ) : active === ".bottom-detail" ? (
-            <Details
-              heading="Mobile App Developer"
-              paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
-            />
-          ) : active === ".left-detail" ? (
-            <Details
-              heading="Photographer"
-              paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
-            />
-          ) : (
-            <Details
-              heading="Be With Us"
-              paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
-            />
-          )
-          //   ["",
-          //   ".top-detail",
-          //   ".right-detail",
-          //   ".bottom-detail",
-          //   ".left-detail",
-          // ].map((item) => {
-          //   const data=[{heading:"Be With Us",paragraph:'"Select a Circle member name to hear how Squarespace empowered their professional evolution"'},{heading:"Web Designer",paragraph:""},{heading:"",paragraph:""},{heading:"",paragraph:""},{heading:"",paragraph:""}]
-          //   console.log(item)
-          //   if(active===item)
-          //  return <Details
-          //     heading={item|| "Heading"}
-          //     paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
-          //   />;
-          // })
-        }
-
-        <div
-          onMouseLeave={
-            !active
-              ? onNotHover
-              : () => singleNotHover(topHeading, "negative", ".top-detail")
+      <div className="circle-div">
+        <div className="svg-container">
+          {
+            active === ".top-detail" ? (
+              <Details
+                heading="Web Developer"
+                paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
+              />
+            ) : active === ".right-detail" ? (
+              <Details
+                heading="Web Designer"
+                paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
+              />
+            ) : active === ".bottom-detail" ? (
+              <Details
+                heading="Mobile App Developer"
+                paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
+              />
+            ) : active === ".left-detail" ? (
+              <Details
+                heading="Photographer"
+                paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
+              />
+            ) : (
+              <Details
+                heading="Be With Us"
+                paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
+              />
+            )
+            //   ["",
+            //   ".top-detail",
+            //   ".right-detail",
+            //   ".bottom-detail",
+            //   ".left-detail",
+            // ].map((item) => {
+            //   const data=[{heading:"Be With Us",paragraph:'"Select a Circle member name to hear how Squarespace empowered their professional evolution"'},{heading:"Web Designer",paragraph:""},{heading:"",paragraph:""},{heading:"",paragraph:""},{heading:"",paragraph:""}]
+            //   console.log(item)
+            //   if(active===item)
+            //  return <Details
+            //     heading={item|| "Heading"}
+            //     paragraph="Select a Circle member's name to hear how Squarespace empowered their professional evolution."
+            //   />;
+            // })
           }
-          onMouseOver={
-            !active ? () => onHover(topHeading) : () => singleHover(topHeading)
-          }
-          className="overflow-wrapper detail-container top-detail-container"
-          onClick={tdClick}
-        >
+
           <div
-            ref={topHeading}
-            className="detail translate-negative top-detail"
-          >
-            <div>Web Developer</div>
-          </div>
-        </div>
-
-        <div
-          onMouseLeave={
-            !active
-              ? onNotHover
-              : () => singleNotHover(rightHeading, "negative", ".right-detail")
-          }
-          onMouseOver={
-            !active
-              ? () => onHover(rightHeading)
-              : () => singleHover(rightHeading)
-          }
-          onClick={rdClick}
-          className="overflow-wrapper detail-container right-detail-container"
-        >
-          <div
-            ref={rightHeading}
-            className="detail translate-negative right-detail"
-          >
-            <div>Web Designer</div>
-          </div>
-        </div>
-
-        <div
-          onMouseLeave={
-            !active
-              ? onNotHover
-              : () =>
-                  singleNotHover(bottomHeading, "negative", ".bottom-detail")
-          }
-          onMouseOver={
-            !active
-              ? () => onHover(bottomHeading)
-              : () => singleHover(bottomHeading)
-          }
-          onClick={bdClick}
-          className="overflow-wrapper detail-container bottom-detail-container"
-        >
-          <div
-            ref={bottomHeading}
-            className="detail translate-negative bottom-detail"
-          >
-            <div>Mobile App Developer</div>
-          </div>
-        </div>
-
-        <div
-          onMouseLeave={
-            !active
-              ? onNotHover
-              : () => singleNotHover(leftHeading, "positive", ".left-detail")
-          }
-          onMouseOver={
-            !active
-              ? () => onHover(leftHeading)
-              : () => singleHover(leftHeading)
-          }
-          onClick={ldClick}
-          className="overflow-wrapper detail-container  left-detail-container"
-        >
-          <div
-            ref={leftHeading}
-            className="detail translate-positive left-detail"
-          >
-            <div>Photographer</div>
-          </div>
-        </div>
-
-        <svg
-          width="621"
-          height="621"
-          viewBox="0 0 621 621"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {/* back diamond */}
-          <line
-            className="inner-path"
-            x1="296.896"
-            y1="606.354"
-            x2="14.0537"
-            y2="323.511"
-          />
-          <line
-            className="inner-path"
-            x1="13.6464"
-            y1="297.489"
-            x2="296.489"
-            y2="14.6464"
-          />
-          <line
-            className="inner-path"
-            x1="323.026"
-            y1="606.489"
-            x2="605.869"
-            y2="323.646"
-          />
-          <line
-            className="inner-path"
-            x1="606.326"
-            y1="297.196"
-            x2="323.484"
-            y2="14.3535"
-          />
-          <rect
-            x="296.84"
-            y="14.2968"
-            width="18.8"
-            height="18.6434"
-            transform="rotate(-45 296.84 14.2968)"
-            stroke="#A8A8A8"
-          />
-          <rect
-            x="296.84"
-            y="606.297"
-            width="18.8"
-            height="18.6434"
-            transform="rotate(-45 296.84 606.297)"
-            stroke="#A8A8A8"
-          />
-          <rect
-            x="0.839919"
-            y="310.297"
-            width="18.8"
-            height="18.6434"
-            transform="rotate(-45 0.839919 310.297)"
-            stroke="#A8A8A8"
-          />
-          <rect
-            x="592.84"
-            y="310.297"
-            width="18.8"
-            height="18.6434"
-            transform="rotate(-45 592.84 310.297)"
-            stroke="#A8A8A8"
-          />
-          {/* front diamond */}
-          <line
-            ref={topRightPath}
-            className="top-right-path svg-path"
-            x1="606.326"
-            y1="297.196"
-            x2="323.484"
-            y2="14.3535"
-          />
-          <line
-            ref={bottomRightPath}
-            className="bottom-right-path svg-path"
-            x1="323.026"
-            y1="606.489"
-            x2="605.869"
-            y2="323.646"
-          />
-          <line
-            ref={bottomLeftPath}
-            className="bottom-left-path svg-path"
-            x1="296.896"
-            y1="606.354"
-            x2="14.0537"
-            y2="323.511"
-          />
-          <line
-            ref={topLeftPath}
-            className="top-left-path svg-path"
-            x1="13.6464"
-            y1="297.489"
-            x2="296.489"
-            y2="14.6464"
-          />
-          <rect
-            ref={topOuterDiamond}
-            className="top-outer-diamond outer-diamond diamond "
-            x="296.707"
-            y="14.2968"
-            width="18.8"
-            height="18.6434"
-            transform="rotate(-45 296.707 14.2968)"
-            onClick={tdClick}
             onMouseLeave={
               !active
                 ? onNotHover
@@ -803,118 +596,18 @@ const CircleSvg = () => {
                 ? () => onHover(topHeading)
                 : () => singleHover(topHeading)
             }
-          />
-          <rect
-            ref={topInnerDiamond}
-            className="top-inner-diamond inner-diamond diamond "
-            x="304.307"
-            y="14.2968"
-            width="8"
-            height="7.92884"
-            transform="rotate(-45 304.307 14.2968)"
+            className="overflow-wrapper detail-container top-detail-container"
             onClick={tdClick}
-            onMouseLeave={
-              !active
-                ? onNotHover
-                : () => singleNotHover(topHeading, "negative", ".top-detail")
-            }
-            onMouseOver={
-              !active
-                ? () => onHover(topHeading)
-                : () => singleHover(topHeading)
-            }
-          />
-          <rect
-            ref={bottomOuterDiamond}
-            onClick={bdClick}
-            className="bottom-outer-diamond outer-diamond diamond"
-            x="296.707"
-            y="606.297"
-            width="18.8"
-            height="18.6434"
-            transform="rotate(-45 296.707 606.297)"
-            onMouseLeave={
-              !active
-                ? onNotHover
-                : () =>
-                    singleNotHover(bottomHeading, "negative", ".bottom-detail")
-            }
-            onMouseOver={
-              !active
-                ? () => onHover(bottomHeading)
-                : () => singleHover(bottomHeading)
-            }
-          />
-          <rect
-            ref={bottomInnerDiamond}
-            onClick={bdClick}
-            className="bottom-inner-diamond inner-diamond diamond"
-            x="304.307"
-            y="606.27"
-            width="8"
-            height="7.92884"
-            transform="rotate(-45 304.307 606.27)"
-            onMouseLeave={
-              !active
-                ? onNotHover
-                : () =>
-                    singleNotHover(bottomHeading, "negative", ".bottom-detail")
-            }
-            onMouseOver={
-              !active
-                ? () => onHover(bottomHeading)
-                : () => singleHover(bottomHeading)
-            }
-          />
-          <rect
-            ref={leftOuterDiamond}
-            onClick={ldClick}
-            className="left-outer-diamond outer-diamond diamond"
-            x="0.839919"
-            y="310.297"
-            width="18.8"
-            height="18.6434"
-            transform="rotate(-45 0.839919 310.297)"
-            onMouseLeave={
-              !active
-                ? onNotHover
-                : () => singleNotHover(leftHeading, "positive", ".left-detail")
-            }
-            onMouseOver={
-              !active
-                ? () => onHover(leftHeading)
-                : () => singleHover(leftHeading)
-            }
-          />
-          <rect
-            ref={leftInnerDiamond}
-            onClick={ldClick}
-            className="left-inner-diamond inner-diamond diamond"
-            x="8.4471"
-            y="310.27"
-            width="8"
-            height="7.92884"
-            transform="rotate(-45 8.4471 310.27)"
-            onMouseLeave={
-              !active
-                ? onNotHover
-                : () => singleNotHover(leftHeading, "positive", ".left-detail")
-            }
-            onMouseOver={
-              !active
-                ? () => onHover(leftHeading)
-                : () => singleHover(leftHeading)
-            }
-          />
-          <rect
-            onClick={rdClick}
-            ref={rightOuterDiamond}
-            className="right-outer-diamond outer-diamond diamond"
-            x="592.84"
-            y="310.297"
-            width="18.8"
-            height="18.6434"
-            transform="rotate(-45 592.84 310.297)"
+          >
+            <div
+              ref={topHeading}
+              className="detail translate-negative top-detail"
+            >
+              <div>Web Developer</div>
+            </div>
+          </div>
+
+          <div
             onMouseLeave={
               !active
                 ? onNotHover
@@ -926,33 +619,342 @@ const CircleSvg = () => {
                 ? () => onHover(rightHeading)
                 : () => singleHover(rightHeading)
             }
-          />
-          <rect
             onClick={rdClick}
-            ref={rightInnerDiamond}
-            className="right-inner-diamond inner-diamond diamond"
-            x="600.447"
-            y="310.27"
-            width="8"
-            height="7.92884"
-            transform="rotate(-45 600.447 310.27)"
+            className="overflow-wrapper detail-container right-detail-container"
+          >
+            <div
+              ref={rightHeading}
+              className="detail translate-negative right-detail"
+            >
+              <div>Web Designer</div>
+            </div>
+          </div>
+
+          <div
             onMouseLeave={
               !active
                 ? onNotHover
                 : () =>
-                    singleNotHover(rightHeading, "negative", ".right-detail")
+                    singleNotHover(bottomHeading, "negative", ".bottom-detail")
             }
             onMouseOver={
               !active
-                ? () => onHover(rightHeading)
-                : () => singleHover(rightHeading)
+                ? () => onHover(bottomHeading)
+                : () => singleHover(bottomHeading)
             }
-          />
-        </svg>
+            onClick={bdClick}
+            className="overflow-wrapper detail-container bottom-detail-container"
+          >
+            <div
+              ref={bottomHeading}
+              className="detail translate-negative bottom-detail"
+            >
+              <div>Mobile App Developer</div>
+            </div>
+          </div>
+
+          <div
+            onMouseLeave={
+              !active
+                ? onNotHover
+                : () => singleNotHover(leftHeading, "positive", ".left-detail")
+            }
+            onMouseOver={
+              !active
+                ? () => onHover(leftHeading)
+                : () => singleHover(leftHeading)
+            }
+            onClick={ldClick}
+            className="overflow-wrapper detail-container  left-detail-container"
+          >
+            <div
+              ref={leftHeading}
+              className="detail translate-positive left-detail"
+            >
+              <div>Photographer</div>
+            </div>
+          </div>
+
+          <svg
+            width="621"
+            height="621"
+            viewBox="0 0 621 621"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {/* back diamond */}
+            <line
+              className="inner-path"
+              x1="296.896"
+              y1="606.354"
+              x2="14.0537"
+              y2="323.511"
+            />
+            <line
+              className="inner-path"
+              x1="13.6464"
+              y1="297.489"
+              x2="296.489"
+              y2="14.6464"
+            />
+            <line
+              className="inner-path"
+              x1="323.026"
+              y1="606.489"
+              x2="605.869"
+              y2="323.646"
+            />
+            <line
+              className="inner-path"
+              x1="606.326"
+              y1="297.196"
+              x2="323.484"
+              y2="14.3535"
+            />
+            <rect
+              x="296.84"
+              y="14.2968"
+              width="18.8"
+              height="18.6434"
+              transform="rotate(-45 296.84 14.2968)"
+              stroke="#A8A8A8"
+            />
+            <rect
+              x="296.84"
+              y="606.297"
+              width="18.8"
+              height="18.6434"
+              transform="rotate(-45 296.84 606.297)"
+              stroke="#A8A8A8"
+            />
+            <rect
+              x="0.839919"
+              y="310.297"
+              width="18.8"
+              height="18.6434"
+              transform="rotate(-45 0.839919 310.297)"
+              stroke="#A8A8A8"
+            />
+            <rect
+              x="592.84"
+              y="310.297"
+              width="18.8"
+              height="18.6434"
+              transform="rotate(-45 592.84 310.297)"
+              stroke="#A8A8A8"
+            />
+            {/* front diamond */}
+            <line
+              ref={topRightPath}
+              className="top-right-path svg-path"
+              x1="606.326"
+              y1="297.196"
+              x2="323.484"
+              y2="14.3535"
+            />
+            <line
+              ref={bottomRightPath}
+              className="bottom-right-path svg-path"
+              x1="323.026"
+              y1="606.489"
+              x2="605.869"
+              y2="323.646"
+            />
+            <line
+              ref={bottomLeftPath}
+              className="bottom-left-path svg-path"
+              x1="296.896"
+              y1="606.354"
+              x2="14.0537"
+              y2="323.511"
+            />
+            <line
+              ref={topLeftPath}
+              className="top-left-path svg-path"
+              x1="13.6464"
+              y1="297.489"
+              x2="296.489"
+              y2="14.6464"
+            />
+            <rect
+              ref={topOuterDiamond}
+              className="top-outer-diamond outer-diamond diamond "
+              x="296.707"
+              y="14.2968"
+              width="18.8"
+              height="18.6434"
+              transform="rotate(-45 296.707 14.2968)"
+              onClick={tdClick}
+              onMouseLeave={
+                !active
+                  ? onNotHover
+                  : () => singleNotHover(topHeading, "negative", ".top-detail")
+              }
+              onMouseOver={
+                !active
+                  ? () => onHover(topHeading)
+                  : () => singleHover(topHeading)
+              }
+            />
+            <rect
+              ref={topInnerDiamond}
+              className="top-inner-diamond inner-diamond diamond "
+              x="304.307"
+              y="14.2968"
+              width="8"
+              height="7.92884"
+              transform="rotate(-45 304.307 14.2968)"
+              onClick={tdClick}
+              onMouseLeave={
+                !active
+                  ? onNotHover
+                  : () => singleNotHover(topHeading, "negative", ".top-detail")
+              }
+              onMouseOver={
+                !active
+                  ? () => onHover(topHeading)
+                  : () => singleHover(topHeading)
+              }
+            />
+            <rect
+              ref={bottomOuterDiamond}
+              onClick={bdClick}
+              className="bottom-outer-diamond outer-diamond diamond"
+              x="296.707"
+              y="606.297"
+              width="18.8"
+              height="18.6434"
+              transform="rotate(-45 296.707 606.297)"
+              onMouseLeave={
+                !active
+                  ? onNotHover
+                  : () =>
+                      singleNotHover(
+                        bottomHeading,
+                        "negative",
+                        ".bottom-detail"
+                      )
+              }
+              onMouseOver={
+                !active
+                  ? () => onHover(bottomHeading)
+                  : () => singleHover(bottomHeading)
+              }
+            />
+            <rect
+              ref={bottomInnerDiamond}
+              onClick={bdClick}
+              className="bottom-inner-diamond inner-diamond diamond"
+              x="304.307"
+              y="606.27"
+              width="8"
+              height="7.92884"
+              transform="rotate(-45 304.307 606.27)"
+              onMouseLeave={
+                !active
+                  ? onNotHover
+                  : () =>
+                      singleNotHover(
+                        bottomHeading,
+                        "negative",
+                        ".bottom-detail"
+                      )
+              }
+              onMouseOver={
+                !active
+                  ? () => onHover(bottomHeading)
+                  : () => singleHover(bottomHeading)
+              }
+            />
+            <rect
+              ref={leftOuterDiamond}
+              onClick={ldClick}
+              className="left-outer-diamond outer-diamond diamond"
+              x="0.839919"
+              y="310.297"
+              width="18.8"
+              height="18.6434"
+              transform="rotate(-45 0.839919 310.297)"
+              onMouseLeave={
+                !active
+                  ? onNotHover
+                  : () =>
+                      singleNotHover(leftHeading, "positive", ".left-detail")
+              }
+              onMouseOver={
+                !active
+                  ? () => onHover(leftHeading)
+                  : () => singleHover(leftHeading)
+              }
+            />
+            <rect
+              ref={leftInnerDiamond}
+              onClick={ldClick}
+              className="left-inner-diamond inner-diamond diamond"
+              x="8.4471"
+              y="310.27"
+              width="8"
+              height="7.92884"
+              transform="rotate(-45 8.4471 310.27)"
+              onMouseLeave={
+                !active
+                  ? onNotHover
+                  : () =>
+                      singleNotHover(leftHeading, "positive", ".left-detail")
+              }
+              onMouseOver={
+                !active
+                  ? () => onHover(leftHeading)
+                  : () => singleHover(leftHeading)
+              }
+            />
+            <rect
+              onClick={rdClick}
+              ref={rightOuterDiamond}
+              className="right-outer-diamond outer-diamond diamond"
+              x="592.84"
+              y="310.297"
+              width="18.8"
+              height="18.6434"
+              transform="rotate(-45 592.84 310.297)"
+              onMouseLeave={
+                !active
+                  ? onNotHover
+                  : () =>
+                      singleNotHover(rightHeading, "negative", ".right-detail")
+              }
+              onMouseOver={
+                !active
+                  ? () => onHover(rightHeading)
+                  : () => singleHover(rightHeading)
+              }
+            />
+            <rect
+              onClick={rdClick}
+              ref={rightInnerDiamond}
+              className="right-inner-diamond inner-diamond diamond"
+              x="600.447"
+              y="310.27"
+              width="8"
+              height="7.92884"
+              transform="rotate(-45 600.447 310.27)"
+              onMouseLeave={
+                !active
+                  ? onNotHover
+                  : () =>
+                      singleNotHover(rightHeading, "negative", ".right-detail")
+              }
+              onMouseOver={
+                !active
+                  ? () => onHover(rightHeading)
+                  : () => singleHover(rightHeading)
+              }
+            />
+          </svg>
+        </div>
       </div>
-    </div>
     </React.Fragment>
-    );
+  );
 };
 const Details = ({ heading, paragraph }) => {
   return (
