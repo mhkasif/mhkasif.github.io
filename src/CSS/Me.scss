@@ -1,13 +1,13 @@
 .me-container {
   padding: 30px 200px 0 200px;
 
-.me-quote{
+  .me-quote {
     width: 40%;
     text-transform: uppercase;
     font-size: 50px;
     color: #043b76;
-    font-family: 'Times New Roman', Times, serif;
-}
+    font-family: "Times New Roman", Times, serif;
+  }
   .me-data-container {
     display: flex;
     flex-direction: column;
@@ -16,10 +16,24 @@
     .data {
       position: relative;
       width: 300px;
+      transition: all 0.5s ease;
+      opacity: 0;
+      &:nth-child(2) {
+        transform: translateY(-50%);
+      }
 
+      &:nth-child(3) {
+        transform: translateY(-75%);
+      }
+      &:nth-child(4) {
+        transform: translateY(-125%);
+      }
       &-left {
 
+        &.active {
 
+          opacity: 1;
+        }
         .title {
           position: absolute;
           top: 50%;
@@ -29,7 +43,10 @@
         }
       }
       &-right {
+        &.active {
 
+          opacity: 1;
+        }
         align-self: flex-end;
         .title {
           position: absolute;
@@ -38,18 +55,10 @@
           font-size: 20px;
           transform: rotate(-90deg) translateY(-50%);
         }
+
+
       }
 
-      &:nth-child(2){
-        transform: translateY(-50%);
-    }
-
-      &:nth-child(3){
-        transform: translateY(-75%);
-    }
-    &:nth-child(4){
-        transform: translateY(-125%);
-    }
       .description {
         display: flex;
         flex-direction: column;
@@ -59,11 +68,11 @@
           height: 400px;
           object-fit: cover;
         }
-        .paragraph{
-            margin-top: 20px;
-            font-size: 16px;
-            line-height: 1.5;
-color: rgba(#000,0.5);
+        .paragraph {
+          margin-top: 20px;
+          font-size: 16px;
+          line-height: 1.5;
+          color: rgba(#000, 0.5);
         }
       }
     }
