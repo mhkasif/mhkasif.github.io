@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./BackButton.scss";
 
-const BackButton = () => {
+const BackButton = ({color}) => {
   const textContainer = {
     hov: {
       y: 0,
@@ -47,7 +47,7 @@ const BackButton = () => {
       animate="animate"
       hover="hover"
       exit="exit"
-      className="back-button"
+      className={`back-button ${color?'back-button-black':''}`}
     >
       <motion.div
         exit={{
@@ -57,7 +57,7 @@ const BackButton = () => {
         initial={{ width: "0px" }}
         animate={{ width: "40px" }}
         transition={{ duration: 0.6, ease: "linear", delay: 1 }}
-        className="back-button-line"
+        className={`back-button-line ${color?'back-button-line-black':''}`}
       ></motion.div>
       <Link to="/">
         <motion.div

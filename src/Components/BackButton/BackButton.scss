@@ -1,4 +1,7 @@
 .back-button{
+    &-black{
+        color: black;
+    }
     position: absolute;
     top: 50px;
     left: 0;
@@ -13,6 +16,9 @@
     letter-spacing: 2px;
 }
     &-line{
+        &-black{
+            border-bottom: 1px solid black;
+        }
         width: 40px;
         border-bottom: 1px solid white;
         height: 0px;
