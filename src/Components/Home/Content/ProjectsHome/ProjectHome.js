@@ -11,7 +11,7 @@ import { debounce } from "lodash";
 import "../../../../CSS/Clients.scss";
 import { Link } from "react-router-dom";
 import newTab from "../../../../images/icons/new-tab.png";
-class Clients extends Component {
+class ProjectHome extends Component {
   constructor(props) {
     super(props);
     this.bouncedFunction = debounce(this.onWheel, 500, {
@@ -200,4 +200,4 @@ var mapStateToProps = (state) => ({
   isScrollable: state.homeComponentInfo.isScrollable,
 });
 
-export default connect(mapStateToProps, actions)(Clients);
+export default connect(mapStateToProps, actions)(ProjectHome);

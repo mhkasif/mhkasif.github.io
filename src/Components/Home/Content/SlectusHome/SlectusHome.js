@@ -15,7 +15,7 @@ import {
 // import mobile from "./../../../../images/mobile.png";
 import image from '../../../../images/slectus/slectus-macbook.png'
 import '../../../../CSS/Service.scss'
-class Clients extends Component {
+class SlectusHome extends Component {
   constructor(props) {
     super(props);
     this.bouncedFunction = debounce(this.onWheel, 500, {
@@ -145,7 +145,7 @@ class Clients extends Component {
           transformOrigin: "0% 0%",
           transform: "scaleY(1)",
           ease: Power3.easeIn,
-        })
+        },"<")
         .to(viewBtn, 0.1, {
           borderColor: "#00acc1",
         })
@@ -597,4 +597,4 @@ var mapStateToProps = (state) => ({
   isRedirected: state.homeComponentInfo.isRedirected,
 });
 
-export default connect(mapStateToProps, actions)(Clients);
+export default connect(mapStateToProps, actions)(SlectusHome);

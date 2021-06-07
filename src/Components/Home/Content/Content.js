@@ -101,11 +101,12 @@ import React, { Component, useCallback, useEffect } from "react";
 import { connect } from "react-redux";
 import { TimelineLite, Power3 } from "gsap";
 import { decrementCounter } from "../../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
-import Services from "./Services/Services";
-import Work from "./Work/Work";
-import Team from "./Team/Team";
-import Clients from "./Clients/Clients";
+
 import Footer from "./Footer/Footer";
+import SlectusHome from "./SlectusHome/SlectusHome";
+import HkjobzHome from "./HkjobzHome/HkjobzHome";
+import AboutHome from "./AboutHome/AboutHome";
+import ProjectHome from "./ProjectsHome/ProjectHome";
 
 const Content = ({ scrollCounter }) => {
   const isFirstRender = React.useRef(true);
@@ -366,13 +367,13 @@ const Content = ({ scrollCounter }) => {
                         <div className="headingPadder"></div> */}
 
         {scrollCounter === 2 && (
-          <Services
+          <SlectusHome
           // exitAnimationOnWheelDown={this.exitAnimationOnWheelDown}
           />
         )}
-        {scrollCounter === 3 && <Work />}
-        {scrollCounter === 4 && <Team />}
-        {scrollCounter === 5 && <Clients />}
+        {scrollCounter === 3 && <HkjobzHome />}
+        {scrollCounter === 4 && <AboutHome />}
+        {scrollCounter === 5 && <ProjectHome />}
         {scrollCounter === 6 && <Footer />}
       </div>
     </div>

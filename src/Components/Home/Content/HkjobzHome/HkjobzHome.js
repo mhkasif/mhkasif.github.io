@@ -14,7 +14,7 @@ import mobile from "./../../../../images/hkjobz/Group1.png";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import "../../../../CSS/Work.scss";
-class Clients extends Component {
+class HkjobzHome extends Component {
   constructor(props) {
     super(props);
     this.bouncedFunction = debounce(this.onWheel, 500, {
@@ -584,4 +584,4 @@ var mapStateToProps = (state) => ({
   isRedirected: state.homeComponentInfo.isRedirected,
 });
 
-export default connect(mapStateToProps, actions)(Clients);
+export default connect(mapStateToProps, actions)(HkjobzHome);

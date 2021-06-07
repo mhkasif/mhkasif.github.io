@@ -12,7 +12,7 @@ import CircleSvg from "../../../CircleSvg/CircleSvg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import '../../../../CSS/Team.scss'
-class Team extends Component {
+class AboutHome extends Component {
   constructor(props) {
     super(props);
     this.bouncedFunction = debounce(this.onWheel, 500, {
@@ -327,4 +327,4 @@ var mapStateToProps = (state) => ({
   isScrollable: state.homeComponentInfo.isScrollable,
 });
 
-export default connect(mapStateToProps, actions)(Team);
+export default connect(mapStateToProps, actions)(AboutHome);
