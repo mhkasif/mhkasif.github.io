@@ -17,6 +17,7 @@ import Hkjobz from "./pages/Hkjobz/Hkjobz";
 import Slectus from "./pages/Slectus/Slectus";
 import Me from "./pages/Me/Me";
 import { connect } from "react-redux";
+import MotionPathPlugin from "gsap/MotionPathPlugin";
 // import CircleSvg from './Components/CircleSvg/CircleSvg'
 // import {gsap} fro
 
@@ -35,7 +36,8 @@ function App({ isScrollable }) {
     EaselPlugin,
     TextPlugin,
     CSSRulePlugin,
-    ScrollTrigger
+    ScrollTrigger,
+    MotionPathPlugin
   );
   // }, []);
   const location = useLocation();
