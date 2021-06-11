@@ -136,8 +136,8 @@ class ProjectHome extends Component {
             />
 
             <ProjectDetails
-              url="https://colgame-43259.web.app/"
-              heading="Guess??"
+              url="https://bsconsults.com"
+              heading="BS Consults"
               desc="lorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsomlorem epsom "
             />
 
