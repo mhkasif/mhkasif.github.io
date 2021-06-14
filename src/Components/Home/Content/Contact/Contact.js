@@ -9,8 +9,8 @@ import {
 } from "../../../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 import { debounce } from "lodash";
 import Logo from "../../../../images/mhkLogo.png";
-import "./Footer.scss";
-class Footer extends Component {
+import "./Contact.scss";
+class Contact extends Component {
   constructor(props) {
     super(props);
     this.bouncedFunction = debounce(this.onWheel, 500, {
@@ -196,4 +196,4 @@ var mapStateToProps = (state) => ({
   isScrollable: state.homeComponentInfo.isScrollable,
 });
 
-export default connect(mapStateToProps, actions)(Footer);
+export default connect(mapStateToProps, actions)(Contact);

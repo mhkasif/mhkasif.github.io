@@ -3,8 +3,8 @@ import { TimelineLite, Power3 } from "gsap";
 import { set } from "lodash";
 
 import React, { useEffect, useRef, useState } from "react";
-import "./CircleSvg.scss";
-const CircleSvg = () => {
+import "./DiamondSvg.scss";
+const DiamondSvg = () => {
   const [active, setActive] = useState("");
   const topOuterDiamond = useRef();
   const topInnerDiamond = useRef();
@@ -969,4 +969,4 @@ const Details = ({ heading, paragraph }) => {
   );
 };
 
-export default CircleSvg;
+export default DiamondSvg;

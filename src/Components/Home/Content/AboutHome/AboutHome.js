@@ -8,7 +8,7 @@ import {
   decrementCounter,
 } from "../../../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 import { debounce } from "lodash";
-import CircleSvg from "../../../CircleSvg/CircleSvg";
+import DiamondSvg from "../../../DiamondSvg/DiamondSvg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import '../../../../CSS/Team.scss'
@@ -294,7 +294,7 @@ class AboutHome extends Component {
        ref="contentWrapper" className="teamContainer">
 
         {/* must apply poition relative in container */}
-        <CircleSvg />
+        <DiamondSvg />
         <div ref="viewBtn" className="viewBtn viewBtnTeam">
         <Link to='/me' onClick={this.pageTransistion}>
           <div className="viewBtnInnerWrapper viewBtnInnerWrapperTeam white-font-color">
