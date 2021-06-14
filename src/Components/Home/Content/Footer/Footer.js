@@ -5,16 +5,17 @@ import {
   enableScroll,
   disableScroll,
   incrementCounter,
-  decrementCounter
+  decrementCounter,
 } from "../../../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 import { debounce } from "lodash";
-
+import Logo from "../../../../images/mhkLogo.png";
+import "./Footer.scss";
 class Footer extends Component {
   constructor(props) {
     super(props);
     this.bouncedFunction = debounce(this.onWheel, 500, {
       leading: true,
-      trailing: false
+      trailing: false,
     });
   }
   componentDidMount = () => {
@@ -26,37 +27,37 @@ class Footer extends Component {
       // sectionImg,
       btnText,
       btnBack,
-      viewBtn
+      viewBtn,
     } = this.refs;
     var tl = new TimelineLite({
       onComplete: () => {
         this.props.enableScroll();
         window.addEventListener("wheel", this.bouncedFunction, false);
-      }
+      },
     });
     tl.to(sectionHeading, 1, {
       transform: "translateY(0%)",
-      ease: Power3.easeInOut
+      ease: Power3.easeInOut,
     })
       .to(btnBack, 0.5, {
         transformOrigin: "0% 0%",
         transform: "scaleY(1)",
-        ease: Power3.easeIn
+        ease: Power3.easeIn,
       })
       .to(viewBtn, 0.1, {
-        borderColor: "purple"
+        borderColor: "purple",
       })
       .to(btnText, 0.1, {
-        opacity: 1
+        opacity: 1,
       })
       .to(btnBack, 0.5, {
         transformOrigin: "0% 100%",
         transform: "scaleY(0)",
-        ease: Power3.easeOut
+        ease: Power3.easeOut,
       })
       .set(btnBack, {
         clearProps: "transform, transformOrigin",
-        transition: "transform 300ms ease-in-out"
+        transition: "transform 300ms ease-in-out",
       });
   };
 
@@ -64,7 +65,7 @@ class Footer extends Component {
     window.removeEventListener("wheel", this.bouncedFunction, false);
   }
 
-  onWheel = e => {
+  onWheel = (e) => {
     var {
       sectionHeading,
       // sectionSubHeading,
@@ -73,9 +74,9 @@ class Footer extends Component {
       // sectionImg,
       btnText,
       btnBack,
-      viewBtn
+      viewBtn,
     } = this.refs;
-     if(e.wheelDeltaY > 0) {
+    if (e.wheelDeltaY > 0) {
       if (this.props.isScrollable) {
         if (this.props.scrollCounter > 1) {
           //disabling scroll
@@ -84,7 +85,7 @@ class Footer extends Component {
           var tlED = new TimelineLite({
             onComplete: () => {
               this.props.decrementCounter();
-            }
+            },
           });
           tlED
             .set(btnBack, { clearProps: "transition" })
@@ -93,7 +94,7 @@ class Footer extends Component {
               1,
               {
                 transform: "translateY(100%)",
-                ease: Power3.easeInOut
+                ease: Power3.easeInOut,
               },
               // 1
               0
@@ -104,7 +105,7 @@ class Footer extends Component {
               {
                 transformOrigin: "0% 0%",
                 transform: "scaleY(1)",
-                ease: Power3.easeIn
+                ease: Power3.easeIn,
               },
               // 1
               0
@@ -113,7 +114,7 @@ class Footer extends Component {
               btnText,
               0.1,
               {
-                opacity: 0
+                opacity: 0,
               },
               // 1.5
               0.5
@@ -122,7 +123,7 @@ class Footer extends Component {
               viewBtn,
               0.1,
               {
-                borderColor: "transparent"
+                borderColor: "transparent",
               },
               // 1.5
               0.5
@@ -133,7 +134,7 @@ class Footer extends Component {
               {
                 transformOrigin: "0% 100%",
                 transform: "scaleY(0)",
-                ease: Power3.easeOut
+                ease: Power3.easeOut,
               },
               // 1.5
               0.5
@@ -145,7 +146,26 @@ class Footer extends Component {
 
   render() {
     return (
-      <div ref="contentWrapper" className="footerContainer">  {/* must apply poition relative in container */}
+      <div ref="contentWrapper" className="footerContainer">
+        {" "}
+        {/* must apply poition relative in container */}
+        <div className="footer-content">
+          <div className="logo">
+            <img src={Logo} alt="" />
+          </div>
+          <div className="social-links-container">
+            <div>Social Links</div>
+            <div className="social-links">
+              <div className="link">Email</div>
+              <div className="link">Phone</div>
+              <div className="link">Linkedin</div>
+              <div className="link">Github</div>
+              <div className="link">Fb </div>
+              <div className="link">Insta </div>
+              <div className="link">Twitter </div>
+            </div>
+          </div>
+        </div>
         <div ref="viewBtn" className="viewBtn viewBtnClients">
           <div className="viewBtnInnerWrapper viewBtnInnerWrapperClients">
             <div ref="btnBack" className="viewBtnBack viewBtnBackClients"></div>
@@ -168,12 +188,12 @@ var actions = {
   enableScroll,
   disableScroll,
   incrementCounter,
-  decrementCounter
+  decrementCounter,
 };
 
-var mapStateToProps = state => ({
+var mapStateToProps = (state) => ({
   scrollCounter: state.homeComponentInfo.scrollCounter,
-  isScrollable: state.homeComponentInfo.isScrollable
+  isScrollable: state.homeComponentInfo.isScrollable,
 });
 
 export default connect(mapStateToProps, actions)(Footer);
