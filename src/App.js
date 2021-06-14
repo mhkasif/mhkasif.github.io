@@ -6,6 +6,7 @@ import {
   TextPlugin,
   CSSRulePlugin,
   ScrollTrigger,
+  ScrollToPlugin,
 } from "gsap/all";
 
 import { gsap } from "gsap";
@@ -37,7 +38,8 @@ function App({ isScrollable }) {
     TextPlugin,
     CSSRulePlugin,
     ScrollTrigger,
-    MotionPathPlugin
+    MotionPathPlugin,
+    ScrollToPlugin
   );
   // }, []);
   const location = useLocation();
