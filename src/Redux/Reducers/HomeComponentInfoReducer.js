@@ -1,7 +1,7 @@
-import { INCREMENT_HOME_COMPONENT_COUNTER, DECREMENT_HOME_COMPONENT_COUNTER, DISABLE_SCROLL, ENABLE_SCROLL, IS_REDIRECTED } from "./../Constants/HomeComponentInfo";
+import { INCREMENT_HOME_COMPONENT_COUNTER, SET_HOME_COMPONENT_COUNTER,DECREMENT_HOME_COMPONENT_COUNTER, DISABLE_SCROLL, ENABLE_SCROLL, IS_REDIRECTED } from "./../Constants/HomeComponentInfo";
 
 var initialState = {
-  scrollCounter: 3,
+  scrollCounter: 6,
   isScrollable: false,
   isRedirected:false
 };
@@ -12,6 +12,8 @@ var HomeComponentInfoReducer = (state = initialState, action) => {
       return { ...state, scrollCounter: ++state.scrollCounter };
     case DECREMENT_HOME_COMPONENT_COUNTER:
       return { ...state, scrollCounter: --state.scrollCounter };
+    case SET_HOME_COMPONENT_COUNTER:
+      return { ...state, scrollCounter: action.payload };
     case DISABLE_SCROLL:
       return { ...state, isScrollable: false }
     case ENABLE_SCROLL:
