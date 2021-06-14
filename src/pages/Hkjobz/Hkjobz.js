@@ -35,7 +35,6 @@ const Hkjobz = ({ redirected, enableScroll }) => {
     } });
 
     return () => {
-      console.log("unmounted");
     };
   }, []);
   const variant = {

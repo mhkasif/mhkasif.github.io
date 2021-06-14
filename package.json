@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "http://mhkasif.github.io/",
   "dependencies": {
+    "@react-three/drei": "^6.1.1",
+    "@react-three/fiber": "^7.0.1",
     "framer-motion": "^4.1.17",
     "gsap": "^3.6.1",
     "lodash": "^4.17.21",
@@ -14,7 +16,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "three": "^0.129.0"
   },
   "scripts": {
     "start": "react-scripts start",
