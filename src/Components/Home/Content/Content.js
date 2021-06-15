@@ -19,7 +19,7 @@ const Content = ({ scrollCounter,setScrollCounter }) => {
     console.log(scrollCounter);
     if (!isFirstRender.current) {
       const tl = new TimelineLite({});
-      tl.to('.non-active',{display:"none"},0)
+      tl.set('.non-active',{display:"none"})
       .to(
         ".active",
         1,
@@ -153,14 +153,14 @@ const Content = ({ scrollCounter,setScrollCounter }) => {
     })
   }
   return (
-    <div className={`contentContainer ${scrollCounter === 5 ? "blue-bg" : ""}`}>
+    <div className={`contentContainer ${scrollCounter === 5 ? "blue-bg" : ""} ${scrollCounter === 6 ? "dark-bg" : ""}`}>
       {scrollCounter === 5 && <div className="background-ball"></div>}
       <div className="contentWindow">
         <div
           className="page-count"
           style={{
             color:
-              (scrollCounter === 5 || scrollCounter === 4) &&
+              (scrollCounter === 5 || scrollCounter === 4 || scrollCounter===6) &&
               "rgba(255,255,255,0.7)",
           }}
         >
@@ -180,7 +180,7 @@ const Content = ({ scrollCounter,setScrollCounter }) => {
             className="divider"
             style={{
               borderBottomColor:
-                (scrollCounter === 5 || scrollCounter === 4) &&
+                (scrollCounter === 5 || scrollCounter === 4|| scrollCounter===6) &&
                 "rgba(255,255,255,0.7)",
             }}
           />

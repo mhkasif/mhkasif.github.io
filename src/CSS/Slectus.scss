@@ -10,17 +10,18 @@
   top: 0;
   overflow: visible;
   z-index: 100;
+  img {
+    width: 25vw;
+    //   position: absolute;
+    z-index: 3;
+    // zoom: 2.2;
+  }
 }
 .zoom {
   zoom: 2.2;
 }
-img {
-  width: 25vw;
-  //   position: absolute;
-  z-index: 3;
-  // zoom: 2.2;
+
   // transform: translate(50px,0);
-}
 .work-page {
   width: 100vw;
   overflow-x: hidden;

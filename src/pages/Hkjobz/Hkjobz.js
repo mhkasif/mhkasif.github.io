@@ -106,7 +106,7 @@ const Hkjobz = ({ redirected, enableScroll }) => {
         }}
         className="left-side"
       >
-        <img src={mobileImage} alt="" />
+        <img  src={mobileImage} alt="" />
       </motion.div>
 
       <motion.div className="work-page">
