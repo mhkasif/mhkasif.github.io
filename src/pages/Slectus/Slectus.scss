@@ -21,7 +21,7 @@
   zoom: 2.2;
 }
 
-  // transform: translate(50px,0);
+// transform: translate(50px,0);
 .work-page {
   width: 100vw;
   overflow-x: hidden;
@@ -42,7 +42,7 @@
       left: 0;
       width: 50vw;
       height: 100%;
-      background-image: url("../images/mcdonalds-bg.jpg");
+      background-image: url("../../images/mcdonalds-bg.jpg");
       z-index: 2;
       background-position: center;
       background-repeat: no-repeat;
@@ -104,10 +104,29 @@
     }
   }
 }
-.laptopImage{
+.laptopImage {
   transform: translateX(-130%);
 }
-.screen {
-  height: 100vh;
-  background-color: red;
+
+.slectus-path-container{
+  position: relative;
+  .slectus-svg-container{
+    // position: absolute
+    .canvas-img{
+      position: absolute;
+      width: 50%;
+      right: -13%;
+      top: -10%;
+      z-index: -1;
+      animation: canvas 5s ease-in-out infinite reverse ;
+      opacity: 1;
+    }
+    @keyframes canvas {
+      0%{transform: translateY(0px);}
+      50%{transform: translateY(-20px);}
+      100%{transform: translateY(0px);}
+
+    }
+
+  }
 }
