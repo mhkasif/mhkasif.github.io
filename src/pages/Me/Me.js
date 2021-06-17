@@ -64,8 +64,8 @@ const Me = ({ enableScroll, disableScroll }) => {
           start: "top center",
           // end: "+=1050px",
           end: "+=1150px",
-          pin: '.exp',
-          markers: true,
+          pin: '.exp'
+          // markers: true,
         },
       })
 
@@ -75,8 +75,9 @@ const Me = ({ enableScroll, disableScroll }) => {
         scrollTrigger: {
           trigger: "#svg",
           scrub: true,
-          start: "top center",
+          start: "top bottom",
           end: "bottom center",
+          markers:true
         },
       })
       .set(".theLine", {
