@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ecde4c916d43dedd8d4654f3b398d72f",
+    "revision": "b9b0821684b3969d5586a66609d1761b",
     "url": "/index.html"
   },
   {
-    "revision": "57b49005c7917e37e73f",
-    "url": "/static/css/main.56006e58.chunk.css"
+    "revision": "42a4b7ce0b9d656c034d",
+    "url": "/static/css/main.6918b9e3.chunk.css"
   },
   {
-    "revision": "a57463a15c4bc111224e",
-    "url": "/static/js/2.bb684c0f.chunk.js"
+    "revision": "9df4631b2e9ab22cec51",
+    "url": "/static/js/2.9bc1f81e.chunk.js"
   },
   {
     "revision": "6943e5f07e645ced37177f4a3a803c57",
-    "url": "/static/js/2.bb684c0f.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.9bc1f81e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "57b49005c7917e37e73f",
-    "url": "/static/js/main.eca063a2.chunk.js"
+    "revision": "42a4b7ce0b9d656c034d",
+    "url": "/static/js/main.b7b192f2.chunk.js"
   },
   {
     "revision": "bb61f3a71cf0e8a7f0ba",
@@ -26,6 +26,18 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "a5310d2b6783311487da997cd8c99ec1",
     "url": "/static/media/Group1.a5310d2b.png"
+  },
+  {
+    "revision": "bc9bd73f66f74f8041e10b1dd600c2c5",
+    "url": "/static/media/MyImage.bc9bd73f.png"
+  },
+  {
+    "revision": "276a2b5000ed2d61680153175c44d360",
+    "url": "/static/media/canvas.276a2b50.png"
+  },
+  {
+    "revision": "122f06a449fc28abf61ade700a1c57c6",
+    "url": "/static/media/cap.122f06a4.jpg"
   },
   {
     "revision": "3558ef4a37ab98f4f0b960570ef4b2ac",
@@ -48,7 +60,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/resume.e6614a1b.pdf"
   },
   {
+    "revision": "58ebc47d13dc0914ae16f302bf6b0679",
+    "url": "/static/media/shoes.58ebc47d.jpg"
+  },
+  {
     "revision": "bf6d88dfa9be56f0c2f5e9e2ad4e62ff",
     "url": "/static/media/slectus-macbook.bf6d88df.png"
+  },
+  {
+    "revision": "d308694b54f841109501eca86b88d842",
+    "url": "/static/media/women.d308694b.jpg"
   }
 ]);
