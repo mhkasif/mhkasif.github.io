@@ -24,14 +24,14 @@ const Me = ({ enableScroll, disableScroll }) => {
     console.log(pathRef.current.getTotalLength());
     enableScroll();
     gsap.defaults({ ease: "none" });
-    const tim = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".me-container",
-        // pin: true,
-        scrub: 1,
-        // end: () => "+=" + document.querySelector(".me-container").offsetHeight/100
-      },
-    });
+    // const tim = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: ".me-container",
+    //     // pin: true,
+    //     scrub: 1,
+    //     // end: () => "+=" + document.querySelector(".me-container").offsetHeight/100
+    //   },
+    // });
     gsap.set(".ball", { xPercent: -50, yPercent: -50 });
 
     const tl = gsap
@@ -45,33 +45,30 @@ const Me = ({ enableScroll, disableScroll }) => {
         },
       })
       .to(".ball02, .text01", {}, 0.2)
+      .to(".exp-par-1", {opacity:1,display:'block',scale:1}, 0.2)
       // .to(".ball03, .text02", {}, 0.33)
       // .to(".ball04, .text03", {}, 0.46)
       .to(".ball05, .text04", {}, 0.52)
+      .to(".exp-par-1", {opacity:0,display:'none',scale:1}, 0.46)
+      .to(".exp-par-2", {opacity:1,display:'block',scale:1}, 0.52)
       // .to(".ball06, .text05", {}, 0.74)
-      .to(".ball07, .text06", {}, 1);
+      .to(".ball07, .text06", {}, 1)
+      .to(".exp-par-2", {opacity:0,display:'none',scale:1}, .92)
+      .to(".exp-par-3", {opacity:1,display:'block',scale:1}, 1);
     gsap
       .timeline({
         defaults: { duration: 1 },
         scrollTrigger: {
-          trigger: ".exp-par",
+          trigger: ".exp",
           scrub: true,
           start: "top center",
-          end: "bottom center",
-          pin: true,
+          // end: "+=1050px",
+          end: "+=1150px",
+          pin: '.exp',
           markers: true,
         },
       })
-      .to(".exp-par-1", {
-        // y:10
-        opacity: 1,
-      })
-      .to("exp-par-2", {
-        opacity: 1,
-      })
-      .to("exp-par-3", {
-        opacity: 1,
-      });
+
     var action = gsap
       .timeline({
         defaults: { duration: 1 },
@@ -130,8 +127,8 @@ const Me = ({ enableScroll, disableScroll }) => {
           </div>
           <div className="info">
             <div className="name-container">
-              <div className="my-name extra-large-heading">Haseeb,</div>
-              <div className="my-name extra-large-heading">Web Developer</div>
+              <div className="my-name extra-large-heading">Hola!</div>
+              <div className="my-name extra-large-heading">I'm Haseeb</div>
             </div>
             <p className="big-paragraph intro-text">
               I'm a Full Stack developer from Pakistan and available for
@@ -159,17 +156,17 @@ const Me = ({ enableScroll, disableScroll }) => {
             </div>
           </div>
         </div>
+        <div className="exp-heading">Experience</div>
         <div className="me-svg-path-container">
           <div className="exp">
-            <p className="big-paragraph exp-par exp-par-1">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
+            <p className="exp-par exp-par-1 medium-heading">
+              Started As a freelancer
             </p>
-            <p className="big-paragraph exp-par exp-par-2">
-              ipsum nesciunt similique? Illo voluptatem delectus et hic
-              explicabo.
+            <p className="exp-par exp-par-2 medium-heading">
+              Started Working For Slectus
             </p>
-            <p className="big-paragraph exp-par exp-par-3">
-              lasdaksjdhjksadhjashjdhjasjhdhjashdsahjdhasdhashjdhj
+            <p className="exp-par exp-par-3 medium-heading">
+              Started My Job At Maavan
             </p>
           </div>
           <svg
@@ -224,31 +221,58 @@ const Me = ({ enableScroll, disableScroll }) => {
             <circle className="ball ball07" r="20" cx="160" cy="1220"></circle>
           </svg>
         </div>
-        <div class="marquee">
+        <div className="marquee">
+          <div className="marqueeone">
+            <span>Badminton</span>&nbsp;&nbsp;&nbsp;
+            <span>Table-Tennis</span>&nbsp;&nbsp;&nbsp;
+            <span>Cricket</span>&nbsp;&nbsp;&nbsp;
+            <span>Movies</span>&nbsp;&nbsp;&nbsp;
+            <span>Songs</span>&nbsp;&nbsp;&nbsp;
+          </div>
+          <div className="marqueetwo">
+            <span>Badminton</span>&nbsp;&nbsp;&nbsp;
+            <span>Table-Tennis</span>&nbsp;&nbsp;&nbsp;
+            <span>Cricket</span>&nbsp;&nbsp;&nbsp;
+            <span>Movies</span>&nbsp;&nbsp;&nbsp;
+            <span>Songs</span>&nbsp;&nbsp;&nbsp;
+          </div>
+          <div className="marqueethree">
+            <span>Badminton</span>&nbsp;&nbsp;&nbsp;
+            <span>Table-Tennis</span>&nbsp;&nbsp;&nbsp;
+            <span>Cricket</span>&nbsp;&nbsp;&nbsp;
+            <span>Movies</span>&nbsp;&nbsp;&nbsp;
+            <span>Songs</span>&nbsp;&nbsp;&nbsp;
+          </div>
+          <div className="marqueefour">
+            <span>Badminton</span>&nbsp;&nbsp;&nbsp;
+            <span>Table-Tennis</span>&nbsp;&nbsp;&nbsp;
+            <span>Cricket</span>&nbsp;&nbsp;&nbsp;
+            <span>Movies</span>&nbsp;&nbsp;&nbsp;
+            <span>Songs</span>&nbsp;&nbsp;&nbsp;
+          </div>
+        </div>
 
-    <div class="marqueeone"><span>Badminton</span>&nbsp;&nbsp;&nbsp;
-                <span>Table-Tennis</span>&nbsp;&nbsp;&nbsp;
-                <span>Cricket</span>&nbsp;&nbsp;&nbsp;
-                <span>Movies</span>&nbsp;&nbsp;&nbsp;
-               <span>Songs</span>&nbsp;&nbsp;&nbsp;
-               </div>
-    <div class="marqueetwo"><span>Badminton</span>&nbsp;&nbsp;&nbsp;
-                <span>Table-Tennis</span>&nbsp;&nbsp;&nbsp;
-                <span>Cricket</span>&nbsp;&nbsp;&nbsp;
-                <span>Movies</span>&nbsp;&nbsp;&nbsp;
-               <span>Songs</span>&nbsp;&nbsp;&nbsp;</div>
-         <div class="marqueethree"><span>Badminton</span>&nbsp;&nbsp;&nbsp;
-                <span>Table-Tennis</span>&nbsp;&nbsp;&nbsp;
-                <span>Cricket</span>&nbsp;&nbsp;&nbsp;
-                <span>Movies</span>&nbsp;&nbsp;&nbsp;
-               <span>Songs</span>&nbsp;&nbsp;&nbsp;</div>
-                   <div class="marqueefour"><span>Badminton</span>&nbsp;&nbsp;&nbsp;
-                <span>Table-Tennis</span>&nbsp;&nbsp;&nbsp;
-                <span>Cricket</span>&nbsp;&nbsp;&nbsp;
-                <span>Movies</span>&nbsp;&nbsp;&nbsp;
-               <span>Songs</span>&nbsp;&nbsp;&nbsp;
-      </div>
-</div>
+        <div className="container-center">
+          <div className="about-me big-heading">
+            Whenever, wherever. We're meant to work together.
+          </div>
+          <div className="regards-container">
+            <div className="regards-title medium-paragraph">
+              Contact me for full-time jobs, freelance projects or to say hello
+            </div>
+            <div className="regards medium-paragraph">
+              I have an inbox zero rule so I’ll see your message for sure and,
+              I’ll reply with at least one smiley. I promise.
+            </div>
+          </div>
+        </div>
+        <div className="me-footer">
+          <div>
+            Inspired from{" "}
+            <span style={{ textDecoration: "underline" }}>Robin</span>
+          </div>
+          <div>To love other and live for other is a real life</div>
+        </div>
       </div>
     </React.Fragment>
   );

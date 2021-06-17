@@ -19,6 +19,9 @@ import Slectus from "./pages/Slectus/Slectus";
 import Me from "./pages/Me/Me";
 import { connect } from "react-redux";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
+
+
+
 // import CircleSvg from './Components/CircleSvg/CircleSvg'
 // import {gsap} fro
 
@@ -39,7 +42,8 @@ function App({ isScrollable }) {
     CSSRulePlugin,
     ScrollTrigger,
     MotionPathPlugin,
-    ScrollToPlugin
+    ScrollToPlugin,
+
   );
   // }, []);
   const location = useLocation();
