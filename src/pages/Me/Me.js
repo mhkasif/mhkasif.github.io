@@ -1,43 +1,104 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "../../images/me/mhkasif.jpg";
-import "../../CSS/Me.scss";
-import gsap from "gsap/gsap-core";
+
 import { TimelineLite } from "gsap/all";
 import { Power3 } from "gsap/gsap-core";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import BackButton from "../../Components/BackButton/BackButton";
 import { connect } from "react-redux";
+import "./Me.scss";
 import {
   enableScroll,
   disableScroll,
 } from "../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
+import MyImage from "./MyImage.png";
+import { debounce } from "lodash";
+import cap from "../../images/design/cap.jpg";
+import shoe from "../../images/design/shoes.jpg";
+import woman from "../../images/design/women.jpg";
+import gsapCore from "gsap/gsap-core";
+import { gsap } from "gsap/all";
 const Me = ({ enableScroll, disableScroll }) => {
+  const pathRef = useRef();
   useEffect(() => {
+    console.log(pathRef.current.getTotalLength());
     enableScroll();
-    const tl=new TimelineLite()
-    const dl = gsap.utils.toArray(".data-left");
-    dl.forEach((data, i) => {
-      ScrollTrigger.create({
-        toggleClass: "active",
-        trigger: data,
-        start: "center 30%",
-        end: "bottom 10%",
-        markers: true,
-        scrub: true,
-      });
-    })
+    gsap.defaults({ ease: "none" });
+    const tim = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".me-container",
+        // pin: true,
+        scrub: 1,
+        // end: () => "+=" + document.querySelector(".me-container").offsetHeight/100
+      },
+    });
+    gsap.set(".ball", { xPercent: -50, yPercent: -50 });
 
-    const dr = gsap.utils.toArray(".data-right");
-    dr.forEach((data, i) => {
-      ScrollTrigger.create({
-        toggleClass: "active",
-        trigger: data,
-        start: "center 30%",
-        end: "bottom 10%",
-        // markers: true,
-        scrub: true,
+    const tl = gsap
+      .timeline({
+        defaults: {
+          duration: 0.05,
+          autoAlpha: 1,
+          scale: 2,
+          transformOrigin: "center",
+          ease: "elastic(2.5, 1)",
+        },
+      })
+      .to(".ball02, .text01", {}, 0.2)
+      // .to(".ball03, .text02", {}, 0.33)
+      // .to(".ball04, .text03", {}, 0.46)
+      .to(".ball05, .text04", {}, 0.52)
+      // .to(".ball06, .text05", {}, 0.74)
+      .to(".ball07, .text06", {}, 1);
+    gsap
+      .timeline({
+        defaults: { duration: 1 },
+        scrollTrigger: {
+          trigger: ".exp-par",
+          scrub: true,
+          start: "top center",
+          end: "bottom center",
+          pin: true,
+          markers: true,
+        },
+      })
+      .to(".exp-par-1", {
+        // y:10
+        opacity: 1,
+      })
+      .to("exp-par-2", {
+        opacity: 1,
+      })
+      .to("exp-par-3", {
+        opacity: 1,
       });
-    })
+    var action = gsap
+      .timeline({
+        defaults: { duration: 1 },
+        scrollTrigger: {
+          trigger: "#svg",
+          scrub: true,
+          start: "top center",
+          end: "bottom center",
+        },
+      })
+      .set(".theLine", {
+        strokeDasharray: pathRef.current.getTotalLength(),
+      })
+      .to(".ball01", { duration: 0.01, autoAlpha: 1 })
+      .to(
+        ".ball01",
+        { motionPath: { path: ".theLine", alignOrigin: [0.5, 0.5] } },
+        0
+      )
+      .from(
+        ".theLine",
+        {
+          strokeDashoffset: pathRef.current.getTotalLength(),
+        },
+        0
+      )
+      .add(tl, 0);
 
     return () => {
       disableScroll();
@@ -60,65 +121,141 @@ const Me = ({ enableScroll, disableScroll }) => {
   }, []);
   return (
     <React.Fragment>
-      <BackButton color="black" />
       <div className="me-container">
-        <div className="me-quote">
-          <q>We present you the best of the best</q>
+        <EmailPopup />
+        <BackButton />
+        <div className="me-intro">
+          <div className="img-container">
+            <img className="my-image" src={MyImage} alt="" />
+          </div>
+          <div className="info">
+            <div className="name-container">
+              <div className="my-name extra-large-heading">Haseeb,</div>
+              <div className="my-name extra-large-heading">Web Developer</div>
+            </div>
+            <p className="big-paragraph intro-text">
+              I'm a Full Stack developer from Pakistan and available for
+              full-time roles
+            </p>
+          </div>
         </div>
+        <div className="container-center">
+          <div className="about-me big-heading">
+            I develop minimilist websites and designs for startups, brands, and
+            entrepreneurs with cool projects.
+          </div>
+          <div className="summary-container">
+            <div className="summary-title medium-paragraph">Who i am</div>
+            <div className="summary medium-paragraph">
+              Goal-oriented passionate website-Developer and solutions-oriented
+              problem-solving. Use numerous website design software system to
+              develop customer-focused websites web design. Committed to high
+              standards of website design, user experience, usability, and speed
+              for multiple forms of end-users. Fortunate at maintaining client
+              satisfaction through effective client support. Innovative website
+              Developer with 4 years of experience in web design and website
+              development. incontestible talent for front and back-end internet
+              development to optimise online presence.
+            </div>
+          </div>
+        </div>
+        <div className="me-svg-path-container">
+          <div className="exp">
+            <p className="big-paragraph exp-par exp-par-1">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
+            </p>
+            <p className="big-paragraph exp-par exp-par-2">
+              ipsum nesciunt similique? Illo voluptatem delectus et hic
+              explicabo.
+            </p>
+            <p className="big-paragraph exp-par exp-par-3">
+              lasdaksjdhjksadhjashjdhjasjhdhjashdsahjdhasdhashjdhj
+            </p>
+          </div>
+          <svg
+            id="svg"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 600 1200"
+          >
+            <path className="line01 line" d="M 10 200  600 200"></path>
+            {/* <path className="line02 line" d="M 10 400  600 400"></path>
+            <path className="line03 line" d="M 10 600  600 600"></path> */}
+            <path className="line04 line" d="M 10 700  600 700"></path>
+            {/* <path className="line05 line" d="M 10 1000  600 1000"></path> */}
+            <path className="line05 line" d="M 10 1200  600 1200"></path>
+            <text className="text01" x="30" y="190">
+              2016
+            </text>
+            {/*  <text className="text02" x="30" y="390">
+              2017
+            </text>
+            <text className="text03" x="30" y="590">
+              2018
+            </text> */}
+            <text className="text04" x="30" y="690">
+              2019
+            </text>
+            {/*  <text className="text05" x="30" y="990">
+              2020
+            </text> */}
+            <text className="text06" x="30" y="1190">
+              2021
+            </text>
 
-        <div className="me-data-container">
-          <div className="data-left data-left-1 data">
-            <div className="title">Web Designer</div>
-            <div className="description">
-              <img className="me-image me-image-left" src={Image} alt="" />
-              <p className="paragraph">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                voluptatibus magnam aut voluptates reiciendis consequatur
-                quibusdam ad accusantium provident earum non totam aspernatur,
-                velit esse nobis! Sequi eligendi nulla hic!
-              </p>
-            </div>
-          </div>
-          <div className="data-right data-right-1 data">
-            <div className="title">Web Designer</div>
-            <div className="description">
-              <img className="me-image me-image-right" src={Image} alt="" />
-              <p className="paragraph">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                voluptatibus magnam aut voluptates reiciendis consequatur
-                quibusdam ad accusantium provident earum non totam aspernatur,
-                velit esse nobis! Sequi eligendi nulla hic!
-              </p>
-            </div>
-          </div>
-          <div className="data-left data-left-2 data">
-            <div className="title">Web Designer</div>
-            <div className="description">
-              <img className="me-image me-image-left" src={Image} alt="" />
-              <p className="paragraph">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                voluptatibus magnam aut voluptates reiciendis consequatur
-                quibusdam ad accusantium provident earum non totam aspernatur,
-                velit esse nobis! Sequi eligendi nulla hic!
-              </p>
-            </div>
-          </div>
-          <div className="data-right data-right-2 data">
-            <div className="title">Web Designer</div>
-            <div className="description">
-              <img className="me-image me-image-right" src={Image} alt="" />
-              <p className="paragraph">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                voluptatibus magnam aut voluptates reiciendis consequatur
-                quibusdam ad accusantium provident earum non totam aspernatur,
-                velit esse nobis! Sequi eligendi nulla hic!
-              </p>
-            </div>
-          </div>
+            <path
+              ref={pathRef}
+              className="theLine"
+              d="M -5,0
+         Q 450 230 300 450
+         T 130 750
+         Q 100 850 300 1000
+         T 150 1200"
+              fill="none"
+              stroke="white"
+              strokeWidth="10px"
+            />
+
+            <circle className="ball ball01" r="20" cx="25" cy="25"></circle>
+            <circle className="ball ball02" r="20" cx="298" cy="221"></circle>
+            {/* <circle className="ball ball03" r="20" cx="347" cy="419"></circle>
+            <circle className="ball ball04" r="20" cx="223" cy="621"></circle> */}
+            <circle className="ball ball05" r="20" cx="160" cy="715"></circle>
+            {/* <circle className="ball ball06" r="20" cx="323" cy="1014"></circle> */}
+            <circle className="ball ball07" r="20" cx="160" cy="1220"></circle>
+          </svg>
         </div>
+        <div class="marquee">
+
+    <div class="marqueeone"><span>Badminton</span>&nbsp;&nbsp;&nbsp;
+                <span>Table-Tennis</span>&nbsp;&nbsp;&nbsp;
+                <span>Cricket</span>&nbsp;&nbsp;&nbsp;
+                <span>Movies</span>&nbsp;&nbsp;&nbsp;
+               <span>Songs</span>&nbsp;&nbsp;&nbsp;
+               </div>
+    <div class="marqueetwo"><span>Badminton</span>&nbsp;&nbsp;&nbsp;
+                <span>Table-Tennis</span>&nbsp;&nbsp;&nbsp;
+                <span>Cricket</span>&nbsp;&nbsp;&nbsp;
+                <span>Movies</span>&nbsp;&nbsp;&nbsp;
+               <span>Songs</span>&nbsp;&nbsp;&nbsp;</div>
+         <div class="marqueethree"><span>Badminton</span>&nbsp;&nbsp;&nbsp;
+                <span>Table-Tennis</span>&nbsp;&nbsp;&nbsp;
+                <span>Cricket</span>&nbsp;&nbsp;&nbsp;
+                <span>Movies</span>&nbsp;&nbsp;&nbsp;
+               <span>Songs</span>&nbsp;&nbsp;&nbsp;</div>
+                   <div class="marqueefour"><span>Badminton</span>&nbsp;&nbsp;&nbsp;
+                <span>Table-Tennis</span>&nbsp;&nbsp;&nbsp;
+                <span>Cricket</span>&nbsp;&nbsp;&nbsp;
+                <span>Movies</span>&nbsp;&nbsp;&nbsp;
+               <span>Songs</span>&nbsp;&nbsp;&nbsp;
+      </div>
+</div>
       </div>
     </React.Fragment>
   );
+};
+
+const EmailPopup = () => {
+  return <div className="email-popup">Haseebasif97@gmail.com</div>;
 };
 const actions = {
   enableScroll,
