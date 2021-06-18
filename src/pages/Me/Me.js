@@ -138,22 +138,22 @@ const Me = ({ enableScroll, disableScroll }) => {
       )
       .add(tl, 0);
 
-    //me-image animation
-    // gsap
-    //   .timeline({
-    //     defaults: { duration: 1 },
-    //     scrollTrigger: {
-    //       trigger: ".me-intro",
-    //       scrub: true,
-    //       start: "center top",
-    //       end: "bottom 10%",
-    //       // markers:true,
-    //     },
-    //   })
-    //   .to(".img-container", {
-    //     opacity: 0,
-    //     ease: Power3.easeIn,
-    //   });
+    // me-image animation
+    gsap
+      .timeline({
+        defaults: { duration: 1 },
+        scrollTrigger: {
+          trigger: ".me-intro",
+          scrub: true,
+          start: "center top",
+          end: "bottom 10%",
+          // markers:true,
+        },
+      })
+      .to(".img-container", {
+        opacity: 0,
+        ease: Power3.easeIn,
+      });
 
     //me-image animation
 
