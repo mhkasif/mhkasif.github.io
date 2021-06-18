@@ -1,25 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.6918b9e3.chunk.css",
-    "main.js": "/static/js/main.b7b192f2.chunk.js",
-    "main.js.map": "/static/js/main.b7b192f2.chunk.js.map",
+    "main.css": "/static/css/main.276f85cd.chunk.css",
+    "main.js": "/static/js/main.07b83a4a.chunk.js",
+    "main.js.map": "/static/js/main.07b83a4a.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.fe4530bb.js",
     "runtime-main.js.map": "/static/js/runtime-main.fe4530bb.js.map",
-    "static/js/2.9bc1f81e.chunk.js": "/static/js/2.9bc1f81e.chunk.js",
-    "static/js/2.9bc1f81e.chunk.js.map": "/static/js/2.9bc1f81e.chunk.js.map",
+    "static/js/2.912641d5.chunk.js": "/static/js/2.912641d5.chunk.js",
+    "static/js/2.912641d5.chunk.js.map": "/static/js/2.912641d5.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.d67dd98ad90fe8e620ffa07230b4ca72.js": "/precache-manifest.d67dd98ad90fe8e620ffa07230b4ca72.js",
+    "precache-manifest.8d5149ffbbf4e691e32cda07d26a102a.js": "/precache-manifest.8d5149ffbbf4e691e32cda07d26a102a.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.6918b9e3.chunk.css.map": "/static/css/main.6918b9e3.chunk.css.map",
-    "static/js/2.9bc1f81e.chunk.js.LICENSE.txt": "/static/js/2.9bc1f81e.chunk.js.LICENSE.txt",
+    "static/css/main.276f85cd.chunk.css.map": "/static/css/main.276f85cd.chunk.css.map",
+    "static/js/2.912641d5.chunk.js.LICENSE.txt": "/static/js/2.912641d5.chunk.js.LICENSE.txt",
     "static/media/Group1.png": "/static/media/Group1.a5310d2b.png",
     "static/media/MyImage.png": "/static/media/MyImage.bc9bd73f.png",
+    "static/media/bitmoji.gif": "/static/media/bitmoji.b2e18686.gif",
     "static/media/canvas.png": "/static/media/canvas.276a2b50.png",
     "static/media/cap.jpg": "/static/media/cap.122f06a4.jpg",
+    "static/media/laugh.PNG": "/static/media/laugh.91d0e46f.PNG",
     "static/media/Slectus.scss": "/static/media/mcdonalds-bg.3558ef4a.jpg",
     "static/media/mhkLogo.png": "/static/media/mhkLogo.e06dbeff.png",
     "static/media/mhkasif.jpg": "/static/media/mhkasif.3bc65b1c.jpg",
     "static/media/new-tab.png": "/static/media/new-tab.d1ce74bb.png",
+    "static/media/popper.PNG": "/static/media/popper.6aea52cb.PNG",
     "static/media/resume.pdf": "/static/media/resume.e6614a1b.pdf",
     "static/media/shoes.jpg": "/static/media/shoes.58ebc47d.jpg",
     "static/media/slectus-macbook.png": "/static/media/slectus-macbook.bf6d88df.png",
@@ -27,8 +30,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.fe4530bb.js",
-    "static/js/2.9bc1f81e.chunk.js",
-    "static/css/main.6918b9e3.chunk.css",
-    "static/js/main.b7b192f2.chunk.js"
+    "static/js/2.912641d5.chunk.js",
+    "static/css/main.276f85cd.chunk.css",
+    "static/js/main.07b83a4a.chunk.js"
   ]
 }
