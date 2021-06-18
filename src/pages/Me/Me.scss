@@ -2,6 +2,8 @@
   background-color: rgb(37, 37, 37);
   color: white;
   overflow-x: hidden;
+  // transform-style: preserve-3d;
+  // height: 100%;
 
   .me-intro {
     width: 90%;
@@ -31,7 +33,7 @@
     .img-container {
       background-color: #d4003f;
       width: 48%;
-      height: calc(100vh - 120px);
+      height: calc(90vh );
       position: relative;
       .my-image {
         position: absolute;
@@ -78,6 +80,7 @@
     font-weight: bold;
     margin: 100px 50px;
     font-size: 120px;
+    filter: drop-shadow(-20px -20px 4px (#8c8c8c4f));
   }
   .me-svg-path-container {
     position: relative;
@@ -90,14 +93,17 @@
       width: 40%;
       display: flex;
       align-items: center;
-      // top: 200px;
       // height: 1202px;
       &-par {
         // height:1202px;
-        position: absolute;
+        // position: absolute;
+        // font-size: 40px
+        font-weight: bold;
+        fill: white;
         right: 0;
         opacity: 0;
         display: none;
+        // top:50%;
         width: 80%;
         word-wrap: break-word;
         font-family: "Playfair Display", serif;
@@ -123,10 +129,13 @@
       stroke-width: 2px;
       // visibility: hidden;
     }
-    text {
+    .svg-text {
       fill: white;
-      font-size: 15px;
-      font-family: "Signika Negative", sans-serif;
+      font-size: 22px;
+
+      font-family: "Playfair Display", serif;
+
+
       visibility: hidden;
     }
   }
@@ -304,4 +313,15 @@
   background-color: white !important;
   color: #1f1f1f;
   filter: none;
+}
+
+.viewport {
+  overflow: hidden;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }

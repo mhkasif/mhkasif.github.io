@@ -11,7 +11,7 @@ import {
 
 import { gsap } from "gsap";
 import React, { useEffect } from "react";
-import { Route, Switch, useLocation } from "react-router-dom";
+import { HashRouter, Route, Switch, useLocation } from "react-router-dom";
 import "./App.css";
 import Home from "./Components/Home/Home";
 import Hkjobz from "./pages/Hkjobz/Hkjobz";
@@ -50,12 +50,12 @@ function App({ isScrollable }) {
   return (
     <div>
       <AnimatePresence initial={true} exitBeforeEnter>
-        <Switch location={location} key={location.pathname}>
+        <HashRouter location={location} key={location.pathname}>
           <Route key="a" exact path="/" component={Home} />
           <Route key="b" exact path="/hkjobz" component={Hkjobz} />
           <Route key="c" exact path="/slectus" component={Slectus} />
           <Route key="d" exact path="/me" component={Me} />
-        </Switch>
+        </HashRouter>
       </AnimatePresence>
       {/* <CircleSvg /> */}
     </div>
