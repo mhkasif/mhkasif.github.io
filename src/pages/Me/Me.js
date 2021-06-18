@@ -70,7 +70,6 @@ const Me = ({ enableScroll, disableScroll }) => {
     // });
     gsap.set(".ball", { xPercent: -50, yPercent: -50 });
 
-
     const tl = gsap
       .timeline({
         defaults: {
@@ -79,23 +78,26 @@ const Me = ({ enableScroll, disableScroll }) => {
           scale: 2,
           transformOrigin: "center",
           ease: "elastic(2.5, 1)",
-
         },
       })
       .to(".ball02", {}, 0.2)
-      .to(".text01", {y:-20}, 0.2)
-      .to(".exp-par-1", { opacity: 1, display: "block", scale: 1,y:-20 }, 0.2)
+      .to(".text01", { y: -20 }, 0.2)
+      .to(".exp-par-1", { opacity: 1, display: "block", scale: 1, y: -20 }, 0.2)
       // .to(".ball03, .text02", {}, 0.33)
       // .to(".ball04, .text03", {}, 0.46)
       .to(".ball05", {}, 0.52)
-      .to(".text04", {y:-20}, 0.52)
-      .to(".exp-par-1", { opacity: 0, display: "none", scale: 1,y:-20 }, 0.51)
-      .to(".exp-par-2", { opacity: 1, display: "block", scale: 1,y:-20 }, 0.52)
+      .to(".text04", { y: -20 }, 0.52)
+      .to(".exp-par-1", { opacity: 0, display: "none", scale: 1, y: -20 }, 0.51)
+      .to(
+        ".exp-par-2",
+        { opacity: 1, display: "block", scale: 1, y: -20 },
+        0.52
+      )
       // .to(".ball06, .text05", {}, 0.74)
       .to(".ball07", {}, 1)
-      .to(".text06", {y:-20}, 1)
-      .to(".exp-par-2", { opacity: 0, display: "none", scale: 1,y:-20 }, 0.98)
-      .to(".exp-par-3", { opacity: 1, display: "block", scale: 1,y:-20 }, 1);
+      .to(".text06", { y: -20 }, 1)
+      .to(".exp-par-2", { opacity: 0, display: "none", scale: 1, y: -20 }, 0.98)
+      .to(".exp-par-3", { opacity: 1, display: "block", scale: 1, y: -20 }, 1);
     // gsap.timeline({
     //   defaults: { duration: 1 },
     //   scrollTrigger: {
@@ -178,6 +180,7 @@ const Me = ({ enableScroll, disableScroll }) => {
     // me-info animation
 
     return () => {
+      document.body.style.height = "unset";
       disableScroll();
     };
     // const tl = new TimelineLite({
@@ -241,7 +244,7 @@ const Me = ({ enableScroll, disableScroll }) => {
           <div className="exp-heading" data-depth="10">
             Experience
           </div>
-          <div className="me-svg-path-container" >
+          <div className="me-svg-path-container">
             {/* <div className="exp">
               <p className="exp-par exp-par-1 medium-heading">
                 Started As a freelancer
@@ -267,9 +270,13 @@ const Me = ({ enableScroll, disableScroll }) => {
               <text className="svg-text text01" x="30" y="190">
                 2016
               </text>
-              <text className="exp-par exp-par-1 medium-heading" x="450" y="190">
-              Started As a freelancer
-            </text>
+              <text
+                className="exp-par exp-par-1 medium-heading"
+                x="450"
+                y="190"
+              >
+                Started As a freelancer
+              </text>
               {/*  <text className="text02" x="30" y="390">
               2017
             </text>
@@ -279,18 +286,26 @@ const Me = ({ enableScroll, disableScroll }) => {
               <text className="svg-text text04" x="30" y="690">
                 2019
               </text>
-              <text className="exp-par exp-par-2 medium-heading" x="450" y="690">
-              Started Working For Slectus
-            </text>
-            {/*  <text className="text05" x="30" y="990">
+              <text
+                className="exp-par exp-par-2 medium-heading"
+                x="450"
+                y="690"
+              >
+                Started Working For Slectus
+              </text>
+              {/*  <text className="text05" x="30" y="990">
             2020
           </text> */}
-          <text className="svg-text text06" x="30" y="1190">
-          2021
-          </text>
-          <text className="exp-par exp-par-3 medium-heading" x="450" y="1190">
-          Started My Job At Maavan
-        </text>
+              <text className="svg-text text06" x="30" y="1190">
+                2021
+              </text>
+              <text
+                className="exp-par exp-par-3 medium-heading"
+                x="450"
+                y="1190"
+              >
+                Started My Job At Maavan
+              </text>
 
               <path
                 ref={pathRef}
