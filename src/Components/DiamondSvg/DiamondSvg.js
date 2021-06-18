@@ -480,6 +480,7 @@ const DiamondSvg = () => {
   return (
     <React.Fragment>
       <video
+      className="about-videos"
         key=".top-detail"
         autoPlay
         muted
@@ -492,6 +493,7 @@ const DiamondSvg = () => {
         <source src="/videos/sara.mp4" />
       </video>
       <video
+      className="about-videos"
         key=".right-detail"
         autoPlay
         muted
@@ -504,6 +506,7 @@ const DiamondSvg = () => {
         <source src="/videos/reel.mp4" />
       </video>
       <video
+      className="about-videos"
         key=".bottom-detail"
         autoPlay
         muted
@@ -516,6 +519,7 @@ const DiamondSvg = () => {
         <source src="/videos/ben.mp4" />
       </video>
       <video
+      className="about-videos"
         key=".left-detail"
         autoPlay
         muted
@@ -528,6 +532,7 @@ const DiamondSvg = () => {
         <source src="/videos/aylin.mp4" />
       </video>
       <video
+      className="about-videos"
         key="none"
         autoPlay
         muted

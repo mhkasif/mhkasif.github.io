@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "../../images/me/mhkasif.jpg";
 
 import { TimelineLite } from "gsap/all";
@@ -6,7 +6,11 @@ import { Power3 } from "gsap/gsap-core";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import BackButton from "../../Components/BackButton/BackButton";
 import { connect } from "react-redux";
+import Bitmoji from "../../images/bitmoji/bitmoji.gif";
+import laugh from "../../images/bitmoji/laugh.PNG";
+import popper from "../../images/bitmoji/popper.PNG";
 import "./Me.scss";
+
 import {
   enableScroll,
   disableScroll,
@@ -45,29 +49,28 @@ const Me = ({ enableScroll, disableScroll }) => {
         },
       })
       .to(".ball02, .text01", {}, 0.2)
-      .to(".exp-par-1", {opacity:1,display:'block',scale:1}, 0.2)
+      .to(".exp-par-1", { opacity: 1, display: "block", scale: 1 }, 0.2)
       // .to(".ball03, .text02", {}, 0.33)
       // .to(".ball04, .text03", {}, 0.46)
       .to(".ball05, .text04", {}, 0.52)
-      .to(".exp-par-1", {opacity:0,display:'none',scale:1}, 0.46)
-      .to(".exp-par-2", {opacity:1,display:'block',scale:1}, 0.52)
+      .to(".exp-par-1", { opacity: 0, display: "none", scale: 1 }, 0.46)
+      .to(".exp-par-2", { opacity: 1, display: "block", scale: 1 }, 0.52)
       // .to(".ball06, .text05", {}, 0.74)
       .to(".ball07, .text06", {}, 1)
-      .to(".exp-par-2", {opacity:0,display:'none',scale:1}, .92)
-      .to(".exp-par-3", {opacity:1,display:'block',scale:1}, 1);
-    gsap
-      .timeline({
-        defaults: { duration: 1 },
-        scrollTrigger: {
-          trigger: ".exp",
-          scrub: true,
-          start: "top center",
-          // end: "+=1050px",
-          end: "+=1150px",
-          pin: '.exp'
-          // markers: true,
-        },
-      })
+      .to(".exp-par-2", { opacity: 0, display: "none", scale: 1 }, 0.92)
+      .to(".exp-par-3", { opacity: 1, display: "block", scale: 1 }, 1);
+    gsap.timeline({
+      defaults: { duration: 1 },
+      scrollTrigger: {
+        trigger: ".exp",
+        scrub: true,
+        start: "top center",
+        // end: "+=1050px",
+        end: "+=1150px",
+        pin: ".exp",
+        // markers: true,
+      },
+    });
 
     var action = gsap
       .timeline({
@@ -225,6 +228,7 @@ const Me = ({ enableScroll, disableScroll }) => {
         <div className="marquee">
           <div className="marqueeone">
             <span>Badminton</span>&nbsp;&nbsp;&nbsp;
+            <span>Photography</span>&nbsp;&nbsp;&nbsp;
             <span>Table-Tennis</span>&nbsp;&nbsp;&nbsp;
             <span>Cricket</span>&nbsp;&nbsp;&nbsp;
             <span>Movies</span>&nbsp;&nbsp;&nbsp;
@@ -232,6 +236,7 @@ const Me = ({ enableScroll, disableScroll }) => {
           </div>
           <div className="marqueetwo">
             <span>Badminton</span>&nbsp;&nbsp;&nbsp;
+            <span>Photography</span>&nbsp;&nbsp;&nbsp;
             <span>Table-Tennis</span>&nbsp;&nbsp;&nbsp;
             <span>Cricket</span>&nbsp;&nbsp;&nbsp;
             <span>Movies</span>&nbsp;&nbsp;&nbsp;
@@ -239,6 +244,7 @@ const Me = ({ enableScroll, disableScroll }) => {
           </div>
           <div className="marqueethree">
             <span>Badminton</span>&nbsp;&nbsp;&nbsp;
+            <span>Photography</span>&nbsp;&nbsp;&nbsp;
             <span>Table-Tennis</span>&nbsp;&nbsp;&nbsp;
             <span>Cricket</span>&nbsp;&nbsp;&nbsp;
             <span>Movies</span>&nbsp;&nbsp;&nbsp;
@@ -268,11 +274,12 @@ const Me = ({ enableScroll, disableScroll }) => {
           </div>
         </div>
         <div className="me-footer">
-          <div>
-            Inspired from{" "}
-            <span style={{ textDecoration: "underline" }}>Robin</span>
+          <div className="bitmoji-container">
+            <img src={Bitmoji} className="bitmoji-gif" alt="" />
+            Inspired from &nbsp;
+            <span style={{ textDecoration: "underline" }}> Robin</span>
           </div>
-          <div>To love other and live for other is a real life</div>
+          <div>Let my magical skills to be applied on your work </div>
         </div>
       </div>
     </React.Fragment>
@@ -280,7 +287,99 @@ const Me = ({ enableScroll, disableScroll }) => {
 };
 
 const EmailPopup = () => {
-  return <div className="email-popup">Haseebasif97@gmail.com</div>;
+  const [emailPopupState, setState] = useState("");
+  const mouseOver = () => {
+    if(emailPopupState!=="copied"){
+    const tl = new TimelineLite({
+    });
+    tl.to(".content-list",.25, {
+      y: "-60px",
+
+    })
+    .set('.email-popup',{
+      className:'email-popup email-popup-dark'
+    })
+
+
+    // .to('.email-popup-copied',{
+    //   y:"-100%"
+    // })
+  }
+  };
+  const mouseLeave = () => {
+    if(emailPopupState)
+    setState("")
+    const tl = new TimelineLite()
+    .set('.email-popup',{
+      className:'email-popup'
+    })
+      tl.to('.content-list',.25,{
+        y:0
+      })
+
+
+  };
+  const emailClicked = () => {
+    setState("copied")
+    navigator.clipboard.writeText('haseebasif97@gmail.com')
+
+    const tl = new TimelineLite()
+    // tl.to('.content-list',{
+    //   y:"-100px"
+
+    // })
+    tl.to('.email-popup',0,{
+      ease:Power3.easeInOut,
+
+      className:'email-popup email-popup-white'
+    },0)
+  };
+  return (
+    <React.Fragment>
+
+        <div
+          className="email-popup"
+          onMouseOver={mouseOver}
+          onMouseLeave={mouseLeave}
+          onClick={emailClicked}
+        >
+          <div className="content-list">
+            <div className="email-popup-email">
+
+              <div className="bitmoji-wrapper"> haseebasif97@gmail.com</div>
+            </div>
+            <div className="email-popup-copy">
+
+            {emailPopupState!=="copied"?
+              <div className="bitmoji-wrapper">
+                <img className="email-popup-bitmoji" src={laugh} alt="" />
+                <div> Copy Email</div>
+                </div>
+                :
+                <div className="bitmoji-wrapper">
+
+                <img className="email-popup-bitmoji" src={popper} alt="" />
+                <div> Email Copied</div>
+              </div>
+              }
+              </div>
+
+            {/* <div className="email-popup-copied">
+
+              <div className="bitmoji-wrapper">
+
+                <img className="email-popup-bitmoji" src={wink} alt="" />
+                <div> Email Copied</div>
+              </div>
+            </div> */}
+          </div>
+        </div>
+
+      {/* <div onClick={emailClicked} onMouseOver={mouseOver} onMouseLeave={mouseLeave} className={`email-popup ${emailPopupState==="copied"? "email-popup-white":""}`}>
+     {!emailPopupState?<div>Haseebasif97@gmail.com</div>:(emailPopupState==='hover'?<div style={{display:"flex",justifyContent:"space-evenly",alignItems:"center"}}><img className="email-popup-bitmoji" src={laugh} alt="" /><p>Copy Email</p></div>:<div style={{display:"flex",justifyContent:"space-evenly",alignItems:"center"}}><img className="email-popup-bitmoji" src={wink} alt="" /><p>Email Copied</p></div>)}
+     </div> */}
+    </React.Fragment>
+  );
 };
 const actions = {
   enableScroll,
