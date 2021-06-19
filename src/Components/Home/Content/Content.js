@@ -114,8 +114,7 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
       );
   }, []);
 
-  const linesAnimationOnRender = () => {;
-
+  const linesAnimationOnRender = () => {
   const tl=new Timeline({
 
   })
