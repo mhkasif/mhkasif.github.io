@@ -120,28 +120,28 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
 
   })
   tl
-  .from(LineTL.current,1,{
+  .from(LineTL.current,1.2,{
     x:"-100%"
-  },.2)
-  .from(LineTR.current,1,{
+  },.4)
+  .from(LineTR.current,1.2,{
     x:"100%"
-  },.2)
-  .from(LineBL.current,1,{
+  },.4)
+  .from(LineBL.current,1.2,{
     x:"-100%"
-  },.2)
-  .from(LineBR.current,1,{
+  },.4)
+  .from(LineBR.current,1.2,{
     x:"100%"
-  },.2)
-  .from(LineLT.current,1,{
+  },.4)
+  .from(LineLT.current,1.2,{
     y:"-100%"
-  },.2)
-  .from(LineLB.current,1,{
+  },.4)
+  .from(LineLB.current,1.2,{
     y:"100%"
-  },.2)
-  .from(LineR.current,1,{
+  },.4)
+  .from(LineR.current,1.2,{
 
     y:"100%"
-  },.2)
+  },.4)
 }
   // exitAnimationOnWheelDown = () => {
   //   console.log("called");
