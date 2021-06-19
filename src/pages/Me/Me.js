@@ -14,6 +14,7 @@ import "./Me.scss";
 import {
   enableScroll,
   disableScroll,
+  setScrollCounter,
 } from "../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 import MyImage from "./MyImage.png";
 import { debounce } from "lodash";
@@ -24,9 +25,10 @@ import gsapCore from "gsap/gsap-core";
 import { gsap } from "gsap/all";
 import SmoothScroll from "../../utils/SmoothScroll";
 import { motion } from "framer-motion";
-const Me = ({ enableScroll, disableScroll }) => {
+const Me = ({ enableScroll, disableScroll,setScrollCounter }) => {
   const pathRef = useRef();
   useEffect(() => {
+    setScrollCounter(4)
     //scroll to slow down
 
     function scrollEffect() {
@@ -494,7 +496,7 @@ const EmailPopup = () => {
 };
 const actions = {
   enableScroll,
-  disableScroll,
+  disableScroll,setScrollCounter
 };
 
 export default connect(null, actions)(Me);

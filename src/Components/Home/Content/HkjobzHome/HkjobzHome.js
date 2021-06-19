@@ -387,6 +387,7 @@ class HkjobzHome extends Component {
     }
   };
   pageTransistion = () => {
+    this.props.linesTransitionOnUnmount()
     var {
       sectionHeading,
       sectionSubHeading,

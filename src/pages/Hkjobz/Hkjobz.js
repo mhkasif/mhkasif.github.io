@@ -7,16 +7,17 @@ import mobileImage from "../../images/hkjobz/Group1.png";
 import {
   enableScroll,
   redirected,
+  setScrollCounter,
 } from "../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 import BackButton from "../../Components/BackButton/BackButton";
 import ScrollLine from "../../Components/ScrollLine/ScrollLine";
 import { gsap } from "gsap/all";
 import { Power3 } from "gsap/gsap-core";
-const Hkjobz = ({ redirected, enableScroll }) => {
+const Hkjobz = ({ redirected, enableScroll,setScrollCounter }) => {
   useEffect(() => {
     redirected(true);
     enableScroll();
-
+    setScrollCounter(3)
     gsap
       .timeline({
         defaults: { duration: 1 },
@@ -256,5 +257,6 @@ const Hkjobz = ({ redirected, enableScroll }) => {
 const action = {
   redirected,
   enableScroll,
+  setScrollCounter
 };
 export default connect(null, action)(Hkjobz);

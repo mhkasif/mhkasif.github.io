@@ -218,14 +218,14 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
   return (
     <motion.div
 
-    key="contet-div"
-    exit={{x:"-100%"}}
-    // initial={{x:"100%"}}
-    // animate={{x:0}}
-    transition={{
-      delay:1,
-      duration:1
-    }}
+    // key="contet-div"
+    // exit={{x:0}}
+    // // initial={{x:"100%"}}
+    // // animate={{x:0}}
+    // transition={{
+    //   delay:1,
+    //   duration:1
+    // }}
       className={`contentContainer ${scrollCounter === 5 ? "blue-bg" : ""} ${
         scrollCounter === 6 ? "dark-bg" : ""
       }`}
@@ -416,6 +416,9 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
 
         {scrollCounter === 2 && (
           <SlectusHome
+          linesTransitionOnUnmount={linesAnimationOnRenderUnFilled}
+
+
           // exitAnimationOnWheelDown={this.exitAnimationOnWheelDown}
           />
         )}
@@ -427,10 +430,10 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
           linesTransitionOnUnmount={linesAnimationOnRenderUnFilled}
           />}
         {scrollCounter === 5 && <ProjectHome
-           linesTransitionOnUnmount={linesAnimationOnRenderUnFilled}
+
            />}
         {scrollCounter === 6 && <Contact
-          linesTransitionOnUnmount={linesAnimationOnRenderUnFilled}
+
           />}
       </div>
     </motion.div>

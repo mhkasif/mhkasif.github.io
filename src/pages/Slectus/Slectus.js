@@ -9,15 +9,17 @@ import mobileImage from "../../images/slectus/slectus-macbook.png";
 import {
   enableScroll,
   redirected,
+  setScrollCounter,
 } from "../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 import BackButton from "../../Components/BackButton/BackButton";
 import ScrollLine from "../../Components/ScrollLine/ScrollLine";
 import { gsap } from "gsap/all";
 import CanvasImage from '../../images/slectus/canvas.png'
-const Slectus = ({ redirected, enableScroll }) => {
+const Slectus = ({ redirected, enableScroll,setScrollCounter }) => {
   useEffect(() => {
     redirected(true);
     enableScroll();
+    setScrollCounter(2)
     gsap.timeline({
       defaults: { duration: 1 },
       scrollTrigger: {
@@ -277,5 +279,6 @@ const Slectus = ({ redirected, enableScroll }) => {
 const action = {
   redirected,
   enableScroll,
+  setScrollCounter
 };
 export default connect(null, action)(Slectus);
