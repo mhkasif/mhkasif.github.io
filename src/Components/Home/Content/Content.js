@@ -14,6 +14,7 @@ import { Timeline } from "gsap/gsap-core";
 import "../../../CSS/Content.scss";
 import gsap from "gsap/gsap-core";
 import Contact from "./Contact/Contact";
+import { motion } from "framer-motion";
 const Content = ({ scrollCounter, setScrollCounter }) => {
   const isFirstRender = React.useRef(true);
   const LineTL = useRef();
@@ -79,7 +80,7 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
     }
   }, [scrollCounter]);
   useEffect(() => {
-    linesAnimationOnRender()
+    linesAnimationOnRenderFilled()
     isFirstRender.current = false;
     // var { l1, l2, l3, l4 } = this.refs;
     var tl = new TimelineLite({});
@@ -112,9 +113,13 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
         },
         0
       );
-  }, []);
 
-  const linesAnimationOnRender = () => {
+
+    console.log('unm')
+    // linesAnimationOnRenderUnFilled()
+    }, []);
+
+  const linesAnimationOnRenderFilled = () => {
   const tl=new Timeline({
 
   })
@@ -141,6 +146,34 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
 
     y:"100%"
   },.4)
+}
+  const linesAnimationOnRenderUnFilled = () => {
+  const tl=new Timeline({
+
+  })
+  tl
+  .to(LineTL.current,1.2,{
+    x:"-100%"
+  },0)
+  .to(LineTR.current,1.2,{
+    x:"100%"
+  },0)
+  .to(LineBL.current,1,{
+    x:"-100%"
+  },0)
+  .to(LineBR.current,1,{
+    x:"100%"
+  },0)
+  .to(LineLT.current,1,{
+    y:"-100%"
+  },0)
+  .to(LineLB.current,1,{
+    y:"100%"
+  },0)
+  .to(LineR.current,1,{
+
+    y:"100%"
+  },0)
 }
   // exitAnimationOnWheelDown = () => {
   //   console.log("called");
@@ -183,7 +216,16 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
     });
   };
   return (
-    <div
+    <motion.div
+
+    key="contet-div"
+    exit={{x:"-100%"}}
+    // initial={{x:"100%"}}
+    // animate={{x:0}}
+    transition={{
+      delay:1,
+      duration:1
+    }}
       className={`contentContainer ${scrollCounter === 5 ? "blue-bg" : ""} ${
         scrollCounter === 6 ? "dark-bg" : ""
       }`}
@@ -378,12 +420,20 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
           />
         )}
 
-        {scrollCounter === 3 && <HkjobzHome />}
-        {scrollCounter === 4 && <AboutHome />}
-        {scrollCounter === 5 && <ProjectHome />}
-        {scrollCounter === 6 && <Contact />}
+        {scrollCounter === 3 && <HkjobzHome
+           linesTransitionOnUnmount={linesAnimationOnRenderUnFilled}
+           />}
+        {scrollCounter === 4 && <AboutHome
+          linesTransitionOnUnmount={linesAnimationOnRenderUnFilled}
+          />}
+        {scrollCounter === 5 && <ProjectHome
+           linesTransitionOnUnmount={linesAnimationOnRenderUnFilled}
+           />}
+        {scrollCounter === 6 && <Contact
+          linesTransitionOnUnmount={linesAnimationOnRenderUnFilled}
+          />}
       </div>
-    </div>
+    </motion.div>
   );
   // }
 };

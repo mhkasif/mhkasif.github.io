@@ -50,12 +50,12 @@ function App({ isScrollable }) {
   return (
     <div>
       <AnimatePresence initial={true} exitBeforeEnter>
-        <HashRouter location={location} key={location.pathname}>
+      <Route key="d" exact path="/" component={Me} />
+        <Switch location={location} key={location.pathname}>
           <Route key="a" exact path="/" component={Home} />
           <Route key="b" exact path="/hkjobz" component={Hkjobz} />
           <Route key="c" exact path="/slectus" component={Slectus} />
-          <Route key="d" exact path="/me" component={Me} />
-        </HashRouter>
+        </Switch>
       </AnimatePresence>
       {/* <CircleSvg /> */}
     </div>

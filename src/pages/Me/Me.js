@@ -23,6 +23,7 @@ import woman from "../../images/design/women.jpg";
 import gsapCore from "gsap/gsap-core";
 import { gsap } from "gsap/all";
 import SmoothScroll from "../../utils/SmoothScroll";
+import { motion } from "framer-motion";
 const Me = ({ enableScroll, disableScroll }) => {
   const pathRef = useRef();
   useEffect(() => {
@@ -201,7 +202,17 @@ const Me = ({ enableScroll, disableScroll }) => {
   }, []);
   return (
     <React.Fragment>
-      <div className="viewport">
+      <motion.div
+      exit={{ x: "100%"}}
+        key="me-div"
+        initial={{ x:'100%' }}
+        animate={{ x: 0 }}
+        // animate={{ translateX: "0px",  }}
+        transition={{
+          // ease:'backIn',
+          duration: 1,
+        }}
+      className="viewport">
         <EmailPopup />
         <div className="me-container">
           <BackButton />
@@ -392,7 +403,7 @@ const Me = ({ enableScroll, disableScroll }) => {
             <div>Let my magical skills to be applied on your work </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </React.Fragment>
   );
 };

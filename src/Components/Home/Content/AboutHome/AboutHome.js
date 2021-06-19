@@ -214,6 +214,7 @@ class AboutHome extends Component {
     }
   };
   pageTransistion = () => {
+    this.props.linesTransitionOnUnmount()
     var {
       sectionHeading,
       sectionSubHeading,
