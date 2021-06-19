@@ -210,7 +210,7 @@ const Me = ({ enableScroll, disableScroll }) => {
         // animate={{ translateX: "0px",  }}
         transition={{
           // ease:'backIn',
-          duration: 1,
+          duration: .8,
         }}
       className="viewport">
         <EmailPopup />
