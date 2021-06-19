@@ -424,23 +424,19 @@ const EmailPopup = () => {
   };
   const emailClicked = () => {
     setState("copied");
-    navigator.clipboard.writeText("haseebasif97@gmail.com");
-
     const tl = new TimelineLite();
     // tl.to('.content-list',{
     //   y:"-100px"
 
     // })
-    tl.to(
+    tl.set(
       ".email-popup",
-      0,
-      {
-        ease: Power3.easeInOut,
 
+      {
         className: "email-popup email-popup-white",
-      },
-      0
+      }
     );
+    navigator.clipboard.writeText("haseebasif97@gmail.com");
   };
   return (
     <React.Fragment>
