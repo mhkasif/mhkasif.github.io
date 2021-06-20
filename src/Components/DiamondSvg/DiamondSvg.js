@@ -27,7 +27,7 @@ const DiamondSvg = () => {
   // const videoRef = useRef();
   useEffect(() => {
     const tl = new TimelineLite({
-      delay: 0.5,
+      delay: .8,
     });
     tl.to(
       topOuterDiamond.current,
