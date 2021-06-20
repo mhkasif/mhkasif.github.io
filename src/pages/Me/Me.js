@@ -447,7 +447,7 @@ const EmailPopup = () => {
         className: "email-popup email-popup-white",
       }
     );
-    navigator.clipboard.writeText("haseebasif97@gmail.com");
+    navigator.clipboard.writeText("Mhkasif97@gmail.com");
   };
   return (
     <React.Fragment>
