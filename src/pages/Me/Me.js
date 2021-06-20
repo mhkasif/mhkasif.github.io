@@ -447,7 +447,7 @@ const EmailPopup = () => {
         className: "email-popup email-popup-white",
       }
     );
-    navigator.clipboard.writeText("haseebasif97@gmail.com");
+    navigator.clipboard.writeText("mhkasif97@gmail.com");
   };
   return (
     <React.Fragment>
@@ -459,7 +459,7 @@ const EmailPopup = () => {
       >
         <div className="content-list">
           <div className="email-popup-email">
-            <div className="bitmoji-wrapper"> haseebasif97@gmail.com</div>
+            <div className="bitmoji-wrapper"> Mhkasif97@gmail.com</div>
           </div>
           <div className="email-popup-copy">
             {emailPopupState !== "copied" ? (
