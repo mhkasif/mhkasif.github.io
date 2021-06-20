@@ -417,9 +417,7 @@ const EmailPopup = () => {
       const tl = new TimelineLite({});
       tl.to(".content-list", 0.25, {
         y: "-60px",
-      }).set(".email-popup", {
-        className: "email-popup email-popup-dark",
-      });
+      })
 
       // .to('.email-popup-copied',{
       //   y:"-100%"
