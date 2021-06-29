@@ -25,7 +25,7 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
   const LineBR = useRef();
   const LineR = useRef();
   useEffect(() => {
-
+    leave()
     if (!isFirstRender.current) {
       const tl = new TimelineLite({});
       tl.set(".non-active", { display: "none" })
@@ -208,6 +208,7 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
     });
   };
   const leave = () => {
+    console.log('leaeve called');
     const tl = new Timeline();
     tl.to(".non-active", {
       display: "none",
