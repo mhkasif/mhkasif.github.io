@@ -13,7 +13,8 @@ import {
   redirected
 } from "../../../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 // import mobile from "./../../../../images/mobile.png";
-import image from '../../../../images/slectus/slectus-macbook.png'
+// import image from '../../../../images/slectus/slectus-macbook.png'
+import image from '../../../../images/slectus/Slectus_Main.png'
 import '../../../../CSS/Service.scss'
 class SlectusHome extends Component {
   constructor(props) {
