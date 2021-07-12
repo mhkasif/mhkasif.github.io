@@ -8,13 +8,16 @@
   position: absolute;
   right: 60px;
   top: 0;
-  overflow: hidden;
+  overflow: visible;
 z-index: 100;
 img {
   width: 25vw;
 //   position: absolute;
   z-index: 3;
 }
+}
+.zoom {
+  zoom: 2.2;
 }
 .work-page {
   width: 100vw;

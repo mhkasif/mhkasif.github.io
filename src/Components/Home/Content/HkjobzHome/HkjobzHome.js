@@ -10,7 +10,8 @@ import {
 } from "../../../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 import { debounce } from "lodash";
 // import mobile from "./../../../../images/mobile.png";
-import mobile from "./../../../../images/hkjobz/Group1.png";
+// import mobile from "./../../../../images/hkjobz/Group1.png";
+import mobile from "./../../../../images/hkjobz/HKJobs_Main.png";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import "../../../../CSS/Work.scss";
@@ -41,10 +42,13 @@ class HkjobzHome extends Component {
       },
     });
     if (this.props.isRedirected) {
+      tl.to(".overflow-visible",{
+        overflow:"visible",
+        duration:0
 
       // tl.to(sectionImg,{
       //   transform:"translate(50px,0px)"
-      // })
+      })
       tl.to(sectionHeading, 1, {
         transform: "translateY(0%)",
         ease: Power3.easeInOut,
@@ -131,9 +135,16 @@ class HkjobzHome extends Component {
           0
         )
         .to(sectionImg, 0.5, {
-          transform: "translateX(0%)",
+          transform: "translate(50px,0px)",
+          // ease: Power3.easeOut,
           ease: [0.35, -0.01, 0.32, 1.275],
-        })
+        }).to(".overflow-visible",{
+          overflow:"visible"
+        },"-=0.2")
+        // .to(sectionImg, 0.5, {
+        //   transform: "translateX(0%)",
+        //   ease: [0.35, -0.01, 0.32, 1.275],
+        // })
 
         .to(btnBack, 0.5, {
           transformOrigin: "0% 0%",
@@ -503,10 +514,12 @@ class HkjobzHome extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="righty">
-          <div id="overfloWrapper" className="overfloWrapper">
+        <div className="righty overflow-visible">
+          <div id="overfloWrapper" className="overfloWrapper overflow-visible">
             <motion.img
-              initial={{ translateX: this.props.isRedirected ? 0:"inherit"  }}
+              // initial={{ translateX: this.props.isRedirected ? 0:"inherit"  }}
+              initial={{ translateX: this.props.isRedirected ? "50px" : "inherit" }}
+
               // exit={{}}
               // animate={{x:0}}
               transition={{
@@ -515,7 +528,9 @@ class HkjobzHome extends Component {
               alt=""
               ref="sectionImg"
               src={mobile}
-              className="mobileImage hkjobz-mobileImage"
+              className="laptopImage zoom"
+
+              // className="mobileImage hkjobz-mobileImage"
             />
           </div>
         </div>

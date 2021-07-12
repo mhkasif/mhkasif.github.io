@@ -5,7 +5,8 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Slectus.scss";
-import mobileImage from "../../images/slectus/slectus-macbook.png";
+// import mobileImage from "../../images/slectus/slectus-macbook.png";
+import mobileImage from "../../images/slectus/Slectus_Main.png";
 import {
   enableScroll,
   redirected,

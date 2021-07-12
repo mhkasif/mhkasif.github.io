@@ -3,7 +3,8 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "../../CSS/Hkjobz.scss";
-import mobileImage from "../../images/hkjobz/Group1.png";
+// import mobileImage from "../../images/hkjobz/Group1.png";
+import mobileImage from "../../images/hkjobz/HKJobs_Main.png";
 import {
   enableScroll,
   redirected,
@@ -13,11 +14,11 @@ import BackButton from "../../Components/BackButton/BackButton";
 import ScrollLine from "../../Components/ScrollLine/ScrollLine";
 import { gsap } from "gsap/all";
 import { Power3 } from "gsap/gsap-core";
-const Hkjobz = ({ redirected, enableScroll,setScrollCounter }) => {
+const Hkjobz = ({ redirected, enableScroll, setScrollCounter }) => {
   useEffect(() => {
     redirected(true);
     enableScroll();
-    setScrollCounter(3)
+    setScrollCounter(3);
     gsap
       .timeline({
         defaults: { duration: 1 },
@@ -31,12 +32,9 @@ const Hkjobz = ({ redirected, enableScroll,setScrollCounter }) => {
       })
       .set("#circle", { xPercent: -50 })
       // .to("#circle", {duration: 0.01, autoAlpha: 1})
-      .to("#circle", { motionPath: { path: "#path",
-    align:"self"
-    } });
+      .to("#circle", { motionPath: { path: "#path", align: "self" } });
 
-    return () => {
-    };
+    return () => {};
   }, []);
   const variant = {
     exit: {
@@ -97,7 +95,7 @@ const Hkjobz = ({ redirected, enableScroll,setScrollCounter }) => {
         exit={{ x: "0%", y: "0%" }}
         key="img"
         // initial={{ translateX: "686px", translateY: "-1px" }}
-        animate={{ x: "-140%" }}
+        animate={{ x: "-180%" }}
         // animate={{ translateX: "0px",  }}
         transition={{
           delay: 0.5,
@@ -107,7 +105,12 @@ const Hkjobz = ({ redirected, enableScroll,setScrollCounter }) => {
         }}
         className="left-side"
       >
-        <img  src={mobileImage} alt="" />
+        <motion.img
+          className="zoom"
+          initial={{ translateX: "50px" }}
+          src={mobileImage}
+          alt=""
+        />
       </motion.div>
 
       <motion.div className="work-page">
@@ -257,6 +260,6 @@ const Hkjobz = ({ redirected, enableScroll,setScrollCounter }) => {
 const action = {
   redirected,
   enableScroll,
-  setScrollCounter
+  setScrollCounter,
 };
 export default connect(null, action)(Hkjobz);
