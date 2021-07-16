@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import "../../CSS/Hkjobz.scss";
 // import mobileImage from "../../images/hkjobz/Group1.png";
 import mobileImage from "../../images/hkjobz/HKJobs_Main.png";
+import Devices from "../../images/hkjobz/HKjobs_Devices.png";
+import resume from "../../images/hkjobz/resume.jpg";
 import {
   enableScroll,
   redirected,
@@ -114,7 +116,7 @@ const Hkjobz = ({ redirected, enableScroll, setScrollCounter }) => {
       </motion.div>
 
       <motion.div className="work-page">
-        <BackButton />
+        <BackButton color="black" />
         <div className="landing">
           {/* <ScrollLine/> */}
 
@@ -150,7 +152,7 @@ const Hkjobz = ({ redirected, enableScroll, setScrollCounter }) => {
                 }}
                 className="heading"
               >
-                <h1>McDonald's App</h1>
+                <h1>HKjobz</h1>
               </motion.div>
               <motion.div
                 variants={RightText}
@@ -215,43 +217,81 @@ const Hkjobz = ({ redirected, enableScroll, setScrollCounter }) => {
             </div>
           </motion.div>
         </div>
-        <div className="below-landing page-2 ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
-          blanditiis dignissimos? Sapiente, beatae maxime nobis itaque cumque ab
-          temporibus. Sapiente fugit consequatur nobis! Quidem error
-          consequuntur assumenda, molestiae numquam suscipit. Lorem ipsum dolor
-          sit amet consectetur adipisicing elit. Earum, saepe vitae? Inventore
-          ut commodi quo? Vel velit, excepturi dicta, ex modi reiciendis
-          aliquam, alias fugit numquam magni dolor nam consectetur. Lorem ipsum
-          dolor sit amet, consectetur adipisicing elit. Hic quos non iusto
-          expedita cumque distinctio nulla et libero, iste repellat ea dolor
-          praesentium! Facere aliquid perferendis commodi suscipit, odit optio?
-        </div>
-        <div>
-          <svg
-            id="svg"
-            width="1151"
-            height="805"
-            viewBox="0 0 1151 805"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              id="path"
-              d="M1034.82 45.4242C588.791 31.579 682.577 759.485 100.577 730.485"
-              stroke="#FFA500"
-              strokeWidth="3"
-            />
-            <circle
-              id="circle"
-              cx="1051"
-              cy="45"
-              r="17"
-              fill="white"
-              stroke="#FFA500"
-              strokeWidth="2"
-            />
-          </svg>
+        <div className="below-landing page-2 margin-80 ">
+          <div className="heading">Tools and Frameworks</div>
+          <div className="paragraph" style={{ width: "30%",marginBottom:"50px" }}>
+            First of all Spaceflipper is a game entirely written in HTML5
+            Canvas. After some research I decided to use the following
+            frameworks to help me develop the application:
+          </div>
+          <section className="section section-1">
+            <div className="img-left">
+              <img src={Devices} alt="" />
+            </div>
+            <div className="details">
+              <div className="margin-50">
+                <div className="heading">EASELJS – CANVAS</div>
+                <div className="paragraph">
+                <p>
+                  EaselJS is an outstanding javascript canvas library. It’s
+                  pretty fast, super easy to use and extend (especially for
+                  former flash developers): http://www.easeljs.com
+                  <br />
+                  Besides that it has support for touch events out of the box
+                  which makes it even more awesome. If you’re interested in how
+                  to extend EaselJS for multitouch gestures, you can read my
+                  post Multitouch gesture transformations with EaselJS.
+                  <br />
+                  Actually apart from EaselJS I also used PreloadJS for
+                  preloading all the needed assets in advance and SoundJS for
+                  handling sound output on specific events.
+                  <br />
+                  So pretty much the complete CreateJS suite except from
+                  TweenJS, because I personally prefer:
+                  </p>
+                </div>
+              </div>
+
+              <div className="margin-20">
+                <div className="heading">GSAP – ANIMATION</div>
+                <div className="paragraph">
+                <p>
+                  GSAP was immensly popular in the actionscript community. It is
+                  very small and an extremely fast animation engine.
+                  <br />A very nice feature of the framework is that you can
+                  animate an object along a defined curve. That was used for the
+                  pinball ramp in the upper-left corner. But more on that later.
+                  </p>
+                  </div>
+              </div>
+            </div>
+          </section>
+          <section className="section section-2">
+            <div className="details">
+              <div className="margin-30">
+                <div className="heading">Problems and Solutions</div>
+                <div className="paragraph">
+                <p>
+                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                  </p>
+                </div>
+              </div>
+
+              <div className="margin-20">
+                <div className="heading">Result</div>
+                <div className="paragraph">
+                <p>
+                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                  </p>
+                  </div>
+              </div>
+            </div>
+            <div className="img-left">
+            <img src={resume} alt="" />
+          </div>
+
+            </section>
+
         </div>
       </motion.div>
     </React.Fragment>
