@@ -15,6 +15,7 @@ import "../../../CSS/Content.scss";
 import gsap from "gsap/gsap-core";
 import Contact from "./Contact/Contact";
 import { motion } from "framer-motion";
+import ProjectHome1 from "./ProjectsHome/ProjectHome1";
 const Content = ({ scrollCounter, setScrollCounter }) => {
   const isFirstRender = React.useRef(true);
   const LineTL = useRef();
@@ -25,7 +26,7 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
   const LineBR = useRef();
   const LineR = useRef();
   useEffect(() => {
-    leave()
+    leave();
     if (!isFirstRender.current) {
       const tl = new TimelineLite({});
       tl.set(".non-active", { display: "none" })
@@ -80,7 +81,7 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
     }
   }, [scrollCounter]);
   useEffect(() => {
-    linesAnimationOnRenderFilled()
+    linesAnimationOnRenderFilled();
     isFirstRender.current = false;
     // var { l1, l2, l3, l4 } = this.refs;
     var tl = new TimelineLite({});
@@ -114,67 +115,128 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
         0
       );
 
-
-    console.log('unm')
+    console.log("unm");
     // linesAnimationOnRenderUnFilled()
-    }, []);
+  }, []);
 
   const linesAnimationOnRenderFilled = () => {
-  const tl=new Timeline({
-
-  })
-  tl
-  .from(LineTL.current,1.2,{
-    x:"-100%"
-  },.4)
-  .from(LineTR.current,1.2,{
-    x:"100%"
-  },.4)
-  .from(LineBL.current,1.2,{
-    x:"-100%"
-  },.4)
-  .from(LineBR.current,1.2,{
-    x:"100%"
-  },.4)
-  .from(LineLT.current,1.2,{
-    y:"-100%"
-  },.4)
-  .from(LineLB.current,1.2,{
-    y:"100%"
-  },.4)
-  .from(LineR.current,1.2,{
-
-    y:"100%"
-  },.4)
-}
+    const tl = new Timeline({});
+    tl.from(
+      LineTL.current,
+      1.2,
+      {
+        x: "-100%",
+      },
+      0.4
+    )
+      .from(
+        LineTR.current,
+        1.2,
+        {
+          x: "100%",
+        },
+        0.4
+      )
+      .from(
+        LineBL.current,
+        1.2,
+        {
+          x: "-100%",
+        },
+        0.4
+      )
+      .from(
+        LineBR.current,
+        1.2,
+        {
+          x: "100%",
+        },
+        0.4
+      )
+      .from(
+        LineLT.current,
+        1.2,
+        {
+          y: "-100%",
+        },
+        0.4
+      )
+      .from(
+        LineLB.current,
+        1.2,
+        {
+          y: "100%",
+        },
+        0.4
+      )
+      .from(
+        LineR.current,
+        1.2,
+        {
+          y: "100%",
+        },
+        0.4
+      );
+  };
   const linesAnimationOnRenderUnFilled = () => {
-  const tl=new Timeline({
-
-  })
-  tl
-  .to(LineTL.current,1.2,{
-    x:"-100%"
-  },0)
-  .to(LineTR.current,1.2,{
-    x:"100%"
-  },0)
-  .to(LineBL.current,1,{
-    x:"-100%"
-  },0)
-  .to(LineBR.current,1,{
-    x:"100%"
-  },0)
-  .to(LineLT.current,1,{
-    y:"-100%"
-  },0)
-  .to(LineLB.current,1,{
-    y:"100%"
-  },0)
-  .to(LineR.current,1,{
-
-    y:"100%"
-  },0)
-}
+    const tl = new Timeline({});
+    tl.to(
+      LineTL.current,
+      1.2,
+      {
+        x: "-100%",
+      },
+      0
+    )
+      .to(
+        LineTR.current,
+        1.2,
+        {
+          x: "100%",
+        },
+        0
+      )
+      .to(
+        LineBL.current,
+        1,
+        {
+          x: "-100%",
+        },
+        0
+      )
+      .to(
+        LineBR.current,
+        1,
+        {
+          x: "100%",
+        },
+        0
+      )
+      .to(
+        LineLT.current,
+        1,
+        {
+          y: "-100%",
+        },
+        0
+      )
+      .to(
+        LineLB.current,
+        1,
+        {
+          y: "100%",
+        },
+        0
+      )
+      .to(
+        LineR.current,
+        1,
+        {
+          y: "100%",
+        },
+        0
+      );
+  };
   // exitAnimationOnWheelDown = () => {
   //   console.log("called");
   //   var { l1, l2, l3, l4 } = this.refs;
@@ -208,7 +270,7 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
     });
   };
   const leave = () => {
-    console.log('leaeve called');
+    console.log("leaeve called");
     const tl = new Timeline();
     tl.to(".non-active", {
       display: "none",
@@ -218,26 +280,29 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
   };
   return (
     <motion.div
-
-    // key="contet-div"
-    // exit={{x:0}}
-    // // initial={{x:"100%"}}
-    // // animate={{x:0}}
-    // transition={{
-    //   delay:1,
-    //   duration:1
-    // }}
-      className={`contentContainer ${scrollCounter === 5 ? "blue-bg" : ""} ${
+      // key="contet-div"
+      // exit={{x:0}}
+      // // initial={{x:"100%"}}
+      // // animate={{x:0}}
+      // transition={{
+      //   delay:1,
+      //   duration:1
+      // }}
+      className={`contentContainer ${
+        // scrollCounter === 5 ? "blue-bg" : ""
+        scrollCounter === 5 ? "" : ""
+      } ${
         scrollCounter === 6 ? "dark-bg" : ""
       }`}
     >
-      {scrollCounter === 5 && <div className="background-ball"></div>}
+      {/* scrollCounter === 5 && <div className="background-ball"></div> */}
       <div className="contentWindow">
         <div
           className="page-count"
           style={{
             color:
-              (scrollCounter === 5 ||
+              (
+                // scrollCounter === 5 ||
                 scrollCounter === 4 ||
                 scrollCounter === 6) &&
               "rgba(255,255,255,0.7)",
@@ -322,7 +387,8 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
             className="divider"
             style={{
               borderBottomColor:
-                (scrollCounter === 5 ||
+                (
+                  // scrollCounter === 5 ||
                   scrollCounter === 4 ||
                   scrollCounter === 6) &&
                 "rgba(255,255,255,0.7)",
@@ -417,25 +483,24 @@ const Content = ({ scrollCounter, setScrollCounter }) => {
 
         {scrollCounter === 2 && (
           <SlectusHome
-          linesTransitionOnUnmount={linesAnimationOnRenderUnFilled}
+            linesTransitionOnUnmount={linesAnimationOnRenderUnFilled}
 
-
-          // exitAnimationOnWheelDown={this.exitAnimationOnWheelDown}
+            // exitAnimationOnWheelDown={this.exitAnimationOnWheelDown}
           />
         )}
 
-        {scrollCounter === 3 && <HkjobzHome
-           linesTransitionOnUnmount={linesAnimationOnRenderUnFilled}
-           />}
-        {scrollCounter === 4 && <AboutHome
-          linesTransitionOnUnmount={linesAnimationOnRenderUnFilled}
-          />}
-        {scrollCounter === 5 && <ProjectHome
-
-           />}
-        {scrollCounter === 6 && <Contact
-
-          />}
+        {scrollCounter === 3 && (
+          <HkjobzHome
+            linesTransitionOnUnmount={linesAnimationOnRenderUnFilled}
+          />
+        )}
+        {scrollCounter === 4 && (
+          <AboutHome
+            linesTransitionOnUnmount={linesAnimationOnRenderUnFilled}
+          />
+        )}
+        {scrollCounter === 5 && <ProjectHome1 />}
+        {scrollCounter === 6 && <Contact />}
       </div>
     </motion.div>
   );

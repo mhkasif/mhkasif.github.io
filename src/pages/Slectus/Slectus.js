@@ -290,7 +290,7 @@ import { Link } from "react-router-dom";
 import "./Slectus.scss";
 // import mobileImage from "../../images/Slectus/Group1.png";
 import mobileImage from "../../images/slectus/Slectus_Main.png";
-import Devices from "../../images/slectus/Slectus_Devices.png";
+import Devices from "../../images/slectus/Slectus Devices.png";
 import Artist_hand from "../../images/slectus/Artist_hand.png";
 import {
   enableScroll,

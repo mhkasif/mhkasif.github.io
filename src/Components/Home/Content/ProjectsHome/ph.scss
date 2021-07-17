@@ -1,0 +1,88 @@
+.projects-grid-container {
+  margin-top: -2rem;
+  display: grid;
+  height: 450px;
+  grid-template-areas:
+    "slectus hkjobz webicamp"
+    "slectus hkjobz bsconsults"
+    "eventos hkjobz bsconsults";
+  grid-template-columns: repeat(3, 1fr);
+//   grid-template-rows: repeat(3, minmax(32%, 1fr));
+grid-template-rows: 1.3fr .7fr 1fr;
+  gap: 5px;
+  .project-cell {
+    &-container {
+      position: relative;
+      .btn {
+        pointer-events: none;
+        visibility: hidden;
+        font-weight: bold;
+        font-size: 22px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px 25px;
+        color: white;
+        border: 0px solid white;
+      }
+      &:hover {
+        .btn {
+          visibility: visible;
+          border: 2px solid white;
+          z-index: 5;
+        }
+      }
+    }
+    cursor: pointer;
+
+    &:hover {
+      filter: blur(2px) brightness(65%);
+    }
+  }
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+.slectus {
+  grid-area: slectus;
+  img {
+    height: 280px;
+  }
+
+  // height: 200px;
+}
+.hkjobz {
+  grid-area: hkjobz;
+
+  img {
+    height: 420px;
+  }
+}
+.webicamp {
+  grid-area: webicamp;
+  img {
+    height: 182px;
+// height: 32%;
+  }
+  //   height: 150px;
+}
+.eventos {
+  grid-area: eventos;
+  img {
+    height: 140px;
+  }
+
+  //   height: 150px;
+}
+
+.bsconsults {
+  grid-area: bsconsults;
+  img {
+    height: 238px;
+  }
+}
+.client-heading {
+  color: #000;
+}
