@@ -10,7 +10,8 @@ import {
 
   incrementCounter,
 
-  redirected
+  redirected,
+  refreshed
 } from "../../../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 // import mobile from "./../../../../images/mobile.png";
 // import image from '../../../../images/slectus/slectus-macbook.png'
@@ -25,6 +26,7 @@ class SlectusHome extends Component {
     });
   }
   componentDidMount = () => {
+    this.props.refreshed(false)
     var {
       sectionHeading,
       sectionSubHeading,
@@ -89,7 +91,7 @@ class SlectusHome extends Component {
           ease: Power3.easeIn,
         })
         .to(viewBtn, 0.1, {
-          borderColor: "#00acc1",
+          borderColor: "#fce57e",
         })
         .to(btnText, 0.1, {
           opacity: 1,
@@ -148,7 +150,7 @@ class SlectusHome extends Component {
           ease: Power3.easeIn,
         },"<")
         .to(viewBtn, 0.1, {
-          borderColor: "#00acc1",
+          borderColor: "#fce57e",
         })
         .to(btnText, 0.1, {
           opacity: 1,
@@ -591,6 +593,7 @@ var actions = {
   incrementCounter,
   decrementCounter,
   redirected,
+  refreshed
 };
 
 var mapStateToProps = (state) => ({
