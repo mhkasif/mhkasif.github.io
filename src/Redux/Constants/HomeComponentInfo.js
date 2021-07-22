@@ -7,3 +7,4 @@ export const SET_HOME_COMPONENT_COUNTER =
 export const DISABLE_SCROLL = "DISABLE_SCROLL";
 export const ENABLE_SCROLL = "ENABLE_SCROLL";
 export const IS_REDIRECTED = "IS_REDIRECTED";
+export const IS_REFRESHED = "IS_REFRESHED";
