@@ -7,6 +7,7 @@ import {
   incrementCounter,
   decrementCounter,
   redirected,
+  refreshed,
 } from "../../../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 import { debounce } from "lodash";
 // import mobile from "./../../../../images/mobile.png";
@@ -24,6 +25,7 @@ class HkjobzHome extends Component {
     });
   }
   componentDidMount = () => {
+    this.props.refreshed(false)
     var {
       sectionHeading,
       sectionSubHeading,
@@ -592,6 +594,7 @@ var actions = {
   incrementCounter,
   decrementCounter,
   redirected,
+  refreshed
 };
 
 var mapStateToProps = (state) => ({
