@@ -11,7 +11,7 @@ import {
 
 import { gsap } from "gsap";
 import React, { useEffect } from "react";
-import { HashRouter, Route, Switch, useLocation } from "react-router-dom";
+import { HashRouter, Redirect, Route, Switch, useLocation } from "react-router-dom";
 import "./App.css";
 import Home from "./Components/Home/Home";
 import Hkjobz from "./pages/Hkjobz/Hkjobz";
@@ -27,7 +27,24 @@ import MotionPathPlugin from "gsap/MotionPathPlugin";
 // import {gsap} fro
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 
+import { useState } from 'react';
+
 function App({ isScrollable }) {
+  const [error,setError]=useState(false)
+console.log(window.innerWidth)
+  useEffect(()=>{
+    window.addEventListener('resize',()=>{
+      console.log(error)
+      if(window.innerWidth <=1024 ){
+        setError(true)
+      }
+      if(window.innerWidth>1024){
+        setError(false)
+      }
+    })
+
+  },[error])
+
   useEffect(() => {
     console.log(isScrollable)
     if (!isScrollable) document.body.classList.add("loading-cursor");
@@ -50,9 +67,11 @@ function App({ isScrollable }) {
   // }, []);
   const location = useLocation();
   return (
+
     <div>
       <AnimatePresence initial={true} exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
+        {error&&<ErrorPage screenError />}
           <Route key="a" exact path="/" component={Home} />
           <Route key="b" exact path="/hkjobz" component={Hkjobz} />
           <Route key="c" exact path="/slectus" component={Slectus} />
@@ -62,6 +81,7 @@ function App({ isScrollable }) {
       </AnimatePresence>
       {/* <CircleSvg /> */}
     </div>
+
   );
 }
 const mapState = (state) => ({

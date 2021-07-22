@@ -17,6 +17,7 @@ import {
   setScrollCounter,
 } from "../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
 import MyImage from "./MyImage.png";
+// import MyImage from "../../images/me/mhkwithcards.png";
 import { debounce } from "lodash";
 import cap from "../../images/design/cap.jpg";
 import shoe from "../../images/design/shoes.jpg";
