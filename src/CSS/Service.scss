@@ -1,28 +1,28 @@
 .slectus-font-color{
-    color: #00acc1 !important;
+    color: #fce57e !important;
 }
 .slectus-background-color{
-    background: #00acc1 !important;
+    background: #fce57e !important;
 }
 
 .viewBtnBackClients {
-    // background: #00acc1;
+    // background: #fce57e;
 }
 
 .slectus-background-color > h3 {
-    color: #00acc1 !important;
+    color: #fce57e !important;
 }
 
 .slectus-background-color {
-    background: #00acc1 !important;
+    background: #fce57e !important;
 }
 
 .slectus-background-color > div > h1 {
-    color: #00acc1 !important;
+    color: #fce57e !important;
 }
 
 .contentHeaderClients {
-    color: #00acc1;
+    color: #fce57e;
 }
 .righty{
     position: fixed;
@@ -45,4 +45,8 @@
     .zoom{
         zoom: 2.2;
     }
+}
+
+.viewBtnInnerWrapperClients:hover > h3 {
+    color: white ;
 }

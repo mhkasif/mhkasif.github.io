@@ -1,0 +1,52 @@
+.error-page-container{
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background:linear-gradient(to right, #000000, #434343); /* Chrome 10-25, Safari 5.1-6 */
+    .logo{
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        height: 100px;
+        @media (max-width:340px) {
+            height: 80px;
+            left: 20px;
+            top: 20px;
+
+        }
+    }
+    .emoji{
+        height: 300px;
+        @media (max-width:700px) {
+            margin-top:80px ;
+            height: 250px;
+
+        }
+        @media (max-width:340px) {
+            margin-top:80px ;
+
+            height: 200px;
+
+        }
+    }
+    p{
+        text-align: center;
+        word-break: break-word;
+        color: whitesmoke;
+        width: 80%;
+        letter-spacing: 3px;
+        @media (max-width:1000px) {
+            font-size: 28px;
+            line-height: 1.5;
+        }
+        @media (max-width:340px) {
+            font-size: 20px;
+            line-height: 1.5;
+
+        }
+    }
+}
