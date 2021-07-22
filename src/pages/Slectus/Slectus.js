@@ -301,7 +301,7 @@ import BackButton from "../../Components/BackButton/BackButton";
 import ScrollLine from "../../Components/ScrollLine/ScrollLine";
 import { gsap } from "gsap/all";
 import { Power3 } from "gsap/gsap-core";
-const Slectus = ({ redirected, enableScroll, setScrollCounter }) => {
+const Slectus = ({ redirected, enableScroll, setScrollCounter,isRefreshed }) => {
   useEffect(() => {
     redirected(true);
     enableScroll();
@@ -382,7 +382,9 @@ const Slectus = ({ redirected, enableScroll, setScrollCounter }) => {
         exit={{ x: "0%", y: "0%" }}
         key="img"
         // initial={{ translateX: "686px", translateY: "-1px" }}
-        animate={{ x: "-180%" }}
+        // animate={{ x: "-180%" }}
+        initial={{ x:isRefreshed?"-360%":0 }}
+        animate={{ x:isRefreshed?"-180%": "-180%" }}
         // animate={{ translateX: "0px",  }}
         transition={{
           delay: 0.5,
@@ -401,7 +403,7 @@ const Slectus = ({ redirected, enableScroll, setScrollCounter }) => {
       </motion.div>
 
       <motion.div className="work-page">
-        <BackButton color="black" />
+        <BackButton  />
         <div className="landing">
           {/* <ScrollLine/> */}
 
@@ -587,4 +589,7 @@ const action = {
   enableScroll,
   setScrollCounter,
 };
-export default connect(null, action)(Slectus);
+const mapState=(state)=>({
+  isRefreshed:state.homeComponentInfo.isRefreshed
+})
+export default connect(mapState, action)(Slectus);

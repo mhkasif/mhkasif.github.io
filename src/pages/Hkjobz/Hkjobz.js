@@ -1,22 +1,18 @@
 import { motion } from "framer-motion";
+import { gsap } from "gsap/all";
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import BackButton from "../../Components/BackButton/BackButton";
 import "../../CSS/Hkjobz.scss";
+import Devices from "../../images/hkjobz/HKjobs_Devices.png";
 // import mobileImage from "../../images/hkjobz/Group1.png";
 import mobileImage from "../../images/hkjobz/HKJobs_Main.png";
-import Devices from "../../images/hkjobz/HKjobs_Devices.png";
 import resume from "../../images/hkjobz/resume.jpg";
 import {
   enableScroll,
-  redirected,
-  setScrollCounter,
+  redirected, setScrollCounter
 } from "../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
-import BackButton from "../../Components/BackButton/BackButton";
-import ScrollLine from "../../Components/ScrollLine/ScrollLine";
-import { gsap } from "gsap/all";
-import { Power3 } from "gsap/gsap-core";
-const Hkjobz = ({ redirected, enableScroll, setScrollCounter }) => {
+const Hkjobz = ({ redirected, enableScroll, setScrollCounter,isRefreshed }) => {
   useEffect(() => {
     redirected(true);
     enableScroll();
@@ -96,8 +92,8 @@ const Hkjobz = ({ redirected, enableScroll, setScrollCounter }) => {
       <motion.div
         exit={{ x: "0%", y: "0%" }}
         key="img"
-        // initial={{ translateX: "686px", translateY: "-1px" }}
-        animate={{ x: "-180%" }}
+        initial={{ x:isRefreshed?"-360%":0 }}
+        animate={{ x:isRefreshed?"-180%": "-180%" }}
         // animate={{ translateX: "0px",  }}
         transition={{
           delay: 0.5,
@@ -109,7 +105,7 @@ const Hkjobz = ({ redirected, enableScroll, setScrollCounter }) => {
       >
         <motion.img
           className="zoom"
-          initial={{ translateX: "50px" }}
+          initial={{ translateX:"50px" }}
           src={mobileImage}
           alt=""
         />
@@ -124,7 +120,7 @@ const Hkjobz = ({ redirected, enableScroll, setScrollCounter }) => {
             variants={variant}
             exit="exit"
             key="div"
-            className="left-side-wrapper"
+            className="left-side-wrapper hkjobz-left-side"
             initial={{ x: "-100%" }}
             animate={{ x: "0%" }}
             transition={{
@@ -301,5 +297,9 @@ const action = {
   redirected,
   enableScroll,
   setScrollCounter,
+
 };
-export default connect(null, action)(Hkjobz);
+const mapState=(state)=>({
+  isRefreshed:state.homeComponentInfo.isRefreshed
+})
+export default connect(mapState, action)(Hkjobz);
