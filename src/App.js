@@ -42,6 +42,12 @@ console.log(window.innerWidth)
         setError(false)
       }
     })
+    if(window.innerWidth <=1024 ){
+      setError(true)
+    }
+    if(window.innerWidth>1024){
+      setError(false)
+    }
 
   },[error])
 
