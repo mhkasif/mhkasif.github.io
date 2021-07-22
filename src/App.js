@@ -22,8 +22,10 @@ import MotionPathPlugin from "gsap/MotionPathPlugin";
 
 
 
+
 // import CircleSvg from './Components/CircleSvg/CircleSvg'
 // import {gsap} fro
+import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 function App({ isScrollable }) {
   useEffect(() => {
@@ -55,6 +57,7 @@ function App({ isScrollable }) {
           <Route key="b" exact path="/hkjobz" component={Hkjobz} />
           <Route key="c" exact path="/slectus" component={Slectus} />
           <Route key="d" exact path="/me" component={Me} />
+          <Route key="d" path="*" component={ErrorPage} />
         </Switch>
       </AnimatePresence>
       {/* <CircleSvg /> */}
