@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.8fc08a13.chunk.css",
-    "main.js": "/static/js/main.810b476d.chunk.js",
-    "main.js.map": "/static/js/main.810b476d.chunk.js.map",
+    "main.css": "/static/css/main.8aca56ee.chunk.css",
+    "main.js": "/static/js/main.cf70787f.chunk.js",
+    "main.js.map": "/static/js/main.cf70787f.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.fe4530bb.js",
     "runtime-main.js.map": "/static/js/runtime-main.fe4530bb.js.map",
-    "static/js/2.190ec252.chunk.js": "/static/js/2.190ec252.chunk.js",
-    "static/js/2.190ec252.chunk.js.map": "/static/js/2.190ec252.chunk.js.map",
+    "static/js/2.0c6b987e.chunk.js": "/static/js/2.0c6b987e.chunk.js",
+    "static/js/2.0c6b987e.chunk.js.map": "/static/js/2.0c6b987e.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.8c78455bdde26a137ae15c5551f3a01f.js": "/precache-manifest.8c78455bdde26a137ae15c5551f3a01f.js",
+    "precache-manifest.b65a9b1b0813d4b5b211cfb53b25c44d.js": "/precache-manifest.b65a9b1b0813d4b5b211cfb53b25c44d.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.8fc08a13.chunk.css.map": "/static/css/main.8fc08a13.chunk.css.map",
-    "static/js/2.190ec252.chunk.js.LICENSE.txt": "/static/js/2.190ec252.chunk.js.LICENSE.txt",
+    "static/css/main.8aca56ee.chunk.css.map": "/static/css/main.8aca56ee.chunk.css.map",
+    "static/js/2.0c6b987e.chunk.js.LICENSE.txt": "/static/js/2.0c6b987e.chunk.js.LICENSE.txt",
     "static/media/Artist_hand.png": "/static/media/Artist_hand.ee3d0ebb.png",
     "static/media/HKJobs projects card.jpg": "/static/media/HKJobs projects card.a9ef711e.jpg",
     "static/media/HKJobs_Main.png": "/static/media/HKJobs_Main.b7954792.png",
@@ -23,6 +23,8 @@
     "static/media/bitmoji.gif": "/static/media/bitmoji.b2e18686.gif",
     "static/media/bsc.png": "/static/media/bsc.6262f3d7.png",
     "static/media/cap.jpg": "/static/media/cap.122f06a4.jpg",
+    "static/media/error.png": "/static/media/error.37fd9143.png",
+    "static/media/error2.png": "/static/media/error2.2424b9bb.png",
     "static/media/eventos.png": "/static/media/eventos.b00ee3ad.png",
     "static/media/laugh.PNG": "/static/media/laugh.91d0e46f.PNG",
     "static/media/mhkLogo.png": "/static/media/mhkLogo.e06dbeff.png",
@@ -37,8 +39,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.fe4530bb.js",
-    "static/js/2.190ec252.chunk.js",
-    "static/css/main.8fc08a13.chunk.css",
-    "static/js/main.810b476d.chunk.js"
+    "static/js/2.0c6b987e.chunk.js",
+    "static/css/main.8aca56ee.chunk.css",
+    "static/js/main.cf70787f.chunk.js"
   ]
 }
