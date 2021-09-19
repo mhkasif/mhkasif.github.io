@@ -4,7 +4,23 @@
   overflow-x: hidden;
   // transform-style: preserve-3d;
   // height: 100%;
-
+.contact-icons{
+  display:flex;
+  justify-content:space-evenly;
+  margin-top: 30px;
+  .link{
+    display: flex;
+    align-items: center;
+    img{
+      height: 35px;
+    }
+    a{
+      font-size: 1.6rem;
+      height: fit-content;
+      margin-left: 10px;
+    }
+  }
+}
   .me-intro {
     width: 90%;
     position: relative;

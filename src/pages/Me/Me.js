@@ -10,7 +10,13 @@ import Bitmoji from "../../images/bitmoji/bitmoji.gif";
 import laugh from "../../images/bitmoji/laugh.PNG";
 import popper from "../../images/bitmoji/popper.PNG";
 import "./Me.scss";
-
+import Resume from "../../resume/resume.pdf";
+import fb from "../../images/icons/fb.png";
+import gh from "../../images/icons/github.png";
+import insta from "../../images/icons/insta.png";
+import li from "../../images/icons/linkedin.png";
+import twitter from "../../images/icons/twitter.png";
+import dw from '../../images/icons/download.png'
 import {
   enableScroll,
   disableScroll,
@@ -26,10 +32,11 @@ import gsapCore from "gsap/gsap-core";
 import { gsap } from "gsap/all";
 import SmoothScroll from "../../utils/SmoothScroll";
 import { motion } from "framer-motion";
-const Me = ({ enableScroll, disableScroll,setScrollCounter }) => {
+import { Link } from "react-router-dom";
+const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
   const pathRef = useRef();
   useEffect(() => {
-    setScrollCounter(4)
+    setScrollCounter(4);
     //scroll to slow down
 
     function scrollEffect() {
@@ -206,19 +213,20 @@ const Me = ({ enableScroll, disableScroll,setScrollCounter }) => {
   return (
     <React.Fragment>
       <motion.div
-      exit={{ x: "100%"}}
+        exit={{ x: "100%" }}
         key="me-div"
-        initial={{ x:'100%' }}
+        initial={{ x: "100%" }}
         animate={{ x: 0 }}
         // animate={{ translateX: "0px",  }}
         transition={{
           // ease:'backIn',
-          duration: .8,
+          duration: 0.8,
         }}
-      className="viewport">
+        className="viewport"
+      >
         <EmailPopup />
         <div className="me-container">
-          <BackButton />
+          {/* <BackButton /> */}
           <div className="me-intro" data-depth="1">
             <div className="img-container">
               <img className="my-image" src={MyImage} alt="" />
@@ -397,6 +405,84 @@ const Me = ({ enableScroll, disableScroll,setScrollCounter }) => {
               </div>
             </div>
           </div>
+          <div className="contact-icons">
+          <div className="link">
+          <img
+          className="icons"
+          src={dw}
+
+          alt=""
+        />
+          <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          to={Resume}
+          download="resume.pdf"
+          >
+        Resume
+          </Link>
+          </div>
+            <div className="link">
+              {" "}
+              <img
+                className="icons"
+                src={li}
+
+                alt=""
+              />{" "}
+              <a href="https://www.linkedin.com/in/mhkasif97/" target="_blank">
+                Linkedin
+              </a>{" "}
+            </div>
+            <div className="link">
+              {" "}
+              <img
+                className="icons"
+                src={gh}
+
+                alt=""
+              />{" "}
+              <a href="https://github.com/mhkasif" target="_blank">
+                {" "}
+                Github
+              </a>
+            </div>
+            <div className="link">
+              <img
+                className="icons"
+                src={fb}
+
+                alt=""
+              />{" "}
+              <a href="https://www.facebook.com/mhkasif97" target="_blank">
+                Facebook
+              </a>{" "}
+            </div>
+            <div className="link">
+              {" "}
+              <img
+                className="icons"
+                src={insta}
+
+                alt=""
+              />{" "}
+              <a href="https://www.instagram.com/mhkasif/" target="_blank">
+                Instagram
+              </a>{" "}
+            </div>
+            <div className="link">
+              {" "}
+              <img
+                className="icons"
+                src={twitter}
+
+                alt=""
+              />{" "}
+              <a href="https://twitter.com/mhkasif" target="_blank">
+                Twitter
+              </a>{" "}
+            </div>
+          </div>
           <div className="me-footer">
             <div className="bitmoji-container">
               <img src={Bitmoji} className="bitmoji-gif" alt="" />
@@ -418,7 +504,7 @@ const EmailPopup = () => {
       const tl = new TimelineLite({});
       tl.to(".content-list", 0.25, {
         y: "-60px",
-      })
+      });
 
       // .to('.email-popup-copied',{
       //   y:"-100%"
@@ -495,7 +581,8 @@ const EmailPopup = () => {
 };
 const actions = {
   enableScroll,
-  disableScroll,setScrollCounter
+  disableScroll,
+  setScrollCounter,
 };
 
 export default connect(null, actions)(Me);
