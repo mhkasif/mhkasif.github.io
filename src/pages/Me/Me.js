@@ -816,7 +816,7 @@ gsap.timeline({defaults:{duration:45}})
               </svg>
             {/* </div> */}
           </div>
-          <div className="container-center" data-depth="1">
+          <div className="container-center" data-depth="10">
             <div className="about-me big-heading">
               Whenever, wherever. We're meant to work together.
             </div>
