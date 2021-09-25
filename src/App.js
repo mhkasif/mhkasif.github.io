@@ -80,9 +80,9 @@ console.log(window.innerWidth)
         {error&&<ErrorPage screenError />}
           <Route key="a" exact path="/" component={Home} />
           <Route key="b" exact path="/hkjobz" component={Hkjobz} />
-          <Route key="c" exact path="/slectus" component={Slectus} />
           <Route key="d" exact path="/me" component={Me} />
-          <Route key="d" path="*" component={ErrorPage} />
+          <Route key="c" exact path="/slectus" component={Slectus} />
+          <Route key="e" path="*" component={ErrorPage} />
         </Switch>
       </AnimatePresence>
       {/* <CircleSvg /> */}

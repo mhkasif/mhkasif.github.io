@@ -215,7 +215,7 @@ class Contact extends Component {
           <div className="social-links-container">
             <div className="list-heading">Info</div>
             <div className="social-links">
-            <div className="link"> <img className="icons"  src={email} height="20px" width="20px" alt="" /> <a href="mailto:haseebasif97@gmail.com">haseebasif97@gmail.com</a> </div>
+            <div className="link"> <img className="icons"  src={email} height="20px" width="20px" alt="" /> <a href="mailto:mhkasif97@gmail.com">mhkasif97@gmail.com</a> </div>
             <div className="link"> <img className="icons"  src={phone} height="20px" width="20px" alt="" /> <a href="tel:+923002965676">+923002965676</a> </div>
             <div className="link"> <img className="icons"  src={location} height="20px" width="20px" alt="" /> <p>Karachi, Pakistan</p> </div>
 
