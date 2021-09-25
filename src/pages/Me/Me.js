@@ -541,13 +541,7 @@ gsap.timeline({defaults:{duration:45}})
 
                 <g className="m1_stage"  opacity="0">
                   <g className="m1_cGroup">
-                    <circle
-                      className="m1OrbBlank"
-                      cx="0"
-                      cy="50"
-                      r="50"
-                      fill="#1290ff"
-                    />
+
 
                     <circle
                       className="c1_line c1_line4"

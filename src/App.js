@@ -80,10 +80,10 @@ console.log(window.innerWidth)
       <AnimatePresence initial={true} exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
         {error&&<ErrorPage screenError />}
-          <Route key="a" exact path="/" component={Home} />
+          {/* <Route key="a" exact path="/" component={Home} />
           <Route key="b" exact path="/hkjobz" component={Hkjobz} />
-          <Route key="d" exact path="/me" component={Me} />
-          <Route key="c" exact path="/slectus" component={Slectus} />
+          <Route key="c" exact path="/slectus" component={Slectus} /> */}
+          <Route key="d" exact path="/" component={Me} />
           <Route key="e" path="*" component={ErrorPage} />
         </Switch>
       </AnimatePresence>
