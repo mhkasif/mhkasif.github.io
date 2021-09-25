@@ -28,6 +28,7 @@ import MotionPathPlugin from "gsap/MotionPathPlugin";
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 import { useState } from 'react';
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 
 function App({ isScrollable }) {
   const [error,setError]=useState(false)
@@ -75,6 +76,7 @@ console.log(window.innerWidth)
   return (
 
     <div>
+    <ScrollToTop/>
       <AnimatePresence initial={true} exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
         {error&&<ErrorPage screenError />}
