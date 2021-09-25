@@ -1,41 +1,69 @@
-import React, { useEffect, useRef, useState } from "react";
-import Image from "../../images/me/mhkasif.jpg";
-
-import { TimelineLite, TweenLite } from "gsap/all";
+import { motion } from "framer-motion";
+import { gsap, TimelineLite } from "gsap/all";
 import { Power3 } from "gsap/gsap-core";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import BackButton from "../../Components/BackButton/BackButton";
+import React, { useEffect, useRef, useState } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import Bitmoji from "../../images/bitmoji/bitmoji.gif";
 import laugh from "../../images/bitmoji/laugh.PNG";
 import popper from "../../images/bitmoji/popper.PNG";
-import "./Me.scss";
-import Resume from "../../resume/resume.pdf";
+import dw from "../../images/icons/download.png";
 import fb from "../../images/icons/fb.png";
 import gh from "../../images/icons/github.png";
 import insta from "../../images/icons/insta.png";
 import li from "../../images/icons/linkedin.png";
 import twitter from "../../images/icons/twitter.png";
-import dw from '../../images/icons/download.png'
 import {
-  enableScroll,
   disableScroll,
+  enableScroll,
   setScrollCounter,
 } from "../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
-import MyImage from "./MyImage.png";
-// import MyImage from "../../images/me/mhkwithcards.png";
-import { debounce } from "lodash";
-import cap from "../../images/design/cap.jpg";
-import shoe from "../../images/design/shoes.jpg";
-import woman from "../../images/design/women.jpg";
-import gsapCore from "gsap/gsap-core";
-import { gsap } from "gsap/all";
+import Resume from "../../resume/resume.pdf";
 import SmoothScroll from "../../utils/SmoothScroll";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import "./Me.scss";
+import MyImage from "./MyImage.png";
+import ReactImage from "../../images/skills/react.png";
+import RN from "../../images/skills/rn.png";
+import Mui from "../../images/skills/mui.png";
+import NodejsImage from "../../images/skills/node.png";
+
 const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
   const pathRef = useRef();
+  const circleRef = useRef();
+  const rRef = useRef();
+  const rnRef = useRef();
+  const nRef = useRef();
+  const muiRef = useRef();
   useEffect(() => {
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: "#skills-svg",
+        pin:true,
+        start: 'top top',
+        end: "+=1000",
+        // scrub: 0.3
+        scrub: true,
+
+      },
+      defaults:{duration:1, ease:'none'}
+
+    })
+      .from("#rRef", {
+      motionPath:{
+        path:circleRef.current,
+        align:circleRef.current,
+        curviness:1.5,
+        alignOrigin: [0.5,0.5],
+        autoRotate: true,
+        immediateRender: true,
+      }
+
+
+    });
+  }, []);
+  useEffect(() => {
+    //
+    window.scrollTo(0, 0);
     setScrollCounter(4);
     //scroll to slow down
 
@@ -389,7 +417,53 @@ const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
               <span>Songs</span>&nbsp;&nbsp;&nbsp;
             </div>
           </div>
+          <div data-depth="10" className="exp-heading skills-heading">
+            Skills
+          </div>
+          <div className="skills-section">
+            <div className="skill-details"></div>
+            <div className="skill-icon ">
+              {/* <div
+                className="skill-logo"
+                style={{ width: 200, height: 200 }}
+              > */}
+              {/*
+              <img
+              ref={rRef}
 
+                src={ReactImage} height="200" width="200" alt="" />
+
+                  </div>
+                <div className="skill-logo" ref={rnRef}>
+              <img src={NodejsImage} alt="" />
+              </div>
+              <div className="skill-logo" ref={nRef}>
+              <img src={RN} alt="" />
+              </div>
+              <div className="skill-logo" ref={muiRef}>
+              <img src={Mui} alt="" />
+              </div> */}
+              <svg height="700" width="700" id="skills-svg">
+              <image width="200" height="200" xlinkHref={ReactImage} ref={rRef} id="#rRef" />
+                <path
+                  ref={circleRef}
+                  stroke="#bababa"
+                  strokeWidth="1"
+                  fill="transparent"
+                  d="M350,300a300,300 0 1,0 600,0a300,300 0 1,0 -600,0"
+                />
+                {/*  <circle
+                  ref={circleRef}
+                  cx="650"
+                  cy="300"
+                  r="300"
+                  stroke="#bababa"
+                  strokeWidth="1"
+                  fill="transparent"
+                /> */}
+              </svg>
+            </div>
+          </div>
           <div className="container-center" data-depth="10">
             <div className="about-me big-heading">
               Whenever, wherever. We're meant to work together.
@@ -406,78 +480,48 @@ const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
             </div>
           </div>
           <div className="contact-icons">
-          <div className="link">
-          <img
-          className="icons"
-          src={dw}
-
-          alt=""
-        />
-          <Link
-          target="_blank"
-          rel="noopener noreferrer"
-          to={Resume}
-          download="resume.pdf"
-          >
-        Resume
-          </Link>
-          </div>
+            <div className="link">
+              <img className="icons" src={dw} alt="" />
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                to={Resume}
+                download="resume.pdf"
+              >
+                Resume
+              </Link>
+            </div>
             <div className="link">
               {" "}
-              <img
-                className="icons"
-                src={li}
-
-                alt=""
-              />{" "}
+              <img className="icons" src={li} alt="" />{" "}
               <a href="https://www.linkedin.com/in/mhkasif97/" target="_blank">
                 Linkedin
               </a>{" "}
             </div>
             <div className="link">
               {" "}
-              <img
-                className="icons"
-                src={gh}
-
-                alt=""
-              />{" "}
+              <img className="icons" src={gh} alt="" />{" "}
               <a href="https://github.com/mhkasif" target="_blank">
                 {" "}
                 Github
               </a>
             </div>
             <div className="link">
-              <img
-                className="icons"
-                src={fb}
-
-                alt=""
-              />{" "}
+              <img className="icons" src={fb} alt="" />{" "}
               <a href="https://www.facebook.com/mhkasif97" target="_blank">
                 Facebook
               </a>{" "}
             </div>
             <div className="link">
               {" "}
-              <img
-                className="icons"
-                src={insta}
-
-                alt=""
-              />{" "}
+              <img className="icons" src={insta} alt="" />{" "}
               <a href="https://www.instagram.com/mhkasif/" target="_blank">
                 Instagram
               </a>{" "}
             </div>
             <div className="link">
               {" "}
-              <img
-                className="icons"
-                src={twitter}
-
-                alt=""
-              />{" "}
+              <img className="icons" src={twitter} alt="" />{" "}
               <a href="https://twitter.com/mhkasif" target="_blank">
                 Twitter
               </a>{" "}
@@ -561,21 +605,8 @@ const EmailPopup = () => {
               </div>
             )}
           </div>
-
-          {/* <div className="email-popup-copied">
-
-              <div className="bitmoji-wrapper">
-
-                <img className="email-popup-bitmoji" src={wink} alt="" />
-                <div> Email Copied</div>
-              </div>
-            </div> */}
         </div>
       </div>
-
-      {/* <div onClick={emailClicked} onMouseOver={mouseOver} onMouseLeave={mouseLeave} className={`email-popup ${emailPopupState==="copied"? "email-popup-white":""}`}>
-     {!emailPopupState?<div>Haseebasif97@gmail.com</div>:(emailPopupState==='hover'?<div style={{display:"flex",justifyContent:"space-evenly",alignItems:"center"}}><img className="email-popup-bitmoji" src={laugh} alt="" /><p>Copy Email</p></div>:<div style={{display:"flex",justifyContent:"space-evenly",alignItems:"center"}}><img className="email-popup-bitmoji" src={wink} alt="" /><p>Email Copied</p></div>)}
-     </div> */}
     </React.Fragment>
   );
 };
