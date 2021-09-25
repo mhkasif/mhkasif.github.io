@@ -1,9 +1,35 @@
 .me-container {
-  background-color: rgb(37, 37, 37);
+  background-color: #252525;
   color: white;
   overflow-x: hidden;
   // transform-style: preserve-3d;
   // height: 100%;
+  .skills-section{
+    svg{
+      // background-color: #000;
+      transform: translateY(-15%);
+      // margin-top: -300px;
+      .m1_stage{
+        transform: translate(50%,40%) scale(0.7) !important;
+      }
+    }
+    // position: relative;
+    // width: 100vw;
+    // background-color: #000;
+    // display: grid;
+    // grid-template-columns: 50vw 50vw;
+    // min-height: 400px;
+    // margin: 50px 0;
+    // svg{
+    //   position: absolute;
+    //   right: 0;
+    //   top
+    // }
+    // .skills-icon{
+    //   display: flex;
+    //   justify-content: flex-end;
+    // }
+  }
 .contact-icons{
   display:flex;
   justify-content:space-evenly;
@@ -98,6 +124,10 @@
     margin: 100px 50px;
     font-size: 120px;
     filter: drop-shadow(-20px -20px 4px (#8c8c8c4f));
+  }
+  .skills-heading{
+    letter-spacing: 10px;
+
   }
   .me-svg-path-container {
     position: relative;

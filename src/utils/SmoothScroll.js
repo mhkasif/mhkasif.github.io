@@ -39,7 +39,7 @@ class SmoothScroll {
             const resized = this.resizeRequest > 0;
             const scrollY = window.pageYOffset;
             if (resized) {
-                const height = this.target.clientHeight+1000;
+                const height = this.target.clientHeight;
                 document.body.style.height = height + "px";
                 this.scrollHeight = height;
                 this.viewHeight = window.innerHeight;
