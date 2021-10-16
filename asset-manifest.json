@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.6d732be1.chunk.css",
-    "main.js": "/static/js/main.f4a90faa.chunk.js",
-    "main.js.map": "/static/js/main.f4a90faa.chunk.js.map",
+    "main.js": "/static/js/main.100f08cb.chunk.js",
+    "main.js.map": "/static/js/main.100f08cb.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.fe4530bb.js",
     "runtime-main.js.map": "/static/js/runtime-main.fe4530bb.js.map",
-    "static/js/2.9ef48972.chunk.js": "/static/js/2.9ef48972.chunk.js",
-    "static/js/2.9ef48972.chunk.js.map": "/static/js/2.9ef48972.chunk.js.map",
+    "static/js/2.80d86357.chunk.js": "/static/js/2.80d86357.chunk.js",
+    "static/js/2.80d86357.chunk.js.map": "/static/js/2.80d86357.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.0edb93db2c3c46b5c4ee69c4fead4311.js": "/precache-manifest.0edb93db2c3c46b5c4ee69c4fead4311.js",
+    "precache-manifest.36436c89aa11401a898952cef51860e9.js": "/precache-manifest.36436c89aa11401a898952cef51860e9.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.6d732be1.chunk.css.map": "/static/css/main.6d732be1.chunk.css.map",
-    "static/js/2.9ef48972.chunk.js.LICENSE.txt": "/static/js/2.9ef48972.chunk.js.LICENSE.txt",
+    "static/js/2.80d86357.chunk.js.LICENSE.txt": "/static/js/2.80d86357.chunk.js.LICENSE.txt",
     "static/media/Artist_hand.png": "/static/media/Artist_hand.ee3d0ebb.png",
     "static/media/HKJobs projects card.jpg": "/static/media/HKJobs projects card.a9ef711e.jpg",
     "static/media/HKJobs_Main.png": "/static/media/HKJobs_Main.b7954792.png",
@@ -38,8 +38,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.fe4530bb.js",
-    "static/js/2.9ef48972.chunk.js",
+    "static/js/2.80d86357.chunk.js",
     "static/css/main.6d732be1.chunk.css",
-    "static/js/main.f4a90faa.chunk.js"
+    "static/js/main.100f08cb.chunk.js"
   ]
 }
