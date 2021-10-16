@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.03dc35fe.chunk.css",
-    "main.js": "/static/js/main.648ff32a.chunk.js",
-    "main.js.map": "/static/js/main.648ff32a.chunk.js.map",
+    "main.css": "/static/css/main.6d732be1.chunk.css",
+    "main.js": "/static/js/main.e16a6f22.chunk.js",
+    "main.js.map": "/static/js/main.e16a6f22.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.fe4530bb.js",
     "runtime-main.js.map": "/static/js/runtime-main.fe4530bb.js.map",
     "static/js/2.9ef48972.chunk.js": "/static/js/2.9ef48972.chunk.js",
     "static/js/2.9ef48972.chunk.js.map": "/static/js/2.9ef48972.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.30160a952274f1d9424872ab85957949.js": "/precache-manifest.30160a952274f1d9424872ab85957949.js",
+    "precache-manifest.133e128248c98b7609960222023ef386.js": "/precache-manifest.133e128248c98b7609960222023ef386.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.03dc35fe.chunk.css.map": "/static/css/main.03dc35fe.chunk.css.map",
+    "static/css/main.6d732be1.chunk.css.map": "/static/css/main.6d732be1.chunk.css.map",
     "static/js/2.9ef48972.chunk.js.LICENSE.txt": "/static/js/2.9ef48972.chunk.js.LICENSE.txt",
     "static/media/Artist_hand.png": "/static/media/Artist_hand.ee3d0ebb.png",
     "static/media/HKJobs projects card.jpg": "/static/media/HKJobs projects card.a9ef711e.jpg",
@@ -39,7 +39,7 @@
   "entrypoints": [
     "static/js/runtime-main.fe4530bb.js",
     "static/js/2.9ef48972.chunk.js",
-    "static/css/main.03dc35fe.chunk.css",
-    "static/js/main.648ff32a.chunk.js"
+    "static/css/main.6d732be1.chunk.css",
+    "static/js/main.e16a6f22.chunk.js"
   ]
 }
