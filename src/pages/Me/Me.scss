@@ -1,4 +1,5 @@
 .me-container {
+
   background-color: #252525;
   color: white;
   overflow-x: hidden;
@@ -11,7 +12,11 @@
       // margin-top: -300px;
       .m1_stage{
         transform: translate(50%,40%) scale(0.7) !important;
+        // image{
+        //   cursor: pointer;
+        // }
       }
+
     }
     // position: relative;
     // width: 100vw;

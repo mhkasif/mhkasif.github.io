@@ -5,14 +5,15 @@ import App from "./App";
 // import * as serviceWorker from './serviceWorker';
 import configStore from "./Redux/StoreConfig/StoreConfig";
 import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import { Router } from "react-router-dom";
+import history from './history';
 
 
 var store = configStore();
 const IndexApp=()=><Provider store={store}>
-<BrowserRouter>
+<Router history={history}>
   <App />
-</BrowserRouter>
+</Router>
 </Provider>
 
 const rootElement = document.getElementById("root");

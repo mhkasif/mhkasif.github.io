@@ -26,92 +26,266 @@ import ReactImage from "../../images/skills/react.png";
 import RN from "../../images/skills/rn.png";
 import Mui from "../../images/skills/mui.png";
 import NodejsImage from "../../images/skills/node.png";
-import  MotionPathPlugin from 'gsap/MotionPathPlugin';
+import MotionPathPlugin from "gsap/MotionPathPlugin";
 
 const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
   const pathRef = useRef();
-  const circleRef = useRef();
-  const rRef = useRef();
-  const rnRef = useRef();
-  const nRef = useRef();
-  const muiRef = useRef();
+
   useEffect(() => {
-    window.onresize = window.onload = function(){ gsap.set('.m1_stage', {x:'50%', opacity:1}) }
+    window.onresize = window.onload = function () {
+      gsap.set(".m1_stage", { x: "50%", opacity: 1 });
+    };
 
-gsap.timeline({defaults:{duration:45}})
-    .from('.main1',         {duration:1, autoAlpha:0, ease:'power1.inOut'}, 0)
-    .fromTo('.m1_cGroup',   {opacity:0}, {duration:0.3, opacity:1, stagger:-0.1}, 0)
-    .from('.m1_cGroup',     {duration:2.5, scale:-0.3, transformOrigin:'50% 50%', stagger:-0.05, ease:'elastic'}, 0)
-    .fromTo('.m1Bg',        {opacity:0}, {duration:1, opacity:1, ease:'power2.inOut'}, 0.2)
+    gsap
+      .timeline({ defaults: { duration: 45 } })
+      .from(".main1", { duration: 1, autoAlpha: 0, ease: "power1.inOut" }, 0)
+      .fromTo(
+        ".m1_cGroup",
+        { opacity: 0 },
+        { duration: 0.3, opacity: 1, stagger: -0.1 },
+        0
+      )
+      .from(
+        ".m1_cGroup",
+        {
+          duration: 2.5,
+          scale: -0.3,
+          transformOrigin: "50% 50%",
+          stagger: -0.05,
+          ease: "elastic",
+        },
+        0
+      )
+      .fromTo(
+        ".m1Bg",
+        { opacity: 0 },
+        { duration: 1, opacity: 1, ease: "power2.inOut" },
+        0.2
+      )
 
-    .add('orbs', 1.2)
-    .add(function(){
-      document.getElementsByClassName('main1')[0].addEventListener("mousemove",
+      .add("orbs", 1.2)
+      .add(function () {
+        document.getElementsByClassName("main1")[0].addEventListener(
+          "mousemove",
 
-      // $('.main1').on('mousemove',
-      function(e){
-        gsap.to('.m1_cGroup', {duration:1, x:function(i){return (e.clientX/window.innerWidth)/(i+1)*150}, y:function(i){return i*-20*(e.clientY/window.innerHeight)}, rotation:Math.random()*0.1, overwrite:'auto'});
-        gsap.to('.c1_solid, .c1_line', {duration:1, attr:{opacity:1.1-0.75*(e.clientY/window.innerHeight)}})
-        gsap.to('.m1OrbBlank', {duration:1, opacity:0.2+0.55*(e.clientY/window.innerHeight)})
-      });
+          // $('.main1').on('mousemove',
+          function (e) {
+            gsap.to(".m1_cGroup", {
+              duration: 1,
+              x: function (i) {
+                return (e.clientX / window.innerWidth / (i + 1)) * 150;
+              },
+              y: function (i) {
+                return i * -20 * (e.clientY / window.innerHeight);
+              },
+              rotation: Math.random() * 0.1,
+              overwrite: "auto",
+            });
+            gsap.to(".c1_solid, .c1_line", {
+              duration: 1,
+              attr: { opacity: 1.1 - 0.75 * (e.clientY / window.innerHeight) },
+            });
+            gsap.to(".m1OrbBlank", {
+              duration: 1,
+              opacity: 0.2 + 0.55 * (e.clientY / window.innerHeight),
+            });
+          }
+        );
 
-      // $('.main1').on('click',
-      document.getElementsByClassName('main1')[0].addEventListener("click",
+        // $('.main1').on('click',
+        document.getElementsByClassName("main1")[0].addEventListener(
+          "click",
 
-      function(e){
-        if (gsap.getProperty('.m1_cGroup','scale')!=1) return; //prevent overlapping bouncy tweens
-        for (var i=0; i<document.getElementsByClassName('m1_cGroup').length; i++){
-          gsap.fromTo(document.getElementsByClassName('m1_cGroup')[i], {transformOrigin:'50% 50%', scale:1},{duration:0.7-i/25, scale:0.9, ease:'back.in(10)', yoyo:true, repeat:1})
-        }
-      });
-    }, 'orbs+=0.5')
+          function (e) {
+            if (gsap.getProperty(".m1_cGroup", "scale") != 1) return; //prevent overlapping bouncy tweens
+            for (
+              var i = 0;
+              i < document.getElementsByClassName("m1_cGroup").length;
+              i++
+            ) {
+              gsap.fromTo(
+                document.getElementsByClassName("m1_cGroup")[i],
+                { transformOrigin: "50% 50%", scale: 1 },
+                {
+                  duration: 0.7 - i / 25,
+                  scale: 0.9,
+                  ease: "back.in(10)",
+                  yoyo: true,
+                  repeat: 1,
+                }
+              );
+            }
+          }
+        );
+      }, "orbs+=0.5")
 
+      .fromTo(
+        ".orb1",
+        { xPercent: -35, yPercent: -5 },
+        {
+          motionPath: {
+            path: function () {
+              return MotionPathPlugin.convertToPath(".c1_line1", false)[0];
+            },
+            start: 1.03,
+            end: 1.22,
+          },
+          ease: "none",
+          yoyo: true,
+          repeat: -1,
+        },
+        "orbs"
+      )
 
-  .fromTo('.orb1',  {xPercent:-35, yPercent:-5},{motionPath:{
-    path: function(){return MotionPathPlugin.convertToPath( '.c1_line1',false )[0] },
-    start: 1.03,
-    end: 1.22
-  }, ease:'none', yoyo:true, repeat:-1}, 'orbs')
+      .fromTo(
+        ".orb2",
+        { xPercent: -45, yPercent: -10 },
+        {
+          motionPath: {
+            path: function () {
+              return MotionPathPlugin.convertToPath(".c1_line2", false)[0];
+            },
+            start: 0.98,
+            end: 1.2,
+          },
+          ease: "none",
+          yoyo: true,
+          repeat: -1,
+        },
+        "orbs"
+      )
 
-  .fromTo('.orb2',  {xPercent:-45, yPercent:-10},{motionPath:{
-    path: function(){return MotionPathPlugin.convertToPath( '.c1_line2',false )[0] },
-    start: 0.98,
-    end: 1.2
-  }, ease:'none', yoyo:true, repeat:-1}, 'orbs')
+      .fromTo(
+        ".orb3",
+        { xPercent: -50, yPercent: -15 },
+        {
+          motionPath: {
+            path: function () {
+              return MotionPathPlugin.convertToPath(".c1_line3", false)[0];
+            },
+            start: 1.06,
+            end: 1.31,
+          },
+          ease: "none",
+          yoyo: true,
+          repeat: -1,
+        },
+        "orbs"
+      )
 
-  .fromTo('.orb3',  {xPercent:-50, yPercent:-15},{motionPath:{
-    path: function(){return MotionPathPlugin.convertToPath( '.c1_line3',false )[0] },
-    start: 1.06,
-    end: 1.31
-  }, ease:'none', yoyo:true, repeat:-1}, 'orbs')
+      .fromTo(
+        ".orb3b",
+        { xPercent: -50, yPercent: -25 },
+        {
+          motionPath: {
+            path: function () {
+              return MotionPathPlugin.convertToPath(".c1_line3", false)[0];
+            },
+            start: 1.49,
+            end: 1.65,
+          },
+          ease: "none",
+          yoyo: true,
+          repeat: -1,
+        },
+        "orbs"
+      )
 
-  .fromTo('.orb3b',  {xPercent:-50, yPercent:-25},{motionPath:{
-    path: function(){return MotionPathPlugin.convertToPath( '.c1_line3',false )[0] },
-    start: 1.49,
-    end: 1.65
-  }, ease:'none', yoyo:true, repeat:-1}, 'orbs')
+      .fromTo(
+        ".orb3c",
+        { xPercent: -45, yPercent: -15 },
+        {
+          motionPath: {
+            path: function () {
+              return MotionPathPlugin.convertToPath(".c1_line3", false)[0];
+            },
+            start: 0.95,
+            end: 1.2,
+          },
+          ease: "none",
+          yoyo: true,
+          repeat: -1,
+        },
+        "orbs"
+      )
 
-  .fromTo('.orb3c',  {xPercent:-45, yPercent:-15},{motionPath:{
-    path: function(){return MotionPathPlugin.convertToPath( '.c1_line3',false )[0] },
-    start: 0.95,
-    end: 1.2
-  }, ease:'none', yoyo:true, repeat:-1}, 'orbs')
+      .fromTo(
+        ".orb4",
+        { xPercent: -50, yPercent: -25 },
+        {
+          motionPath: {
+            path: function () {
+              return MotionPathPlugin.convertToPath(".c1_line4", false)[0];
+            },
+            start: 1.14,
+            end: 1.26,
+          },
+          ease: "none",
+          yoyo: true,
+          repeat: -1,
+        },
+        "orbs"
+      )
 
-  .fromTo('.orb4',  {xPercent:-50, yPercent:-25},{motionPath:{
-    path: function(){return MotionPathPlugin.convertToPath( '.c1_line4',false )[0] },
-    start: 1.14,
-    end: 1.26
-  }, ease:'none', yoyo:true, repeat:-1}, 'orbs')
+      .fromTo(
+        ".orb4b",
+        { xPercent: -50, yPercent: -25 },
+        {
+          motionPath: {
+            path: function () {
+              return MotionPathPlugin.convertToPath(".c1_line4", false)[0];
+            },
+            start: 1.41,
+            end: 1.6,
+          },
+          ease: "none",
+          yoyo: true,
+          repeat: -1,
+        },
+        "orbs"
+      )
 
-  .fromTo('.orb4b',  {xPercent:-50, yPercent:-25},{motionPath:{
-    path: function(){return MotionPathPlugin.convertToPath( '.c1_line4',false )[0] },
-    start: 1.41,
-    end: 1.6
-  }, ease:'none', yoyo:true, repeat:-1}, 'orbs')
-
-  .fromTo('.m1Orb', {scale:0, transformOrigin:'50% 50%'}, {duration:0.8, scale:1.5, ease:'back.out(3)', stagger:0.15, overwrite:'auto'}, 'orbs')
-  .fromTo('.m1OrbBlank', {opacity:0}, {duration:0.8, opacity:function(i){return 0.2+i/7}, stagger:0.1, overwrite:'auto'}, 'orbs')
-  .fromTo('.m1OrbBlank', {x:function(i){return 620-i/4*380}, transformOrigin:function(i){return -(620-i/4*380)+'px 0px'}, rotation:function(i){return [99,-10,55,110,120][i]}}, {rotation:'+=75', yoyo:true, repeat:-1}, 'orbs')
+      .fromTo(
+        ".m1Orb",
+        { scale: 0, transformOrigin: "50% 50%" },
+        {
+          duration: 0.8,
+          scale: 1.5,
+          ease: "back.out(3)",
+          stagger: 0.15,
+          overwrite: "auto",
+        },
+        "orbs"
+      )
+      .fromTo(
+        ".m1OrbBlank",
+        { opacity: 0 },
+        {
+          duration: 0.8,
+          opacity: function (i) {
+            return 0.2 + i / 7;
+          },
+          stagger: 0.1,
+          overwrite: "auto",
+        },
+        "orbs"
+      )
+      .fromTo(
+        ".m1OrbBlank",
+        {
+          x: function (i) {
+            return 620 - (i / 4) * 380;
+          },
+          transformOrigin: function (i) {
+            return -(620 - (i / 4) * 380) + "px 0px";
+          },
+          rotation: function (i) {
+            return [99, -10, 55, 110, 120][i];
+          },
+        },
+        { rotation: "+=75", yoyo: true, repeat: -1 },
+        "orbs"
+      );
   }, []);
   useEffect(() => {
     //
@@ -480,7 +654,7 @@ gsap.timeline({defaults:{duration:45}})
                 className="skill-logo"
                 style={{ width: 200, height: 200 }}
               > */}
-              {/*
+            {/*
               <img
               ref={rRef}
 
@@ -496,78 +670,64 @@ gsap.timeline({defaults:{duration:45}})
               <div className="skill-logo" ref={muiRef}>
               <img src={Mui} alt="" />
               </div> */}
-              <svg className="main1" width="100vw" height="1000">
-                <defs>
-                  <linearGradient
-                    id="grad1"
-                    x1="50%"
-                    y1="0%"
-                    x2="50%"
-                    y2="100%"
-                  >
-                    <stop
-                      offset="10%"
-                      style={{stopColor:"#c1033c",stopOpacity:0.9}}
-                    />
-                    <stop
-                      offset="99%"
-                      style={{stopColor:"#c1033c",stopOpacity:0.6}}
-                    />
-                  </linearGradient>
-                  <linearGradient
-                    id="grad2"
-                    x1="50%"
-                    y1="0%"
-                    x2="50%"
-                    y2="100%"
-                  >
-                    <stop
-                      offset="25%"
-                      style={{stopColor:"#252525",stopOpacity:0.1}}
-                    />
-                    <stop
-                      offset="99%"
-                      style={{stopColor:"#252525",stopOpacity:0.2}}
-                    />
-                  </linearGradient>
-                </defs>
+            <svg className="main1" width="100vw" height="1000">
+              <defs>
+                <linearGradient id="grad1" x1="50%" y1="0%" x2="50%" y2="100%">
+                  <stop
+                    offset="10%"
+                    style={{ stopColor: "#c1033c", stopOpacity: 0.9 }}
+                  />
+                  <stop
+                    offset="99%"
+                    style={{ stopColor: "#c1033c", stopOpacity: 0.6 }}
+                  />
+                </linearGradient>
+                <linearGradient id="grad2" x1="50%" y1="0%" x2="50%" y2="100%">
+                  <stop
+                    offset="25%"
+                    style={{ stopColor: "#252525", stopOpacity: 0.1 }}
+                  />
+                  <stop
+                    offset="99%"
+                    style={{ stopColor: "#252525", stopOpacity: 0.2 }}
+                  />
+                </linearGradient>
+              </defs>
 
-                <rect
-                  className="m1Bg"
-                  fill="url(#grad2)"
-                  width="100%"
-                  height="100%"
-                />
+              <rect
+                className="m1Bg"
+                fill="url(#grad2)"
+                width="100%"
+                height="100%"
+              />
 
-                <g className="m1_stage"  opacity="0">
-                  <g className="m1_cGroup">
-
-
-                    <circle
-                      className="c1_line c1_line4"
-                      cx="0"
-                      cy="50"
-                      r="550"
-                      fill="none"
-                      strokeWidth="2"
-                      stroke="url(#grad1)"
-                      opacity="0.4"
+              <g className="m1_stage" opacity="0">
+                <g className="m1_cGroup">
+                  <circle
+                    className="c1_line c1_line4"
+                    cx="0"
+                    cy="50"
+                    r="550"
+                    fill="none"
+                    strokeWidth="2"
+                    stroke="url(#grad1)"
+                    opacity="0.4"
+                  />
+                  <g className="m1Orb orb4b">
+                    <image
+                      onMouseOver={() => console.log("rN")}
+                      xlinkHref={RN}
+                      width="60"
+                      height="60"
                     />
-                    <g className="m1Orb orb4b">
-                      <image
-                      onMouseOver={()=>console.log("rN")}
-                        xlinkHref={RN}
-                        width="60"
-                        height="60"
-                      />
-                    </g>
+                  </g>
 
-                    <g className="m1Orb orb4">
-                      <circle cx="15" cy="10.5" r="20" fill="#006bca" />
-                      <path
-                        fill="#fff"
-                        opacity="0.75"
-                        d="M5.29,14.59l-0.01-0.89v-2.32c0.23-0.05,0.53-0.07,0.9-0.07c0.36,0,0.66,0.02,0.9,0.07v8.17
+                  <g className="m1Orb orb4">
+                    <circle cx="15" cy="10.5" r="20" fill="#006bca" />
+                    <path
+                      fill="#fff"
+                      opacity="0.75"
+                      d="M5.29,14.59l-0.01-0.89v-2.32c0.23-0.05,0.53-0.07,0.9-0.07c0.36,0,0.66,0.02,0.9,0.07v8.17
                                             c-0.24,0.05-0.54,0.07-0.9,0.07s-0.65-0.02-0.9-0.07v-2.57l0.01-0.89l-0.6,0.01H3.25l-0.6-0.01l0.01,0.89v2.57
                                             c-0.23,0.05-0.54,0.07-0.9,0.07c-0.37,0-0.66-0.02-0.89-0.07v-8.17c0.23-0.05,0.52-0.07,0.89-0.07c0.37,0,0.67,0.02,0.9,0.07v2.32
                                             l-0.01,0.89l0.6-0.01h1.44L5.29,14.59z M11.74,12.89l0.01,0.89v5.78c-0.24,0.05-0.54,0.07-0.9,0.07c-0.36,0-0.65-0.02-0.9-0.07
@@ -599,57 +759,49 @@ gsap.timeline({defaults:{duration:45}})
                                             c0.24-0.04,0.51-0.06,0.82-0.06c0.31,0,0.58,0.02,0.8,0.06v1.14L25.7,4.42l0.82-0.01h1.06c0.05,0.27,0.08,0.53,0.08,0.77
                                             c0,0.25-0.03,0.49-0.08,0.75h-1.06L25.7,5.91l0.01,0.81v1.15c-0.23,0.04-0.5,0.06-0.81,0.06s-0.58-0.02-0.81-0.06V6.72l0.01-0.81
                                             l-0.82,0.01h-1.06c-0.05-0.24-0.08-0.49-0.08-0.76s0.03-0.52,0.08-0.76h1.06L24.1,4.42z"
-                      />
-                    </g>
+                    />
                   </g>
-                  <g className="m1_cGroup">
+                </g>
+                <g className="m1_cGroup">
+                  <circle
+                    className="m1OrbBlank"
+                    cx="0"
+                    cy="50"
+                    r="25"
+                    fill="#983334"
+                  />
+
+                  <circle
+                    className="c1_line c1_line3"
+                    cx="0"
+                    cy="50"
+                    r="450"
+                    fill="none"
+                    strokeWidth="2"
+                    stroke="url(#grad1)"
+                    opacity="0.4"
+                  />
+
+                  <g className="m1Orb orb3c">
+                    <image xlinkHref={NodejsImage} width="60" height="60" />
+                  </g>
+
+                  <g className="m1Orb orb3b">
+                    <image xlinkHref={ReactImage} width="60" height="60" />
+                  </g>
+                  <g className="m1Orb orb3">
                     <circle
-                      className="m1OrbBlank"
-                      cx="0"
-                      cy="50"
-                      r="25"
-                      fill="#983334"
+                      cx="20"
+                      cy="8"
+                      r="24"
+                      stroke="#bc7c00"
+                      strokeWidth="3"
+                      fill="#cc971b"
                     />
-
-                    <circle
-                      className="c1_line c1_line3"
-                      cx="0"
-                      cy="50"
-                      r="450"
-                      fill="none"
-                      strokeWidth="2"
-                      stroke="url(#grad1)"
-                      opacity="0.4"
-                    />
-
-                    <g className="m1Orb orb3c">
-                      <image
-                        xlinkHref={NodejsImage}
-                        width="60"
-                        height="60"
-                      />
-                    </g>
-
-                    <g className="m1Orb orb3b">
-                      <image
-                        xlinkHref={ReactImage}
-                        width="60"
-                        height="60"
-                      />
-                    </g>
-                    <g className="m1Orb orb3">
-                      <circle
-                        cx="20"
-                        cy="8"
-                        r="24"
-                        stroke="#bc7c00"
-                        strokeWidth="3"
-                        fill="#cc971b"
-                      />
-                      <path
-                        fill="#fff"
-                        opacity="0.7"
-                        d="M5.82,6.1c0-0.05,0-0.09,0-0.14c0-0.57-0.11-1.06-0.34-1.46c-0.23-0.4-0.62-0.6-1.19-0.6S3.32,4.18,3.05,4.73
+                    <path
+                      fill="#fff"
+                      opacity="0.7"
+                      d="M5.82,6.1c0-0.05,0-0.09,0-0.14c0-0.57-0.11-1.06-0.34-1.46c-0.23-0.4-0.62-0.6-1.19-0.6S3.32,4.18,3.05,4.73
                                            c-0.27,0.55-0.4,1.34-0.4,2.37c0,1.03,0.16,1.81,0.49,2.31c0.33,0.51,0.8,0.76,1.43,0.76c0.62,0,1.36-0.32,2.22-0.97
                                            C7,9.35,7.19,9.55,7.38,9.81c0.19,0.26,0.31,0.5,0.35,0.73c-0.4,0.41-0.92,0.75-1.57,1.03c-0.65,0.28-1.28,0.42-1.89,0.42
                                            c-0.61,0-1.13-0.09-1.55-0.28c-0.42-0.19-0.77-0.43-1.03-0.74c-0.27-0.3-0.49-0.67-0.67-1.1C0.7,9.09,0.53,8.18,0.53,7.16
@@ -679,31 +831,31 @@ gsap.timeline({defaults:{duration:45}})
                                            c0.38,0,0.8,0.05,1.26,0.16c0.46,0.11,0.84,0.24,1.15,0.4c0.01,0.25-0.04,0.51-0.15,0.81c-0.11,0.29-0.25,0.5-0.4,0.61
                                            c-0.73-0.34-1.34-0.51-1.83-0.51c-0.19,0-0.35,0.05-0.45,0.14s-0.16,0.21-0.16,0.35c0,0.23,0.19,0.41,0.56,0.56l0.81,0.3
                                            C38.41,8.05,39,8.78,39,9.78c0,0.67-0.24,1.21-0.73,1.61c-0.49,0.4-1.17,0.6-2.06,0.6C35.33,11.99,34.5,11.76,33.72,11.31z"
-                      />
-                    </g>
+                    />
                   </g>
-                  <g className="m1_cGroup">
-                    <circle
-                      className="m1OrbBlank"
-                      cx="0"
-                      cy="50"
-                      r="15"
-                      fill="#653997"
-                    />
+                </g>
+                <g className="m1_cGroup">
+                  <circle
+                    className="m1OrbBlank"
+                    cx="0"
+                    cy="50"
+                    r="15"
+                    fill="#653997"
+                  />
 
-                    <circle
-                      className="c1_line c1_line2"
-                      cx="0"
-                      cy="50"
-                      r="360"
-                      fill="none"
-                      strokeWidth="2"
-                      stroke="url(#grad1)"
-                      opacity="0.5"
-                    />
+                  <circle
+                    className="c1_line c1_line2"
+                    cx="0"
+                    cy="50"
+                    r="360"
+                    fill="none"
+                    strokeWidth="2"
+                    stroke="url(#grad1)"
+                    opacity="0.5"
+                  />
 
-                    <g className="m1Orb orb2">
-                      {/* <circle
+                  <g className="m1Orb orb2">
+                    {/* <circle
                         cx="18.5"
                         cy="7"
                         r="24.5"
@@ -711,61 +863,56 @@ gsap.timeline({defaults:{duration:45}})
                         strokeWidth="2.5"
                         stroke="#b9393a"
                       /> */}
-                      <image
-                      xlinkHref={Mui}
-                      width="60"
-                      height="60"
-                    />
-
-                    </g>
+                    <image onMouseEnter={()=>console.log("mouse entere")} onMouseLeave={()=>console.log("mouse leabe")} xlinkHref={Mui} width="60" height="60" />
                   </g>
-                  <g className="m1_cGroup">
-                    <circle
-                      className="m1OrbBlank"
-                      cx="0"
-                      cy="50"
-                      r="20"
-                      fill="#653997"
-                    />
-                    <circle
-                      className="m1OrbBlank"
-                      cx="0"
-                      cy="50"
-                      r="40"
-                      fill="rgba(125,200,32,0.19)"
-                    />
+                </g>
+                <g className="m1_cGroup">
+                  <circle
+                    className="m1OrbBlank"
+                    cx="0"
+                    cy="50"
+                    r="20"
+                    fill="#653997"
+                  />
+                  <circle
+                    className="m1OrbBlank"
+                    cx="0"
+                    cy="50"
+                    r="40"
+                    fill="rgba(125,200,32,0.19)"
+                  />
 
+                  <circle
+                    className="c1_solid"
+                    cx="0"
+                    cy="50"
+                    r="280"
+                    fill="url(#grad1)"
+                    opacity="0.2"
+                  />
+                  <circle
+                    className="c1_line c1_line1"
+                    cx="0"
+                    cy="50"
+                    r="279"
+                    fill="none"
+                    strokeWidth="3"
+                    stroke="url(#grad1)"
+                    opacity="0.5"
+                  />
+                  <g className="m1Orb orb1">
+                    <circle cx="12.5" cy="7" r="17" fill="#653997" />
                     <circle
-                      className="c1_solid"
-                      cx="0"
-                      cy="50"
-                      r="280"
-                      fill="url(#grad1)"
-                      opacity="0.2"
-                    />
-                    <circle
-                      className="c1_line c1_line1"
-                      cx="0"
-                      cy="50"
-                      r="279"
+                      cx="12.5"
+                      cy="7"
+                      r="20"
                       fill="none"
-                      strokeWidth="3"
-                      stroke="url(#grad1)"
-                      opacity="0.5"
+                      stroke="#653997"
                     />
-                    <g className="m1Orb orb1">
-                      <circle cx="12.5" cy="7" r="17" fill="#653997" />
-                      <circle
-                        cx="12.5"
-                        cy="7"
-                        r="20"
-                        fill="none"
-                        stroke="#653997"
-                      />
-                      <path
-                        fill="#fff"
-                        opacity="0.7"
-                        d="M0.24,10.94c0.03-0.3,0.12-0.6,0.28-0.89s0.35-0.53,0.56-0.71c1.02,0.62,1.96,0.92,2.83,0.92
+                    <path
+                      fill="#fff"
+                      opacity="0.7"
+                      d="M0.24,10.94c0.03-0.3,0.12-0.6,0.28-0.89s0.35-0.53,0.56-0.71c1.02,0.62,1.96,0.92,2.83,0.92
                                            c0.4,0,0.71-0.1,0.92-0.29c0.21-0.19,0.31-0.42,0.31-0.69c0-0.47-0.31-0.84-0.94-1.12l-1.65-0.7C1.22,6.89,0.56,6.04,0.56,4.91
                                            c0-0.85,0.32-1.54,0.97-2.09c0.64-0.54,1.49-0.81,2.54-0.81c1.05,0,2.09,0.27,3.12,0.8C7.14,3.45,6.89,3.99,6.45,4.42
                                            C5.5,3.96,4.66,3.73,3.93,3.73C3.55,3.73,3.26,3.82,3.05,4C2.85,4.19,2.74,4.39,2.74,4.63c0,0.37,0.29,0.69,0.87,0.94l1.68,0.7
@@ -778,42 +925,42 @@ gsap.timeline({defaults:{duration:45}})
                                            c0.25-0.66,0.58-1.19,1-1.6c0.84-0.82,1.87-1.23,3.08-1.23s2.34,0.34,3.39,1.01c-0.03,0.29-0.14,0.58-0.33,0.88s-0.4,0.52-0.64,0.67
                                            c-0.77-0.51-1.54-0.77-2.31-0.77c-1.59,0-2.38,1.08-2.38,3.26c0,2.17,0.79,3.25,2.38,3.25c0.4,0,0.83-0.04,1.29-0.13V9.15
                                            c0-0.42,0.01-0.74,0.03-0.97h-0.77c-0.35,0-0.61-0.07-0.77-0.2s-0.24-0.37-0.24-0.69C20.86,6.96,20.91,6.67,21.01,6.4z"
-                      />
-                    </g>
-                  </g>
-
-                  <g className="m1_cGroup">
-                    <circle
-                      className="c1_solid"
-                      cx="0"
-                      cy="50"
-                      r="220"
-                      fill="url(#grad1)"
-                      opacity="0.4"
-                    />
-                  </g>
-                  <g className="m1_cGroup">
-                    <circle
-                      className="c1_solid"
-                      cx="0"
-                      cy="50"
-                      r="150"
-                      fill="url(#grad1)"
-                      opacity="0.5"
-                    />
-                  </g>
-                  <g className="m1_cGroup">
-                    <circle
-                      className="c1_solid"
-                      cx="0"
-                      cy="50"
-                      r="80"
-                      fill="#c1033c"
-                      opacity="0.6"
                     />
                   </g>
                 </g>
-              </svg>
+
+                <g className="m1_cGroup">
+                  <circle
+                    className="c1_solid"
+                    cx="0"
+                    cy="50"
+                    r="220"
+                    fill="url(#grad1)"
+                    opacity="0.4"
+                  />
+                </g>
+                <g className="m1_cGroup">
+                  <circle
+                    className="c1_solid"
+                    cx="0"
+                    cy="50"
+                    r="150"
+                    fill="url(#grad1)"
+                    opacity="0.5"
+                  />
+                </g>
+                <g className="m1_cGroup">
+                  <circle
+                    className="c1_solid"
+                    cx="0"
+                    cy="50"
+                    r="80"
+                    fill="#c1033c"
+                    opacity="0.6"
+                  />
+                </g>
+              </g>
+            </svg>
             {/* </div> */}
           </div>
           <div className="container-center" data-depth="10">

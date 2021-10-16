@@ -30,9 +30,15 @@ import ErrorPage from './pages/ErrorPage/ErrorPage';
 import { useState } from 'react';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 
+
+
+
 function App({ isScrollable }) {
+  useEffect(()=>{
+  },[])
   const [error,setError]=useState(false)
 console.log(window.innerWidth)
+
   useEffect(()=>{
     window.addEventListener('resize',()=>{
       console.log(error)
@@ -80,10 +86,10 @@ console.log(window.innerWidth)
       <AnimatePresence initial={true} exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
         {error&&<ErrorPage screenError />}
-          {/* <Route key="a" exact path="/" component={Home} />
+        <Route key="d" exact path="/" component={Me} />
+        {/*   <Route key="a" exact path="/" component={Home} />
           <Route key="b" exact path="/hkjobz" component={Hkjobz} />
           <Route key="c" exact path="/slectus" component={Slectus} /> */}
-          <Route key="d" exact path="/" component={Me} />
           <Route key="e" path="*" component={ErrorPage} />
         </Switch>
       </AnimatePresence>
