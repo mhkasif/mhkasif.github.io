@@ -6,8 +6,8 @@ import logo from "../../images/mhkLogo.png";
 const ErrorPage = ({ screenError }) => {
   return (
     <div className="error-page-container">
-      <img src={logo} className="logo" alt="" />
-      <img className="emoji" src={screenError?Image:Image2} alt="" />
+      <img src={logo} className="logo" alt="mhk mhkasif" />
+      <img className="emoji" src={screenError?Image:Image2} alt="mhk mhkasif" />
      {screenError? <p className="medium-heading">
         Sorry, Your screen size is too small to handle my portfolio
         <span role="img" aria-label="emoji">

@@ -11,7 +11,13 @@ import {
 
 import { gsap } from "gsap";
 import React, { useEffect } from "react";
-import { HashRouter, Redirect, Route, Switch, useLocation } from "react-router-dom";
+import {
+  HashRouter,
+  Redirect,
+  Route,
+  Switch,
+  useLocation,
+} from "react-router-dom";
 import "./App.css";
 import Home from "./Components/Home/Home";
 import Hkjobz from "./pages/Hkjobz/Hkjobz";
@@ -20,46 +26,40 @@ import Me from "./pages/Me/Me";
 import { connect } from "react-redux";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 
-
-
-
 // import CircleSvg from './Components/CircleSvg/CircleSvg'
 // import {gsap} fro
-import ErrorPage from './pages/ErrorPage/ErrorPage';
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
-import { useState } from 'react';
-import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
-
-
-
+import { useState } from "react";
+import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 
 function App({ isScrollable }) {
-  useEffect(()=>{
-  },[])
-  const [error,setError]=useState(false)
-console.log(window.innerWidth)
-
-  useEffect(()=>{
-    window.addEventListener('resize',()=>{
-      console.log(error)
-      if(window.innerWidth <=1024 ){
-        setError(true)
-      }
-      if(window.innerWidth>1024){
-        setError(false)
-      }
-    })
-    if(window.innerWidth <=1024 ){
-      setError(true)
-    }
-    if(window.innerWidth>1024){
-      setError(false)
-    }
-
-  },[error])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  const [error, setError] = useState(false);
+  console.log(window.innerWidth);
 
   useEffect(() => {
-    console.log(isScrollable)
+    window.addEventListener("resize", () => {
+      console.log(error);
+      if (window.innerWidth <= 1024) {
+        setError(true);
+      }
+      if (window.innerWidth > 1024) {
+        setError(false);
+      }
+    });
+    if (window.innerWidth <= 1024) {
+      setError(true);
+    }
+    if (window.innerWidth > 1024) {
+      setError(false);
+    }
+  }, [error]);
+
+  useEffect(() => {
+    console.log(isScrollable);
     if (!isScrollable) document.body.classList.add("loading-cursor");
     else {
       document.body.classList.remove("loading-cursor");
@@ -74,28 +74,25 @@ console.log(window.innerWidth)
     CSSRulePlugin,
     ScrollTrigger,
     MotionPathPlugin,
-    ScrollToPlugin,
-
+    ScrollToPlugin
   );
   // }, []);
   const location = useLocation();
   return (
-
     <div>
-    <ScrollToTop/>
+      <ScrollToTop />
       <AnimatePresence initial={true} exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
-        {error&&<ErrorPage screenError />}
-        <Route key="d" exact path="/" component={Me} />
-        {/*   <Route key="a" exact path="/" component={Home} />
+          {error && <ErrorPage screenError />}
+          <Route key="a" exact path="/" component={Home} />
           <Route key="b" exact path="/hkjobz" component={Hkjobz} />
-          <Route key="c" exact path="/slectus" component={Slectus} /> */}
+          <Route key="c" exact path="/slectus" component={Slectus} />
+          <Route key="d" exact path="/me" component={Me} />
           <Route key="e" path="*" component={ErrorPage} />
         </Switch>
       </AnimatePresence>
       {/* <CircleSvg /> */}
     </div>
-
   );
 }
 const mapState = (state) => ({

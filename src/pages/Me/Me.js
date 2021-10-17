@@ -483,7 +483,7 @@ const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
           {/* <BackButton /> */}
           <div className="me-intro" data-depth="1">
             <div className="img-container">
-              <img className="my-image" src={MyImage} alt="" />
+              <img className="my-image" src={MyImage} alt="mhk mhkasif" />
             </div>
             <div className="info" data-depth="10">
               <div className="name-container">
@@ -1028,7 +1028,7 @@ const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
           </div>
           <div className="me-footer">
             <div className="bitmoji-container">
-              <img src={Bitmoji} className="bitmoji-gif" alt="" />
+              <img src={Bitmoji} className="bitmoji-gif" alt="mhk mhkasif" />
               Inspired from &nbsp;
               <span style={{ textDecoration: "underline" }}> Robin</span>
             </div>
@@ -1094,12 +1094,12 @@ const EmailPopup = () => {
           <div className="email-popup-copy">
             {emailPopupState !== "copied" ? (
               <div className="bitmoji-wrapper">
-                <img className="email-popup-bitmoji" src={laugh} alt="" />
+                <img className="email-popup-bitmoji" src={laugh} alt="mhk mhkasif" />
                 <div> Copy Email</div>
               </div>
             ) : (
               <div className="bitmoji-wrapper">
-                <img className="email-popup-bitmoji" src={popper} alt="" />
+                <img className="email-popup-bitmoji" src={popper} alt="mhk mhkasif" />
                 <div> Email Copied</div>
               </div>
             )}
