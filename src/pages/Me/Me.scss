@@ -21,9 +21,10 @@ body.pinkScroll{
   // transform-style: preserve-3d;
   // height: 100%;
   .skills-section{
+    height:800px;
     svg{
       // background-color: #000;
-      transform: translateY(-15%);
+      // transform: translateY(-15%);
       // margin-top: -300px;
       .m1_stage{
         transform: translate(50%,40%) scale(0.7) !important;
@@ -146,6 +147,7 @@ body.pinkScroll{
     filter: drop-shadow(-20px -20px 4px (#8c8c8c4f));
   }
   .skills-heading{
+    margin: 100px 50px 0 50px;
     letter-spacing: 10px;
 
   }
