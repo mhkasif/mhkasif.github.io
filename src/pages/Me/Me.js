@@ -27,14 +27,24 @@ import RN from "../../images/skills/rn.png";
 import Mui from "../../images/skills/mui.png";
 import NodejsImage from "../../images/skills/node.png";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
+import BackButton from "../../Components/BackButton/BackButton";
 
 const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
   const pathRef = useRef();
 
+useEffect(()=>{
+  document.getElementsByTagName("body")[0].classList.add("pinkScroll")
+  return ()=>{
+    document.getElementsByTagName("body")[0].classList.remove("pinkScroll")
+
+  }
+},[])
+
+
+window.onresize = window.onload = function () {
+  gsap.set(".m1_stage", { x: "50%", opacity: 1 });
+};
   useEffect(() => {
-    window.onresize = window.onload = function () {
-      gsap.set(".m1_stage", { x: "50%", opacity: 1 });
-    };
 
     gsap
       .timeline({ defaults: { duration: 45 } })
@@ -480,7 +490,7 @@ const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
       >
         <EmailPopup />
         <div className="me-container">
-          {/* <BackButton /> */}
+          <BackButton />
           <div className="me-intro" data-depth="1">
             <div className="img-container">
               <img className="my-image" src={MyImage} alt="mhk mhkasif" />
@@ -701,7 +711,7 @@ const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
                 height="100%"
               />
 
-              <g className="m1_stage" opacity="0">
+              <g className="m1_stage" >
                 <g className="m1_cGroup">
                   <circle
                     className="c1_line c1_line4"

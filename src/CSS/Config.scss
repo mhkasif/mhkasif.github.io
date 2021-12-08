@@ -10,7 +10,21 @@
 
 html {
   font-size: 62.5%;
+
+
 }
+/* ::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-track {
+  background-color: #252525;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4003f;
+
+
+} */
 
 body {
   margin: 0;
@@ -20,6 +34,8 @@ body {
     sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+
 }
 
 code {

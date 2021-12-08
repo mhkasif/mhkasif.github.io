@@ -1,4 +1,19 @@
+body.pinkScroll{
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #252525;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #d4003f;
+
+
+  }
+}
 .me-container {
+
 
   background-color: #252525;
   color: white;

@@ -152,15 +152,16 @@ class ProjectHome extends Component {
           <div className="content">
             <div className="projects-grid-container">
             <div className="project-cell-container slectus">
-            <Link to={{pathname:"https://hk-jobz.web.app/"}} target="_blank">
+            <Link to={{pathname:"https://slectus-test.web.app"}} target="_blank">
+
             <div className="project-cell">
-                    <img src={slectus} alt="" />
-                    </div>
-                    </Link>
-                  <div className="btn">Slectus</div>
-                </div>
-              <div className="project-cell-container hkjobz">
-              <Link to={{pathname:"https://calm-mesa-38512.herokuapp.com/"}} target="_blank">
+            <img src={slectus} alt="" />
+            </div>
+            </Link>
+            <div className="btn">Slectus</div>
+            </div>
+            <div className="project-cell-container hkjobz">
+            <Link to={{pathname:"https://hk-jobz.web.app/"}} target="_blank">
               <div className="project-cell">
                     <img src={hkjobz} alt="" />
                     </div>
