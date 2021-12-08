@@ -5,13 +5,14 @@ import App from "./App";
 // import * as serviceWorker from './serviceWorker';
 import configStore from "./Redux/StoreConfig/StoreConfig";
 import { Provider } from "react-redux";
-import { Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import history from './history';
 
 
 var store = configStore();
 const IndexApp=()=><Provider store={store}>
-<Router history={history}>
+{/* <Router history={history}> */}
+<Router>
   <App />
 </Router>
 </Provider>
