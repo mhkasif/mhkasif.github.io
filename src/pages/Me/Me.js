@@ -45,7 +45,7 @@ window.onresize = window.onload = function () {
   gsap.set(".m1_stage", { x: "50%", opacity: 1 });
 };
   useEffect(() => {
-
+    //skills func
     gsap
       .timeline({ defaults: { duration: 45 } })
       .from(".main1", { duration: 1, autoAlpha: 0, ease: "power1.inOut" }, 0)
@@ -490,7 +490,7 @@ window.onresize = window.onload = function () {
       >
         <EmailPopup />
         <div className="me-container">
-          <BackButton />
+          {/* <BackButton /> */}
           <div className="me-intro" data-depth="1">
             <div className="img-container">
               <img className="my-image" src={MyImage} alt="mhk mhkasif" />
@@ -498,7 +498,7 @@ window.onresize = window.onload = function () {
             <div className="info" data-depth="10">
               <div className="name-container">
                 <div className="my-name extra-large-heading">Hola!</div>
-                <div className="my-name extra-large-heading">I'm Haseeb</div>
+                <div className="my-name extra-large-heading">I'm MHK Asif</div>
               </div>
               <p className="big-paragraph intro-text">
                 I'm a Full Stack developer from Pakistan and available for
@@ -990,7 +990,7 @@ window.onresize = window.onload = function () {
           </div>
           <div className="contact-icons">
             <div className="link">
-              <img className="icons" src={dw} alt="" />
+              <img className="icons" src={dw} alt="" loading="lazy" />
               <Link
                 target="_blank"
                 rel="noopener noreferrer"
@@ -1002,35 +1002,35 @@ window.onresize = window.onload = function () {
             </div>
             <div className="link">
               {" "}
-              <img className="icons" src={li} alt="" />{" "}
+              <img loading="lazy" className="icons" src={li} alt="" />{" "}
               <a href="https://www.linkedin.com/in/mhkasif97/" target="_blank">
                 Linkedin
               </a>{" "}
             </div>
             <div className="link">
               {" "}
-              <img className="icons" src={gh} alt="" />{" "}
+              <img loading="lazy" className="icons" src={gh} alt="" />{" "}
               <a href="https://github.com/mhkasif" target="_blank">
                 {" "}
                 Github
               </a>
             </div>
             <div className="link">
-              <img className="icons" src={fb} alt="" />{" "}
+              <img loading="lazy" className="icons" src={fb} alt="" />{" "}
               <a href="https://www.facebook.com/mhkasif97" target="_blank">
                 Facebook
               </a>{" "}
             </div>
             <div className="link">
               {" "}
-              <img className="icons" src={insta} alt="" />{" "}
+              <img loading="lazy" className="icons" src={insta} alt="" />{" "}
               <a href="https://www.instagram.com/mhkasif/" target="_blank">
                 Instagram
               </a>{" "}
             </div>
             <div className="link">
               {" "}
-              <img className="icons" src={twitter} alt="" />{" "}
+              <img loading="lazy" className="icons" src={twitter} alt="" />{" "}
               <a href="https://twitter.com/mhkasif" target="_blank">
                 Twitter
               </a>{" "}
@@ -1038,7 +1038,7 @@ window.onresize = window.onload = function () {
           </div>
           <div className="me-footer">
             <div className="bitmoji-container">
-              <img src={Bitmoji} className="bitmoji-gif" alt="mhk mhkasif" />
+              <img loading="lazy" src={Bitmoji} className="bitmoji-gif" alt="mhk mhkasif" />
               Inspired from &nbsp;
               <span style={{ textDecoration: "underline" }}> Robin</span>
             </div>
@@ -1109,7 +1109,7 @@ const EmailPopup = () => {
               </div>
             ) : (
               <div className="bitmoji-wrapper">
-                <img className="email-popup-bitmoji" src={popper} alt="mhk mhkasif" />
+                <img className="email-popup-bitmoji" src={popper} alt="mhk mhkasif" loading="lazy"/>
                 <div> Email Copied</div>
               </div>
             )}
