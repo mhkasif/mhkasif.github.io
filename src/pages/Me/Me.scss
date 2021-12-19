@@ -12,8 +12,18 @@ body.pinkScroll{
 
   }
 }
+.element-name{
+  z-index: 10;
+  position: absolute;
+  font-size: 12px;
+  // background-color: #d4003f;
+  background-color: rgba(97, 97, 97, 0.92);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 2s linear;
+}
 .me-container {
-
 
   background-color: #252525;
   color: white;

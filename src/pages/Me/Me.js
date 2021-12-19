@@ -30,20 +30,28 @@ import MotionPathPlugin from "gsap/MotionPathPlugin";
 import BackButton from "../../Components/BackButton/BackButton";
 
 const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
+  const [elementPosition, setElementPosition] = useState({
+    display: "none",
+    top: 0,
+    left: 0,
+    name: "",
+  });
   const pathRef = useRef();
+  const muiImage = useRef();
+  const reactImage = useRef();
+  const nodeImage = useRef();
+  const rnImage = useRef();
 
-useEffect(()=>{
-  document.getElementsByTagName("body")[0].classList.add("pinkScroll")
-  return ()=>{
-    document.getElementsByTagName("body")[0].classList.remove("pinkScroll")
+  useEffect(() => {
+    document.getElementsByTagName("body")[0].classList.add("pinkScroll");
+    return () => {
+      document.getElementsByTagName("body")[0].classList.remove("pinkScroll");
+    };
+  }, []);
 
-  }
-},[])
-
-
-window.onresize = window.onload = function () {
-  gsap.set(".m1_stage", { x: "50%", opacity: 1 });
-};
+  window.onresize = window.onload = function () {
+    gsap.set(".m1_stage", { x: "50%", opacity: 1 });
+  };
   useEffect(() => {
     //skills func
     gsap
@@ -474,6 +482,16 @@ window.onresize = window.onload = function () {
     //   // opacity:0
     // });
   }, []);
+  const handleMouseEnterOnSkillsImage = (ref, name) => {
+    const x = ref.current.getBoundingClientRect().x;
+    const y = ref.current.getBoundingClientRect().y-30;
+    console.log(x, y);
+    setElementPosition({ top: y, left: x, display: "block", name });
+    console.log("mouse entere", ref.current.getBoundingClientRect());
+  };
+  const handleMouseLeaveOnSkillsImage = (ref) => {
+    setElementPosition({ ...elementPosition, display: "none" });
+  };
   return (
     <React.Fragment>
       <motion.div
@@ -488,6 +506,9 @@ window.onresize = window.onload = function () {
         }}
         className="viewport"
       >
+        <div className="element-name" style={elementPosition}>
+          {elementPosition.name}
+        </div>
         <EmailPopup />
         <div className="me-container">
           {/* <BackButton /> */}
@@ -711,7 +732,7 @@ window.onresize = window.onload = function () {
                 height="100%"
               />
 
-              <g className="m1_stage" >
+              <g className="m1_stage">
                 <g className="m1_cGroup">
                   <circle
                     className="c1_line c1_line4"
@@ -725,7 +746,15 @@ window.onresize = window.onload = function () {
                   />
                   <g className="m1Orb orb4b">
                     <image
-                      onMouseOver={() => console.log("rN")}
+                    style={{cursor:"pointer"}}
+                      className="svg-images"
+                      ref={rnImage}
+                      onMouseEnter={() =>
+                        handleMouseEnterOnSkillsImage(rnImage, "React Native")
+                      }
+                      onMouseLeave={() =>
+                        handleMouseLeaveOnSkillsImage(rnImage)
+                      }
                       xlinkHref={RN}
                       width="60"
                       height="60"
@@ -793,11 +822,37 @@ window.onresize = window.onload = function () {
                   />
 
                   <g className="m1Orb orb3c">
-                    <image xlinkHref={NodejsImage} width="60" height="60" />
+                    <image
+                      className="svg-images"
+                      ref={nodeImage}
+                      style={{cursor:"pointer"}}
+                      onMouseEnter={() =>
+                        handleMouseEnterOnSkillsImage(nodeImage, "Nodejs")
+                      }
+                      onMouseLeave={() =>
+                        handleMouseLeaveOnSkillsImage(nodeImage)
+                      }
+                      xlinkHref={NodejsImage}
+                      width="60"
+                      height="60"
+                    />
                   </g>
 
                   <g className="m1Orb orb3b">
-                    <image xlinkHref={ReactImage} width="60" height="60" />
+                    <image
+                      className="svg-images"
+                      xlinkHref={ReactImage}
+                      width="60"
+                      height="60"
+                      ref={reactImage}
+                      style={{cursor:"pointer"}}
+                      onMouseEnter={() =>
+                        handleMouseEnterOnSkillsImage(reactImage, "React")
+                      }
+                      onMouseLeave={() =>
+                        handleMouseLeaveOnSkillsImage(reactImage)
+                      }
+                    />
                   </g>
                   <g className="m1Orb orb3">
                     <circle
@@ -873,7 +928,20 @@ window.onresize = window.onload = function () {
                         strokeWidth="2.5"
                         stroke="#b9393a"
                       /> */}
-                    <image onMouseEnter={()=>console.log("mouse entere")} onMouseLeave={()=>console.log("mouse leabe")} xlinkHref={Mui} width="60" height="60" />
+                    <image
+                      className="svg-images"
+                      ref={muiImage}
+                      style={{cursor:"pointer"}}
+                      onMouseEnter={() =>
+                        handleMouseEnterOnSkillsImage(muiImage, "Material-UI")
+                      }
+                      onMouseLeave={() =>
+                        handleMouseLeaveOnSkillsImage(muiImage)
+                      }
+                      xlinkHref={Mui}
+                      width="60"
+                      height="60"
+                    />
                   </g>
                 </g>
                 <g className="m1_cGroup">
@@ -1038,7 +1106,12 @@ window.onresize = window.onload = function () {
           </div>
           <div className="me-footer">
             <div className="bitmoji-container">
-              <img loading="lazy" src={Bitmoji} className="bitmoji-gif" alt="mhk mhkasif" />
+              <img
+                loading="lazy"
+                src={Bitmoji}
+                className="bitmoji-gif"
+                alt="mhk mhkasif"
+              />
               Inspired from &nbsp;
               <span style={{ textDecoration: "underline" }}> Robin</span>
             </div>
@@ -1104,12 +1177,21 @@ const EmailPopup = () => {
           <div className="email-popup-copy">
             {emailPopupState !== "copied" ? (
               <div className="bitmoji-wrapper">
-                <img className="email-popup-bitmoji" src={laugh} alt="mhk mhkasif" />
+                <img
+                  className="email-popup-bitmoji"
+                  src={laugh}
+                  alt="mhk mhkasif"
+                />
                 <div> Copy Email</div>
               </div>
             ) : (
               <div className="bitmoji-wrapper">
-                <img className="email-popup-bitmoji" src={popper} alt="mhk mhkasif" loading="lazy"/>
+                <img
+                  className="email-popup-bitmoji"
+                  src={popper}
+                  alt="mhk mhkasif"
+                  loading="lazy"
+                />
                 <div> Email Copied</div>
               </div>
             )}
