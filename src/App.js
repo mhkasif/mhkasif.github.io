@@ -64,6 +64,7 @@ function App({ isScrollable }) {
     else {
       document.body.classList.remove("loading-cursor");
     }
+
   }, [isScrollable]);
   // useEffect(() => {
   console.log("app called");
@@ -83,12 +84,12 @@ function App({ isScrollable }) {
       <ScrollToTop />
       <AnimatePresence initial={true} exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
-          {error && <ErrorPage screenError />}
-          <Route key="a" exact path="/" component={Me} />
-          {/* <Route key="b" exact path="/hkjobz" component={Hkjobz} />
-          <Route key="c" exact path="/slectus" component={Slectus} />
-          <Route key="d" exact path="/me" component={Me} />
-          <Route key="e" path="*" component={ErrorPage} /> */}
+          {/* {error && <ErrorPage screenError />} */}
+          {/* <Route key="a" exact path="/" component={Home} />
+          <Route key="b" exact path="/hkjobz" component={Hkjobz} />
+          <Route key="c" exact path="/slectus" component={Slectus} /> */}
+          <Route key="d" exact path="/" component={Me} />
+          {/* <Route key="e" path="*" component={ErrorPage} /> */}
         </Switch>
       </AnimatePresence>
       {/* <CircleSvg /> */}

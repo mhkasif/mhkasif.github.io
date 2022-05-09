@@ -1,4 +1,4 @@
-body.pinkScroll{
+body.pinkScroll {
   &::-webkit-scrollbar {
     width: 2px;
   }
@@ -8,11 +8,9 @@ body.pinkScroll{
 
   &::-webkit-scrollbar-thumb {
     background: #d4003f;
-
-
   }
 }
-.element-name{
+.element-name {
   z-index: 10;
   position: absolute;
   font-size: 12px;
@@ -24,25 +22,28 @@ body.pinkScroll{
   transition: all 2s linear;
 }
 .me-container {
-
   background-color: #252525;
   color: white;
   overflow-x: hidden;
   // transform-style: preserve-3d;
   // height: 100%;
-  .skills-section{
-    height:800px;
-    svg{
+  .skills-section {
+    height: 800px;
+
+    svg {
       // background-color: #000;
       // transform: translateY(-15%);
       // margin-top: -300px;
-      .m1_stage{
-        transform: translate(50%,40%) scale(0.7) !important;
+      @media (max-width: 480px) {
+        transform: translateY(-230px) scale(0.4) !important;
+        overflow: visible;
+      }
+      .m1_stage {
+        transform: translate(50%, 40%) scale(0.7) !important;
         // image{
         //   cursor: pointer;
         // }
       }
-
     }
     // position: relative;
     // width: 100vw;
@@ -61,34 +62,49 @@ body.pinkScroll{
     //   justify-content: flex-end;
     // }
   }
-.contact-icons{
-  display:flex;
-  justify-content:space-evenly;
-  margin-top: 30px;
-  .link{
+  .contact-icons {
     display: flex;
-    align-items: center;
-    img{
-      height: 35px;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    @media (max-width: 480px) {
+      flex-flow: wrap;
+      row-gap: 40px;
+      justify-content: space-around;
     }
-    a{
-      font-size: 1.6rem;
-      height: fit-content;
-      margin-left: 10px;
+    .link {
+      display: flex;
+      align-items: center;
+      img {
+        height: 35px;
+      }
+      a {
+        font-size: 1.6rem;
+        height: fit-content;
+        margin-left: 10px;
+      }
     }
   }
-}
   .me-intro {
     width: 90%;
     position: relative;
     padding-top: 120px;
     display: flex;
+    @media (max-width: 480px) {
+      width: 100vw;
+      display: block;
+    }
     .info {
       width: 52%;
       // color: white;
       display: flex;
       flex-direction: column;
       padding-top: 50px;
+      @media (max-width: 480px) {
+        width: 100%;
+        padding-top: 0;
+        display: block;
+        justify-content: center;
+      }
       .name-container {
         transform: translateX(-70px);
         font-family: "Playfair Display", serif;
@@ -97,17 +113,27 @@ body.pinkScroll{
           width: max-content;
           margin: 30px 0;
         }
+        @media (max-width: 480px) {
+          transform: translate(-50px, -250px) scale(0.65);
+        }
       }
       .intro-text {
         width: 60%;
         align-self: flex-end;
         font-weight: bold;
+        @media (max-width: 480px) {
+          display: flex;
+          align-self: center;
+          width: 95vw;
+          padding: 0 20px;
+          transform: translateY(-150px);
+        }
       }
     }
     .img-container {
       background-color: #d4003f;
       width: 48%;
-      height: calc(90vh );
+      height: calc(90vh);
       position: relative;
       .my-image {
         position: absolute;
@@ -115,6 +141,13 @@ body.pinkScroll{
         width: 100%;
         height: 100%;
         object-fit: contain;
+        @media (max-width: 480px) {
+          object-fit: cover;
+        }
+      }
+
+      @media (max-width: 480px) {
+        width: 100vw;
       }
     }
   }
@@ -148,6 +181,9 @@ body.pinkScroll{
     .regards {
       width: 55%;
     }
+    @media (max-width: 480px) {
+      column-gap: 40px;
+    }
   }
   .exp-heading {
     font-family: "Playfair Display", serif;
@@ -155,11 +191,14 @@ body.pinkScroll{
     margin: 100px 50px;
     font-size: 120px;
     filter: drop-shadow(-20px -20px 4px (#8c8c8c4f));
+    @media (max-width: 480px) {
+      font-size: 60px;
+      margin: 50px 30px;
+    }
   }
-  .skills-heading{
+  .skills-heading {
     margin: 100px 50px 0 50px;
     letter-spacing: 10px;
-
   }
   .me-svg-path-container {
     position: relative;
@@ -214,7 +253,6 @@ body.pinkScroll{
 
       font-family: "Playfair Display", serif;
 
-
       visibility: hidden;
     }
   }
@@ -234,6 +272,11 @@ body.pinkScroll{
         width: 100px;
         animation: jump 2s ease-in-out infinite;
       }
+    }
+    @media (max-width: 480px) {
+      margin-bottom: 130px;
+      padding: 0;
+      flex-direction: column;
     }
   }
 }
@@ -277,31 +320,29 @@ body.pinkScroll{
   .content-list {
     height: 120px;
     width: 100%;
-    .email-popup{
-    &-email,
-    &-copy{
-      // display: none;
-      position: relative;
-      width: 100%;
-      min-height: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .bitmoji-wrapper {
+    .email-popup {
+      &-email,
+      &-copy {
+        // display: none;
+        position: relative;
+        width: 100%;
+        min-height: 60px;
         display: flex;
         justify-content: center;
         align-items: center;
+        .bitmoji-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+      &-bitmoji {
+        width: 60px;
+        // height: 40px;
+        display: block;
       }
     }
-    &-bitmoji {
-      width: 60px;
-      // height: 40px;
-      display: block;
-    }
   }
-  }
-
-
 }
 
 .marquee {
@@ -317,6 +358,10 @@ body.pinkScroll{
   justify-content: space-evenly;
   align-items: center;
   margin: 150px 0;
+@media (max-width:480px) {
+  display: none;
+
+}
 
   span {
     display: block;
@@ -342,23 +387,36 @@ body.pinkScroll{
 /* would need to be adjusted depending on time */
 .marquee .marqueeone {
   animation: marquee 40s linear infinite;
+  @media (max-width: 480px) {
+    animation: marqueeForMob 40s linear infinite;
+  }
 }
 
 .marquee .marqueetwo {
   animation: marquee 40s linear 10s infinite;
+  @media (max-width: 480px) {
+    animation:marquee 40s linear 10s infinite;
+  }
 }
 
 .marquee .marqueethree {
   animation: marquee 40s linear 20s infinite;
+  @media (max-width: 480px) {
+    animation:marquee 40s linear 25s infinite;
+  }
 }
 
 .marquee .marqueefour {
   animation: marquee 40s linear 30s infinite;
+  @media (max-width: 480px) {
+    animation:marquee 40s linear 35s infinite;
+  }
 }
 
 /* even out the elements */
 .marquee div {
   position: absolute;
+  min-width: 250px;
   width: 100%;
   left: 100%;
   height: 40px;
@@ -383,10 +441,20 @@ body.pinkScroll{
     left: -100%;
   }
 }
+@keyframes marqueeForMob {
+  0% {
+    left: 100%;
+  }
+  50% {
+    left: -200%;
+  }
+  100% {
+    left: -200%;
+  }
+}
 .email-popup-dark {
   background-color: #c1033c !important;
   // background-color: pink !important;
-
 }
 .email-popup-white {
   background-color: white !important;
@@ -403,4 +471,27 @@ body.pinkScroll{
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+@media (max-width: 450px) {
+  .me-container {
+    .container-center {
+      margin: 0;
+      width: 100%;
+      .about-me {
+        transform: translate(-25px, -250px) scale(0.7) !important;
+      }
+    }
+    .exp-par{
+      &-1{
+        transform: translate(-110px, -50px) scale(0.6);
+      }
+      &-2{
+        transform: translate(-80px, 250px) scale(0.6);
+      }
+      &-3{
+        transform: translate(-70px, 540px) scale(0.6);
+      }
+    }
+  }
 }

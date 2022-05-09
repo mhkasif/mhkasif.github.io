@@ -1190,7 +1190,7 @@ const EmailPopup = () => {
                   className="email-popup-bitmoji"
                   src={popper}
                   alt="mhk mhkasif"
-                  loading="lazy"
+
                 />
                 <div> Email Copied</div>
               </div>
