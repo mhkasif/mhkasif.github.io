@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.7189fc40.css",
+    "main.css": "/static/css/main.dc4d6c6c.css",
     "main.js": "/static/js/main.8480723e.js",
     "static/media/resume.jpg": "/static/media/resume.e6ff3df8e118aeca170a.jpg",
     "static/media/HKJobs projects card.jpg": "/static/media/HKJobs projects card.8fa56c5b21997cf913ec.jpg",
@@ -26,11 +26,11 @@
     "static/media/mhkLogo.png": "/static/media/mhkLogo.b5ac4c19a4d4efa74b70.png",
     "static/media/new-tab.png": "/static/media/new-tab.4bff1f5b6d9be70e4d8f.png",
     "index.html": "/index.html",
-    "main.7189fc40.css.map": "/static/css/main.7189fc40.css.map",
+    "main.dc4d6c6c.css.map": "/static/css/main.dc4d6c6c.css.map",
     "main.8480723e.js.map": "/static/js/main.8480723e.js.map"
   },
   "entrypoints": [
-    "static/css/main.7189fc40.css",
+    "static/css/main.dc4d6c6c.css",
     "static/js/main.8480723e.js"
   ]
 }
