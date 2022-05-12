@@ -1,36 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.f4fd7913.css",
-    "main.js": "/static/js/main.663fe7eb.js",
-    "static/media/resume.jpg": "/static/media/resume.e6ff3df8e118aeca170a.jpg",
-    "static/media/HKJobs projects card.jpg": "/static/media/HKJobs projects card.8fa56c5b21997cf913ec.jpg",
-    "static/media/Slectus_Main.png": "/static/media/Slectus_Main.5343e61844c50b0365d2.png",
-    "static/media/HKJobs_Main.png": "/static/media/HKJobs_Main.5640bb68c050ea734658.png",
-    "static/media/Slectus Devices.png": "/static/media/Slectus Devices.770011fc33cb50568403.png",
+    "main.css": "/static/css/main.709e390c.css",
+    "main.js": "/static/js/main.2155546f.js",
     "static/media/bitmoji.gif": "/static/media/bitmoji.6c95d337410761bcdd16.gif",
     "static/media/MyImage.png": "/static/media/MyImage.57991c61b123b728bb32.png",
-    "static/media/HKjobs_Devices.png": "/static/media/HKjobs_Devices.1450fe00ab5101e1e280.png",
-    "static/media/Slectus projects card.png": "/static/media/Slectus projects card.568e8e16bc5541a5ca2c.png",
-    "static/media/eventos.png": "/static/media/eventos.9ef6c4ac341fb4b75c97.png",
-    "static/media/Artist_hand.png": "/static/media/Artist_hand.57f31ff7b66b5a4e4002.png",
-    "static/media/bsc.png": "/static/media/bsc.8e5f01f372d18aa3ccff.png",
     "static/media/resume.pdf": "/static/media/resume.8b4b3abc52c947977c23.pdf",
     "static/media/rn.png": "/static/media/rn.f98601340de1a132e4ae.png",
-    "static/media/error.png": "/static/media/error.552784974ac55a0c58e9.png",
-    "static/media/error2.png": "/static/media/error2.bcc23919a5e1b22a29a5.png",
     "static/media/popper.PNG": "/static/media/popper.15b18282398324dfd22a.PNG",
     "static/media/laugh.PNG": "/static/media/laugh.cb43861e302ef531a297.PNG",
     "static/media/react.png": "/static/media/react.4c44c537b839cd295f27.png",
-    "static/media/webicamp.png": "/static/media/webicamp.5fc17a5d854033821160.png",
     "static/media/node.png": "/static/media/node.4a442fdbb1df686cad18.png",
-    "static/media/mhkLogo.png": "/static/media/mhkLogo.b5ac4c19a4d4efa74b70.png",
-    "static/media/new-tab.png": "/static/media/new-tab.4bff1f5b6d9be70e4d8f.png",
     "index.html": "/index.html",
-    "main.f4fd7913.css.map": "/static/css/main.f4fd7913.css.map",
-    "main.663fe7eb.js.map": "/static/js/main.663fe7eb.js.map"
+    "main.709e390c.css.map": "/static/css/main.709e390c.css.map",
+    "main.2155546f.js.map": "/static/js/main.2155546f.js.map"
   },
   "entrypoints": [
-    "static/css/main.f4fd7913.css",
-    "static/js/main.663fe7eb.js"
+    "static/css/main.709e390c.css",
+    "static/js/main.2155546f.js"
   ]
 }
