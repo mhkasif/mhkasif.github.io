@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.e59c4653.css",
-    "main.js": "/static/js/main.943ca7cf.js",
+    "main.css": "/static/css/main.cd3ec224.css",
+    "main.js": "/static/js/main.b491aba7.js",
     "static/media/resume.jpg": "/static/media/resume.e6ff3df8e118aeca170a.jpg",
     "static/media/HKJobs projects card.jpg": "/static/media/HKJobs projects card.8fa56c5b21997cf913ec.jpg",
     "static/media/Slectus_Main.png": "/static/media/Slectus_Main.5343e61844c50b0365d2.png",
     "static/media/HKJobs_Main.png": "/static/media/HKJobs_Main.5640bb68c050ea734658.png",
     "static/media/Slectus Devices.png": "/static/media/Slectus Devices.770011fc33cb50568403.png",
     "static/media/bitmoji.gif": "/static/media/bitmoji.6c95d337410761bcdd16.gif",
+    "static/media/MyImage.png": "/static/media/MyImage.57991c61b123b728bb32.png",
     "static/media/HKjobs_Devices.png": "/static/media/HKjobs_Devices.1450fe00ab5101e1e280.png",
     "static/media/Slectus projects card.png": "/static/media/Slectus projects card.568e8e16bc5541a5ca2c.png",
     "static/media/eventos.png": "/static/media/eventos.9ef6c4ac341fb4b75c97.png",
@@ -19,18 +20,17 @@
     "static/media/error2.png": "/static/media/error2.bcc23919a5e1b22a29a5.png",
     "static/media/popper.PNG": "/static/media/popper.15b18282398324dfd22a.PNG",
     "static/media/laugh.PNG": "/static/media/laugh.cb43861e302ef531a297.PNG",
-    "static/media/MyImage.png": "/static/media/MyImage.78f24876c8806822b45e.png",
     "static/media/react.png": "/static/media/react.4c44c537b839cd295f27.png",
     "static/media/webicamp.png": "/static/media/webicamp.5fc17a5d854033821160.png",
     "static/media/node.png": "/static/media/node.4a442fdbb1df686cad18.png",
     "static/media/mhkLogo.png": "/static/media/mhkLogo.b5ac4c19a4d4efa74b70.png",
     "static/media/new-tab.png": "/static/media/new-tab.4bff1f5b6d9be70e4d8f.png",
     "index.html": "/index.html",
-    "main.e59c4653.css.map": "/static/css/main.e59c4653.css.map",
-    "main.943ca7cf.js.map": "/static/js/main.943ca7cf.js.map"
+    "main.cd3ec224.css.map": "/static/css/main.cd3ec224.css.map",
+    "main.b491aba7.js.map": "/static/js/main.b491aba7.js.map"
   },
   "entrypoints": [
-    "static/css/main.e59c4653.css",
-    "static/js/main.943ca7cf.js"
+    "static/css/main.cd3ec224.css",
+    "static/js/main.b491aba7.js"
   ]
 }
