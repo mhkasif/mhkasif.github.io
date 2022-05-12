@@ -69,8 +69,18 @@ body.pinkScroll {
     @media (max-width: 480px) {
       flex-flow: wrap;
       row-gap: 40px;
-      justify-content: space-around;
+      column-gap: 20px;
+      justify-content: space-between;
+      padding: 0 10px;
+
     }
+
+    @media (max-width: 390px) {
+      column-gap: 10px;
+      padding: 0 5px;
+
+    }
+
     .link {
       display: flex;
       align-items: center;
@@ -140,7 +150,7 @@ body.pinkScroll {
         bottom: 0;
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
         @media (max-width: 480px) {
           object-fit: cover;
         }
@@ -162,6 +172,10 @@ body.pinkScroll {
     margin-top: 120px;
     width: 100%;
     font-weight: bold;
+    @media (max-width:480px) {
+      margin-top: -120px;
+
+    }
     .summary-title {
       width: 35%;
       text-align: center;
@@ -182,7 +196,8 @@ body.pinkScroll {
       width: 55%;
     }
     @media (max-width: 480px) {
-      column-gap: 40px;
+      column-gap: 10px;
+      padding: 0 10px;
     }
   }
   .exp-heading {
@@ -273,8 +288,11 @@ body.pinkScroll {
         animation: jump 2s ease-in-out infinite;
       }
     }
+    @media (min-width: 1300px) {
+      margin-bottom: 200px;
+    }
     @media (max-width: 480px) {
-      margin-bottom: 130px;
+      margin-bottom: 180px;
       padding: 0;
       flex-direction: column;
     }
@@ -317,6 +335,9 @@ body.pinkScroll {
   align-items: center;
   flex-direction: column;
   overflow: hidden;
+  @media (max-width: 480px) {
+    left: calc(50% - 147px);
+  }
   .content-list {
     height: 120px;
     width: 100%;
@@ -358,10 +379,9 @@ body.pinkScroll {
   justify-content: space-evenly;
   align-items: center;
   margin: 150px 0;
-@media (max-width:480px) {
-  display: none;
-
-}
+  @media (max-width: 480px) {
+    display: none;
+  }
 
   span {
     display: block;
@@ -395,21 +415,21 @@ body.pinkScroll {
 .marquee .marqueetwo {
   animation: marquee 40s linear 10s infinite;
   @media (max-width: 480px) {
-    animation:marquee 40s linear 10s infinite;
+    animation: marquee 40s linear 10s infinite;
   }
 }
 
 .marquee .marqueethree {
   animation: marquee 40s linear 20s infinite;
   @media (max-width: 480px) {
-    animation:marquee 40s linear 25s infinite;
+    animation: marquee 40s linear 25s infinite;
   }
 }
 
 .marquee .marqueefour {
   animation: marquee 40s linear 30s infinite;
   @media (max-width: 480px) {
-    animation:marquee 40s linear 35s infinite;
+    animation: marquee 40s linear 35s infinite;
   }
 }
 
@@ -482,14 +502,14 @@ body.pinkScroll {
         transform: translate(-25px, -250px) scale(0.7) !important;
       }
     }
-    .exp-par{
-      &-1{
-        transform: translate(-110px, -50px) scale(0.6);
+    .exp-par {
+      &-1 {
+        transform: translate(70px, 70px) scale(0.5);
       }
-      &-2{
-        transform: translate(-80px, 250px) scale(0.6);
+      &-2 {
+        transform: translate(-80px, 270px) scale(0.59);
       }
-      &-3{
+      &-3 {
         transform: translate(-70px, 540px) scale(0.6);
       }
     }

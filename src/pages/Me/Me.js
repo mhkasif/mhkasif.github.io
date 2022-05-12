@@ -1104,10 +1104,10 @@ const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
               </a>{" "}
             </div>
           </div>
-          <div className="me-footer">
+          <div className="me-footer" data-depth="10">
             <div className="bitmoji-container">
               <img
-                loading="lazy"
+                // loading="lazy"
                 src={Bitmoji}
                 className="bitmoji-gif"
                 alt="mhk mhkasif"
@@ -1176,7 +1176,7 @@ const EmailPopup = () => {
           </div>
           <div className="email-popup-copy">
             {emailPopupState !== "copied" ? (
-              <div className="bitmoji-wrapper">
+              <div className="bitmoji-wrapper" key="imge1">
                 <img
                   className="email-popup-bitmoji"
                   src={laugh}
@@ -1185,7 +1185,7 @@ const EmailPopup = () => {
                 <div> Copy Email</div>
               </div>
             ) : (
-              <div className="bitmoji-wrapper">
+              <div className="bitmoji-wrapper" key="imge2">
                 <img
                   className="email-popup-bitmoji"
                   src={popper}
