@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.b182668a.css",
-    "main.js": "/static/js/main.b491aba7.js",
+    "main.css": "/static/css/main.5b219fe8.css",
+    "main.js": "/static/js/main.5c52d4b2.js",
     "static/media/resume.jpg": "/static/media/resume.e6ff3df8e118aeca170a.jpg",
     "static/media/HKJobs projects card.jpg": "/static/media/HKJobs projects card.8fa56c5b21997cf913ec.jpg",
     "static/media/Slectus_Main.png": "/static/media/Slectus_Main.5343e61844c50b0365d2.png",
@@ -26,11 +26,11 @@
     "static/media/mhkLogo.png": "/static/media/mhkLogo.b5ac4c19a4d4efa74b70.png",
     "static/media/new-tab.png": "/static/media/new-tab.4bff1f5b6d9be70e4d8f.png",
     "index.html": "/index.html",
-    "main.b182668a.css.map": "/static/css/main.b182668a.css.map",
-    "main.b491aba7.js.map": "/static/js/main.b491aba7.js.map"
+    "main.5b219fe8.css.map": "/static/css/main.5b219fe8.css.map",
+    "main.5c52d4b2.js.map": "/static/js/main.5c52d4b2.js.map"
   },
   "entrypoints": [
-    "static/css/main.b182668a.css",
-    "static/js/main.b491aba7.js"
+    "static/css/main.5b219fe8.css",
+    "static/js/main.5c52d4b2.js"
   ]
 }
