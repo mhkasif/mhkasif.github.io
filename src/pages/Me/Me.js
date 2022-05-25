@@ -6,8 +6,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Bitmoji from "../../images/bitmoji/bitmoji.gif";
-import laugh from "../../images/bitmoji/laugh.PNG";
-import popper from "../../images/bitmoji/popper.PNG";
+import laugh from "../../images/bitmoji/laugh-min.PNG";
+import popper from "../../images/bitmoji/popper-min.PNG";
 import dw from "../../images/icons/download.png";
 import fb from "../../images/icons/fb.png";
 import gh from "../../images/icons/github.png";
@@ -23,10 +23,10 @@ import {
   enableScroll,
   setScrollCounter
 } from "../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
-import Resume from "../../resume/resume.docx";
+import Resume from "../../resume/resume.pdf";
 import SmoothScroll from "../../utils/SmoothScroll";
 import "./Me.scss";
-import MyImage from "./MyImage.png";
+import MyImage from "./MyImage-min.png";
 
 const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
   const [elementPosition, setElementPosition] = useState({
@@ -1062,7 +1062,7 @@ const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 to={Resume}
-                download="resume.pdf"
+                download="MHK-Resume.pdf"
               >
                 Resume
               </Link>
