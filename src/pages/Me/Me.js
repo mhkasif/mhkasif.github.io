@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { gsap, TimelineLite } from "gsap/all";
 import { Power3 } from "gsap/gsap-core";
+import MotionPathPlugin from "gsap/MotionPathPlugin";
 import React, { useEffect, useRef, useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -13,21 +14,19 @@ import gh from "../../images/icons/github.png";
 import insta from "../../images/icons/insta.png";
 import li from "../../images/icons/linkedin.png";
 import twitter from "../../images/icons/twitter.png";
+import Mui from "../../images/skills/mui.png";
+import NodejsImage from "../../images/skills/node.png";
+import ReactImage from "../../images/skills/react.png";
+import RN from "../../images/skills/rn.png";
 import {
   disableScroll,
   enableScroll,
-  setScrollCounter,
+  setScrollCounter
 } from "../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
-import Resume from "../../resume/resume.pdf";
+import Resume from "../../resume/resume.docx";
 import SmoothScroll from "../../utils/SmoothScroll";
 import "./Me.scss";
 import MyImage from "./MyImage.png";
-import ReactImage from "../../images/skills/react.png";
-import RN from "../../images/skills/rn.png";
-import Mui from "../../images/skills/mui.png";
-import NodejsImage from "../../images/skills/node.png";
-import MotionPathPlugin from "gsap/MotionPathPlugin";
-import BackButton from "../../Components/BackButton/BackButton";
 
 const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
   const [elementPosition, setElementPosition] = useState({
