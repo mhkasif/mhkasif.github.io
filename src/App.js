@@ -1,34 +1,22 @@
 // import WorkPage from "./Components/WorkPage/WorkPage";
 import { AnimatePresence } from "framer-motion";
 import {
-  CSSPlugin,
-  EaselPlugin,
-  TextPlugin,
-  CSSRulePlugin,
-  ScrollTrigger,
-  ScrollToPlugin,
+  CSSPlugin, CSSRulePlugin, EaselPlugin, ScrollToPlugin, ScrollTrigger, TextPlugin
 } from "gsap/all";
 
 import { gsap } from "gsap";
+import MotionPathPlugin from "gsap/MotionPathPlugin";
 import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import {
-  HashRouter,
-  Redirect,
   Route,
   Switch,
-  useLocation,
+  useLocation
 } from "react-router-dom";
 import "./App.css";
-import Home from "./Components/Home/Home";
-import Hkjobz from "./pages/Hkjobz/Hkjobz";
-import Slectus from "./pages/Slectus/Slectus";
 import Me from "./pages/Me/Me";
-import { connect } from "react-redux";
-import MotionPathPlugin from "gsap/MotionPathPlugin";
 
 // import CircleSvg from './Components/CircleSvg/CircleSvg'
-// import {gsap} fro
-import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
 import { useState } from "react";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";

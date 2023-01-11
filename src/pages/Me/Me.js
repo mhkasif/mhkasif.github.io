@@ -21,12 +21,12 @@ import RN from "../../images/skills/rn.png";
 import {
   disableScroll,
   enableScroll,
-  setScrollCounter
+  setScrollCounter,
 } from "../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
-import Resume from "../../resume/resume.pdf";
+import Resume from "../../resume/MHK Resume.pdf";
 import SmoothScroll from "../../utils/SmoothScroll";
 import "./Me.scss";
-import MyImage from "./MyImage-min.png";
+import MyImage from "../../images/me/MyImage-min.png";
 
 const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
   const [elementPosition, setElementPosition] = useState({
@@ -43,14 +43,191 @@ const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
 
   useEffect(() => {
     document.getElementsByTagName("body")[0].classList.add("pinkScroll");
+    window.onresize = window.onload = function () {
+      gsap.set(".m1_stage", { x: "50%", opacity: 1 });
+    };
     return () => {
       document.getElementsByTagName("body")[0].classList.remove("pinkScroll");
     };
   }, []);
 
-  window.onresize = window.onload = function () {
-    gsap.set(".m1_stage", { x: "50%", opacity: 1 });
-  };
+  useEffect(() => {
+    //
+    window.scrollTo(0, 0);
+    setScrollCounter(4);
+    //scroll to slow down
+
+    function scrollEffect() {
+      var scroller = new SmoothScroll({
+        target: document.querySelector(".me-container"), // element container to scroll
+        scrollEase: 0.1, // scroll speed
+        maxOffset: 200,
+      });
+      //   var container = document.querySelector(".me-container");
+
+      //   var height;
+      //   function setHeight() {
+      //     height = container.clientHeight;
+      //     document.body.style.height = height + "px";
+      //   }
+      //   // ScrollTrigger.addEventListener("refreshInit", setHeight);
+
+      //   gsap.to(container, {
+      //     y: () => -(height - document.documentElement.clientHeight),
+      //     ease: "none",
+      //     scrollTrigger: {
+      //       trigger: document.body,
+      //       start: "top top",
+      //       end: "bottom bottom",
+      //       scrub: 1,
+      //       // invalidateOnRefresh: true
+      //     },
+      //   });
+    }
+    scrollEffect();
+    //scroll to slow down
+
+    enableScroll();
+    gsap.defaults({ ease: "none" });
+    // const tim = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: ".me-container",
+    //     // pin: true,
+    //     scrub: 1,
+    //     // end: () => "+=" + document.querySelector(".me-container").offsetHeight/100
+    //   },
+    // });
+    gsap.set(".ball", { xPercent: -50, yPercent: -50 });
+
+    const tl = gsap
+      .timeline({
+        defaults: {
+          duration: 0.05,
+          autoAlpha: 1,
+          scale: 2,
+          transformOrigin: "center",
+          ease: "elastic(2.5, 1)",
+        },
+      })
+      .to(".ball02", {}, 0.2)
+      .to(".text01", { y: -20 }, 0.2)
+      .to(".exp-par-1", { opacity: 1, display: "block", scale: 1, y: -20 }, 0.2)
+      // .to(".ball03, .text02", {}, 0.33)
+      // .to(".ball04, .text03", {}, 0.46)
+      .to(".ball05", {}, 0.52)
+      .to(".text04", { y: -20 }, 0.52)
+      .to(".exp-par-1", { opacity: 0, display: "none", scale: 1, y: -20 }, 0.51)
+      .to(
+        ".exp-par-2",
+        { opacity: 1, display: "block", scale: 1, y: -20 },
+        0.52
+      )
+      // .to(".ball06, .text05", {}, 0.74)
+      .to(".ball07", {}, 1)
+      .to(".text06", { y: -20 }, 1)
+      .to(".exp-par-2", { opacity: 0, display: "none", scale: 1, y: -20 }, 0.98)
+      .to(".exp-par-3", { opacity: 1, display: "block", scale: 1, y: -20 }, 1);
+    // gsap.timeline({
+    //   defaults: { duration: 1 },
+    //   scrollTrigger: {
+    //     trigger: ".exp-par-1",
+    //     scrub: true,
+    //     start: "-100 center",
+    //     // end: "+=1050px",
+    //     end: "+=1150",
+    //     pin: '.exp',
+    //     markers: true,
+    //   },
+    // });
+
+    var action = gsap
+      .timeline({
+        defaults: { duration: 1 },
+        scrollTrigger: {
+          trigger: "#svg",
+          scrub: true,
+          start: "top bottom",
+          end: "bottom center",
+          // markers:true
+        },
+      })
+      .set(".theLine", {
+        strokeDasharray: pathRef.current.getTotalLength(),
+      })
+      .to(".ball01", { duration: 0.01, autoAlpha: 1 })
+      .to(
+        ".ball01",
+        { motionPath: { path: ".theLine", alignOrigin: [0.5, 0.5] } },
+        0
+      )
+      .from(
+        ".theLine",
+        {
+          strokeDashoffset: pathRef.current.getTotalLength(),
+        },
+        0
+      )
+      .add(tl, 0);
+
+    // me-image animation
+    gsap
+      .timeline({
+        defaults: { duration: 1 },
+        scrollTrigger: {
+          trigger: ".me-intro",
+          scrub: true,
+          start: "center top",
+          end: "bottom 10%",
+          // markers:true,
+        },
+      })
+      .to(".img-container", {
+        opacity: 0,
+        ease: Power3.easeIn,
+      });
+
+    //me-image animation
+
+    // me-info animation
+
+    // gsap.timeline({
+    //   defaults: { duration: 1 },
+    //   scrollTrigger: {
+    //     trigger: ".info",
+    //     scrub: true,
+    //     start: "-120 start",
+    //     end: "70% center",
+    //     markers:true,
+    //     // pin:".info"
+    //   },
+    // })
+    // .to(".info", {
+    //   y:-50,
+    //   ease: Power3.easeIn,
+    // });
+
+    // me-info animation
+
+    return () => {
+      document.body.style.height = "unset";
+      disableScroll();
+    };
+    // const tl = new TimelineLite({
+    //   scrollTrigger: {
+    //     trigger: ".me-image-left",
+    //     // toggleActions:"restart pause reverse pause",
+    //     // start: "top top",
+    //     scrub: true,
+    //     // end: "bottom top",
+    //     markers: true,
+    //   },
+    // });
+    // tl.from(".me-image-left", {
+    //   x: "-400%",
+    //   duration: 1,
+    //   // opacity:0
+    // });
+  }, []);
   useEffect(() => {
     //skills func
     gsap
@@ -304,186 +481,9 @@ const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
         "orbs"
       );
   }, []);
-  useEffect(() => {
-    //
-    window.scrollTo(0, 0);
-    setScrollCounter(4);
-    //scroll to slow down
-
-    function scrollEffect() {
-      var scroller = new SmoothScroll({
-        target: document.querySelector(".me-container"), // element container to scroll
-        scrollEase: 0.1, // scroll speed
-        maxOffset: 200,
-      });
-      //   var container = document.querySelector(".me-container");
-
-      //   var height;
-      //   function setHeight() {
-      //     height = container.clientHeight;
-      //     document.body.style.height = height + "px";
-      //   }
-      //   // ScrollTrigger.addEventListener("refreshInit", setHeight);
-
-      //   gsap.to(container, {
-      //     y: () => -(height - document.documentElement.clientHeight),
-      //     ease: "none",
-      //     scrollTrigger: {
-      //       trigger: document.body,
-      //       start: "top top",
-      //       end: "bottom bottom",
-      //       scrub: 1,
-      //       // invalidateOnRefresh: true
-      //     },
-      //   });
-    }
-    scrollEffect();
-    //scroll to slow down
-
-    enableScroll();
-    gsap.defaults({ ease: "none" });
-    // const tim = gsap.timeline({
-    //   scrollTrigger: {
-    //     trigger: ".me-container",
-    //     // pin: true,
-    //     scrub: 1,
-    //     // end: () => "+=" + document.querySelector(".me-container").offsetHeight/100
-    //   },
-    // });
-    gsap.set(".ball", { xPercent: -50, yPercent: -50 });
-
-    const tl = gsap
-      .timeline({
-        defaults: {
-          duration: 0.05,
-          autoAlpha: 1,
-          scale: 2,
-          transformOrigin: "center",
-          ease: "elastic(2.5, 1)",
-        },
-      })
-      .to(".ball02", {}, 0.2)
-      .to(".text01", { y: -20 }, 0.2)
-      .to(".exp-par-1", { opacity: 1, display: "block", scale: 1, y: -20 }, 0.2)
-      // .to(".ball03, .text02", {}, 0.33)
-      // .to(".ball04, .text03", {}, 0.46)
-      .to(".ball05", {}, 0.52)
-      .to(".text04", { y: -20 }, 0.52)
-      .to(".exp-par-1", { opacity: 0, display: "none", scale: 1, y: -20 }, 0.51)
-      .to(
-        ".exp-par-2",
-        { opacity: 1, display: "block", scale: 1, y: -20 },
-        0.52
-      )
-      // .to(".ball06, .text05", {}, 0.74)
-      .to(".ball07", {}, 1)
-      .to(".text06", { y: -20 }, 1)
-      .to(".exp-par-2", { opacity: 0, display: "none", scale: 1, y: -20 }, 0.98)
-      .to(".exp-par-3", { opacity: 1, display: "block", scale: 1, y: -20 }, 1);
-    // gsap.timeline({
-    //   defaults: { duration: 1 },
-    //   scrollTrigger: {
-    //     trigger: ".exp-par-1",
-    //     scrub: true,
-    //     start: "-100 center",
-    //     // end: "+=1050px",
-    //     end: "+=1150",
-    //     pin: '.exp',
-    //     markers: true,
-    //   },
-    // });
-
-    var action = gsap
-      .timeline({
-        defaults: { duration: 1 },
-        scrollTrigger: {
-          trigger: "#svg",
-          scrub: true,
-          start: "top bottom",
-          end: "bottom center",
-          // markers:true
-        },
-      })
-      .set(".theLine", {
-        strokeDasharray: pathRef.current.getTotalLength(),
-      })
-      .to(".ball01", { duration: 0.01, autoAlpha: 1 })
-      .to(
-        ".ball01",
-        { motionPath: { path: ".theLine", alignOrigin: [0.5, 0.5] } },
-        0
-      )
-      .from(
-        ".theLine",
-        {
-          strokeDashoffset: pathRef.current.getTotalLength(),
-        },
-        0
-      )
-      .add(tl, 0);
-
-    // me-image animation
-    gsap
-      .timeline({
-        defaults: { duration: 1 },
-        scrollTrigger: {
-          trigger: ".me-intro",
-          scrub: true,
-          start: "center top",
-          end: "bottom 10%",
-          // markers:true,
-        },
-      })
-      .to(".img-container", {
-        opacity: 0,
-        ease: Power3.easeIn,
-      });
-
-    //me-image animation
-
-    // me-info animation
-
-    // gsap.timeline({
-    //   defaults: { duration: 1 },
-    //   scrollTrigger: {
-    //     trigger: ".info",
-    //     scrub: true,
-    //     start: "-120 start",
-    //     end: "70% center",
-    //     markers:true,
-    //     // pin:".info"
-    //   },
-    // })
-    // .to(".info", {
-    //   y:-50,
-    //   ease: Power3.easeIn,
-    // });
-
-    // me-info animation
-
-    return () => {
-      document.body.style.height = "unset";
-      disableScroll();
-    };
-    // const tl = new TimelineLite({
-    //   scrollTrigger: {
-    //     trigger: ".me-image-left",
-    //     // toggleActions:"restart pause reverse pause",
-    //     // start: "top top",
-    //     scrub: true,
-    //     // end: "bottom top",
-    //     markers: true,
-    //   },
-    // });
-    // tl.from(".me-image-left", {
-    //   x: "-400%",
-    //   duration: 1,
-    //   // opacity:0
-    // });
-  }, []);
   const handleMouseEnterOnSkillsImage = (ref, name) => {
     const x = ref.current.getBoundingClientRect().x;
-    const y = ref.current.getBoundingClientRect().y-30;
+    const y = ref.current.getBoundingClientRect().y - 30;
     console.log(x, y);
     setElementPosition({ top: y, left: x, display: "block", name });
     console.log("mouse entere", ref.current.getBoundingClientRect());
@@ -745,7 +745,7 @@ const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
                   />
                   <g className="m1Orb orb4b">
                     <image
-                    style={{cursor:"pointer"}}
+                      style={{ cursor: "pointer" }}
                       className="svg-images"
                       ref={rnImage}
                       onMouseEnter={() =>
@@ -824,7 +824,7 @@ const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
                     <image
                       className="svg-images"
                       ref={nodeImage}
-                      style={{cursor:"pointer"}}
+                      style={{ cursor: "pointer" }}
                       onMouseEnter={() =>
                         handleMouseEnterOnSkillsImage(nodeImage, "Nodejs")
                       }
@@ -844,7 +844,7 @@ const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
                       width="60"
                       height="60"
                       ref={reactImage}
-                      style={{cursor:"pointer"}}
+                      style={{ cursor: "pointer" }}
                       onMouseEnter={() =>
                         handleMouseEnterOnSkillsImage(reactImage, "React")
                       }
@@ -930,7 +930,7 @@ const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
                     <image
                       className="svg-images"
                       ref={muiImage}
-                      style={{cursor:"pointer"}}
+                      style={{ cursor: "pointer" }}
                       onMouseEnter={() =>
                         handleMouseEnterOnSkillsImage(muiImage, "Material-UI")
                       }
@@ -1189,7 +1189,6 @@ const EmailPopup = () => {
                   className="email-popup-bitmoji"
                   src={popper}
                   alt="mhk mhkasif"
-
                 />
                 <div> Email Copied</div>
               </div>
