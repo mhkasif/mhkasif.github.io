@@ -3,23 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "http://mhkasif.github.io/",
-
   "dependencies": {
-    "@react-three/drei": "^6.1.1",
-    "@react-three/fiber": "^7.0.1",
     "framer-motion": "^4.1.17",
     "gsap": "^3.6.1",
     "history": "^5.0.1",
     "lodash": "^4.17.21",
-
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0.0",
-
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "sass": "^1.69.0",
     "three": "^0.129.0"
   },
   "scripts": {
@@ -48,9 +44,6 @@
   "devDependencies": {
     "gh-pages": "^3.2.0",
     "react-snap": "^1.23.0",
-    "redux-devtools-extension": "^2.13.8",
-    "node-sass": "^6.0.1",
-    "sass-loader": "^11.1.1",
-    "node":"^15.10.0"
+    "redux-devtools-extension": "^2.13.8"
   }
 }
