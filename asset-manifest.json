@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.0881f1eb.css",
-    "main.js": "/static/js/main.05088b3d.js",
+    "main.css": "/static/css/main.7a326987.css",
+    "main.js": "/static/js/main.8381c1c8.js",
     "static/media/bitmoji.gif": "/static/media/bitmoji.6c95d337410761bcdd16.gif",
-    "static/media/MyImage-min.png": "/static/media/MyImage-min.a44d0bac858c8753441d.png",
+    "static/media/MyImage-min.png": "/static/media/MyImage-min.7025d8f08c3ae13cf0fb.png",
+    "static/media/MHK Resume.pdf": "/static/media/MHK Resume.84ac8a25460d7c9c89ad.pdf",
     "static/media/rn.png": "/static/media/rn.f98601340de1a132e4ae.png",
-    "static/media/MHK Resume.pdf": "/static/media/MHK Resume.ee9db82811159e67c849.pdf",
     "static/media/react.png": "/static/media/react.4c44c537b839cd295f27.png",
     "static/media/node.png": "/static/media/node.4a442fdbb1df686cad18.png",
     "static/media/laugh-min.PNG": "/static/media/laugh-min.9319349200233196eace.PNG",
     "static/media/popper-min.PNG": "/static/media/popper-min.f7a453a5639f612dd635.PNG",
     "index.html": "/index.html",
-    "main.0881f1eb.css.map": "/static/css/main.0881f1eb.css.map",
-    "main.05088b3d.js.map": "/static/js/main.05088b3d.js.map"
+    "main.7a326987.css.map": "/static/css/main.7a326987.css.map",
+    "main.8381c1c8.js.map": "/static/js/main.8381c1c8.js.map"
   },
   "entrypoints": [
-    "static/css/main.0881f1eb.css",
-    "static/js/main.05088b3d.js"
+    "static/css/main.7a326987.css",
+    "static/js/main.8381c1c8.js"
   ]
 }
