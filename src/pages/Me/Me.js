@@ -574,14 +574,14 @@ const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
               {/* <path className="line05 line" d="M 10 1000  600 1000"></path> */}
               <path className="line05 line" d="M 10 1200  600 1200"></path>
               <text className="svg-text text01" x="30" y="190">
-                2016
+                2019
               </text>
               <text
                 className="exp-par exp-par-1 medium-heading"
                 x="450"
                 y="190"
               >
-                Started As a freelancer
+                MERN developer at Slectus
               </text>
               {/*  <text className="text02" x="30" y="390">
               2017
@@ -590,27 +590,27 @@ const Me = ({ enableScroll, disableScroll, setScrollCounter }) => {
               2018
             </text> */}
               <text className="svg-text text04" x="30" y="690">
-                2019
+                2021
               </text>
               <text
                 className="exp-par exp-par-2 medium-heading"
                 x="450"
                 y="690"
               >
-                Started Working For Slectus
+                Software Engineer at Mavaan LLC
               </text>
               {/*  <text className="text05" x="30" y="990">
             2020
           </text> */}
               <text className="svg-text text06" x="30" y="1190">
-                2021
+                2025
               </text>
               <text
                 className="exp-par exp-par-3 medium-heading"
                 x="450"
                 y="1190"
               >
-                Started My Job At Maavan
+                Software Engineer at Nybl
               </text>
 
               <path
