@@ -29,6 +29,8 @@ body.pinkScroll {
   // height: 100%;
   .skills-section {
     height: 800px;
+    position: relative;
+    z-index: 1;
 
     svg {
       // background-color: #000;

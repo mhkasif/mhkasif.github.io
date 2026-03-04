@@ -1,23 +1,13 @@
-import { createStore, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
-import rootReducer from './../Reducers/RootReducer';
+import { configureStore } from "@reduxjs/toolkit";
+import homeComponentInfoReducer from "../slices/homeComponentInfoSlice";
 
-
-var configStore = (preLoadedState) => {
-    var middleWares = [thunk];
-    var middleWareEnhancer = applyMiddleware(...middleWares);
-    var storeEnhancer = [middleWareEnhancer];
-    var composedEnhancer = composeWithDevTools(
-                            ...storeEnhancer,
-                            )
-    var store = createStore(
-        rootReducer,
-        preLoadedState,
-        composedEnhancer
-    );
-
-    return store;
-}
+const configStore = (preLoadedState) => {
+  return configureStore({
+    reducer: {
+      homeComponentInfo: homeComponentInfoReducer,
+    },
+    preloadedState: preLoadedState,
+  });
+};
 
 export default configStore;

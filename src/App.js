@@ -1,90 +1,60 @@
-// import WorkPage from "./Components/WorkPage/WorkPage";
 import { AnimatePresence } from "framer-motion";
 import {
-  CSSPlugin, CSSRulePlugin, EaselPlugin, ScrollToPlugin, ScrollTrigger, TextPlugin
+  CSSPlugin,
+  CSSRulePlugin,
+  EaselPlugin,
+  ScrollToPlugin,
+  ScrollTrigger,
+  TextPlugin,
 } from "gsap/all";
-
 import { gsap } from "gsap";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import {
-  Route,
-  Switch,
-  useLocation
-} from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import Me from "./pages/Me/Me";
-
-// import CircleSvg from './Components/CircleSvg/CircleSvg'
-
-import { useState } from "react";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 
-function App({ isScrollable }) {
+gsap.registerPlugin(
+  CSSPlugin,
+  EaselPlugin,
+  TextPlugin,
+  CSSRulePlugin,
+  ScrollTrigger,
+  MotionPathPlugin,
+  ScrollToPlugin
+);
+
+function App() {
+  const isScrollable = useSelector(
+    (state) => state.homeComponentInfo.isScrollable
+  );
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const [error, setError] = useState(false);
-  console.log(window.innerWidth);
 
   useEffect(() => {
-    window.addEventListener("resize", () => {
-      console.log(error);
-      if (window.innerWidth <= 1024) {
-        setError(true);
-      }
-      if (window.innerWidth > 1024) {
-        setError(false);
-      }
-    });
-    if (window.innerWidth <= 1024) {
-      setError(true);
-    }
-    if (window.innerWidth > 1024) {
-      setError(false);
-    }
-  }, [error]);
-
-  useEffect(() => {
-    console.log(isScrollable);
-    if (!isScrollable) document.body.classList.add("loading-cursor");
-    else {
+    if (!isScrollable) {
+      document.body.classList.add("loading-cursor");
+    } else {
       document.body.classList.remove("loading-cursor");
     }
-
   }, [isScrollable]);
-  // useEffect(() => {
-  console.log("app called");
-  gsap.registerPlugin(
-    CSSPlugin,
-    EaselPlugin,
-    TextPlugin,
-    CSSRulePlugin,
-    ScrollTrigger,
-    MotionPathPlugin,
-    ScrollToPlugin
-  );
-  // }, []);
+
   const location = useLocation();
+
   return (
     <div>
       <ScrollToTop />
-      <AnimatePresence initial={true} exitBeforeEnter>
-        <Switch location={location} key={location.pathname}>
-          {/* {error && <ErrorPage screenError />} */}
-          {/* <Route key="a" exact path="/" component={Home} />
-          <Route key="b" exact path="/hkjobz" component={Hkjobz} />
-          <Route key="c" exact path="/slectus" component={Slectus} /> */}
-          <Route key="d" exact path="/" component={Me} />
-          {/* <Route key="e" path="*" component={ErrorPage} /> */}
-        </Switch>
+      <AnimatePresence initial={true} mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Me />} />
+        </Routes>
       </AnimatePresence>
-      {/* <CircleSvg /> */}
     </div>
   );
 }
-const mapState = (state) => ({
-  isScrollable: state.homeComponentInfo.isScrollable,
-});
-export default connect(mapState)(App);
+
+export default App;

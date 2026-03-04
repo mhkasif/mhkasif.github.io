@@ -1,10 +1,8 @@
-import testReducer from './TestReducer';
-import { combineReducers } from 'redux';
-import HomeComponentInfoReducer from './HomeComponentInfoReducer';
+import { combineReducers } from "@reduxjs/toolkit";
+import homeComponentInfoReducer from "../slices/homeComponentInfoSlice";
 
-var rootReducer = combineReducers({
-    test: testReducer,
-    homeComponentInfo: HomeComponentInfoReducer
+const rootReducer = combineReducers({
+  homeComponentInfo: homeComponentInfoReducer,
 });
 
 export default rootReducer;
