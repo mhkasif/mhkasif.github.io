@@ -16,6 +16,19 @@ const PROJECTS = [
       "Dark & Light Mode",
     ],
   },
+  {
+    title: "Tajeer Plus",
+    description:
+      "Cloud-based SaaS platform that automates car rental operations in Saudi Arabia. Provides fleet management, electronic contracts, and instant integration with government services (Absher, Tamm, Nafath, ZATCA) for full compliance.",
+    tags: ["React", "Next.js", "SaaS", "Cloud Platform"],
+    liveUrl: "https://tajeer-plus-web.vercel.app/",
+    features: [
+      "Instant Government Integration",
+      "Fleet Management System",
+      "Electronic Contracts",
+      "ZATCA Compliance & Invoicing",
+    ],
+  },
 ];
 
 const Projects = () => {
@@ -50,6 +63,7 @@ const Projects = () => {
                   </svg>
                   Live
                 </a>
+                {project.githubUrl && (
                 <a
                   href={project.githubUrl}
                   target="_blank"
@@ -66,6 +80,7 @@ const Projects = () => {
                   </svg>
                   GitHub
                 </a>
+                )}
               </div>
             </div>
             <p className="project-description">{project.description}</p>

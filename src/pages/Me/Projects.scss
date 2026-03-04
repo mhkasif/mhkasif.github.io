@@ -12,18 +12,16 @@
   }
 
   .projects-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    max-width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    max-width: 1200px;
     margin: 0 auto;
-
-    @media (min-width: 768px) {
-      grid-template-columns: 1fr;
-    }
   }
 
   .project-card {
+    flex: 1 1 calc(33.333% - 16px);
+    min-width: 280px;
     background: linear-gradient(
       135deg,
       rgba(212, 0, 63, 0.08) 0%,
@@ -31,10 +29,12 @@
     );
     border: 1px solid rgba(212, 0, 63, 0.25);
     border-radius: 16px;
-    padding: 40px;
+    padding: 28px;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 
     &::before {
       content: "";
@@ -60,34 +60,26 @@
     }
 
     @media (max-width: 480px) {
-      padding: 24px;
+      padding: 20px;
     }
   }
 
   .project-card-header {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    gap: 16px;
-
-    @media (max-width: 480px) {
-      flex-direction: column;
-      gap: 12px;
-    }
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 12px;
   }
 
   .project-title {
     font-family: "Playfair Display", serif;
-    font-size: 36px;
+    font-size: 26px;
     font-weight: bold;
     color: #fff;
     margin: 0;
     letter-spacing: 1px;
-
-    @media (max-width: 480px) {
-      font-size: 28px;
-    }
   }
 
   .project-links {
@@ -100,13 +92,18 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-size: 14px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
 
     &.live {
       background-color: #d4003f;
@@ -139,14 +136,11 @@
   }
 
   .project-features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     margin-bottom: 24px;
-
-    @media (max-width: 480px) {
-      grid-template-columns: 1fr;
-    }
+    flex-grow: 1;
   }
 
   .feature-item {
