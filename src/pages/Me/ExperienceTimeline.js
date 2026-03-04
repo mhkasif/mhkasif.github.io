@@ -3,10 +3,10 @@ import React, { forwardRef } from "react";
 const ExperienceTimeline = forwardRef((_props, pathRef) => {
   return (
     <div className="me-svg-path-container">
-      <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1200">
-        <path className="line01 line" d="M 10 200  600 200"></path>
-        <path className="line04 line" d="M 10 700  600 700"></path>
-        <path className="line05 line" d="M 10 1200  600 1200"></path>
+      <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200">
+        <path className="line01 line" d="M 10 200  800 200"></path>
+        <path className="line04 line" d="M 10 700  800 700"></path>
+        <path className="line05 line" d="M 10 1200  800 1200"></path>
 
         <text className="svg-text text01" x="30" y="190">
           2019

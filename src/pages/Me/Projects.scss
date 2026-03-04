@@ -4,11 +4,11 @@
   z-index: 2;
 
   @media (max-width: 480px) {
-    padding: 0 15px;
+    padding: 0 10px;
   }
 
   .projects-heading {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
   }
 
   .projects-grid {
@@ -71,6 +71,11 @@
     align-items: center;
     margin-bottom: 16px;
     gap: 12px;
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   .project-title {
@@ -80,6 +85,10 @@
     color: #fff;
     margin: 0;
     letter-spacing: 1px;
+
+    @media (max-width: 480px) {
+      font-size: 22px;
+    }
   }
 
   .project-links {
@@ -133,6 +142,11 @@
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.8);
     margin: 0 0 24px 0;
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+      line-height: 1.5;
+    }
   }
 
   .project-features {

@@ -168,6 +168,9 @@ body.pinkScroll {
     font-weight: bold;
     font-family: "Playfair Display", serif;
     margin-top: 150px;
+    @media (max-width: 480px) {
+      width: 95%;
+    }
   }
   .summary-container {
     display: flex;
@@ -198,8 +201,14 @@ body.pinkScroll {
       width: 55%;
     }
     @media (max-width: 480px) {
+      margin-top: 40px;
       column-gap: 10px;
       padding: 0 10px;
+      flex-direction: column;
+      row-gap: 20px;
+      .regards-title, .regards {
+        width: 100%;
+      }
     }
   }
   .exp-heading {
@@ -210,7 +219,7 @@ body.pinkScroll {
     filter: drop-shadow(-20px -20px 4px (#8c8c8c4f));
     @media (max-width: 480px) {
       font-size: 60px;
-      margin: 50px 30px;
+      margin: 30px 15px;
     }
   }
   .skills-heading {
@@ -224,8 +233,8 @@ body.pinkScroll {
 
     .exp {
       position: absolute;
-      right: 10%;
-      width: 40%;
+      right: 5%;
+      width: 45%;
       display: flex;
       align-items: center;
       // height: 1202px;
