@@ -21,7 +21,7 @@ import twitter from '../../../../images/icons/twitter.png'
 import email from '../../../../images/icons/email.png'
 import phone from '../../../../images/icons/phone.png'
 import location from '../../../../images/icons/location.png'
-import Resume from '../../../../resume/resume.pdf'
+import Resume from '../../../../resume/Resume.pdf'
 class Contact extends Component {
   constructor(props) {
     super(props);
@@ -223,7 +223,7 @@ class Contact extends Component {
           </div>
         </div>
         <div ref="viewBtn" className="viewBtn viewBtnTeam">
-        <Link  target="_blank" rel="noopener noreferrer"  ref="linkRef" to={Resume}  download="resume.pdf" >
+        <Link  target="_blank" rel="noopener noreferrer"  ref="linkRef" to={Resume}  download="Haseeb Resume.pdf" >
           <div className="viewBtnInnerWrapper viewBtnInnerWrapperTeam white-font-color">
             <div ref="btnBack" className="viewBtnBack viewBtnBackTeam white-background-color"></div>
             <h3 ref="btnText">Download Resume</h3>

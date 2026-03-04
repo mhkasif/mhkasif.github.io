@@ -23,7 +23,7 @@ import {
   enableScroll,
   setScrollCounter,
 } from "../../Redux/Actions/HomeComponentInfoActions/HomeComponentInfoActions";
-import Resume from "../../resume/MHK Resume.pdf";
+import Resume from "../../resume/Resume.pdf";
 import SmoothScroll from "../../utils/SmoothScroll";
 import "./Me.scss";
 import MyImage from "../../images/me/MyImage-min.png";
