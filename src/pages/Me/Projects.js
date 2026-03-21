@@ -29,6 +29,19 @@ const PROJECTS = [
       "ZATCA Compliance & Invoicing",
     ],
   },
+  {
+    title: "Know.careers",
+    description:
+      "Virtual career fair platform connecting 275+ colleges and universities with employers. Led the complete transformation from Angular to React, modernizing the entire frontend architecture for improved performance, scalability, and developer experience.",
+    tags: ["React", "Angular Migration", "Virtual Events", "EdTech"],
+    liveUrl: "https://know.careers",
+    features: [
+      "Virtual Career Fairs",
+      "Student Portfolio Showcase",
+      "Targeted Employer Outreach",
+      "Angular to React Migration",
+    ],
+  },
 ];
 
 const Projects = () => {
